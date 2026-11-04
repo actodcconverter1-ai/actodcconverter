@@ -1,0 +1,7 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { entries: CollectionEntry<'blog'>[]; headingLevel?: 2 | 3 }
+const { entries, headingLevel = 3 } = Astro.props;
+const Heading = headingLevel === 2 ? 'h2' : 'h3';
+---
+<div class="article-grid">{entries.map(entry => <article class="article-card"><a href={`/blog/${entry.data.slug}/`} tabindex="-1" aria-hidden="true"><img src={entry.data.image} alt={entry.data.imageAlt} width="960" height="540" loading="lazy" /></a><div><span class="eyebrow">{entry.data.categories[0].replaceAll('-', ' ')}</span><Heading><a href={`/blog/${entry.data.slug}/`}>{entry.data.title}</a></Heading><p>{entry.data.description}</p><span class="read-link" aria-hidden="true">Read the guide ↗</span></div></article>)}</div>

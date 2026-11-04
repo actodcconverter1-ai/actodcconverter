@@ -1,0 +1,9 @@
+---
+import { site } from '../config/site.config';
+import type { Ad } from '../../server/admin';
+interface Props { placement: Ad['placement'] }
+const { placement } = Astro.props;
+const today = new Date().toISOString().slice(0,10);
+const ads = (site.ads as Ad[]).filter(ad => ad.enabled && ad.placement === placement && (!ad.startDate || ad.startDate <= today) && (!ad.endDate || ad.endDate >= today));
+---
+{ads.map(ad => <aside class={`sponsored-ad ad-${placement}`} aria-label="Sponsored advertisement"><span>Sponsored</span><a href={ad.href} rel="sponsored noopener" target="_blank">{ad.image && <img src={ad.image} alt={ad.imageAlt} width="960" height="360" loading="lazy" />}<strong>{ad.title}</strong>{ad.text && <p>{ad.text}</p>}<small>Learn more ↗</small></a></aside>)}

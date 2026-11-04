@@ -1,0 +1,8 @@
+---
+import { canonical } from '../config/seo.config';
+interface Props { items: { label: string; href?: string }[] }
+const { items } = Astro.props;
+const schema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.label, item: canonical(item.href ?? Astro.url.pathname) })) };
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>{items.map(item => <li>{item.href ? <a href={item.href}>{item.label}</a> : <span aria-current="page">{item.label}</span>}</li>)}</ol></nav>
+<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />

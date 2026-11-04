@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import Calculator from '../components/Calculator.astro';
+import CalculatorContent from '../components/CalculatorContent.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<Base title="AC to DC Voltage Calculator" description="Estimate single-phase rectifier average DC, peak, valley, and ripple. Choose a filtered bridge or ideal unfiltered half-wave and full-wave models."><div class="shell page-intro"><Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'AC to DC calculator' }]} /><span class="eyebrow">THE RECTIFIER TOOL</span><h1>AC to DC calculator</h1><p>Choose the circuit model before interpreting the number.</p><Calculator /></div><CalculatorContent /></Base>

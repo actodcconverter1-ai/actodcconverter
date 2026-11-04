@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../config/site.config';
+---
+<Base title="Contact & Report a Calculation Issue" description="Prepare a reproducible AC to DC calculator issue report with input, units, expected results, and steps to reproduce."><div class="shell page-intro legal"><Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} /><span class="eyebrow">HELP US KEEP THINGS CLEAR</span><h1>Found something to improve?</h1><div class="prose"><p>A useful calculator report includes the original value, rectifier model, load and filter settings, the result shown, and the expected result with a reference.</p>{site.contactEmail ? <p>Email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.</p> : site.issueUrl ? <p><a href={site.issueUrl}>Open an issue in our source repository</a>.</p> : <p class="notice">The operator contact channel has not been configured for this prelaunch site. You can prepare and download a report below; it is saved on your device and is not sent to anyone.</p>}<div class="contact-box"><label for="issue-report">Your calculation report</label><textarea id="issue-report">Input value:&#10;Rectifier model:&#10;Frequency:&#10;Diode drop:&#10;Load current:&#10;Capacitance:&#10;Result shown:&#10;Expected result and source:&#10;Steps to reproduce:</textarea><button type="button" class="button" id="download-report">Download report ↓</button><p id="download-status" role="status"></p><noscript><p>You can copy the report text manually when JavaScript is disabled.</p></noscript></div><p>Please do not include private or sensitive information. This calculator does not provide electrical installation or equipment advice.</p></div></div></Base>
+<script>
+  document.getElementById('download-report')?.addEventListener('click', () => {
+    const text = (document.getElementById('issue-report') as HTMLTextAreaElement).value;
+    const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
+    const anchor = document.createElement('a'); anchor.href = url; anchor.download = 'calculator-issue-report.txt'; anchor.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    document.getElementById('download-status')!.textContent = 'Report prepared for download. It has not been submitted.';
+  });
+</script>

@@ -1,0 +1,72 @@
+---
+import { calculator } from '../config/calculator.config';
+import { formatNumber, type RectifierMode } from '../calculators/rectifier';
+interface Props { mode?: RectifierMode }
+const { mode = calculator.defaults.mode } = Astro.props;
+const d = { ...calculator.defaults, mode };
+const result = calculator.calculate(d);
+const filtered = mode === 'bridge-filtered';
+---
+<section class="calculator" aria-label={calculator.name} data-calculator>
+  <div class="calculator-top"><span class="eyebrow">THE CALCULATOR</span><span class="local-label"><span class="status-dot"></span> Runs locally</span></div>
+  <form data-form novalidate>
+    <div class="model-field"><label for="rectifier-model">Rectifier model</label><select id="rectifier-model" name="mode" aria-describedby="model-description">{calculator.modes.map(item => <option value={item.id} selected={item.id === mode}>{item.label}</option>)}</select><p id="model-description" class="model-description">{calculator.modes.find(item => item.id === mode)?.description}</p></div>
+    <div class="rectifier-inputs"><div><label for="ac-rms">AC input · RMS (V)</label><input id="ac-rms" name="rms" type="number" inputmode="decimal" min="0" max="1000" step="any" value={d.rms} required aria-describedby="calc-error" /></div><div><label for="ac-frequency">AC frequency (Hz)</label><input id="ac-frequency" name="frequency" type="number" min="1" max="1000" step="any" value={d.frequency} required aria-describedby="calc-error" /></div></div>
+    <fieldset class="filtered-fields" data-filtered hidden={!filtered} disabled={!filtered}><legend>Bridge + capacitor assumptions</legend><div class="rectifier-inputs triple"><div><label for="diode-drop">Drop per diode (V)</label><input id="diode-drop" name="diodeDrop" type="number" min="0" max="2" step="any" value={d.diodeDrop} required aria-describedby="calc-error" /></div><div><label for="load-current">DC load current (A)</label><input id="load-current" name="current" type="number" min="0" max="100" step="any" value={d.current} required aria-describedby="calc-error" /></div><div><label for="capacitance">Capacitance (µF)</label><input id="capacitance" name="capacitance" type="number" min="1" max="1000000" step="any" value={d.capacitance} required aria-describedby="calc-error" /></div></div></fieldset>
+    <p id="calc-error" class="error" role="alert" hidden></p>
+    <div class="calc-actions"><button class="button" type="submit">Calculate DC output <span aria-hidden="true">↗</span></button><button class="reset" type="reset">↺ Reset</button></div>
+    <noscript><p class="notice">Enable JavaScript to calculate other values. The default example is shown below.</p></noscript>
+  </form>
+  <div class="result-panel" aria-live="polite" aria-atomic="true"><div><span class="eyebrow" data-result-label>{filtered ? 'ESTIMATED AVERAGE DC' : 'IDEAL WAVEFORM AVERAGE'}</span><p class="result-number"><output data-result>{formatNumber(result.average)}</output> <span>V DC</span></p><p data-equation class="equation">{formatNumber(d.rms)} V RMS → {formatNumber(result.average)} V average</p><div class="result-details"><span>Peak <strong data-peak>{formatNumber(result.peak)} V</strong></span><span>Valley <strong data-valley>{formatNumber(result.valley)} V</strong></span><span>Ripple p-p <strong data-ripple>{formatNumber(result.ripple)} V</strong></span><span>Ripple frequency <strong data-frequency>{formatNumber(result.rippleFrequency)} Hz</strong></span></div></div></div>
+  <div class="calc-foot"><span>Model-specific results</span><span>Explicit assumptions</span><span>No data sent</span></div>
+</section>
+<script>
+  import { calculator } from '../config/calculator.config';
+  import { parseNumber, formatNumber, type RectifierInput, type RectifierMode } from '../calculators/rectifier';
+  document.querySelectorAll<HTMLElement>('[data-calculator]').forEach(root => {
+    const form = root.querySelector<HTMLFormElement>('form')!;
+    const mode = form.elements.namedItem('mode') as HTMLSelectElement;
+    const fields = root.querySelector<HTMLFieldSetElement>('[data-filtered]')!;
+    const error = root.querySelector<HTMLElement>('.error')!;
+    const result = root.querySelector<HTMLOutputElement>('[data-result]')!;
+    const equation = root.querySelector<HTMLElement>('[data-equation]')!;
+    const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement;
+    function clear() {
+      result.value = '—'; equation.textContent = 'Select Calculate DC output to update the result.';
+      for (const key of ['peak', 'valley', 'ripple', 'frequency']) root.querySelector(`[data-${key}]`)!.textContent = '—';
+    }
+    function syncModel() {
+      const filtered = mode.value === 'bridge-filtered'; fields.hidden = !filtered; fields.disabled = !filtered;
+      root.querySelector('#model-description')!.textContent = calculator.modes.find(item => item.id === mode.value)?.description ?? '';
+      root.querySelector('[data-result-label]')!.textContent = filtered ? 'ESTIMATED AVERAGE DC' : 'IDEAL WAVEFORM AVERAGE';
+    }
+    function calculate() {
+      let active: HTMLInputElement | undefined;
+      form.querySelectorAll('[aria-invalid]').forEach(input => input.removeAttribute('aria-invalid'));
+      try {
+        const input: RectifierInput = { ...calculator.defaults, mode: mode.value as RectifierMode };
+        const names = input.mode === 'bridge-filtered' ? ['rms', 'frequency', 'diodeDrop', 'current', 'capacitance'] as const : ['rms', 'frequency'] as const;
+        for (const name of names) {
+          active = field(name);
+          if (!active.validity.valid) throw new Error(`${active.labels?.[0]?.textContent}: enter a value from ${active.min} to ${active.max}.`);
+          input[name] = parseNumber(active.value, active.labels?.[0]?.textContent ?? name);
+        }
+        active = undefined;
+        const output = calculator.calculate(input);
+        result.value = formatNumber(output.average);
+        equation.textContent = `${formatNumber(input.rms)} V RMS → ${formatNumber(output.average)} V average`;
+        for (const key of ['peak', 'valley', 'ripple'] as const) root.querySelector(`[data-${key}]`)!.textContent = `${formatNumber(output[key])} V`;
+        root.querySelector('[data-frequency]')!.textContent = `${formatNumber(output.rippleFrequency)} Hz`;
+        error.hidden = true;
+      } catch (issue) {
+        clear(); error.textContent = issue instanceof Error ? issue.message : 'Check the inputs.'; error.hidden = false;
+        if (active) { active.setAttribute('aria-invalid', 'true'); active.focus(); }
+        else { error.tabIndex = -1; error.focus(); }
+      }
+    }
+    form.addEventListener('submit', event => { event.preventDefault(); calculate(); });
+    mode.addEventListener('change', () => { syncModel(); clear(); error.hidden = true; });
+    form.addEventListener('input', clear);
+    form.addEventListener('reset', () => setTimeout(() => { syncModel(); calculate(); }, 0));
+  });
+</script>

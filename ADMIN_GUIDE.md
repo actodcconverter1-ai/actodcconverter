@@ -1,0 +1,36 @@
+# Editorial dashboard
+
+## Local operation
+
+Use the documented supported Node runtime, then `npm ci`, `npm run build`, and `npm run admin`. Open `http://127.0.0.1:4322/admin/`. No GitHub or Cloudflare credentials are needed for local editing. The server binds only to 127.0.0.1, checks its Host header, rejects cross-origin writes, and requires a custom request header. Do not expose this local server through a public tunnel or change its binding to a network interface.
+
+Use Posts → Add new post. The main editor is Markdown with formatting controls and a sanitized live preview. Supply a lowercase URL slug, article text, byline, date, categories, tags, and summary. Drafts may be incomplete. Publication requires descriptive metadata and an existing repository featured image with alt text. The initial 20-article corpus is audited for 1,500–1,800 words per article. Per-post search preview and length guidance are editorial checks, not ranking guarantees.
+
+Save draft persists a Markdown file with status draft. Publish writes published status; update retains it. Trash changes status to trash without deleting source; restore returns a post to draft. Only published posts enter static pages, related articles, categories, and sitemap. The Rebuild website button runs the fixed Astro build command against saved source and reports success/failure. Unsaved editor text remains unsaved until a save button is used.
+
+Media library accepts PNG/JPEG/WebP/AVIF up to 5 MB per file. SVG is viewable for the supplied trusted diagrams/icons but cannot be uploaded through the editor. Use unique descriptive filenames; existing files are not silently overwritten. “Use featured” sets the post feature path; “Insert” adds Markdown image syntax. Update generated alt text to describe the specific image. Media deletion is refused while a post or settings record references that path. Unused media moves to `.content-trash/media` outside public assets; restore places it in `public/images/uploads`. Public site images update with a build; the dashboard reads repository media immediately.
+
+SEO settings control default title suffix, social image/alt, social handle, robots directive, and the public indexing switch. Advanced settings control site name, wordmark, HTTPS canonical origin, brand colors, logo/favicon, description, and contact channel. These save `src/config/editorial.json`; no secrets belong there.
+
+Ads manager supports header, sidebar, article-top, article-bottom, and footer slots. Set campaign ID/name, headline/copy, optional repository image and alt, HTTPS destination, enabled state, and optional UTC date range. Preview, save, enable/disable, or remove campaigns. Slots render sponsored image/text links with `rel=sponsored`. Date windows are evaluated when the site builds; a future date alone does not schedule a rebuild. No ad-network scripts, auctions, or tracking statistics are implied. There are no fake inventory metrics.
+
+## Production setup after account details arrive
+
+1. Use the dedicated GitHub repository and separate Cloudflare account specified by the owner. Push this complete source, including all articles and media, into that repository. Do not guess or reuse an unrelated account.
+2. Connect that repository to Cloudflare Workers Builds on branch main. Build with `npm run verify`; deploy with `npm run deploy`. Configure supported Node 24.16.0 and ensure the configured Worker name matches. Content commits will trigger the same automatic build/deploy flow.
+3. Create a Cloudflare Access self-hosted application covering BOTH `actodcconverter.online/admin*` and `actodcconverter.online/api/admin/*`. Restrict it to the intended editors. Set allowed email identities deliberately; the Worker independently verifies the Access assertion even if an alternate hostname bypasses the Access login page.
+4. Configure Worker runtime variables: `ACCESS_TEAM_DOMAIN` (team.cloudflareaccess.com), `ACCESS_AUD` (the Access application audience), `ADMIN_EMAILS` (comma-separated exact permitted editor emails), `GITHUB_OWNER`, `GITHUB_REPO`, and `GITHUB_BRANCH` (main). Account/Access identifiers come from the actual account, never from invented examples.
+5. Store `GITHUB_TOKEN` as a Worker secret. Prefer a fine-grained token restricted to the single repository with repository Contents read/write permission and suitable expiration. The code reads contents/trees and creates blobs/trees/commits, then advances the branch without force. Never place this token in source, browser settings, chat, a screenshot, or editorial.json. A GitHub App installation token service is a possible later operational improvement; no such service is currently claimed.
+6. Follow service UI consent/permission steps as the owner. This code does not create accounts or silently expand account access. Configure the runtime values through the intended Cloudflare account, or authenticate Wrangler there and use its variables/secrets tools. `.dev.vars.example` lists names; `.dev.vars` is ignored.
+7. Check `/admin/` and `/api/admin/session` reject unauthenticated requests. Test valid editor login, an unauthorized identity, expired/invalid JWT, missing configuration, stale save conflicts, repository writes, media, ads, and the resulting GitHub-triggered build. Confirm that a failed build does not replace the previous working production version.
+8. Configure operator contact and review policy content, enable indexing deliberately, then test the actual HTTPS hostname, metadata, robots/sitemap, security headers, 404 status, calculator behavior, responsive layout, and admin deployment flow. Production is not verified until this is done in the real accounts.
+
+Cloudflare Access may set authentication cookies for editors. GitHub stores editorial source and commit history; Cloudflare serves static pages and handles admin requests. Visitors' calculator inputs remain in the browser. Review the public privacy notice against the final account settings and any later ad-network integrations.
+
+## Operational limits and recovery
+
+Two editors saving the same file receive a conflict rather than silent last-writer loss. Reload and merge intentionally. Local writes are serialized; rollback restores file contents on an operation failure. Production multi-file slug changes and media trash/restore are one Git tree commit, and a concurrent branch change is rejected. Git history also provides a recovery path after committed edits.
+
+GitHub rate limits, repository permissions, token expiry, and build queues can delay changes. The dashboard reports errors and distinguishes saved source from public publication. Public site behavior does not require GitHub API calls on every visit. Admin content is not stored in localStorage. Large repositories whose Git tree is truncated are rejected explicitly. Long-running local builds are serialized by the build endpoint; it cannot execute user-selected shell commands.
+
+Current exclusions: no WordPress runtime/plugins, Gutenberg block compatibility, user/role provisioning UI, email delivery service, network ad-account management, automatic schedule-time rebuilds, or collaborative live editing. These are not represented by dummy controls.

@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import Calculator from '../components/Calculator.astro';
+import CalculatorContent from '../components/CalculatorContent.astro';
+import ArticleCards from '../components/ArticleCards.astro';
+import { posts } from '../lib/posts';
+const articles = (await posts()).slice(0, 3);
+---
+<Base title="AC to DC Converter — Rectifier Output & Ripple" description="Estimate DC output from sinusoidal AC. Compare filtered bridge and ideal rectifier models with average voltage, peak, valley, ripple, and worked examples.">
+  <div class="hero shell"><div class="hero-heading"><div><p class="eyebrow hero-kicker"><span></span> AC TO DC, EXPLAINED</p><h1>From AC input.<br /><em>To a clearer output.</em></h1><p class="hero-intro">Estimate rectifier output with the right circuit model.<br class="desktop-break" /> See the average, peak, and ripple—along with the assumptions.</p></div><div class="hero-mark" aria-hidden="true"><svg width="180" height="120" viewBox="0 0 180 120"><path d="M0 60H30L47 22L72 101L98 16L123 87L143 60H180" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="143" cy="60" r="5" fill="currentColor"/></svg><span>AC <i>→</i> RECTIFY <i>→</i> DC</span></div></div><Calculator /><div class="hero-bottom"><span><strong>01—03</strong> Three models. Defined assumptions.</span><a href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a></div></div>
+  <div class="section-rule"></div><CalculatorContent />
+  <section class="guides-section"><div class="shell"><div class="section-heading"><div><span class="eyebrow">A LITTLE CONTEXT GOES A LONG WAY</span><h2>Understand the circuit behind the result.</h2></div><a href="/blog/">All guides ↗</a></div><ArticleCards entries={articles} /></div></section>
+</Base>

@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCards from '../../components/ArticleCards.astro';
+import { posts } from '../../lib/posts';
+export async function getStaticPaths() { const entries = await posts(); return [...new Set(entries.flatMap(entry => entry.data.categories))].map(category => ({ params: { category }, props: { category, entries: entries.filter(entry => entry.data.categories.includes(category)) } })); }
+const { category, entries } = Astro.props;
+const name = category.replaceAll('-', ' ');
+---
+<Base title={`${name[0].toUpperCase()}${name.slice(1)} Guides`} description={`Read ${entries.length} practical guides about ${name}, with explanations, examples, and links to primary references.`}><section class="shell page-intro"><Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/blog/' }, { label: name }]} /><span class="eyebrow">EXPLORE A TOPIC</span><h1 class="capitalize">{name}</h1><p>Explanations and examples to help you understand rectifier output.</p><ArticleCards entries={entries} headingLevel={2} /></section></Base>

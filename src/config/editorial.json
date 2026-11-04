@@ -1,0 +1,19 @@
+{
+  "name": "AC to DC Converter",
+  "wordmark": "AC/DC Calc",
+  "description": "Estimate AC to DC rectifier output with defined circuit models, ripple estimates, and worked examples.",
+  "socialImageAlt": "Sinusoidal AC, rectification, and smoothed DC illustrated",
+  "seoTitleSuffix": "AC to DC Converter",
+  "domain": "https://actodcconverter.online",
+  "logo": "/images/logo/ac-dc.svg",
+  "favicon": "/images/icons/favicon.svg",
+  "socialImage": "/images/calculators/ac-dc-social.png",
+  "primaryColor": "#176349",
+  "accentColor": "#d9ef75",
+  "contactEmail": "",
+  "issueUrl": "",
+  "twitterHandle": "",
+  "indexable": false,
+  "defaultRobots": "index, follow",
+  "ads": []
+}
