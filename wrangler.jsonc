@@ -1,7 +1,15 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "ac-to-dc-converter",
+  "account_id": "0863917d131e2a06192ec0ce3748952a",
+  "workers_dev": true,
+  "preview_urls": false,
   "main": "worker/index.ts",
+  "vars": {
+    "GITHUB_OWNER": "actodcconverter1-ai",
+    "GITHUB_REPO": "actodcconverter",
+    "GITHUB_BRANCH": "main"
+  },
   "compatibility_date": "2026-11-03",
   "assets": {
     "directory": "./dist",

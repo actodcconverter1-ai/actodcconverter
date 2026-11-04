@@ -38,10 +38,12 @@ Images are repository-local in `public/images/{logo,calculators,blogs,icons}`. K
 
 ## Separate GitHub repository and Cloudflare account
 
-The owner authorized https://github.com/actodcconverter1-ai/actodcconverter as this website's dedicated source repository. The intended domain is actodcconverter.online. Cloudflare account details are still pending. Do not reuse an unrelated Cloudflare account.
+The owner authorized https://github.com/actodcconverter1-ai/actodcconverter as this website's dedicated source repository and Cloudflare account 0863917d131e2a06192ec0ce3748952a for hosting. A review deployment is live at https://ac-to-dc-converter.actodcconverter1.workers.dev. The owner will attach actodcconverter.online later. Indexing remains disabled for this review deployment. The private dashboard email is a Worker secret, not a public contact address or source setting.
+
+The public review deployment has been verified over HTTPS: all 70 checked public pages/assets match the tested local build; unknown routes return 404. Production admin remains closed (503) pending Cloudflare Access and GitHub write-secret configuration. Automatic Git deployment is not yet connected: the current Wrangler OAuth login cannot manage Workers Builds or Access configuration (403). Do not describe these remaining integrations as complete.
 
 1. In the dedicated GitHub account, create an empty repository for this website. Set the local remote to its exact URL, commit the reviewed files, and push `main`.
-2. In the separate Cloudflare account, create a Worker using Workers Builds and connect that GitHub repository. Select production branch `main`. Use `npm run verify` as the build command and `npm run deploy` as the deploy command; npm install/ci supplies locked dependencies.
+2. In the authorized Cloudflare account, connect the existing Worker `ac-to-dc-converter` to that GitHub repository through Workers Builds. Select production branch `main`, root `/`, build command `npm run verify`, deploy command `npx wrangler deploy`, and Node 24.16.0. This deploy command supports the owner's noindex review deployment. `npm run deploy` additionally enforces the later public-release contact/indexing checklist.
 3. Set the build Node version to 24.16.0 or another supported LTS using Cloudflare's `NODE_VERSION` build variable. Configure the admin runtime values and GitHub secret described in ADMIN_GUIDE.md. Without them the public site still serves, while production admin routes return 503/401.
 4. The intended origin is `https://actodcconverter.online`. Set branding, operator contact, and indexing through the dashboard or `src/config/editorial.json`, consumed by `site.config.ts`. Configure the Worker name in `wrangler.jsonc`. Review policies for the real operator and its practices.
 5. Run `npm run verify`, `npm run deploy:check`, and `node scripts/check-release.mjs`. The release check rejects example domains, disabled indexing, and absent operator contact.
