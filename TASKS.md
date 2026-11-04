@@ -26,7 +26,7 @@
 - [x] Disposable banner verified in actual static output after source change/build; disposable test data removed from final source.
 - [x] Final local verification after integration: 58 tests, lint, TypeScript, 20-article audit, 41-page build, 39-entry sitemap and generated-output audit passed. Workers dry-run and fail-closed routing were also checked locally.
 - [x] Dedicated GitHub account authenticated and empty target repository verified: https://github.com/actodcconverter1-ai/actodcconverter.
-- [ ] Push the complete source to the dedicated GitHub repository.
+- [x] Complete source pushed to main in https://github.com/actodcconverter1-ai/actodcconverter on 4 November 2026 (initial implementation commit c52006a).
 - [ ] Live Cloudflare Access/GitHub editing round trip, automatic deployment, custom domain/HTTPS and production tests.
 
 ## Deferred by owner / limits
