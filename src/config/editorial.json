@@ -19,7 +19,7 @@
     {
       "id": "live-banner-test-20261105",
       "name": "Temporary dashboard banner verification",
-      "enabled": true,
+      "enabled": false,
       "placement": "header",
       "title": "Explore rectifier models",
       "text": "Compare average voltage, peak voltage, and ripple assumptions.",
