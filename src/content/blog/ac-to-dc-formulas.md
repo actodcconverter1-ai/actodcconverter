@@ -4,8 +4,8 @@ slug: ac-to-dc-formulas
 description: Compare ideal rectifier averages and capacitor-filtered bridge
   estimates using clear assumptions and worked examples.
 image: /images/blogs/ac-to-dc-formulas.webp
-imageAlt: Comparison of full-wave, half-wave, and capacitor-filtered bridge
-  rectifier equations
+imageAlt: "Three model equations compared: full-wave average, half-wave average,
+  and capacitor-filtered bridge estimate"
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
 categories:
