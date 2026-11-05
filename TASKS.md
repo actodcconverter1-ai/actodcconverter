@@ -33,11 +33,11 @@
 
 ## Deferred by owner / limits
 - Owner supplied and authorized the dedicated GitHub repository and Cloudflare account on 4 November 2026. The owner asked to test the workers.dev deployment first and will add the custom domain personally later.
-- Workers Builds configuration API returns 403 for the current Wrangler OAuth login. Password auth replaces Access; the owner must set only ADMIN_PASSWORD_HASH and the repository-scoped GITHUB_TOKEN directly as encrypted Worker secrets. Live positive login, saving and automatic deployment remain unverified. No credentials should be pasted into chat.
+- Workers Builds configuration API returns 403 for the current Wrangler OAuth login. Password auth replaces Access; the owner must set only ADMIN_PASSWORD_HASH and the repository-scoped GITHUB_TOKEN directly as encrypted Worker secrets. Live authenticated access, saving/reload and automatic deployment passed on 5 November 2026. No credentials should be pasted into chat.
 - Operator contact and final policy review remain needed; indexing intentionally remains disabled.
 - Editor is Markdown with safe preview and formatting controls, not WordPress/Gutenberg runtime.
 - Ads manager is for sponsored banner content, not an ad-network account/auction/tracking platform. Dates change public output on builds.
-- No live production, search indexing/ranking, real account integration, field performance, or full accessibility certification is claimed.
+- Workers.dev dashboard-to-GitHub-to-Cloudflare integration passed; custom-domain launch, search indexing/ranking, field performance and full accessibility certification remain unverified.
 - Template extraction and the second demo remain deliberately gated.
 
 ## Milestone log
@@ -50,3 +50,5 @@
 - [x] Free password-verifier login implementation: 72 tests, lint, typecheck, content/build/output audits passed. Original password never stored in env files or Worker secrets.
 
 - [x] GitHub automatic deployment verified on 5 November: commit 483cf8a passed GitHub Verify and Workers Builds; live build-info matched the exact commit without manual deployment. Live public assets 72/72 matched; login/setup returned 200, protected admin redirected, no private email exposed.
+
+- [x] Live authenticated dashboard access, draft creation/save, full reload/persistence, GitHub commits and matching automatic Cloudflare deployments verified. Test draft safely moved to recoverable Trash. 74 tests and full verification passed.

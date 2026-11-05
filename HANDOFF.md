@@ -3,6 +3,16 @@
 Project: `C:\Users\PC\Downloads\ac-to-dc-converter`.
 Intended domain: `https://actodcconverter.online`.
 
+## Live dashboard round trip PASSED — 5 November 2026
+
+Owner corrected the repository-scoped runtime token. Authenticated production dashboard loaded all 20 published posts, 24 media assets and settings. Using the owner's existing private login session, created the unpublished draft `dashboard-save-verification-2026-11-05` through the real UI, saved it, fully reloaded, reopened it and verified its body marker `ACDC-LIVE-SAVE-20261105`. No original password or API token was requested, read, printed or stored locally. This confirms authenticated session access and persistence; the owner entered the password privately, rather than the agent typing it.
+
+Actual dashboard save created GitHub commit `d09dcc3b2b693dda23d3c412c0f74879cd188c11`. GitHub Verify run 41990169382 and Cloudflare Workers Build `3f8708fd-d504-4b64-b2ba-1921a7962e2d` passed; live build-info matched that exact commit. No manual deployment was used. Screenshot: ignored artifact `artifacts/live-draft-saved.jpg`.
+
+Moved only the test draft to recoverable Trash using the UI. Verified Trash status and Restore control. Cleanup commit `bab598793adf433a859e3b76c7a5f4d1edd2ab45` also passed GitHub Verify run 41990559144 and Cloudflare Build `d9f5b975-6eee-4de8-b5a9-139e4db6d1b6`; live build-info matched it (Worker version `70c71f1e-3e0c-4501-a42e-535aa867d37d`). Test content was never published. Local main fast-forwarded to the dashboard commits. Runtime secret names now present: ADMIN_EMAILS, ADMIN_PASSWORD_HASH, ADMIN_SESSION_SECRET, GITHUB_TOKEN. Earlier pending-token/access notes below are historical and superseded by this section.
+
+74 automated tests and complete verification passed. Custom domain, public contact/policy launch review, indexing, field performance and full accessibility certification remain separate pending launch tasks. No master template has been extracted.
+
 ## Runtime token access check — 5 November 2026
 
 Owner deployed GITHUB_TOKEN as an encrypted runtime Secret; all four required secret names now exist. Live signed-in dashboard accepts the session and reaches the GitHub adapter, but Git tree reads return 404 with that token. Confirmed active public coordinates are actodcconverter1-ai/actodcconverter, branch main. Independently reading the same git/trees/main endpoint using the existing Git sign-in returned 200 and 154 entries, so the branch and endpoint are valid. Owner reports difficulty enabling Contents write permission and is configuring a fine-grained token using an official prefilled form. No token value was read or copied into source/chat.
