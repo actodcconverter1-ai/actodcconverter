@@ -4,6 +4,10 @@ import { GitHubRepository } from '../server/github.ts';
 const repo=()=>new GitHubRepository('dedicated-owner','ac-dc-site','main','test-only-token');
 const response=(value:unknown,status=200)=>Response.json(value,{status});
 async function mocked(handler:typeof fetch,action:()=>Promise<void>){const original=globalThis.fetch;globalThis.fetch=handler;try{await action();}finally{globalThis.fetch=original;}}
+
+test('GitHub masked 404 explains token access as well as branch configuration',async()=>{
+  await mocked(async()=>response({},404),async()=>{await assert.rejects(()=>repo().list('src/content/blog/'),error=>error instanceof Error&&error.message.includes("token's selected repository, Contents permission")&&error.message.includes('dedicated-owner/ac-dc-site'));});
+});
 test('repository images larger than 1 MB use the Git Blobs fallback',async()=>{
   const calls:string[]=[];
   await mocked(async input=>{const url=String(input);calls.push(url);return url.includes('/contents/')?response({type:'file',encoding:'none',content:'',sha:'image-sha'}):response({encoding:'base64',content:'aW1hZ2U=\n'});},async()=>{assert.deepEqual(await repo().read('public/images/uploads/large.webp'),{content:'aW1hZ2U=',sha:'image-sha'});});

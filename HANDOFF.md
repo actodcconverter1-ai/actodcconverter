@@ -3,6 +3,12 @@
 Project: `C:\Users\PC\Downloads\ac-to-dc-converter`.
 Intended domain: `https://actodcconverter.online`.
 
+## Runtime token access check — 5 November 2026
+
+Owner deployed GITHUB_TOKEN as an encrypted runtime Secret; all four required secret names now exist. Live signed-in dashboard accepts the session and reaches the GitHub adapter, but Git tree reads return 404 with that token. Confirmed active public coordinates are actodcconverter1-ai/actodcconverter, branch main. Independently reading the same git/trees/main endpoint using the existing Git sign-in returned 200 and 154 entries, so the branch and endpoint are valid. Owner reports difficulty enabling Contents write permission and is configuring a fine-grained token using an official prefilled form. No token value was read or copied into source/chat.
+
+Improved the masked-404 error to mention selected repository and Contents permission as well as branch name. Full verification passes with 74 tests. Live save/commit/deployment round trip remains pending corrected runtime token access; do not claim success until a real dashboard save, reload and matching live build commit are observed.
+
 ## Dashboard connection fix — 5 November 2026
 
 Owner reported an endless Connecting screen after login. Active runtime inspection confirmed ADMIN_PASSWORD_HASH is configured but GITHUB_TOKEN is absent (only ADMIN_EMAILS, ADMIN_PASSWORD_HASH, ADMIN_SESSION_SECRET exist). Owner is generating a repository-scoped token and must deploy it as a runtime Worker Secret, rather than a build variable.

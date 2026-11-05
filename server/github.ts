@@ -13,7 +13,7 @@ export class GitHubRepository implements Repository {
     return response.json();
   }
   async list(prefix:string) {
-    const result=await this.api(`/git/trees/${encodeURIComponent(this.branch)}?recursive=1`);if(!result)throw new AdminError('Repository branch not found.',503);if(result.truncated)throw new AdminError('Repository tree is too large for this dashboard.',503);
+    const result=await this.api(`/git/trees/${encodeURIComponent(this.branch)}?recursive=1`);if(!result)throw new AdminError(`Cannot read ${this.owner}/${this.repo} on branch ${this.branch}. Verify the token's selected repository, Contents permission, and branch name.`,503);if(result.truncated)throw new AdminError('Repository tree is too large for this dashboard.',503);
     return result.tree.filter((file:{type:string;path:string})=>file.type==='blob'&&file.path.startsWith(prefix)).map((file:{path:string;sha:string;size:number})=>({path:file.path,sha:file.sha,size:file.size}));
   }
   async read(path:string) {
