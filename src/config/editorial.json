@@ -2,7 +2,7 @@
   "name": "AC to DC Converter",
   "wordmark": "AC/DC Calc",
   "description": "Estimate AC to DC rectifier output with defined circuit models, ripple estimates, and worked examples.",
-  "socialImageAlt": "Sinusoidal AC, rectification, and smoothed DC illustrated",
+  "socialImageAlt": "AC sine wave, rectified pulses, and capacitor-smoothed DC diagram",
   "seoTitleSuffix": "AC to DC Converter",
   "domain": "https://actodcconverter.online",
   "logo": "/images/logo/ac-dc.svg",
