@@ -15,5 +15,19 @@
   "twitterHandle": "",
   "indexable": false,
   "defaultRobots": "index, follow",
-  "ads": []
+  "ads": [
+    {
+      "id": "live-banner-test-20261105",
+      "name": "Temporary dashboard banner verification",
+      "enabled": true,
+      "placement": "header",
+      "title": "Explore rectifier models",
+      "text": "Compare average voltage, peak voltage, and ripple assumptions.",
+      "image": "/images/uploads/live-media-test-20261105.png",
+      "imageAlt": "AC and DC waveform comparison diagram",
+      "href": "https://ac-to-dc-converter.actodcconverter1.workers.dev/ac-to-dc-calculator/",
+      "startDate": "",
+      "endDate": ""
+    }
+  ]
 }
