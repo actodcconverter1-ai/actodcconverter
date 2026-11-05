@@ -11,7 +11,7 @@ categories:
 tags: []
 seoTitle: Dashboard save verification — 5 November 2026
 metaDescription: ""
-status: draft
+status: trash
 ---
 
 ## Private deployment verification
