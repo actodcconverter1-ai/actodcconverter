@@ -1,15 +1,23 @@
 ---
-title: 'AC to DC Formulas: Choose the Circuit Before the Multiplier'
+title: "AC to DC Formulas: Choose the Circuit Before the Multiplier"
 slug: ac-to-dc-formulas
-description: 'Compare ideal rectifier averages and capacitor-filtered bridge estimates using clear assumptions and worked examples.'
+description: Compare ideal rectifier averages and capacitor-filtered bridge
+  estimates using clear assumptions and worked examples.
 image: /images/blogs/ac-to-dc-formulas.webp
-imageAlt: 'Three model equations compared: full-wave average, half-wave average, and capacitor-filtered bridge estimate'
+imageAlt: Comparison of full-wave, half-wave, and capacitor-filtered bridge
+  rectifier equations
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [rectifier-basics]
-tags: [AC to DC, formulas, rectifier models]
-seoTitle: 'AC to DC Formulas: Filtered Bridge, Full-Wave & Half-Wave'
-metaDescription: 'Choose the correct AC to DC formula. Compare filtered bridge voltage, ideal full-wave and half-wave averages, diode losses, and a complete 12 V example.'
+categories:
+  - rectifier-basics
+tags:
+  - AC to DC
+  - formulas
+  - rectifier models
+seoTitle: "AC to DC Formulas: Filtered Bridge, Full-Wave & Half-Wave"
+metaDescription: Choose the correct AC to DC formula. Compare filtered bridge
+  voltage, ideal full-wave and half-wave averages, diode losses, and a complete
+  12 V example.
 status: published
 ---
 
