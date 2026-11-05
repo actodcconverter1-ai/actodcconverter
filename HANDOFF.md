@@ -3,6 +3,12 @@
 Project: `C:\Users\PC\Downloads\ac-to-dc-converter`.
 Intended domain: `https://actodcconverter.online`.
 
+## Dashboard connection fix — 5 November 2026
+
+Owner reported an endless Connecting screen after login. Active runtime inspection confirmed ADMIN_PASSWORD_HASH is configured but GITHUB_TOKEN is absent (only ADMIN_EMAILS, ADMIN_PASSWORD_HASH, ADMIN_SESSION_SECRET exist). Owner is generating a repository-scoped token and must deploy it as a runtime Worker Secret, rather than a build variable.
+
+Startup errors previously appeared only in a six-second toast and left the loading screen indefinitely. The client now shows a persistent actionable error and Retry connection button, disables navigation until data is ready, handles non-JSON service failures and bounded connection timeouts, and marks GitHub connected only after all initial data loads. The Worker explains missing runtime token configuration. GitHub upstream requests have timeouts and explicit permission/expiry errors. Verification passed: 73 tests, lint, typecheck, content audit, 43-page build, output audit. Live positive login/save checks remain pending usable browser access and owner token configuration; no successful live save is claimed.
+
 ## Current authentication update — 5 November 2026
 
 The owner declined Zero Trust and prohibits storing the original password in `.env` or Cloudflare Secrets. Access authentication has been replaced with a browser-generated salted PBKDF2 verifier, secure signed session cookies, CSRF checks and a native Cloudflare rate-limit binding. No original password, API token or private email is tracked. `/admin/password-setup/` generates the verifier locally without uploading the password; only the owner can place that verifier in `ADMIN_PASSWORD_HASH` through Cloudflare. No public registration/reset API exists.

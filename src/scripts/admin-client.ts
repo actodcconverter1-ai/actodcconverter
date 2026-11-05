@@ -14,7 +14,13 @@ const today=()=>new Date().toISOString().slice(0,10);
 const countWords=(text:string)=>(text.replace(/```[\s\S]*?```/g,' ').replace(/!?\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/<[^>]*>/g,' ').match(/[\p{L}\p{N}]+(?:[’'−-][\p{L}\p{N}]+)*/gu)||[]).length;
 let toastTimer:ReturnType<typeof setTimeout>;
 function toast(message:string,error=false){const box=$('#admin-toast');box.textContent=message;box.hidden=false;box.classList.toggle('error',error);clearTimeout(toastTimer);toastTimer=setTimeout(()=>box.hidden=true,6000);}
-async function api(path:string,method='GET',data?:unknown){const response=await fetch('/api/admin/'+path,{method,headers:{'X-Admin-Request':'1',...(data?{'Content-Type':'application/json'}:{})},body:data?JSON.stringify(data):undefined});const result=await response.json();if(response.status===401){location.replace('/admin/login/');throw new Error('Please sign in again.');}if(!response.ok)throw new Error(result.error??'Request failed.');return result;}
+async function api(path:string,method='GET',data?:unknown){
+  let response:Response;
+  try{response=await fetch('/api/admin/'+path,{method,headers:{'X-Admin-Request':'1',...(data?{'Content-Type':'application/json'}:{})},body:data?JSON.stringify(data):undefined,signal:AbortSignal.timeout(30000)});}catch{throw new Error(method==='GET'?'The dashboard connection timed out or is unavailable. Please retry.':'The save response was not received. Reload and check the saved content before retrying.');}
+  if(response.status===401){location.replace('/admin/login/');throw new Error('Please sign in again.');}
+  let result;try{result=await response.json();}catch{throw new Error(`The dashboard service returned an unexpected response (HTTP ${response.status}). Please retry.`);}
+  if(!response.ok)throw new Error(result.error??'Request failed.');return result;
+}
 function run(task:()=>Promise<void>){return async()=>{try{await task();}catch(error){toast(error instanceof Error?error.message:'Operation failed.',true);}};}
 function field(label:string,name:string,value:unknown,type='text',help=''){return `<div class="field"><label for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" value="${escape(value)}"/>${help?`<small>${help}</small>`:''}</div>`;}
 function heading(title:string,description:string,actions=''){return `<div class="page-heading"><div><h1>${title}</h1><p>${description}</p></div><div class="admin-actions">${actions}</div></div>`;}
@@ -69,5 +75,22 @@ function installLocalBuildButton(){
     const timer=setInterval(async()=>{try{const result=await api('build');if(result.status!=='running'){clearInterval(timer);button.disabled=false;button.textContent='Rebuild website';toast(result.status==='complete'?'Public website rebuilt from saved source.':'Build failed. Check the server output and content validation.',result.status!=='complete');}}catch{clearInterval(timer);button.disabled=false;button.textContent='Rebuild website';}},2000);
   });document.querySelector('.admin-topbar')!.append(button);
 }
-function installLogoutButton(){const button=document.createElement('button');button.textContent='Sign out';button.onclick=run(async()=>{await api('auth/logout','POST',{});state.dirty=false;location.replace('/admin/login/');});document.querySelector('.admin-topbar')!.append(button);}
-run(async()=>{const session=await api('session');state.mode=session.mode;if(session.mode==='local')installLocalBuildButton();else installLogoutButton();$('#storage-mode').textContent=session.mode==='local'?'● Local repository':'● GitHub connected';const notice=$('#admin-notice');notice.textContent=session.message;notice.hidden=false;await Promise.all([loadPosts(),loadSettings(),loadMedia()]);render();})().catch(()=>{});
+function installLogoutButton(){if(document.getElementById('sign-out'))return;const button=document.createElement('button');button.id='sign-out';button.textContent='Sign out';button.onclick=run(async()=>{await api('auth/logout','POST',{});state.dirty=false;location.replace('/admin/login/');});document.querySelector('.admin-topbar')!.append(button);}
+async function connectWorkspace(){
+  document.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach(button=>button.disabled=true);
+  $('#storage-mode').textContent='Connecting…';
+  view.innerHTML='<h1>Connecting to your content…</h1><p>Loading the repository-backed editorial workspace.</p>';
+  try{
+    const session=await api('session');state.mode=session.mode;
+    if(session.mode==='local'){if(!document.getElementById('rebuild-site'))installLocalBuildButton();}else installLogoutButton();
+    const notice=$('#admin-notice');notice.textContent=session.message;notice.hidden=false;
+    await Promise.all([loadPosts(),loadSettings(),loadMedia()]);
+    $('#storage-mode').textContent=session.mode==='local'?'● Local repository':'● GitHub connected';
+    document.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach(button=>button.disabled=false);render();
+  }catch(error){
+    $('#storage-mode').textContent='Connection needs attention';
+    view.innerHTML=heading('Dashboard connection needs attention','Your content has not been changed.')+`<section class="panel"><div class="panel-body"><p role="alert">${escape(error instanceof Error?error.message:'Could not load the workspace.')}</p><button class="primary" id="retry-connection">Retry connection</button><a class="login-back" href="/admin/login/">Back to login</a></div></section>`;
+    $('#retry-connection').onclick=()=>{void connectWorkspace();};
+  }
+}
+void connectWorkspace();

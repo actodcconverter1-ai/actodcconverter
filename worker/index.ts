@@ -17,6 +17,7 @@ export default {
       return new Response(null,{status:302,headers:{...privateHeaders,Location:new URL('/admin/login/',url.origin).href}});
     }
     if(url.pathname.startsWith('/api/admin/')){
+      if(!env.GITHUB_TOKEN?.trim())return Response.json({error:'Repository access is not configured. Add the GITHUB_TOKEN runtime secret in this Worker’s Settings → Variables and Secrets, deploy, then retry.'},{status:503,headers:privateHeaders});
       try{return await adminApi(request,new GitHubRepository(env.GITHUB_OWNER??'',env.GITHUB_REPO??'',env.GITHUB_BRANCH??'main',env.GITHUB_TOKEN??''),'github');}
       catch{return Response.json({error:'GitHub editing is not configured.'},{status:503,headers:privateHeaders});}
     }

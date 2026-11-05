@@ -2,11 +2,12 @@ import { AdminError, type Repository, type Change } from './admin.ts';
 export class GitHubRepository implements Repository {
   private owner:string; private repo:string; private branch:string; private token:string;
   constructor(owner:string,repo:string,branch:string,token:string) {
-    this.owner=owner;this.repo=repo;this.branch=branch;this.token=token;
+    this.owner=owner;this.repo=repo;this.branch=branch;this.token=token.trim();
     if(!/^[a-zA-Z0-9_.-]+$/.test(owner)||!/^[a-zA-Z0-9_.-]+$/.test(repo)||!branch||!token)throw new AdminError('GitHub repository is not configured.',503);
   }
   private async api(path:string,method='GET',body?:unknown) {
-    const response=await fetch(`https://api.github.com/repos/${this.owner}/${this.repo}${path}`,{method,headers:{Authorization:`Bearer ${this.token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'ACDC-Editorial','Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
+    const response=await fetch(`https://api.github.com/repos/${this.owner}/${this.repo}${path}`,{method,headers:{Authorization:`Bearer ${this.token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'ACDC-Editorial','Content-Type':'application/json'},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(20000)});
+    if(response.status===401||response.status===403)throw new AdminError('GitHub access was refused. Check that the runtime token is active and has Contents read/write permission for this repository.',502);
     if(response.status===404)return null;
     if(!response.ok)throw new AdminError(response.status===409||response.status===422?'Repository changed. Reload before saving.':'GitHub request failed. Check repository access and limits.',response.status===409||response.status===422?409:502);
     return response.json();
