@@ -3,6 +3,18 @@
 Project: `C:\Users\PC\Downloads\ac-to-dc-converter`.
 Intended domain: `https://actodcconverter.online`.
 
+## Live feature suite — 5 November 2026
+
+Owner requested live tests of media, editor, SEO, ads and advanced settings. Fresh owner-entered login succeeded after the previous session expired; no credentials were disclosed. Tested PNG upload (74c02de), filename search, decoded thumbnail, copied media path, featured selection, image insertion and Bold toolbar/preview. Feature draft saved (547c3b9); incomplete publishing rejected missing description. Deleting its referenced media returned the exact referencing article path and retained the file.
+
+SEO social-image alt saved (e09619f), survived reload and appeared in public og:image:alt. Advanced brand color saved (d61c2c2), survived reload and appeared in public --brand CSS. Enabled header campaign saved (41a5834), survived reload and rendered a loaded image, correct HTTPS destination and rel=sponsored on the actual homepage. Disabling (004ecef) removed the public banner while keeping the disabled campaign. Campaign was then removed (5ff2c60).
+
+Updated existing published article ac-to-dc-formulas image alt (d03d6b0); its automatic Cloudflare build 19d37468-3525-4f9e-bb07-66a21992a82e succeeded and public HTML contained the changed alt. Restored original alt (80c0870). Original article metadata matches the saved baseline; body matches after CRLF/LF normalization. SEO and brand restored (d7e3113, 7d07669); final editorial.json exactly matches baseline d6bbb4c. Temporary draft references cleared (1049972), then draft safely trashed (bccdbec).
+
+Media lifecycle: unused image safely trashed (8281b74), restored (c21dd39) and thumbnail loaded; restored Git blob hash exactly matched original upload a9cd460847fe0c72b14b868a252cfb358b28a1a8. Final cleanup e58aa7c moved it to recoverable .content-trash/media; original 24 public media assets remain. Test drafts were never published. Final cleanup e58aa7c passed GitHub Verify run 42041314267 and Cloudflare Build 8b6de1c4-e466-405d-b2cc-80b3d9748188 (Worker version c6df7764-a343-46e1-8f82-e1b865118eba). Live build-info matched the exact commit. Final HTTP/DOM checks confirm original branding/social metadata/article alt, no banner, no private email, and HTTP 404 for temporary image and both test-post URLs.
+
+Fix 1c07dd4 adds rollback for failed ad toggle/removal writes, replaces obsolete Cloudflare Access setup text and clarifies settings automatic deployment. Full final local verification passes: 74 tests, lint, zero TypeScript errors/warnings, content audit, 43 HTML pages, 39 sitemap entries, public JS 5,933 bytes, output audit zero errors. Evidence: artifacts/live-feature-verification.md, live-enabled-banner.jpg, live-media-library-verified.jpg and live-features-final.json (ignored local artifacts). Earlier notes below are historical.
+
 ## Live dashboard round trip PASSED — 5 November 2026
 
 Owner corrected the repository-scoped runtime token. Authenticated production dashboard loaded all 20 published posts, 24 media assets and settings. Using the owner's existing private login session, created the unpublished draft `dashboard-save-verification-2026-11-05` through the real UI, saved it, fully reloaded, reopened it and verified its body marker `ACDC-LIVE-SAVE-20261105`. No original password or API token was requested, read, printed or stored locally. This confirms authenticated session access and persistence; the owner entered the password privately, rather than the agent typing it.
