@@ -48,3 +48,5 @@
 - Dashboard API/UI and original article/diagram collection implemented, reviewed and tested; deployment deferred to the owner-provided accounts.
 
 - [x] Free password-verifier login implementation: 72 tests, lint, typecheck, content/build/output audits passed. Original password never stored in env files or Worker secrets.
+
+- [x] GitHub automatic deployment verified on 5 November: commit 483cf8a passed GitHub Verify and Workers Builds; live build-info matched the exact commit without manual deployment. Live public assets 72/72 matched; login/setup returned 200, protected admin redirected, no private email exposed.
