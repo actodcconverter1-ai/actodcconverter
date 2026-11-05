@@ -14,3 +14,6 @@
 
 /images/*
   Cache-Control: public, max-age=86400
+
+/build-info.json
+  Cache-Control: no-store

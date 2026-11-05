@@ -9,7 +9,7 @@ const attr = (tag, name) => new RegExp(`(?:^|\\s)${name}="([^"]*)"`).exec(tag)?.
 function fail(file, text) { errors.push(`${file.slice(root.length + 1)}: ${text}`); }
 async function targetFile(pathname) { const clean = decodeURIComponent(pathname); if (clean.includes('..')) throw new Error('Traversal path'); const exact = join(root, clean); try { if ((await stat(exact)).isFile()) return exact; } catch { /* Try directory route. */ } return join(exact, 'index.html'); }
 for (const [file, html] of pages) {
-  if (file === join(root, 'admin', 'index.html')) {
+  if (file.startsWith(join(root, 'admin') + (process.platform === 'win32' ? '\\' : '/'))) {
     if (!html.includes('noindex, nofollow')) fail(file, 'admin must be noindex');
     continue;
   }
@@ -38,10 +38,11 @@ const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
 const sitemapPaths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => new URL(match[1]).pathname);
 for (const pathname of sitemapPaths) { try { await access(await targetFile(pathname)); } catch { errors.push(`Sitemap missing page: ${pathname}`); } }
 if (sitemapPaths.includes('/404/')) errors.push('404 must not be in sitemap');
-if (sitemapPaths.includes('/admin/')) errors.push('Admin must not be in sitemap');
-if (sitemapPaths.length !== htmlFiles.length - 2) errors.push('Sitemap does not cover every public HTML page');
+if (sitemapPaths.some(path => path.startsWith('/admin/'))) errors.push('Admin must not be in sitemap');
+const adminPages=htmlFiles.filter(file=>file.startsWith(join(root,'admin')+(process.platform==='win32'?'\\':'/')));
+if (sitemapPaths.length !== htmlFiles.length - adminPages.length - 1) errors.push('Sitemap does not cover every public HTML page');
 for (const file of ['robots.txt', '_headers', '404.html']) { try { await access(join(root, file)); } catch { errors.push(`Missing ${file}`); } }
-const publicScriptPaths = new Set([...pages].filter(([file]) => file !== join(root,'admin','index.html')).flatMap(([,html]) => [...html.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map(match => join(root,match[1]))));
+const publicScriptPaths = new Set([...pages].filter(([file]) => !adminPages.includes(file)).flatMap(([,html]) => [...html.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map(match => join(root,match[1]))));
 const jsBytes = (await Promise.all([...publicScriptPaths].map(async file => (await stat(file)).size))).reduce((a,b)=>a+b,0);
 for (const [file, html] of pages) for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) if (!match[1].includes('application/ld+json') && !match[1].includes('src=') && match[2].trim()) fail(file, 'Executable inline script blocked by CSP');
 if (jsBytes > 50000) errors.push(`Client JS exceeds 50 KB budget: ${jsBytes}`);

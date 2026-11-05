@@ -29,11 +29,11 @@
 - [x] Complete source pushed to main in https://github.com/actodcconverter1-ai/actodcconverter on 4 November 2026 (initial implementation commit c52006a).
 - [x] Review deployment published to the owner-specified Cloudflare account at https://ac-to-dc-converter.actodcconverter1.workers.dev. All 70 checked public pages/assets returned 200 and matched the tested build; unknown routes returned 404; the private dashboard email was absent from public pages.
 - [x] Private dashboard email stored as encrypted ADMIN_EMAILS Worker secret; it remains absent from public contact settings and GitHub source.
-- [ ] Live Cloudflare Access/GitHub editing round trip, automatic deployment, custom domain/HTTPS and production tests.
+- [ ] Live password login/GitHub editing round trip, automatic deployment, custom domain/HTTPS and production tests.
 
 ## Deferred by owner / limits
 - Owner supplied and authorized the dedicated GitHub repository and Cloudflare account on 4 November 2026. The owner asked to test the workers.dev deployment first and will add the custom domain personally later.
-- Workers Builds and Access configuration APIs return 403 for the current Wrangler OAuth login. Git automatic deployment and production dashboard authentication still need the appropriate account authorization; no tokens or credentials should be pasted into chat.
+- Workers Builds configuration API returns 403 for the current Wrangler OAuth login. Password auth replaces Access; the owner must set only ADMIN_PASSWORD_HASH and the repository-scoped GITHUB_TOKEN directly as encrypted Worker secrets. Live positive login, saving and automatic deployment remain unverified. No credentials should be pasted into chat.
 - Operator contact and final policy review remain needed; indexing intentionally remains disabled.
 - Editor is Markdown with safe preview and formatting controls, not WordPress/Gutenberg runtime.
 - Ads manager is for sponsored banner content, not an ad-network account/auction/tracking platform. Dates change public output on builds.
@@ -46,3 +46,5 @@
 - Initial local site passed 41 calculator tests, build, metadata/link/image audit and static Workers dry-run; real local 404/header behavior checked.
 - Owner expanded scope to a persistent WordPress-style dashboard and twenty long educational articles; backend/auth requirements added for that real use case.
 - Dashboard API/UI and original article/diagram collection implemented, reviewed and tested; deployment deferred to the owner-provided accounts.
+
+- [x] Free password-verifier login implementation: 72 tests, lint, typecheck, content/build/output audits passed. Original password never stored in env files or Worker secrets.

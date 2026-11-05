@@ -1,7 +1,15 @@
-# Handoff — updated 4 November 2026
+# Handoff — updated 5 November 2026
 
 Project: `C:\Users\PC\Downloads\ac-to-dc-converter`.
 Intended domain: `https://actodcconverter.online`.
+
+## Current authentication update — 5 November 2026
+
+The owner declined Zero Trust and prohibits storing the original password in `.env` or Cloudflare Secrets. Access authentication has been replaced with a browser-generated salted PBKDF2 verifier, secure signed session cookies, CSRF checks and a native Cloudflare rate-limit binding. No original password, API token or private email is tracked. `/admin/password-setup/` generates the verifier locally without uploading the password; only the owner can place that verifier in `ADMIN_PASSWORD_HASH` through Cloudflare. No public registration/reset API exists.
+
+Already provisioned encrypted secrets: `ADMIN_EMAILS`, `ADMIN_SESSION_SECRET`. Last inspected missing: `ADMIN_PASSWORD_HASH`, `GITHUB_TOKEN`. The owner must configure those directly, without sending their values in chat. The GitHub token must be repository-scoped Contents read/write. No `.env` or `.dev.vars` setup is needed or encouraged; the old example has been removed.
+
+Verification: 72 tests passed, lint passed, TypeScript reported zero errors/warnings, all 20 articles passed the content audit, build produced 43 HTML pages and 39 sitemap entries, public JavaScript 5,933 bytes, output audit zero errors. Live successful login and post saving remain pending owner setup. Automatic deployment must be proven against `/build-info.json` after a push; it is not established by local tests or a manual deployment. The older Access-specific notes below are historical and superseded by this section and ADMIN_GUIDE.md.
 
 ## Latest deployment update — 4 November 2026
 
