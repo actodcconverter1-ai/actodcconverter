@@ -103,4 +103,3 @@ The editor uses Markdown and safe preview, not WordPress itself. Ad manager supp
 3. Obtain the additional Access/Workers Builds management authorization or have the owner configure those integrations in Cloudflare. Then configure Access and the repository-scoped write secret, connect Workers Builds, and test authorized/unauthorized editor flows and the commit-to-public-site cycle. The owner will attach the custom domain later.
 4. Configure public operator contact/review policies, deliberately enable indexing, and verify live HTTPS/status/metadata/crawlers/calculator/admin/mobile/security behavior.
 5. Only then finish strategic Phase 1. Extract a separate master afterward, and prove that extracted master with an independent second website before reuse.
-

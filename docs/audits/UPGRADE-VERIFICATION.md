@@ -40,3 +40,15 @@ Cloudflare bundle dry-run, measured Lighthouse lab report, exact-commit GitHub a
 Lighthouse 13.6.0 mobile simulation against loopback static preview after fixes: Performance 88, Accessibility 100, Best Practices 100; LCP 1.2 s, CLS 0, TBT 460 ms. This is one lab run on the user's Windows computer, not field data or an INP measurement. The first run found footer contrast and visible/accessibility-name mismatch; both were fixed and the second run reported no automated accessibility failures. Remaining TBT means the run is not an all-green performance claim. SEO score 69 includes intentional noindex and loopback preview conditions and is not treated as a public launch score. Reports are retained under ignored artifacts/lighthouse-mobile-final.report.{json,html}.
 
 Wrangler dry-run succeeded with CONTACT_DB, both rate-limit bindings, assets and the intended public GitHub coordinates; gzip Worker bundle approximately 64.8 KiB. The initial sandboxed attempt failed on filesystem resolution; the authorized normal-environment retry passed. These are packaging checks, not yet live contact acceptance.
+
+### Live upgrade evidence
+
+Upgrade commit f7e9572f20ee5d9e0c20222536b585569603b507 passed GitHub Verify and native Workers Builds. Live build-info reported that exact revision. GitHub run: https://github.com/actodcconverter1-ai/actodcconverter/actions/runs/42145453469 ; Cloudflare build f55d2447-d34a-438d-926d-d8fe341ee32c, Worker version 9d1a5fa3-55e2-4b54-a52f-0c0cc5c75c9a.
+
+HTTPS comparison: all 93 checked public routes/assets matched the tested build byte-for-byte. No private Gmail address found in public HTML. Unknown route and deliberately absent review sitemap returned 404; public robots allows crawling and does not advertise a sitemap. Admin redirects to login; protected session/inbox APIs return 401/private-no-store without authentication. Contact challenge returns 200 without exposing runtime secrets.
+
+Live browser contact submission with reserved synthetic QA identity succeeded and displayed reference 647ad26c-7de9-4969-9123-9003f23544c5. Screenshot: ignored artifacts/live-contact-receipt.jpg. The record is not an email transmission. Owner-session inbox read/archive/restore awaits fresh login because the existing eight-hour session expired.
+
+Google Rich Results Test fetched the new supply-stages article successfully, reported crawl allowed, and detected one valid Article plus one valid Breadcrumb item. It correctly reported indexing disallowed by the review noindex meta directive. This is not a claim of indexed/rich-result eligibility or a pass for every URL. Test result: https://search.google.com/test/rich-results/result?id=vsPLZHDsTkmqsGgj_KeipQ . Recheck on the custom domain after launch.
+
+A live screenshot exposed the previous logo being served from existing browser cache. The blue logo/favicon now use new versioned filenames so existing visitors receive the changed branding; both original URLs remain for compatibility. Follow-up deployment verification will be recorded below.

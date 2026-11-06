@@ -69,4 +69,3 @@ The older log below is historical; its counts, Access references and initial con
 - [x] Live authenticated dashboard access, draft creation/save, full reload/persistence, GitHub commits and matching automatic Cloudflare deployments verified. Test draft safely moved to recoverable Trash. 74 tests and full verification passed.
 
 - [x] Live media lifecycle, editor formatting/draft validation/published update, SEO metadata, advanced brand setting and ads preview/save/enable/disable/remove verified. Original state restored, final cleanup e58aa7c auto-deployed, all 74 tests and final HTTP checks passed. Ad-action rollback and outdated setup copy fixes deployed in 1c07dd4.
-
