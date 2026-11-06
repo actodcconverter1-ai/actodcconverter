@@ -1,0 +1,19 @@
+---
+---
+<form class="contact-form" data-contact-form>
+ <div class="form-grid"><div><label for="contact-name">Name</label><input id="contact-name" name="name" autocomplete="name" minlength="2" maxlength="100" required/></div><div><label for="contact-email">Reply email</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required/></div></div>
+ <div><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" minlength="4" maxlength="150" required/></div>
+ <div><label for="contact-message">Message or calculation report</label><textarea id="contact-message" name="message" rows="8" minlength="20" maxlength="5000" required aria-describedby="contact-help"></textarea><small id="contact-help">For a calculation issue, include model, values and units, shown result, expected result and source. Do not send passwords, API keys or sensitive information.</small></div>
+ <div class="contact-honeypot" aria-hidden="true"><label for="contact-website">Leave this field empty</label><input id="contact-website" name="website" tabindex="-1" autocomplete="off"/></div>
+ <label class="contact-consent"><input name="consent" type="checkbox" required/> I have read the <a href="/privacy/">privacy policy</a> and agree that these details will be stored in the private contact inbox with a 30-day inbox window and daily cleanup (up to 31 days in live storage).</label>
+ <button class="button" type="submit" disabled>Preparing secure form…</button><p role="status" aria-live="polite" data-contact-status></p>
+ <noscript><p>Enable JavaScript to send this form. We do not claim delivery until a confirmation reference appears.</p></noscript>
+</form>
+<script>
+for(const form of document.querySelectorAll<HTMLFormElement>('[data-contact-form]')){
+ const button=form.querySelector<HTMLButtonElement>('button[type="submit"]')!,status=form.querySelector<HTMLElement>('[data-contact-status]')!;let token='';
+ async function prepare(){button.disabled=true;button.textContent='Preparing secure form…';try{const response=await fetch('/api/contact/challenge',{cache:'no-store',signal:AbortSignal.timeout(15000)});const result=await response.json();if(!response.ok)throw new Error(result.error??'Contact form unavailable.');token=result.token;setTimeout(()=>{button.disabled=false;button.textContent='Send private message';},Math.max(3,Number(result.minimumWaitSeconds)||3)*1000);}catch(error){status.textContent=error instanceof Error?error.message:'Could not prepare delivery. Refresh to try again.';button.textContent='Refresh page to retry';}}
+ form.addEventListener('submit',async event=>{event.preventDefault();if(!form.reportValidity()||!token)return;button.disabled=true;button.textContent='Sending…';status.textContent='';const field=(name:string)=>form.elements.namedItem(name)as HTMLInputElement|HTMLTextAreaElement;try{const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json','X-Contact-Request':'1'},body:JSON.stringify({token,name:field('name').value,email:field('email').value,subject:field('subject').value,message:field('message').value,website:field('website').value,consent:(field('consent')as HTMLInputElement).checked}),signal:AbortSignal.timeout(20000)});const result=await response.json();if(!response.ok)throw new Error(result.error??'Delivery was not confirmed.');status.textContent=result.duplicate?`This form was already received. Reference: ${result.id}. Your current fields are kept; start a fresh form for a new message.`:`Received in the private inbox. Reference: ${result.id}. This is a receipt, not a promise of a reply.`;if(!result.duplicate)form.reset();await prepare();}catch(error){status.textContent=error instanceof Error?error.message:'Delivery was not confirmed. Your text is kept; a retry with this form reference will not create a duplicate.';button.disabled=false;button.textContent='Retry message';}});
+ void prepare();
+}
+</script>

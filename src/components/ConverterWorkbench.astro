@@ -1,0 +1,42 @@
+---
+import { calculateConverter,converterDefault,converterMetrics,waveformPaths } from '../calculators/converter';
+import { formatNumber } from '../calculators/rectifier';
+const result=calculateConverter(converterDefault),paths=waveformPaths(result);
+---
+<section class="converter-workbench" id="calculator" data-converter aria-label="AC to DC converter calculator">
+ <header class="workbench-heading"><div><p class="eyebrow">CALCULATE WITH A DEFINED MODEL</p><h2>AC to DC converter calculator</h2></div><span class="local-label">Runs on your device</span></header>
+ <p>Choose rectification, filtering, or a downstream regulator stage. Each solves a different question.</p>
+ <form novalidate data-workbench-form>
+  <div class="workbench-control"><label for="wb-mode">Calculation mode</label><select id="wb-mode" name="mode"><option value="basic">A · Basic rectifier</option><option value="filtered" selected>B · Filtered DC output</option><option value="regulated">C · Regulator analysis</option></select></div>
+  <fieldset data-ac-fields><legend>Single-phase sinusoidal AC input</legend><div class="workbench-grid">
+   <div><label for="wb-topology">Rectifier configuration</label><select name="topology" id="wb-topology"><option value="bridge">Four-diode bridge</option><option value="center-tapped">Center-tapped full-wave</option><option value="half-wave">Half-wave</option></select></div>
+   <div><label for="wb-rms" data-rms-label>AC input · RMS (V)</label><input id="wb-rms" name="rms" type="number" min="0" max="1000" step="any" value="12" required aria-describedby="wb-rms-help wb-error"/><small id="wb-rms-help">RMS at the rectifier input, after any transformer.</small></div>
+   <div><label for="wb-frequency">AC frequency (Hz)</label><input id="wb-frequency" name="frequency" type="number" min="1" max="1000" step="any" value="50" required/></div>
+   <div><label for="wb-diode">Forward drop per diode (V)</label><input id="wb-diode" name="diodeDrop" type="number" min="0" max="2" step="any" value="0.7" required/><small>Use a datasheet operating-point assumption; 0 models ideal diodes.</small></div>
+  </div></fieldset>
+  <fieldset data-filter-fields><legend>Capacitor and load</legend><div class="workbench-grid">
+   <div><label for="wb-load-mode">Load model</label><select id="wb-load-mode" name="loadMode"><option value="current">Constant current</option><option value="resistance">Resistance</option></select></div>
+   <div data-current-field><label for="wb-current">DC load current (A)</label><input id="wb-current" name="current" type="number" min="0" max="100" step="any" value="0.1" required/></div>
+   <div data-resistance-field hidden><label for="wb-resistance">Load resistance (Ω)</label><input id="wb-resistance" name="resistance" type="number" min="0.1" max="1000000000" step="any" value="150" disabled required/></div>
+   <div><label for="wb-capacitance">Capacitance (µF)</label><input id="wb-capacitance" name="capacitance" type="number" min="1" max="1000000" step="any" value="1000" required/></div>
+  </div></fieldset>
+  <fieldset data-regulator-fields hidden disabled><legend>Downstream DC regulator stage</legend><div class="workbench-grid">
+   <div><label for="wb-regulator">Regulator configuration</label><select id="wb-regulator" name="regulator"><option value="linear">Linear / LDO</option><option value="switching">Step-down switching · supplied efficiency</option></select></div>
+   <div><label for="wb-input">Minimum rectified DC input (V)</label><input id="wb-input" name="inputMinimum" type="number" min="0" max="1000" step="any" value="12" required/><small>Use the ripple valley, not just nominal average voltage.</small></div>
+   <div><label for="wb-output">Desired regulated output (V)</label><input id="wb-output" name="output" type="number" min="0.1" max="1000" step="any" value="5" required/></div>
+   <div><label for="wb-output-current">Output load current (A)</label><input id="wb-output-current" name="outputCurrent" type="number" min="0" max="100" step="any" value="0.1" required/></div>
+   <div><label for="wb-headroom">Required input headroom (V)</label><input id="wb-headroom" name="headroom" type="number" min="0" max="100" step="any" value="2" required/><small>Use a device-specific requirement at the intended load.</small></div>
+   <div data-quiescent-field><label for="wb-quiescent">Quiescent current (mA)</label><input id="wb-quiescent" name="quiescent" type="number" min="0" max="1000" step="any" value="1" required/></div>
+   <div data-efficiency-field hidden><label for="wb-efficiency">Assumed stage efficiency (%)</label><input id="wb-efficiency" name="efficiency" type="number" min="1" max="100" step="any" value="90" required disabled/><small>Supplied by you; this tool does not predict switching efficiency.</small></div>
+  </div></fieldset>
+  <p id="wb-error" role="alert" class="error" hidden></p>
+  <div class="calc-actions"><button class="button" type="submit">Calculate output</button><button class="reset" type="reset">Reset example</button></div>
+  <noscript><p class="notice">JavaScript is required for new inputs. The initial 12 V RMS bridge example below is calculated from the same model at build time.</p></noscript>
+ </form>
+ <div class="workbench-results" aria-live="polite" aria-atomic="true" data-wb-results><h3>Calculated result</h3><dl class="metric-grid">{converterMetrics(result).map(([label,value,unit])=><div><dt>{label}</dt><dd>{value===null?'Not defined':`${formatNumber(value)} ${unit}`}</dd></div>)}</dl><p class="workbench-formula" data-wb-formula>{result.formula}</p></div>
+ <figure class="waveform-figure"><svg viewBox="0 0 700 205" role="img" aria-labelledby="wb-wave-title"><title id="wb-wave-title">Modeled input and output over two AC cycles</title><path d="M20 180H680M20 25V185" fill="none" stroke="#b4c4d8"/><path data-wave-input d={paths.input} fill="none" stroke="#6683a5" stroke-width="2" stroke-dasharray="6 4"/><path data-wave-output d={paths.output} fill="none" stroke="#145ec0" stroke-width="3"/></svg><figcaption data-wave-caption>Dashed: AC input. Solid blue: idealized output model, over two AC cycles. This is an explanatory waveform, not an oscilloscope measurement.</figcaption></figure>
+ <details class="workbench-assumptions" open><summary>Assumptions and interpretation</summary><ul data-wb-assumptions>{result.assumptions.map(text=><li>{text}</li>)}</ul></details>
+ <p class="safety-note">Educational estimate only. Calculations do not replace electrical design, isolation, component ratings, protection, thermal analysis or qualified engineering review. Never connect exposed experimental circuits directly to mains.</p>
+ <p class="workbench-links"><a href="/ac-to-dc-calculator/#methodology">Read the calculation methodology</a> · <a href="/full-wave-rectifier-calculator/">Ideal full-wave tool</a> · <a href="/half-wave-rectifier-calculator/">Ideal half-wave tool</a></p>
+</section>
+<script>import '../scripts/converter-client';</script>

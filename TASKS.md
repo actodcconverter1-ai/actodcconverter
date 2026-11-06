@@ -1,3 +1,18 @@
+# Current upgrade tasks — 6 November 2026
+
+- [x] Research, URL/keyword map, content briefs and Google guidance decisions before implementation.
+- [x] Expanded blue/navy educational homepage and three-category calculator workbench.
+- [x] Twenty-five reviewed guides, original diagrams, metadata and internal-link audits.
+- [x] Encrypted contact inbox implementation, D1 schema and runtime key provisioning.
+- [x] 99 automated tests, lint, zero-error Astro check, build and static audit; responsive/browser calculator checks.
+- [ ] Finish live upgrade deployment/contact/inbox evidence; see docs/audits/UPGRADE-VERIFICATION.md.
+- [ ] Owner custom-domain launch and indexing gate.
+- [ ] Only after Phase 1 passes: extract and validate a master template with an independent second demo.
+
+The older log below is historical; its counts, Access references and initial contact-report flow are superseded.
+
+---
+
 # Tasks — 3 November 2026
 
 ## Strategy gates
@@ -54,3 +69,4 @@
 - [x] Live authenticated dashboard access, draft creation/save, full reload/persistence, GitHub commits and matching automatic Cloudflare deployments verified. Test draft safely moved to recoverable Trash. 74 tests and full verification passed.
 
 - [x] Live media lifecycle, editor formatting/draft validation/published update, SEO metadata, advanced brand setting and ads preview/save/enable/disable/remove verified. Original state restored, final cleanup e58aa7c auto-deployed, all 74 tests and final HTTP checks passed. Ad-action rollback and outdated setup copy fixes deployed in 1c07dd4.
+

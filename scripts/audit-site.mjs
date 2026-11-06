@@ -34,13 +34,12 @@ for (const [file, html] of pages) {
     if (parsed.hash && target.endsWith('.html')) { const text = pages.get(target) ?? await readFile(target, 'utf8'); if (!text.includes(`id="${decodeURIComponent(parsed.hash.slice(1))}"`)) fail(file, `missing fragment ${url}`); }
   }
 }
-const sitemap = await readFile(join(root, 'sitemap.xml'), 'utf8');
-const sitemapPaths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => new URL(match[1]).pathname);
-for (const pathname of sitemapPaths) { try { await access(await targetFile(pathname)); } catch { errors.push(`Sitemap missing page: ${pathname}`); } }
-if (sitemapPaths.includes('/404/')) errors.push('404 must not be in sitemap');
-if (sitemapPaths.some(path => path.startsWith('/admin/'))) errors.push('Admin must not be in sitemap');
+const editorial=JSON.parse(await readFile('src/config/editorial.json','utf8'));
+const activeSitemap=editorial.indexable&&editorial.defaultRobots==='index, follow';
+let sitemapPaths=[];
 const adminPages=htmlFiles.filter(file=>file.startsWith(join(root,'admin')+(process.platform==='win32'?'\\':'/')));
-if (sitemapPaths.length !== htmlFiles.length - adminPages.length - 1) errors.push('Sitemap does not cover every public HTML page');
+if(activeSitemap){const sitemap=await readFile(join(root,'sitemap.xml'),'utf8');sitemapPaths=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>new URL(match[1]).pathname);for(const pathname of sitemapPaths){try{await access(await targetFile(pathname));}catch{errors.push(`Sitemap missing page: ${pathname}`);}}if(sitemapPaths.includes('/404/'))errors.push('404 must not be in sitemap');if(sitemapPaths.some(path=>path.startsWith('/admin/')))errors.push('Admin must not be in sitemap');if(sitemapPaths.length!==htmlFiles.length-adminPages.length-1)errors.push('Sitemap does not cover every indexable public HTML page');}
+else{try{await access(join(root,'sitemap.xml'));errors.push('Inactive review sitemap must not be published');}catch{/* No noindex URLs advertised in a sitemap. */}const robots=await readFile(join(root,'robots.txt'),'utf8');if(robots.includes('Sitemap:'))errors.push('Review robots must not advertise inactive sitemap');if(/^Disallow: \/$/m.test(robots))errors.push('Review pages must remain crawlable so noindex can be read');}
 for (const file of ['robots.txt', '_headers', '404.html']) { try { await access(join(root, file)); } catch { errors.push(`Missing ${file}`); } }
 const publicScriptPaths = new Set([...pages].filter(([file]) => !adminPages.includes(file)).flatMap(([,html]) => [...html.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map(match => join(root,match[1]))));
 const jsBytes = (await Promise.all([...publicScriptPaths].map(async file => (await stat(file)).size))).reduce((a,b)=>a+b,0);

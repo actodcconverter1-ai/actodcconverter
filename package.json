@@ -22,6 +22,7 @@
     "audit:content": "node --experimental-strip-types scripts/audit-content.mjs"
   },
   "dependencies": {
+    "@astrojs/markdown-satteri": "0.4.6",
     "@tailwindcss/vite": "4.3.4",
     "astro": "7.4.5",
     "dompurify": "3.4.17",

@@ -12,13 +12,47 @@
   },
   "compatibility_date": "2026-11-03",
   "ratelimits": [
-    { "name": "LOGIN_RATE_LIMITER", "namespace_id": "11041", "simple": { "limit": 5, "period": 60 } }
+    {
+      "name": "LOGIN_RATE_LIMITER",
+      "namespace_id": "11041",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    },
+    {
+      "name": "CONTACT_RATE_LIMITER",
+      "namespace_id": "11042",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    }
   ],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/admin/*", "/admin", "/admin/*"],
+    "run_worker_first": [
+      "/api/admin/*",
+      "/admin",
+      "/admin/*",
+      "/api/contact",
+      "/api/contact/*"
+    ],
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
+  },
+  "d1_databases": [
+    {
+      "binding": "CONTACT_DB",
+      "database_name": "acdc-contact-inbox",
+      "database_id": "09cbd5e9-64d7-429f-97a1-7de8e9102717",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "17 3 * * *"
+    ]
   }
 }

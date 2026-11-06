@@ -17,3 +17,4 @@
 
 /build-info.json
   Cache-Control: no-store
+  X-Robots-Tag: noindex

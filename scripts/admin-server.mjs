@@ -24,6 +24,7 @@ const server=createServer(async(req,res)=>{
   try{
     if(req.headers.host!==`127.0.0.1:${port}`){res.writeHead(403);res.end('Host not allowed');return;}
     const url=new URL(req.url,origin);
+    if(url.pathname.startsWith('/api/contact')||url.pathname==='/api/admin/messages'){res.writeHead(503,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({error:'The encrypted contact inbox requires the Cloudflare Worker preview or live deployment. This loopback repository editor does not send messages.'}));return;}
     if(url.pathname.startsWith('/api/admin/')){
       let body='';for await(const chunk of req){body+=chunk;if(body.length>8_000_000){res.writeHead(413);res.end('Too large');return;}}
       const request=new Request(url,{method:req.method,headers:req.headers,body:['GET','HEAD'].includes(req.method)?undefined:body});

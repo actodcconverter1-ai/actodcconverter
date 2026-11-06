@@ -3,11 +3,11 @@ import '../styles/global.css';
 import { site } from '../config/site.config';
 import { seo, canonical } from '../config/seo.config';
 import AdSlot from '../components/AdSlot.astro';
-interface Props { title: string; description: string; kind?: 'website' | 'article'; image?: string; imageAlt?: string; noindex?: boolean; schema?: Record<string, unknown>[]; }
-const { title, description, kind = 'website', image = site.social.image, imageAlt = site.social.imageAlt, noindex = false, schema = [] } = Astro.props;
+interface Props { title: string; titleIsComplete?:boolean; description: string; kind?: 'website' | 'article'; image?: string; imageAlt?: string; noindex?: boolean; schema?: Record<string, unknown>[]; }
+const { title, titleIsComplete=false, description, kind = 'website', image = site.social.image, imageAlt = site.social.imageAlt, noindex = false, schema = [] } = Astro.props;
 const url = canonical(Astro.url.pathname);
-const pageTitle = `${title} | ${seo.titleSuffix}`;
-const structured = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: site.domain }, { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url }, ...schema];
+const pageTitle = titleIsComplete ? title : `${title} | ${seo.titleSuffix}`;
+const structured = [{ '@context':'https://schema.org','@type':'Organization','@id':canonical('/editorial/')+'#organization',name:site.name+' editorial',url:canonical('/editorial/'),logo:canonical(site.logo) },{ '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: site.domain }, { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url }, ...schema];
 ---
 <!doctype html>
 <html lang={seo.language} style={`--brand:${site.colors.primary};--accent:${site.colors.accent}`}>
@@ -28,11 +28,11 @@ const structured = [{ '@context': 'https://schema.org', '@type': 'WebSite', name
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="header"><div class="shell header-inner">
-      <a href="/" class="brand" aria-label={`${site.name} home`}><img src={site.logo} alt="" width="32" height="32" />{site.wordmark}<span class="brand-dot">.</span></a>
+      <a href="/" class="brand" aria-label={`${site.wordmark}. — ${site.name} home`}><img src={site.logo} alt="" width="32" height="32" />{site.wordmark}<span class="brand-dot">.</span></a>
       <nav aria-label="Main navigation">{site.nav.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.label}</a>)}</nav>
       <span class="header-note"><span class="status-dot"></span> A little more clarity.</span>
     </div></header>
     <main id="main"><div class="shell"><AdSlot placement="header" /></div><slot /><div class="shell"><AdSlot placement="footer" /></div></main>
-    <footer><div class="shell"><div class="footer-top"><div><a class="brand" href="/">{site.wordmark}<span class="brand-dot">.</span></a><p>AC input. DC output. Clearly explained.</p></div><div class="footer-links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/blog/">Guides</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a></div></div><div class="footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>Calculated in your browser. No account needed.</span></div></div></footer>
+    <footer><div class="shell"><div class="footer-top"><div><a class="brand" href="/">{site.wordmark}<span class="brand-dot">.</span></a><p>AC input. DC output. Clearly explained.</p></div><div class="footer-links"><a href="/about/">About</a><a href="/editorial/">Editorial standards</a><a href="/contact/">Contact</a><a href="/blog/">Guides</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a></div></div><div class="footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>Calculated in your browser. No account needed.</span></div></div></footer>
   </body>
 </html>

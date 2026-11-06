@@ -1,7 +1,7 @@
 import { mkdir, writeFile, readdir } from 'node:fs/promises';
 import sharp from 'sharp';
 for (const folder of ['logo', 'calculators', 'blogs', 'icons']) await mkdir(`public/images/${folder}`, { recursive: true });
-const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#176349"/><path d="M6 22Q11 3 16 22T26 22M27 13H35M27 27H35" fill="none" stroke="#e3f39b" stroke-width="2.3"/></svg>`;
+const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#175fb5"/><path d="M6 22Q11 3 16 22T26 22M27 13H35M27 27H35" fill="none" stroke="#ffffff" stroke-width="2.3"/></svg>`;
 await writeFile('public/images/logo/ac-dc.svg', icon);
 await writeFile('public/images/icons/favicon.svg', icon);
 const illustrations = [

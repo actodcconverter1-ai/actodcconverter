@@ -1,5 +1,26 @@
 [
   {
+    "slug": "ac-rms-to-peak-voltage-calculation",
+    "title": "AC RMS to peak voltage: derive the sine-wave conversion",
+    "words": 1623,
+    "whitespaceWords": 1606,
+    "image": "/images/blogs/ac-rms-to-peak-voltage-calculation.webp",
+    "sourceLinks": [
+      "https://www.tek.com/de/documents/application-note/fundamentals-ac-power-measurements"
+    ]
+  },
+  {
+    "slug": "ac-to-dc-calculator-worked-examples",
+    "title": "AC to DC calculator worked examples: average, peak, and ripple",
+    "words": 1662,
+    "whitespaceWords": 1631,
+    "image": "/images/blogs/ac-to-dc-calculator-worked-examples.webp",
+    "sourceLinks": [
+      "https://www.ti.com/lit/ug/tidub95/tidub95.pdf",
+      "https://www.hammfg.com/electronics/transformers/rectifier"
+    ]
+  },
+  {
     "slug": "ac-to-dc-formulas",
     "title": "AC to DC Formulas: Choose the Circuit Before the Multiplier",
     "words": 1609,
@@ -11,6 +32,48 @@
     ]
   },
   {
+    "slug": "ac-voltage-does-not-determine-dc-current",
+    "title": "Why AC voltage alone cannot tell you the available DC current",
+    "words": 1597,
+    "whitespaceWords": 1584,
+    "image": "/images/blogs/ac-voltage-does-not-determine-dc-current.webp",
+    "sourceLinks": [
+      "https://www.hammfg.com/electronics/transformers/rectifier"
+    ]
+  },
+  {
+    "slug": "bridge-rectifier-at-50hz-and-60hz",
+    "title": "Bridge rectifiers at 50 Hz and 60 Hz: what changes?",
+    "words": 1661,
+    "whitespaceWords": 1629,
+    "image": "/images/blogs/bridge-rectifier-at-50hz-and-60hz.webp",
+    "sourceLinks": [
+      "https://www.ti.com/lit/ug/tidub95/tidub95.pdf"
+    ]
+  },
+  {
+    "slug": "bridge-rectifier-diode-losses",
+    "title": "Bridge rectifier diode losses: what a two-drop estimate means",
+    "words": 1592,
+    "whitespaceWords": 1584,
+    "image": "/images/blogs/bridge-rectifier-diode-losses.webp",
+    "sourceLinks": [
+      "https://www.vishay.com/docs/98775/kbpe0480.pdf",
+      "https://toshiba.semicon-storage.com/us/semiconductor/knowledge/e-learning/discrete/chap2/chap2-3.html"
+    ]
+  },
+  {
+    "slug": "capacitor-esr-and-ripple-current",
+    "title": "Capacitor ESR and ripple current: two different limits",
+    "words": 1615,
+    "whitespaceWords": 1613,
+    "image": "/images/blogs/capacitor-esr-and-ripple-current.webp",
+    "sourceLinks": [
+      "https://www.tdk-electronics.tdk.com/download/185386/5f33d2619fa73419e2a4af562122e90c/pdf-generaltechnicalinformation.pdf",
+      "https://www.analog.com/en/resources/analog-dialogue/articles/why-bypass-capacitor-choice-matters.html"
+    ]
+  },
+  {
     "slug": "capacitor-ripple-explained",
     "title": "Capacitor Ripple Explained: What Happens Between Charging Peaks",
     "words": 1615,
@@ -18,6 +81,18 @@
     "image": "/images/blogs/capacitor-ripple-explained.webp",
     "sourceLinks": [
       "https://www.ti.com/lit/ug/tidub95/tidub95.pdf"
+    ]
+  },
+  {
+    "slug": "choosing-ac-to-dc-power-supply",
+    "title": "How to Choose an AC to DC Power Supply for a Defined Load",
+    "words": 1343,
+    "whitespaceWords": 1377,
+    "image": "/images/blogs/choosing-ac-to-dc-power-supply.webp",
+    "sourceLinks": [
+      "https://www.meanwell.com/productManual.aspx",
+      "https://www.meanwell.com/qa.aspx",
+      "https://configurable.meanwell.com/aboutstory.aspx"
     ]
   },
   {
@@ -53,6 +128,84 @@
     ]
   },
   {
+    "slug": "limits-of-simple-ac-to-dc-calculators",
+    "title": "The limits of a simple AC to DC calculator",
+    "words": 1624,
+    "whitespaceWords": 1617,
+    "image": "/images/blogs/limits-of-simple-ac-to-dc-calculators.webp",
+    "sourceLinks": [
+      "https://www.ti.com/lit/ug/tidub95/tidub95.pdf",
+      "https://www.hammfg.com/electronics/transformers/rectifier"
+    ]
+  },
+  {
+    "slug": "linear-vs-switching-power-supplies",
+    "title": "Linear vs Switching AC to DC Power Supplies: Compare the Whole System",
+    "words": 1289,
+    "whitespaceWords": 1334,
+    "image": "/images/blogs/linear-vs-switching-power-supplies.webp",
+    "sourceLinks": [
+      "https://techweb.rohm.com/product/power-ic/acdc/6/",
+      "https://techweb.rohm.com/product/power-ic/acdc/12621/",
+      "https://www.ti.com/lit/an/slva118/slva118.pdf",
+      "https://www.ti.com/lit/ds/symlink/tps7a11.pdf",
+      "https://www.ti.com/lit/ds/symlink/tps735-q1.pdf",
+      "https://techweb.rohm.com/product/power-ic/dcdc/696/",
+      "https://www.ti.com/video/series/linear-ldo-low-iq-regulators.html"
+    ]
+  },
+  {
+    "slug": "measuring-rectifier-output-voltage",
+    "title": "Measuring rectifier output: know which voltage you mean",
+    "words": 1609,
+    "whitespaceWords": 1601,
+    "image": "/images/blogs/measuring-rectifier-output-voltage.webp",
+    "sourceLinks": [
+      "https://www.fluke.com/en-ie/learn/blog/digital-multimeters/facts-about-true-rms-measurement"
+    ]
+  },
+  {
+    "slug": "power-supply-stages-explained",
+    "title": "AC to DC Power Supply Stages: From Input to Regulated Output",
+    "words": 1305,
+    "whitespaceWords": 1305,
+    "image": "/images/blogs/power-supply-stages-explained.webp",
+    "sourceLinks": [
+      "https://techweb.rohm.com/product/power-ic/acdc/6/",
+      "https://techweb.rohm.com/product/power-ic/acdc/846/",
+      "https://www.hammfg.com/electronics/transformers/rectifier",
+      "https://www.ti.com/lit/ug/tidub95/tidub95.pdf",
+      "https://www.ti.com/lit/an/slva118/slva118.pdf"
+    ]
+  },
+  {
+    "slug": "power-supply-vs-battery-charger-and-led-driver",
+    "title": "Power Supply vs Battery Charger vs LED Driver",
+    "words": 1273,
+    "whitespaceWords": 1301,
+    "image": "/images/blogs/power-supply-vs-battery-charger-and-led-driver.webp",
+    "sourceLinks": [
+      "https://www.ti.com/lit/an/snva557/snva557.pdf",
+      "https://www.ti.com/video/5837776585001",
+      "https://www.ti.com/lit/an/slyt084/slyt084.pdf",
+      "https://www.ti.com/solution/led-power-supply",
+      "https://www.ti.com/document-viewer/lit/html/slvaf88",
+      "https://afdc.energy.gov/vehicles/electric-school-buses-p4-m1",
+      "https://www.energy.gov/cmei/systems/solar-power-electronic-devices"
+    ]
+  },
+  {
+    "slug": "rectifier-average-vs-rms-output",
+    "title": "Rectifier average versus RMS output: calculate both correctly",
+    "words": 1639,
+    "whitespaceWords": 1621,
+    "image": "/images/blogs/rectifier-average-vs-rms-output.webp",
+    "sourceLinks": [
+      "https://www.keysight.com/at/content/lib/resources/training-materials/tip-1-understand-true-rms-measurements-458364.html",
+      "https://assets.fluke.com/manuals/287_289_umeng0000.pdf"
+    ]
+  },
+  {
     "slug": "rectifier-ripple-frequency",
     "title": "Rectifier Ripple Frequency: Why Full-Wave Output Repeats at 2f",
     "words": 1612,
@@ -73,36 +226,16 @@
     ]
   },
   {
-    "slug": "ac-to-dc-calculator-worked-examples",
-    "title": "AC to DC calculator worked examples: average, peak, and ripple",
-    "words": 1662,
-    "whitespaceWords": 1631,
-    "image": "/images/blogs/ac-to-dc-calculator-worked-examples.webp",
+    "slug": "single-phase-vs-three-phase-rectifiers",
+    "title": "Single-Phase vs Three-Phase Rectifiers: Voltage and Ripple",
+    "words": 1251,
+    "whitespaceWords": 1279,
+    "image": "/images/blogs/single-phase-vs-three-phase-rectifiers.webp",
     "sourceLinks": [
-      "https://www.ti.com/lit/ug/tidub95/tidub95.pdf",
+      "https://vtechworks.lib.vt.edu/bitstream/handle/10919/30188/complete_final.pdf",
+      "https://www.mathworks.com/help/simscape-electrical/ref/averagevaluerectifierthreephase.html",
+      "https://library.e.abb.com/public/bc35ffb4386c4c039e3a8ec20cef89c5/Technical_guide_No_6_3AFE64292714_RevF_EN.pdf",
       "https://www.hammfg.com/electronics/transformers/rectifier"
-    ]
-  },
-  {
-    "slug": "bridge-rectifier-diode-losses",
-    "title": "Bridge rectifier diode losses: what a two-drop estimate means",
-    "words": 1592,
-    "whitespaceWords": 1584,
-    "image": "/images/blogs/bridge-rectifier-diode-losses.webp",
-    "sourceLinks": [
-      "https://www.vishay.com/docs/98775/kbpe0480.pdf",
-      "https://toshiba.semicon-storage.com/us/semiconductor/knowledge/e-learning/discrete/chap2/chap2-3.html"
-    ]
-  },
-  {
-    "slug": "capacitor-esr-and-ripple-current",
-    "title": "Capacitor ESR and ripple current: two different limits",
-    "words": 1615,
-    "whitespaceWords": 1613,
-    "image": "/images/blogs/capacitor-esr-and-ripple-current.webp",
-    "sourceLinks": [
-      "https://www.tdk-electronics.tdk.com/download/185386/5f33d2619fa73419e2a4af562122e90c/pdf-generaltechnicalinformation.pdf",
-      "https://www.analog.com/en/resources/analog-dialogue/articles/why-bypass-capacitor-choice-matters.html"
     ]
   },
   {
@@ -151,68 +284,6 @@
       "https://americas.hammondpowersolutions.com/en/resources/faq/general/what-is-voltage-regulation",
       "https://toshiba.semicon-storage.com/us/semiconductor/knowledge/e-learning/discrete/chap2/chap2-3.html",
       "https://www.ti.com/lit/ug/tidub95/tidub95.pdf"
-    ]
-  },
-  {
-    "slug": "ac-rms-to-peak-voltage-calculation",
-    "title": "AC RMS to peak voltage: derive the sine-wave conversion",
-    "words": 1623,
-    "whitespaceWords": 1606,
-    "image": "/images/blogs/ac-rms-to-peak-voltage-calculation.webp",
-    "sourceLinks": [
-      "https://www.tek.com/de/documents/application-note/fundamentals-ac-power-measurements"
-    ]
-  },
-  {
-    "slug": "ac-voltage-does-not-determine-dc-current",
-    "title": "Why AC voltage alone cannot tell you the available DC current",
-    "words": 1597,
-    "whitespaceWords": 1584,
-    "image": "/images/blogs/ac-voltage-does-not-determine-dc-current.webp",
-    "sourceLinks": [
-      "https://www.hammfg.com/electronics/transformers/rectifier"
-    ]
-  },
-  {
-    "slug": "bridge-rectifier-at-50hz-and-60hz",
-    "title": "Bridge rectifiers at 50 Hz and 60 Hz: what changes?",
-    "words": 1661,
-    "whitespaceWords": 1629,
-    "image": "/images/blogs/bridge-rectifier-at-50hz-and-60hz.webp",
-    "sourceLinks": [
-      "https://www.ti.com/lit/ug/tidub95/tidub95.pdf"
-    ]
-  },
-  {
-    "slug": "limits-of-simple-ac-to-dc-calculators",
-    "title": "The limits of a simple AC to DC calculator",
-    "words": 1624,
-    "whitespaceWords": 1617,
-    "image": "/images/blogs/limits-of-simple-ac-to-dc-calculators.webp",
-    "sourceLinks": [
-      "https://www.ti.com/lit/ug/tidub95/tidub95.pdf",
-      "https://www.hammfg.com/electronics/transformers/rectifier"
-    ]
-  },
-  {
-    "slug": "measuring-rectifier-output-voltage",
-    "title": "Measuring rectifier output: know which voltage you mean",
-    "words": 1609,
-    "whitespaceWords": 1601,
-    "image": "/images/blogs/measuring-rectifier-output-voltage.webp",
-    "sourceLinks": [
-      "https://www.fluke.com/en-ie/learn/blog/digital-multimeters/facts-about-true-rms-measurement"
-    ]
-  },
-  {
-    "slug": "rectifier-average-vs-rms-output",
-    "title": "Rectifier average versus RMS output: calculate both correctly",
-    "words": 1639,
-    "whitespaceWords": 1621,
-    "image": "/images/blogs/rectifier-average-vs-rms-output.webp",
-    "sourceLinks": [
-      "https://www.keysight.com/at/content/lib/resources/training-materials/tip-1-understand-true-rms-measurements-458364.html",
-      "https://assets.fluke.com/manuals/287_289_umeng0000.pdf"
     ]
   }
 ]

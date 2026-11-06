@@ -1,10 +1,13 @@
+import { contactRoute, adminContactRoute, purgeContact, type ContactEnv } from './contact.ts';
 import { adminApi } from '../server/admin.ts';
 import { GitHubRepository } from '../server/github.ts';
 import { authenticationRoute, authConfigured, sessionEmail, privateHeaders, type PasswordEnv } from './auth.ts';
-export interface Env extends PasswordEnv { ASSETS:{fetch(request:Request):Promise<Response>}; GITHUB_OWNER?:string; GITHUB_REPO?:string; GITHUB_BRANCH?:string; GITHUB_TOKEN?:string; }
+export interface Env extends PasswordEnv, ContactEnv { ASSETS:{fetch(request:Request):Promise<Response>}; GITHUB_OWNER?:string; GITHUB_REPO?:string; GITHUB_BRANCH?:string; GITHUB_TOKEN?:string; }
 export default {
+  async scheduled(_event:unknown,env:Env){await purgeContact(env);},
   async fetch(request:Request,env:Env):Promise<Response>{
     const url=new URL(request.url);
+    if(url.pathname==='/api/contact'||url.pathname==='/api/contact/challenge')return contactRoute(request,env);
     const admin=url.pathname==='/admin'||url.pathname.startsWith('/admin/')||url.pathname.startsWith('/api/admin/');
     if(!admin)return env.ASSETS.fetch(request);
     const authResponse=await authenticationRoute(request,env);if(authResponse)return authResponse;
@@ -17,6 +20,7 @@ export default {
       return new Response(null,{status:302,headers:{...privateHeaders,Location:new URL('/admin/login/',url.origin).href}});
     }
     if(url.pathname.startsWith('/api/admin/')){
+      if(url.pathname==='/api/admin/messages')return adminContactRoute(request,env);
       if(!env.GITHUB_TOKEN?.trim())return Response.json({error:'Repository access is not configured. Add the GITHUB_TOKEN runtime secret in this Worker’s Settings → Variables and Secrets, deploy, then retry.'},{status:503,headers:privateHeaders});
       try{return await adminApi(request,new GitHubRepository(env.GITHUB_OWNER??'',env.GITHUB_REPO??'',env.GITHUB_BRANCH??'main',env.GITHUB_TOKEN??''),'github');}
       catch{return Response.json({error:'GitHub editing is not configured.'},{status:503,headers:privateHeaders});}

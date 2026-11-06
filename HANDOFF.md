@@ -1,3 +1,9 @@
+# Current upgrade status — 6 November 2026
+
+See [docs/audits/UPGRADE-VERIFICATION.md](docs/audits/UPGRADE-VERIFICATION.md) for current implementation and evidence. All earlier counts, Access setup notes, contact-download flow and green branding below are historical and superseded. Current login uses the owner-set salted password hash without Zero Trust. GitHub-backed editing and Workers Builds were verified before this upgrade. The new upgrade is undergoing deployment verification; do not infer its live status from old entries.
+
+---
+
 # Handoff — updated 5 November 2026
 
 Project: `C:\Users\PC\Downloads\ac-to-dc-converter`.
@@ -97,3 +103,4 @@ The editor uses Markdown and safe preview, not WordPress itself. Ad manager supp
 3. Obtain the additional Access/Workers Builds management authorization or have the owner configure those integrations in Cloudflare. Then configure Access and the repository-scoped write secret, connect Workers Builds, and test authorized/unauthorized editor flows and the commit-to-public-site cycle. The owner will attach the custom domain later.
 4. Configure public operator contact/review policies, deliberately enable indexing, and verify live HTTPS/status/metadata/crawlers/calculator/admin/mobile/security behavior.
 5. Only then finish strategic Phase 1. Extract a separate master afterward, and prove that extracted master with an independent second website before reuse.
+
