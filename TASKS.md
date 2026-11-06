@@ -5,7 +5,7 @@
 - [x] Twenty-five reviewed guides, original diagrams, metadata and internal-link audits.
 - [x] Encrypted contact inbox implementation, D1 schema and runtime key provisioning.
 - [x] 99 automated tests, lint, zero-error Astro check, build and static audit; responsive/browser calculator checks.
-- [ ] Finish live upgrade deployment/contact/inbox evidence; see docs/audits/UPGRADE-VERIFICATION.md.
+- [x] Verify live upgrade deployment, contact receipt, private inbox read/archive/restore and dashboard section loading; see docs/audits/UPGRADE-VERIFICATION.md.
 - [ ] Owner custom-domain launch and indexing gate.
 - [ ] Only after Phase 1 passes: extract and validate a master template with an independent second demo.
 
