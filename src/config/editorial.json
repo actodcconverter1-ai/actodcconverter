@@ -4,7 +4,7 @@
   "description": "Estimate AC to DC rectifier output with defined circuit models, ripple estimates, and worked examples.",
   "socialImageAlt": "Sinusoidal AC, rectification, and smoothed DC illustrated",
   "seoTitleSuffix": "AC to DC Converter",
-  "domain": "https://actodcconverter.online",
+  "domain": "https://actodcconverter.org",
   "logo": "/images/logo/ac-dc-blue.svg",
   "favicon": "/images/icons/favicon-blue.svg",
   "socialImage": "/images/calculators/ac-dc-social.png",
@@ -13,7 +13,7 @@
   "contactEmail": "",
   "issueUrl": "",
   "twitterHandle": "",
-  "indexable": false,
+  "indexable": true,
   "defaultRobots": "index, follow",
   "ads": []
 }

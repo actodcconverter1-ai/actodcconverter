@@ -1,3 +1,5 @@
+Production-domain update (11 November 2026): the owner selected https://actodcconverter.org. Current canonical/indexing and redirect configuration is recorded in [docs/audits/DOMAIN-LAUNCH.md](docs/audits/DOMAIN-LAUNCH.md). Earlier .online/custom-domain/noindex launch notes below are historical and superseded.
+
 # Current upgrade status — 6 November 2026
 
 See [docs/audits/UPGRADE-VERIFICATION.md](docs/audits/UPGRADE-VERIFICATION.md) for current implementation and evidence. All earlier counts, Access setup notes, contact-download flow and green branding below are historical and superseded. Current login uses the owner-set salted password hash without Zero Trust. GitHub-backed editing and Workers Builds were verified before this upgrade. The new upgrade is undergoing deployment verification; do not infer its live status from old entries.

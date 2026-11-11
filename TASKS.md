@@ -1,3 +1,5 @@
+Production-domain update (11 November 2026): the owner selected https://actodcconverter.org. Current canonical/indexing and redirect configuration is recorded in [docs/audits/DOMAIN-LAUNCH.md](docs/audits/DOMAIN-LAUNCH.md). Earlier .online/custom-domain/noindex launch notes below are historical and superseded.
+
 # Current upgrade tasks — 6 November 2026
 
 - [x] Research, URL/keyword map, content briefs and Google guidance decisions before implementation.

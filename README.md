@@ -1,3 +1,5 @@
+Production-domain update (11 November 2026): the owner selected https://actodcconverter.org. Current canonical/indexing and redirect configuration is recorded in [docs/audits/DOMAIN-LAUNCH.md](docs/audits/DOMAIN-LAUNCH.md). Earlier .online/custom-domain/noindex launch notes below are historical and superseded.
+
 # AC to DC Converter — first website
 
 This is the first real site implementation, **not a validated master template**. The user requires this sequence: complete and deploy this website → verify production → extract a template → prove the extracted template with an independent second demo. Do not skip those gates.

@@ -1,4 +1,4 @@
-import settings from './editorial.json';
+import settings from './editorial.json' with { type: 'json' };
 export const site = {
   ...settings,
   colors: { primary: settings.primaryColor, accent: settings.accentColor },

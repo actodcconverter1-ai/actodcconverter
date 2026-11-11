@@ -1,4 +1,5 @@
 import { contactRoute, adminContactRoute, purgeContact, type ContactEnv } from './contact.ts';
+import { canonicalRedirect } from './canonical.ts';
 import { adminApi } from '../server/admin.ts';
 import { GitHubRepository } from '../server/github.ts';
 import { authenticationRoute, authConfigured, sessionEmail, privateHeaders, type PasswordEnv } from './auth.ts';
@@ -7,6 +8,7 @@ export default {
   async scheduled(_event:unknown,env:Env){await purgeContact(env);},
   async fetch(request:Request,env:Env):Promise<Response>{
     const url=new URL(request.url);
+    const redirect=canonicalRedirect(request);if(redirect)return redirect;
     if(url.pathname==='/api/contact'||url.pathname==='/api/contact/challenge')return contactRoute(request,env);
     const admin=url.pathname==='/admin'||url.pathname.startsWith('/admin/')||url.pathname.startsWith('/api/admin/');
     if(!admin)return env.ASSETS.fetch(request);

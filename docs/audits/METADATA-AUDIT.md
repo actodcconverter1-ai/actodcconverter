@@ -1,6 +1,6 @@
 # Rendered metadata audit
 
-Generated from the current static build. 46 public HTML pages reviewed; private dashboard excluded. Pixel widths are approximate rendered glyph bounds with 20px Arial requested (platform font fallback can differ), not a Google truncation or ranking rule. Titles and snippets can be rewritten by Google. Review directives intentionally remain noindex until the custom-domain launch gate is completed.
+Generated from the current static build. 46 public HTML pages reviewed; private dashboard excluded. Pixel widths are approximate rendered glyph bounds with 20px Arial requested (platform font fallback can differ), not a Google truncation or ranking rule. Titles and snippets can be rewritten by Google. Public pages use the configured indexing directive on the production domain; private routes and the 404 remain noindex.
 
 | Route | Title chars | Approx px | Description chars | Uniqueness | Recommendation |
 |---|---:|---:|---:|---|---|
