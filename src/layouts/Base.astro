@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { site } from '../config/site.config';
 import { seo, canonical } from '../config/seo.config';
 import AdSlot from '../components/AdSlot.astro';
+import Analytics from '../components/Analytics.astro';
 interface Props { title: string; titleIsComplete?:boolean; description: string; kind?: 'website' | 'article'; image?: string; imageAlt?: string; noindex?: boolean; schema?: Record<string, unknown>[]; }
 const { title, titleIsComplete=false, description, kind = 'website', image = site.social.image, imageAlt = site.social.imageAlt, noindex = false, schema = [] } = Astro.props;
 const url = canonical(Astro.url.pathname);
@@ -34,5 +35,6 @@ const structured = [{ '@context':'https://schema.org','@type':'Organization','@i
     </div></header>
     <main id="main"><div class="shell"><AdSlot placement="header" /></div><slot /><div class="shell"><AdSlot placement="footer" /></div></main>
     <footer><div class="shell"><div class="footer-top"><div><a class="brand" href="/">{site.wordmark}<span class="brand-dot">.</span></a><p>AC input. DC output. Clearly explained.</p></div><div class="footer-links"><a href="/about/">About</a><a href="/editorial/">Editorial standards</a><a href="/contact/">Contact</a><a href="/blog/">Guides</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a></div></div><div class="footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>Calculated in your browser. No account needed.</span></div></div></footer>
+    {!noindex && <Analytics/>}
   </body>
 </html>

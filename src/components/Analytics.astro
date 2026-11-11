@@ -1,0 +1,19 @@
+---
+import analytics from '../config/analytics.json';
+const active = /^G-[A-Z0-9]+$/.test(analytics.measurementId);
+---
+{active && <aside class="analytics-choice" data-analytics-id={analytics.measurementId}>
+  <button type="button" class="analytics-preferences" data-analytics-preferences hidden>Analytics privacy</button>
+  <section class="analytics-banner" data-analytics-banner hidden aria-labelledby="analytics-heading">
+    <h2 id="analytics-heading">Optional audience analytics</h2>
+    <p>Allow Google Analytics to help us understand page visits? It loads only if you agree. Calculator values and contact messages are not sent. <a href="/privacy/#analytics">Read our privacy policy</a>.</p>
+    <div class="analytics-actions"><button type="button" data-analytics-reject>Reject analytics</button><button type="button" data-analytics-allow>Allow analytics</button></div>
+    <p class="analytics-status" data-analytics-status role="status" aria-live="polite"></p>
+  </section>
+</aside>}
+<script>import '../scripts/analytics-client';</script>
+<style>
+.analytics-preferences{border:1px solid #8ca4bf;background:#fff;color:#17395f;padding:8px 12px;border-radius:6px;display:block;margin:0 auto 20px;font-size:.8rem}
+.analytics-banner{position:fixed;z-index:30;bottom:16px;left:16px;width:min(600px,calc(100% - 32px));max-height:80vh;overflow:auto;background:#fff;color:#17395f;padding:22px;border:1px solid #8ca4bf;border-radius:10px;box-shadow:0 8px 35px #122b4a33}
+.analytics-banner h2{font-size:1.2rem;margin:0 0 10px;letter-spacing:normal}.analytics-banner p{font-size:.88rem;line-height:1.6;color:#334e6b}.analytics-banner a{text-decoration:underline;color:#1756a0}.analytics-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.analytics-actions button{flex:1;min-width:140px;min-height:44px;padding:10px;background:#edf4ff;border:1px solid #416a9c;color:#17395f;border-radius:6px;font-weight:600}.analytics-status{margin-top:10px}
+</style>
