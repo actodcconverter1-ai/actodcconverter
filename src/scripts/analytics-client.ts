@@ -1,4 +1,4 @@
-import {analyticsCommands, analyticsPage, consentKey, readConsent, type AnalyticsConsent} from '../lib/analytics';
+import {analyticsCommands, analyticsPage, consentKey} from '../lib/analytics';
 
 declare global {
   interface Window {dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; [key: `ga-disable-${string}`]: boolean | undefined;}
@@ -8,15 +8,11 @@ const root = document.querySelector<HTMLElement>('[data-analytics-id]');
 if (root) {
   const id = root.dataset.analyticsId!;
   const page = analyticsPage(location.href);
-  const banner = root.querySelector<HTMLElement>('[data-analytics-banner]')!;
-  const preferences = root.querySelector<HTMLButtonElement>('[data-analytics-preferences]')!;
-  const status = root.querySelector<HTMLElement>('[data-analytics-status]')!;
-  let loaded = false;
-  let returnFocus = false;
-
-  function loadAnalytics() {
-    if (loaded || !page || !/^G-[A-Z0-9]+$/.test(id)) return;
-    loaded = true;
+  if (page && /^G-[A-Z0-9]+$/.test(id)) {
+    // No consent banner: the tag loads on every public page. A stored
+    // choice from the old banner (including a past rejection) must not
+    // keep disabling collection for returning visitors.
+    try { localStorage.removeItem(consentKey); } catch { /* Analytics still loads below without persistent storage. */ }
     analyticsWindow[`ga-disable-${id}`] = false;
     const dataLayer = analyticsWindow.dataLayer ??= [];
     // Google's queue uses an arguments object, so commands retain the supported shape.
@@ -27,54 +23,6 @@ if (root) {
     const script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
-    script.addEventListener('error', () => { status.textContent = 'Analytics could not load. The calculator and website remain available.'; });
     document.head.append(script);
-  }
-
-  function removeAnalyticsCookies() {
-    for (const item of document.cookie.split(';')) {
-      const name = item.trim().split('=')[0];
-      if (!/^_ga(?:_|$)|^_gid$|^_gat(?:_|$)/.test(name)) continue;
-      for (const domain of ['', '; Domain=' + location.hostname, '; Domain=.' + location.hostname]) {
-        document.cookie = name + '=; Max-Age=0; Path=/; SameSite=Lax; Secure' + domain;
-      }
-    }
-  }
-
-  function choose(choice: AnalyticsConsent) {
-    try { localStorage.setItem(consentKey, JSON.stringify({choice, updatedAt:Date.now()})); }
-    catch { status.textContent = 'Your browser cannot remember this preference. You can choose again on your next visit.'; }
-    banner.hidden = true;
-    if (returnFocus) preferences.focus();
-    if (choice === 'granted') loadAnalytics();
-    else {
-      analyticsWindow[`ga-disable-${id}`] = true;
-      removeAnalyticsCookies();
-      // A fresh document stops all previously loaded tag timers and listeners.
-      if (loaded) location.reload();
-    }
-  }
-
-  window.addEventListener('storage', event => {
-    if (event.key === consentKey && readConsent(event.newValue) !== 'granted' && loaded) {
-      analyticsWindow[`ga-disable-${id}`] = true;
-      removeAnalyticsCookies();
-      location.reload();
-    }
-  });
-
-  if (page) {
-    preferences.hidden = false;
-    preferences.addEventListener('click', () => { returnFocus = true; banner.hidden = false; root.querySelector<HTMLButtonElement>('[data-analytics-reject]')!.focus(); });
-    root.querySelector('[data-analytics-allow]')!.addEventListener('click', () => choose('granted'));
-    root.querySelector('[data-analytics-reject]')!.addEventListener('click', () => choose('denied'));
-    let choice: AnalyticsConsent | null = null;
-    try { choice = readConsent(localStorage.getItem(consentKey)); } catch { /* A choice remains available without persistent storage. */ }
-    if (choice === 'granted') loadAnalytics();
-    else {
-      analyticsWindow[`ga-disable-${id}`] = true;
-      removeAnalyticsCookies();
-      banner.hidden = choice === 'denied';
-    }
   }
 }
