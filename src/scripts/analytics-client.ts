@@ -1,4 +1,4 @@
-import {analyticsPage, analyticsReferrer, consentKey, readConsent, type AnalyticsConsent} from '../lib/analytics';
+import {analyticsCommands, analyticsPage, consentKey, readConsent, type AnalyticsConsent} from '../lib/analytics';
 
 declare global {
   interface Window {dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; [key: `ga-disable-${string}`]: boolean | undefined;}
@@ -23,12 +23,7 @@ if (root) {
     // eslint-disable-next-line prefer-rest-params -- Preserve Google's documented arguments queue.
     const gtag: (...args: unknown[]) => void = function () { dataLayer.push(arguments); };
     analyticsWindow.gtag = gtag;
-    gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
-    gtag('consent', 'update', {analytics_storage:'granted', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
-    gtag('js', new Date());
-    const context = {page_location:page, page_referrer:analyticsReferrer(document.referrer), page_title:document.title};
-    gtag('config', id, {...context, send_page_view:false, allow_google_signals:false, allow_ad_personalization_signals:false, cookie_expires:15552000, cookie_update:false});
-    gtag('event', 'page_view', {...context, send_to:id});
+    for (const command of analyticsCommands(id, location.href, document.referrer, document.title)) gtag(...command);
     const script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
