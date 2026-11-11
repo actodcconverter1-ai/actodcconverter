@@ -26,3 +26,13 @@ Before this change, the .org zone was active and bound to ac-to-dc-converter in 
 The owner should add/verify the domain property actodcconverter.org in Google Search Console, submit the sitemap URL above, and inspect the homepage and a sample article. No Search Console property access or Google verification token was supplied. Search engines control crawling, indexing and rankings; index/follow and successful tests do not guarantee inclusion. The earlier performance/field-data/independent review limitations remain documented in UPGRADE-VERIFICATION.md.
 
 Primary references: [Google permanent redirects](https://developers.google.com/search/docs/crawling-indexing/301-redirects), [Cloudflare custom domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/), [Worker-first routing](https://developers.cloudflare.com/workers/static-assets/routing/worker-script/).
+
+## Verified production results
+
+Commit 2a3bbdecf55372815c799030361cbc7787ee499e passed GitHub Verify and Workers Builds. Live https://actodcconverter.org/build-info.json returned that exact revision. GitHub run: https://github.com/actodcconverter1-ai/actodcconverter/actions/runs/42966647071 ; Cloudflare build 430be71d-8a5a-4554-b8a1-1c2edea80825, deployed version 917e2784-16af-47e7-b45c-a1f3c67e8a64.
+
+Live checks passed: apex HTTP -> HTTPS 301; legacy workers.dev -> matching .org path 301; query preservation; directory/index.html normalization; homepage 200 with self-canonical and index/follow; robots.txt 200 with sitemap advertisement; sitemap.xml 200 with 45 exclusively .org URLs; missing page 404/noindex; admin 302 to the same-origin login; unauthenticated API 401/noindex/private-no-store; contact challenge 200.
+
+Both apex and www custom-domain bindings were confirmed in the dedicated Cloudflare account. Public Cloudflare DNS returned two A records for www. The local resolver retained a negative DNS cache from the initial missing record; using a current public DNS answer with normal TLS certificate validation confirmed both www HTTPS and HTTP return 301 directly to HTTPS non-www, retaining the path/query. No certificate bypass or system DNS setting change was used. Individual resolvers can need time to refresh their cached answers.
+
+The existing login email and password verifier are unchanged. Sessions are origin-bound: use https://actodcconverter.org/admin/ and sign in again there. No secret was added to source, .env or public settings. Search Console verification/submission remains an owner step; Google indexing and rankings are not claimed.
