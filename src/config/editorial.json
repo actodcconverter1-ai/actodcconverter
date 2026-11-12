@@ -1,6 +1,6 @@
 {
   "name": "AC to DC Converter",
-  "wordmark": "AC/DC Calc",
+  "wordmark": "AC to DC Converter",
   "description": "Estimate AC to DC rectifier output with defined circuit models, ripple estimates, and worked examples.",
   "socialImageAlt": "Sinusoidal AC, rectification, and smoothed DC illustrated",
   "seoTitleSuffix": "AC to DC Converter",
