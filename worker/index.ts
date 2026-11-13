@@ -4,6 +4,11 @@ import { adminApi } from '../server/admin.ts';
 import { GitHubRepository } from '../server/github.ts';
 import { authenticationRoute, authConfigured, sessionEmail, privateHeaders, type PasswordEnv } from './auth.ts';
 export interface Env extends PasswordEnv, ContactEnv { ASSETS:{fetch(request:Request):Promise<Response>}; GITHUB_OWNER?:string; GITHUB_REPO?:string; GITHUB_BRANCH?:string; GITHUB_TOKEN?:string; }
+function privateAsset(result:Response):Response {
+  const headers=new Headers(result.headers);
+  for(const [name,value] of Object.entries(privateHeaders))headers.set(name,value);
+  return new Response(result.body,{status:result.status,headers});
+}
 export default {
   async scheduled(_event:unknown,env:Env){await purgeContact(env);},
   async fetch(request:Request,env:Env):Promise<Response>{
@@ -15,7 +20,7 @@ export default {
     const authResponse=await authenticationRoute(request,env);if(authResponse)return authResponse;
     const loginPage=['/admin/login','/admin/login/','/admin/login/index.html'].includes(url.pathname);
     const setupPage=['/admin/password-setup','/admin/password-setup/','/admin/password-setup/index.html'].includes(url.pathname);
-    if(loginPage||setupPage){const result=await env.ASSETS.fetch(request);return new Response(result.body,{status:result.status,headers:{...Object.fromEntries(result.headers),...privateHeaders}});}
+    if(loginPage||setupPage)return privateAsset(await env.ASSETS.fetch(request));
     const email=await sessionEmail(request,env);
     if(!email){
       if(url.pathname.startsWith('/api/admin/'))return Response.json({error:authConfigured(env)?'Please sign in to the dashboard.':'The owner must finish password setup.'},{status:authConfigured(env)?401:503,headers:privateHeaders});
@@ -27,6 +32,6 @@ export default {
       try{return await adminApi(request,new GitHubRepository(env.GITHUB_OWNER??'',env.GITHUB_REPO??'',env.GITHUB_BRANCH??'main',env.GITHUB_TOKEN??''),'github');}
       catch{return Response.json({error:'GitHub editing is not configured.'},{status:503,headers:privateHeaders});}
     }
-    const result=await env.ASSETS.fetch(request);return new Response(result.body,{status:result.status,headers:{...Object.fromEntries(result.headers),...privateHeaders}});
+    return privateAsset(await env.ASSETS.fetch(request));
   },
 };

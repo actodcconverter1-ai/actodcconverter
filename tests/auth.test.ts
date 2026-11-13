@@ -28,3 +28,14 @@ test('login and local-only hash generator are reachable without an authenticated
 test('authenticated editor receives an actionable missing runtime token error',async()=>{const settings={...env(),ASSETS:{fetch:async()=>new Response('asset')}};const token=await createSession('editor@example.com',origin,settings);const response=await worker.fetch(cookieRequest(token,origin+'/api/admin/session'),settings);assert.equal(response.status,503);assert.match((await response.json()).error,/GITHUB_TOKEN runtime secret/);assert.equal(response.headers.get('Cache-Control'),'private, no-store');});
 
 test('private contact inbox cannot bypass Worker authentication',async()=>{const settings={...env(),ASSETS:{fetch:async()=>new Response('asset')}};for(const method of ['GET','PUT']){const response=await worker.fetch(new Request(origin+'/api/admin/messages',{method}),settings);assert.equal(response.status,401);assert.equal(response.headers.get('Cache-Control'),'private, no-store');}});
+test('private login, editor and API keep external analytics scripts blocked',async()=>{
+ const settings={...env(),ASSETS:{fetch:async()=>new Response('asset', {headers:{'Content-Security-Policy':"script-src 'self' https://static.cloudflareinsights.com"}})}};
+ const token=await createSession('editor@example.com',origin,settings);
+ for(const input of [new Request(origin+'/admin/login/'),cookieRequest(token,origin+'/admin/'),new Request(origin+'/api/admin/session')]){
+  const response=await worker.fetch(input,settings);
+  const policy=response.headers.get('Content-Security-Policy')!;
+  assert.match(policy,/script-src 'self';/);
+  assert.match(policy,/connect-src 'self';/);
+  assert.ok(!policy.includes('cloudflareinsights.com')&&!policy.includes('googletagmanager.com'));
+ }
+});

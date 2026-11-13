@@ -9,7 +9,7 @@ const encoder=new TextEncoder();
 const COOKIE='__Host-acdc_admin';
 const SESSION_SECONDS=8*60*60;
 const ISSUER='acdc-editorial';
-export const privateHeaders={'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff'};
+export const privateHeaders={'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self'; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"};
 const json=(value:unknown,status=200,headers:Record<string,string>={})=>Response.json(value,{status,headers:{...privateHeaders,...headers}});
 const HASH_FORMAT=/^pbkdf2-sha256:100000:[A-Za-z0-9_-]{22}:[A-Za-z0-9_-]{43}$/;
 export function authConfigured(env:PasswordEnv){return !!env.ADMIN_EMAILS&&HASH_FORMAT.test(env.ADMIN_PASSWORD_HASH??'')&&!!env.ADMIN_SESSION_SECRET&&env.ADMIN_SESSION_SECRET.length>=32&&!!env.LOGIN_RATE_LIMITER;}
