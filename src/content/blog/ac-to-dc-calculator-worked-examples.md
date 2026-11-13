@@ -6,6 +6,7 @@ image: /images/blogs/ac-to-dc-calculator-worked-examples.webp
 imageAlt: 'Worked 12 V RMS bridge example showing 15.5706 V top, 15.0706 V average, and 14.5706 V valley'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
+updatedDate: 2026-11-13
 categories: [worked-examples, rectifier-basics]
 tags: [AC to DC examples, bridge calculator, ripple]
 seoTitle: 'AC to DC Calculator Worked Examples with Ripple'
@@ -15,11 +16,22 @@ status: published
 
 A worked example is useful when it shows the assumptions as clearly as the arithmetic. The same AC RMS input can produce different quoted DC quantities because an ideal unfiltered rectifier and a capacitor-filtered bridge do not have the same waveform. Even within one filtered model, the load and capacitor assumptions affect the result.
 
-The examples below use the exact models implemented by the [AC to DC calculator](/ac-to-dc-calculator/). They are hypothetical numerical cases, not measured equipment performance or component recommendations. Each starts by naming the circuit, records the units, and distinguishes peak, average, valley, and peak-to-peak ripple. That makes the results reproducible and prevents a plausible number from being applied to the wrong circuit.
+These are hypothetical numerical checks, not measured equipment performance or component recommendations. The [AC to DC calculator](/ac-to-dc-calculator/) now separates basic rectification, filtering and regulator analysis. For these examples, use mode B with a four-diode bridge and constant-current load for filtered results. For ideal results, choose mode A, the stated topology, and a forward drop of zero; the separate ideal tools linked below reproduce those same reference averages.
+
+## Result checklist before entering numbers
+
+| Reference case | Mean output | Valley | Pulse frequency |
+|---|---|---|---|
+| 12 V RMS, ideal full-wave | 10.803796 V | 0 V | 100 Hz at 50 Hz input |
+| 12 V RMS, ideal half-wave | 5.401898 V | 0 V | 50 Hz at 50 Hz input |
+| Default filtered bridge | Approximately 15.070563 V | Approximately 14.570563 V | 100 Hz |
+| Default bridge with only 100 µF | Rejected: estimated ripple exceeds scope | Do not report an accepted-model result | 100 Hz charging opportunities |
+
+The filtered row additionally requires 0.7 V per diode, 0.1 A and 1,000 µF. Voltage alone does not specify this result. Work through the arithmetic before comparing rounded screen values.
 
 ## Example one: the default 12 V filtered bridge
 
-Choose the bridge-plus-capacitor model. Enter 12 V sinusoidal RMS, 50 Hz AC input, an assumed 0.7 V drop per conducting diode, constant 0.1 A load current, and 1,000 µF capacitance.
+Choose mode B, Filtered DC output, and the four-diode bridge. Enter 12 V sinusoidal RMS, 50 Hz AC input, an assumed 0.7 V drop per conducting diode, constant 0.1 A load current, and 1,000 µF capacitance.
 
 First calculate the input sine peak: 12 × √2 ≈ 16.970563 V. Two conducting diode drops subtract 1.4 V, leaving an estimated available top of 15.570563 V. Convert capacitance to farads: 1,000 µF = 0.001 F.
 
@@ -35,7 +47,7 @@ The charge-balance basis and doubled bridge ripple frequency are described in [T
 
 ## Example two: ideal full-wave without a capacitor
 
-Keep 12 V RMS and 50 Hz, but select ideal full-wave with no filter. Diodes are now assumed lossless and the load is resistive. The capacitor, load-current, and diode-drop controls are irrelevant to this selected model.
+Keep 12 V RMS and 50 Hz, but choose mode A with a bridge and zero forward drop, or use the [ideal full-wave tool](/full-wave-rectifier-calculator/). The load is resistive and there is no storage capacitor. A nonzero diode setting in mode A describes a different clipped waveform.
 
 The sine peak remains 16.970563 V. The complete-cycle average of an absolute sine is 2 times its peak divided by π. Therefore average output is 2 × 16.970563/π ≈ 10.803796 V. The waveform's valley is zero and its peak-to-peak variation is 16.970563 V. It repeats twice per input cycle, giving 100 Hz ripple repetition.
 
@@ -43,7 +55,7 @@ This average is lower than the filtered example because the waveform returns to 
 
 ## Example three: ideal half-wave over a complete cycle
 
-Choose ideal half-wave with the same 12 V RMS sine and 50 Hz input. One half-cycle contributes output while the other is blocked. The average is calculated over the entire input period, including the blocked half-cycle.
+Choose mode A, half-wave and zero forward drop with the same 12 V RMS sine and 50 Hz input, or open the [ideal half-wave tool](/half-wave-rectifier-calculator/). One half-cycle contributes output while the other is blocked. The average is calculated over the entire input period, including the blocked half-cycle.
 
 The average is peak divided by π: 16.970563/π ≈ 5.401898 V. Peak remains 16.970563 V, valley is zero, and the waveform repeats once per AC cycle, giving 50 Hz ripple repetition. The average is half the ideal full-wave result for the same RMS input.
 
@@ -97,10 +109,8 @@ When reporting a result, use its proper name: ideal waveform average, estimated 
 
 For a deeper understanding of the default result, read the [capacitor ripple guide](/blog/capacitor-ripple-explained/) and the [rectifier formula comparison](/blog/ac-to-dc-formulas/). They explain why each equation applies where it does and why a different circuit deserves a different calculation.
 
-## Prepare an issue report that someone can reproduce
+## Use the failed example as a model check
 
-If a result appears wrong, include the input RMS value, selected rectifier mode, input frequency, and every active filtered setting. State the displayed quantity you disagree with and show an independently worked expected value. Include the formula and units rather than only a screenshot of a final number.
+The 100 µF case implies a 10 V drop against a 15.570563 V crest. The allowed 20% scope boundary would instead be approximately 3.114113 V. That comparison independently explains the rejection without interpreting a missing answer as a website fault. A larger capacitor can reduce modeled ripple, but its voltage, ripple-current, ESR and inrush requirements still need separate assessment. Read the [smoothing-capacitor guide](/blog/smoothing-capacitor-calculation/) before turning this arithmetic into a component choice.
 
-For example, a useful report might state that a filtered bridge at 12 V RMS, 50 Hz, 0.1 A, 1,000 µF, and 0.7 V per diode should have 1 V peak-to-peak ripple because the denominator is 0.1. That evidence immediately identifies the model and arithmetic being checked. A report about an ideal unfiltered average would use a different formula and should say so.
-
-Also distinguish a calculation discrepancy from a mismatch with physical equipment. A measurement can differ because its waveform, location, load, or omitted circuit behavior differs from the assumptions. Recording those details helps decide whether the correction belongs in the arithmetic, input interpretation, model explanation, or a more complete analysis of the circuit itself.
+For a correction report, include the selected mode, topology, RMS voltage, frequency, diode setting and active load/capacitor values. State which displayed quantity differs and show the independent equation with units. Send it through the [private contact form](/contact/). Distinguish a calculation discrepancy from a physical measurement: real source impedance, charging pulses, measurement location and load behavior can explain differences outside the model.

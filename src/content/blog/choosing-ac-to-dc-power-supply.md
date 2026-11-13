@@ -6,6 +6,7 @@ image: /images/blogs/choosing-ac-to-dc-power-supply.webp
 imageAlt: "Power supply selection checks linking load voltage, current, operating conditions, and protection"
 author: AC to DC Converter editorial
 pubDate: 2026-11-05
+updatedDate: 2026-11-13
 categories: [power-supply-concepts]
 tags: [power supply ratings, load current, derating, DC output]
 seoTitle: "Choose an AC to DC Power Supply: Ratings That Matter"
@@ -13,9 +14,21 @@ metaDescription: "Choose an AC to DC supply by matching voltage, continuous and 
 status: published
 ---
 
-Choose an AC-to-DC power supply by starting with the load's documented requirements, not with a familiar connector or a voltage guessed from the AC input. The correct output voltage, suitable current capability, polarity, operating environment, and protection behavior all matter. A supply that passes one of those checks may still be unsuitable overall.
+Choose an AC-to-DC power supply by starting with the load's documented requirements, not with a familiar connector or a voltage guessed from the AC input. Confirm voltage, current capability, polarity, environment and protection together; passing one check cannot establish compatibility.
 
-This guide explains a selection process rather than recommending products or describing mains wiring. An adapter for consumer equipment, an enclosed industrial supply, a battery charger, and an LED driver can have very different interfaces and control requirements. The equipment documentation and the selected supply's datasheet remain the deciding references.
+This guide explains selection, not mains wiring. Adapters, industrial supplies, battery chargers and LED drivers have different interfaces and control requirements. Equipment documentation and the supply datasheet remain the deciding references.
+
+## A selection checklist before comparing products
+
+| Requirement to record | Evidence needed |
+| --- | --- |
+| Output voltage and allowed range | Equipment specification, including ripple and transients |
+| Continuous and startup demand | Current profile and permitted duration |
+| Connector and polarity | Dimensions, pin assignment and current capability |
+| Input and environment | AC range, ambient temperature, ventilation and installation type |
+| Usable output and protection | Actual derating curve and documented overload behavior |
+
+Use this as a decision record, not a generic percentage margin. A missing requirement needs investigation before a product can be called compatible.
 
 ## First identify what kind of output the load expects
 
@@ -29,7 +42,7 @@ For the underlying circuit distinction, read [unregulated versus regulated suppl
 
 Use the equipment's specified operating voltage and allowed range. A nominal label such as 12 V does not tell you how much deviation the load tolerates. Include output accuracy, load regulation, line regulation, ripple, startup overshoot, and voltage drop in connecting conductors when evaluating the voltage delivered to the equipment.
 
-Common labels describe different supply families rather than interchangeable choices:
+Matching a nominal rail still leaves these questions:
 
 | Nominal DC level | Questions that remain after matching the number |
 | --- | --- |
@@ -56,6 +69,8 @@ For a DC output, output power is Vout × Iout. A 12 V load drawing 2 A continuou
 Suppose a hypothetical 12 V, 3 A supply is rated for 36 W under its stated reference conditions. If its documented operating-temperature curve permits only 80% of that output at the actual ambient condition, the available continuous power becomes 28.8 W, or 2.4 A at 12 V. That exceeds the example's 2 A continuous demand but does not, by itself, validate the 3 A startup event.
 
 This example illustrates how to read ratings; the 80% figure is an assumed datasheet condition, not a general derating rule. A manufacturer's particular rating, curve, and peak specification must replace each assumed value.
+
+The hypothetical supply has passed only one gate: 24 W continuous demand is below its assumed 28.8 W derated capability. It still needs a documented 3 A startup allowance, correct voltage tolerance/polarity, input compatibility and the intended installation conditions. If no suitable peak specification is available, the selection remains unresolved rather than automatically passing because the nameplate says 36 W.
 
 ## Apply the actual derating conditions
 
@@ -103,4 +118,4 @@ No universal percentage covers all loads and environments. A manufacturer's reco
 
 No. Current capability depends on the entire supply and its operating limits. See [why AC voltage does not determine DC current](/blog/ac-voltage-does-not-determine-dc-current/) for the missing information.
 
-Record the chosen voltage range, current profile, power budget, environmental conditions, interface, and protection requirements before choosing a supply. That short specification is more useful than comparing wattage labels without a defined load.
+Keep the completed checklist with the equipment and supply documents. Record unresolved requirements explicitly; a matching wattage label cannot close them.

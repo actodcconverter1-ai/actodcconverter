@@ -12,8 +12,8 @@
   {
     "slug": "ac-to-dc-calculator-worked-examples",
     "title": "AC to DC calculator worked examples: average, peak, and ripple",
-    "words": 1662,
-    "whitespaceWords": 1631,
+    "words": 1774,
+    "whitespaceWords": 1764,
     "image": "/images/blogs/ac-to-dc-calculator-worked-examples.webp",
     "sourceLinks": [
       "https://www.ti.com/lit/ug/tidub95/tidub95.pdf",
@@ -23,8 +23,8 @@
   {
     "slug": "ac-to-dc-formulas",
     "title": "AC to DC Formulas: Choose the Circuit Before the Multiplier",
-    "words": 1609,
-    "whitespaceWords": 1602,
+    "words": 1744,
+    "whitespaceWords": 1772,
     "image": "/images/blogs/ac-to-dc-formulas.webp",
     "sourceLinks": [
       "https://www.hammfg.com/electronics/transformers/rectifier",
@@ -86,8 +86,8 @@
   {
     "slug": "choosing-ac-to-dc-power-supply",
     "title": "How to Choose an AC to DC Power Supply for a Defined Load",
-    "words": 1343,
-    "whitespaceWords": 1377,
+    "words": 1444,
+    "whitespaceWords": 1500,
     "image": "/images/blogs/choosing-ac-to-dc-power-supply.webp",
     "sourceLinks": [
       "https://www.meanwell.com/productManual.aspx",
@@ -110,8 +110,8 @@
   {
     "slug": "full-wave-bridge-rectifier-explained",
     "title": "Full-Wave Bridge Rectifiers: Output Waveform, Average, and Filtering",
-    "words": 1630,
-    "whitespaceWords": 1616,
+    "words": 1707,
+    "whitespaceWords": 1726,
     "image": "/images/blogs/full-wave-bridge-rectifier-explained.webp",
     "sourceLinks": [
       "https://www.hammfg.com/electronics/transformers/rectifier"
@@ -120,8 +120,8 @@
   {
     "slug": "half-wave-vs-full-wave-rectifier",
     "title": "Half-Wave vs Full-Wave Rectifiers: Compare the Same Quantities",
-    "words": 1632,
-    "whitespaceWords": 1612,
+    "words": 1715,
+    "whitespaceWords": 1730,
     "image": "/images/blogs/half-wave-vs-full-wave-rectifier.webp",
     "sourceLinks": [
       "https://www.hammfg.com/electronics/transformers/rectifier"
@@ -241,8 +241,8 @@
   {
     "slug": "smoothing-capacitor-calculation",
     "title": "Smoothing capacitor calculation: from load current to ripple",
-    "words": 1584,
-    "whitespaceWords": 1569,
+    "words": 1667,
+    "whitespaceWords": 1678,
     "image": "/images/blogs/smoothing-capacitor-calculation.webp",
     "sourceLinks": [
       "https://www.ti.com/lit/ug/tidub95/tidub95.pdf",

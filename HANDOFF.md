@@ -1,3 +1,5 @@
+13 November 2026 SEO implementation: see [docs/audits/SEO-OPTIMIZATION-2026-11-13.md](docs/audits/SEO-OPTIMIZATION-2026-11-13.md) for homepage, six-guide and mobile validation. Latest owner wordmark and automatic GA4 are preserved. Production deployment evidence is recorded in that report after release.
+
 Production-domain update (11 November 2026): the owner selected https://actodcconverter.org. Current canonical/indexing and redirect configuration is recorded in [docs/audits/DOMAIN-LAUNCH.md](docs/audits/DOMAIN-LAUNCH.md). Earlier .online/custom-domain/noindex launch notes below are historical and superseded.
 
 # Current upgrade status — 6 November 2026

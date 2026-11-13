@@ -1,9 +1,30 @@
 ---
-import Base from '../layouts/Base.astro';import ConverterWorkbench from '../components/ConverterWorkbench.astro';import EducationOverview from '../components/EducationOverview.astro';import ArticleCards from '../components/ArticleCards.astro';import{posts}from'../lib/posts';
-const all=await posts();const preferred=['power-supply-stages-explained','ac-to-dc-formulas','choosing-ac-to-dc-power-supply','full-wave-bridge-rectifier-explained','linear-vs-switching-power-supplies','power-supply-vs-battery-charger-and-led-driver'];const articles=preferred.map(slug=>all.find(entry=>entry.data.slug===slug)).filter((entry):entry is NonNullable<typeof entry>=>!!entry);
+import Base from '../layouts/Base.astro';
+import ConverterWorkbench from '../components/ConverterWorkbench.astro';
+import BridgeExample from '../components/BridgeExample.astro';
+import EducationOverview from '../components/EducationOverview.astro';
+import ArticleCards from '../components/ArticleCards.astro';
+import {posts} from '../lib/posts';
+const all = await posts();
+const preferred = ['ac-to-dc-formulas', 'ac-to-dc-calculator-worked-examples', 'full-wave-bridge-rectifier-explained', 'smoothing-capacitor-calculation', 'half-wave-vs-full-wave-rectifier', 'choosing-ac-to-dc-power-supply', 'power-supply-stages-explained', 'limits-of-simple-ac-to-dc-calculators'];
+const articles = preferred.map(slug => all.find(entry => entry.data.slug === slug)).filter((entry): entry is NonNullable<typeof entry> => !!entry);
 ---
-<Base title="AC to DC Converter: Calculator, Circuits & Types" titleIsComplete description="Use the AC to DC converter calculator, compare rectifier types, read circuit diagrams, and understand filtering, regulation, ripple, losses and applications.">
- <section class="hub-hero shell"><div><p class="eyebrow">CALCULATE THE OUTPUT. UNDERSTAND THE CIRCUIT.</p><h1>AC to DC converter.<br/><em>Clarity at every stage.</em></h1><p>Calculate rectifier output, explore the circuits, and see how diodes, capacitors and regulators turn an AC waveform into useful DC power.</p><div class="hub-actions"><a class="button" href="#calculator">Use the calculator ↗</a><a class="text-action" href="#working-principle">Learn how conversion works ↓</a></div><div class="trust-strip"><span>Defined models</span><span>Source-linked guides</span><span>No signup needed</span></div></div><figure class="hero-wave"><svg viewBox="0 0 440 240" role="img" aria-label="AC input, rectified pulses and filtered DC shown as three different waveforms"><rect width="440" height="240" rx="18" fill="#eef5ff"/><g fill="#173759" font-family="Arial,sans-serif" font-size="17"><text x="25" y="38">AC input</text><text x="25" y="108">Rectified output</text><text x="25" y="181">Filtered DC</text></g><path d="M165 52C180 2 195 2 210 52S240 102 255 52S285 2 300 52S330 102 345 52S375 2 390 52" fill="none" stroke="#6c8db4" stroke-width="3"/><path d="M165 132Q188 65 210 132Q233 65 255 132Q278 65 300 132Q323 65 345 132Q368 65 390 132" fill="none" stroke="#1764c0" stroke-width="3"/><path d="M165 197L209 207L210 197L254 207L255 197L299 207L300 197L344 207L345 197L390 207" fill="none" stroke="#1764c0" stroke-width="3"/></svg><figcaption>Direction, ripple and regulation describe different parts of the conversion process.</figcaption></figure></section>
- <div class="shell"><ConverterWorkbench/></div><EducationOverview/>
- <section class="shell hub-guides"><p class="eyebrow">GO DEEPER, ONE QUESTION AT A TIME</p><div class="section-heading"><h2>AC to DC converter guides</h2><a href="/blog/">Browse every guide →</a></div><ArticleCards entries={articles}/></section>
+<Base title="AC to DC Converter: Calculator, Circuits & Formulas" titleIsComplete description="Calculate AC to DC output, ripple and regulator losses. Compare rectifier circuits, follow a 12 V worked example, and choose formulas for your load.">
+  <section class="hub-hero shell">
+    <div>
+      <p class="eyebrow">CALCULATOR · CIRCUITS · PRACTICAL GUIDES</p>
+      <h1>AC to DC Converter <span>Calculate output and understand the circuit</span></h1>
+      <p>Estimate rectified or capacitor-filtered DC from a sinusoidal AC input, or check a downstream regulator. See the output, ripple and assumptions together.</p>
+      <div class="hub-actions"><a class="button" href="#calculator">Calculate output ↓</a><a class="text-action" href="#working-principle">Explore circuits ↓</a></div>
+      <div class="trust-strip"><span>Runs on your device</span><span>Source-linked methods</span><span>No signup</span></div>
+    </div>
+    <aside class="hero-models" aria-label="Choose the right output model">
+      <p class="eyebrow">THREE DIFFERENT QUESTIONS</p>
+      <dl><div><dt>Rectified</dt><dd>Pulsating output; average and RMS differ.</dd></div><div><dt>Filtered</dt><dd>A capacitor reduces ripple; load changes the result.</dd></div><div><dt>Regulated</dt><dd>A target voltage requires headroom and a suitable stage.</dd></div></dl>
+      <a href="#conversion-formulas">Which formula applies? →</a>
+    </aside>
+  </section>
+  <div class="shell"><ConverterWorkbench/><BridgeExample/></div>
+  <EducationOverview/>
+  <section class="shell hub-guides"><p class="eyebrow">GO DEEPER, ONE QUESTION AT A TIME</p><div class="section-heading"><h2>AC to DC converter guides</h2><a href="/blog/">Browse every guide →</a></div><ArticleCards entries={articles}/></section>
 </Base>

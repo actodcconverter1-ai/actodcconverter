@@ -8,6 +8,7 @@ imageAlt: "Three model equations compared: full-wave average, half-wave average,
   and capacitor-filtered bridge estimate"
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
+updatedDate: 2026-11-13
 categories:
   - rectifier-basics
 tags:
@@ -23,7 +24,20 @@ status: published
 
 An AC voltage does not have one universal DC equivalent. The answer depends on the waveform, the rectifier, any filtering, and the quantity being reported. A calculator that multiplies every AC reading by the same number leaves those decisions hidden. A more useful calculation starts with a circuit model and identifies whether the result is a peak, a complete-cycle average, or an approximate filtered level.
 
-This guide works through three models used by the [AC to DC calculator](/ac-to-dc-calculator/): an ideal unfiltered full-wave rectifier, an ideal unfiltered half-wave rectifier, and a capacitor-filtered bridge estimate. All begin with sinusoidal, single-phase AC RMS voltage at the rectifier input. They solve different problems, so their results should be compared with their assumptions attached.
+This guide selects between three reference cases: an ideal unfiltered full-wave rectifier, an ideal unfiltered half-wave rectifier, and a capacitor-filtered bridge. Each starts with sinusoidal, single-phase RMS voltage at the rectifier input. The [calculator methodology](/ac-to-dc-calculator/#methodology) also covers nonzero diode-drop clipping, resistance loads and a separate regulator stage; those additional models should not silently inherit an ideal multiplier.
+
+## Choose the formula by circuit and output quantity
+
+| Question | Relationship | Required scope |
+|---|---|---|
+| What is the sine crest? | Vpk = √2 Vrms | Sinusoidal AC, measured at the rectifier input |
+| What is the full-wave mean? | Vavg = 2Vpk/π | No capacitor, ideal zero-drop diodes, complete-cycle average |
+| What is the half-wave mean? | Vavg = Vpk/π | One half-cycle blocked, zero-drop diode, average includes the blocked interval |
+| What crest can charge a bridge capacitor? | Vtop ≈ max(0, Vpk − 2Vf) | Two conducting drops; not the loaded average |
+| How much current-load ripple? | ΔVpp ≈ I/(2fC) | Bridge, small approximately linear discharge, constant current |
+| What are filtered mean and valley? | Vavg ≈ Vtop − ΔVpp/2; Vvalley ≈ Vtop − ΔVpp | Same current-load approximation; not regulation |
+
+Use mode B with a bridge and constant-current load for the filtered rows. To reproduce either ideal average in mode A, set forward drop to zero and choose the corresponding topology. A nonzero drop changes the conducting interval, so it needs the calculator's clipped-sine calculation. A downstream regulator needs its own input-valley and device-headroom checks.
 
 ## Start with sinusoidal RMS input
 
@@ -87,7 +101,7 @@ Do not subtract two fixed diode drops from the ideal full-wave average and assum
 
 Do not apply the ideal full-wave multiplier to a capacitor-filtered result. Do not use peak-to-peak input voltage as though it were RMS. Do not interpret the same formula as a regulated adapter, inverter, three-phase converter, or switching power supply model. Similar product names do not make their mathematical assumptions equivalent.
 
-For reproducible results, record the input RMS voltage, frequency, selected model, and all active filter settings. State whether the reported output is an ideal waveform average or a filtered estimate. Then read the peak, valley, and ripple together. This makes the calculation useful to another reader and makes discrepancies much easier to investigate.
+For reproducibility, record RMS voltage, input frequency, topology, diode assumption and active load/filter settings. The [worked examples](/blog/ac-to-dc-calculator-worked-examples/) demonstrate complete input-to-output checks. A result named only “DC voltage” is not sufficiently defined.
 
 ## Check a result without repeating the same mistake
 
@@ -97,4 +111,4 @@ For the filtered example, add half the reported ripple to the reported average. 
 
 These consistency checks cannot prove that the model matches a physical circuit. They can, however, expose a unit error, the wrong model selection, or a confusion between average and peak before a result is passed to another calculation.
 
-Another useful check is the zero-load limit of the filtered approximation. As the modeled current approaches zero, calculated ripple approaches zero, so average and valley approach the available top. By contrast, the ideal unfiltered full-wave average remains 2Vm/π because its assumed waveform has not changed. Seeing those two different limits helps explain why “no load” is not a reason to mix the models. The output shape and filter assumptions still determine which relationship applies.
+For a resistance load, current falls as capacitor voltage falls, so an exponential RC model is appropriate within the stated approximation. Do not substitute a single guessed current into the constant-current equation without explaining that choice. Use the calculator's resistance setting and compare its assumptions with the [capacitor ripple guide](/blog/capacitor-ripple-explained/). A satisfactory arithmetic check still cannot establish component ratings or electrical safety.

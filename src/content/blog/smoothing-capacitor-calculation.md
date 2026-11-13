@@ -6,6 +6,7 @@ image: /images/blogs/smoothing-capacitor-calculation.webp
 imageAlt: 'Charge balance diagram connecting load current, discharge interval, capacitance, and ripple'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
+updatedDate: 2026-11-13
 categories: [capacitor-filtering, worked-examples]
 tags: [smoothing capacitor, ripple voltage, charge balance]
 seoTitle: 'Smoothing Capacitor Calculation & Ripple Examples'
@@ -16,6 +17,10 @@ status: published
 A smoothing capacitor calculation answers a particular question: how much charge storage would produce a chosen voltage change during an assumed discharge interval? It does not, by itself, choose a suitable capacitor or establish the output of every AC power supply. Keeping that distinction clear makes the arithmetic much more useful.
 
 This guide considers a single-phase bridge rectifier supplied by sinusoidal AC. The simplified load draws approximately constant current. The capacitor is assumed to recharge near each rectified crest, then discharge almost linearly between crests. These assumptions lead to a convenient estimate that can be checked with units and a worked example. They also explain when a more detailed circuit model is needed.
+
+![Reservoir capacitor connected in parallel with the load after a rectifier](/images/education/capacitor-filter.svg)
+
+The storage capacitor supplies the load between rectified crests; the diagram shows functional connections, not component ratings or a construction plan.
 
 ## Define the ripple you actually mean
 
@@ -49,7 +54,16 @@ Take a hypothetical steady load of 0.1 A, input frequency of 50 Hz, and allowed 
 
 Dividing 0.001 coulombs by the 1 V allowance gives 0.001 F, or 1,000 µF. Checking in the opposite direction gives ripple ≈ 0.1/(2 × 50 × 0.001) = 1 V. This reverse calculation catches an accidentally inverted formula or missed microfarad conversion.
 
-The answer is an estimated capacitance under the model, not a recommendation to install a particular part. A real component has tolerances and operating limits. The circuit also needs checks that this charge-storage equation does not provide, including behavior during startup and the current waveform while the capacitor recharges.
+Use a small worksheet to preserve the result's meaning:
+
+| Quantity | Substitution | Estimated result |
+| --- | --- | --- |
+| Recharge frequency | 2 × 50 Hz | 100 Hz |
+| Capacitance | 0.1 A / (100 Hz × 1 V) | 0.001 F = 1,000 µF |
+| Ripple check | 0.1 A / (100 Hz × 0.001 F) | 1 V p-p |
+| At 0.2 A, same capacitor | 0.2 / (100 × 0.001) | 2 V p-p |
+
+The last row exposes a load change: doubling current doubles modeled ripple. It does not prove that the source can supply that current. The result is a charge-storage estimate, not a part recommendation.
 
 ## See how frequency and current change the result
 
@@ -81,7 +95,7 @@ A value in microfarads describes only one component property. It does not specif
 
 [TDK's aluminum electrolytic capacitor technical information](https://www.tdk-electronics.tdk.com/download/185386/5f33d2619fa73419e2a4af562122e90c/pdf-generaltechnicalinformation.pdf) explains that ripple-current heating and operating temperature affect useful life. That is a different question from the charge-balance calculation above. Increasing nominal capacitance alone does not establish that every other component limit has been satisfied.
 
-It is therefore helpful to label your result “estimated capacitance for the stated ripple target,” then keep a separate list of verification tasks. This preserves the value of a quick calculation without allowing it to stand in for component qualification, thermal analysis, or practical circuit validation.
+Keep a separate component checklist: maximum operating voltage including the no-load crest; effective capacitance and tolerance; ripple-current rating under the specified frequency/temperature; ESR-related heating; and required life. The [capacitor ESR and ripple-current guide](/blog/capacitor-esr-and-ripple-current/) explains these distinct checks. Reducing calculated voltage ripple does not establish acceptable capacitor heating or rectifier charging-current stress.
 
 ## Record a reproducible calculation
 

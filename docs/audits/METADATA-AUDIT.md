@@ -47,6 +47,6 @@ Generated from the current static build. 46 public HTML pages reviewed; private 
 | /editorial/ | 48 | 422 | 147 | unique | No mechanical rewrite needed; review wording against page intent |
 | /full-wave-rectifier-calculator/ | 51 | 440 | 75 | unique | No mechanical rewrite needed; review wording against page intent |
 | /half-wave-rectifier-calculator/ | 51 | 444 | 80 | unique | No mechanical rewrite needed; review wording against page intent |
-| / | 48 | 433 | 157 | unique | No mechanical rewrite needed; review wording against page intent |
+| / | 51 | 463 | 148 | unique | No mechanical rewrite needed; review wording against page intent |
 | /privacy/ | 35 | 317 | 142 | unique | No mechanical rewrite needed; review wording against page intent |
 | /terms/ | 33 | 311 | 130 | unique | No mechanical rewrite needed; review wording against page intent |

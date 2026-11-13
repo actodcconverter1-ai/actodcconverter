@@ -17,3 +17,15 @@
 .footer-bottom{color:#536477}
 /* Defer off-screen educational layout; all HTML stays available to search and assistive tools. */
 @supports(content-visibility:auto){.education-section{content-visibility:auto;contain-intrinsic-size:auto 850px}}
+/* Keep the calculator close to the introduction, especially on phones. */
+.hub-hero{padding-top:32px;padding-bottom:30px;gap:36px;grid-template-columns:1.55fr 1fr}
+.hub-hero h1{font-size:clamp(2rem,3.6vw,3.1rem);margin:10px 0 16px}
+.hub-hero h1 span{display:block;font-size:.53em;letter-spacing:-.02em;line-height:1.35;margin-top:10px;font-weight:500;color:#3c5d83}
+.hub-hero>div>p:not(.eyebrow){font-size:1rem;line-height:1.6;margin:0}
+.hub-actions{margin:18px 0;gap:18px}.hero-models{border-left:3px solid #a7c9ef;padding:4px 0 4px 24px;font-size:.87rem}.hero-models dl{margin:16px 0}.hero-models dl>div+div{margin-top:13px}.hero-models dt{font-weight:700;color:#173759}.hero-models dd{margin:3px 0 0;color:#526982;line-height:1.5}
+.bridge-example{margin:28px 0 0;padding:28px;border:1px solid #cbd9e8;border-radius:12px;background:#f2f7fd}.bridge-example h2{font-size:1.65rem;margin:8px 0 16px}.bridge-example p{max-width:90ch}.example-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:22px 0}.example-values dt{font-size:.8rem;color:#496483}.example-values dd{margin:5px 0 0;font-size:1.35rem;font-weight:650;color:#173759}
+.prose table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;font-size:.9rem;margin:24px 0}.prose th,.prose td{padding:12px;border:1px solid #d4dfed;min-width:120px;text-align:left}.prose th{background:#eef5fd}.prose img{max-width:100%;height:auto}
+/* Offscreen article cards and the static worked example do not need initial layout. */
+@supports(content-visibility:auto){.hub-guides{content-visibility:auto;contain-intrinsic-size:auto 1100px}.bridge-example{content-visibility:auto;contain-intrinsic-size:auto 460px}}
+@media(max-width:850px){.hub-hero{grid-template-columns:1fr}.hero-models{display:none}}
+@media(max-width:580px){.hub-hero{padding-top:24px;padding-bottom:24px}.hub-hero h1{font-size:2rem}.hub-hero h1 span{font-size:.58em}.hub-hero .eyebrow{font-size:.62rem}.hub-actions{gap:14px;font-size:.82rem}.hub-actions .button{padding:11px 13px}.trust-strip{font-size:.68rem;gap:8px 14px}.bridge-example{padding:18px}.example-values{grid-template-columns:repeat(2,minmax(0,1fr))}.bridge-example h2{font-size:1.4rem}}

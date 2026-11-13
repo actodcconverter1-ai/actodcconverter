@@ -1,0 +1,15 @@
+---
+import {calculateConverter, converterDefault} from '../calculators/converter';
+import {formatNumber} from '../calculators/rectifier';
+const result = calculateConverter(converterDefault);
+const values: [string, number, string][] = [['Sine peak', result.inputPeak!, 'V'], ['Available crest', result.peak, 'V'], ['Ripple p-p', result.ripple, 'V'], ['Average DC', result.average, 'V'], ['Ripple valley', result.valley, 'V'], ['Recharge frequency', result.rippleFrequency, 'Hz']];
+---
+<section class="bridge-example" aria-labelledby="bridge-example-title">
+  <p class="eyebrow">FOLLOW THE DEFAULT INPUTS</p>
+  <h2 id="bridge-example-title">12 V AC to DC: a bridge example</h2>
+  <p>For <strong>12 V RMS at 50 Hz</strong>, a four-diode bridge with <strong>0.7 V per diode</strong>, a <strong>0.1 A constant-current load</strong> and <strong>1,000 µF</strong>, mode B estimates:</p>
+  <dl class="example-values">{values.map(([label, value, unit]) => <div><dt>{label}</dt><dd>{formatNumber(value)} {unit}</dd></div>)}</dl>
+  <p>The bridge conducts through two diodes: Vtop ≈ 12√2 − 2 × 0.7. With 100 Hz recharge and 0.001 F, ΔVpp ≈ I/(frC) = 1 V; the average is the crest minus half that ripple.</p>
+  <p>This is <strong>filtered, unregulated DC</strong>, not a regulated 12 V output. The example uses instantaneous recharge and excludes source impedance, ESR and thermal limits. It stays within the calculator's 20% crest-ripple guardrail, which is a model limit, not an accuracy guarantee.</p>
+  <a href="/blog/ac-to-dc-calculator-worked-examples/">Work through more examples →</a>
+</section>
