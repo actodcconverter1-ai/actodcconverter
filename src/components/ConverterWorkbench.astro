@@ -5,14 +5,14 @@ const result=calculateConverter(converterDefault),paths=waveformPaths(result);
 ---
 <section class="converter-workbench" id="calculator" data-converter aria-label="AC to DC converter calculator">
  <header class="workbench-heading"><div><p class="eyebrow">CALCULATE WITH A DEFINED MODEL</p><h2>AC to DC converter calculator</h2></div><span class="local-label">Runs on your device</span></header>
- <p>Choose rectification, filtering, or a downstream regulator stage. Each solves a different question.</p>
+ <p>Choose rectification, filtering, or a downstream regulator stage. Each solves a different question. Compare <a href="/blog/rectifier-average-vs-rms-output/">rectifier average and RMS output</a> before interpreting the result.</p>
  <form novalidate data-workbench-form>
   <div class="workbench-control"><label for="wb-mode">Calculation mode</label><select id="wb-mode" name="mode"><option value="basic">A · Basic rectifier</option><option value="filtered" selected>B · Filtered DC output</option><option value="regulated">C · Regulator analysis</option></select></div>
   <fieldset data-ac-fields><legend>Single-phase sinusoidal AC input</legend><div class="workbench-grid">
    <div><label for="wb-topology">Rectifier configuration</label><select name="topology" id="wb-topology"><option value="bridge">Four-diode bridge</option><option value="center-tapped">Center-tapped full-wave</option><option value="half-wave">Half-wave</option></select></div>
    <div><label for="wb-rms" data-rms-label>AC input · RMS (V)</label><input id="wb-rms" name="rms" type="number" min="0" max="1000" step="any" value="12" required aria-describedby="wb-rms-help wb-error"/><small id="wb-rms-help">RMS at the rectifier input, after any transformer.</small></div>
    <div><label for="wb-frequency">AC frequency (Hz)</label><input id="wb-frequency" name="frequency" type="number" min="1" max="1000" step="any" value="50" required/></div>
-   <div><label for="wb-diode">Forward drop per diode (V)</label><input id="wb-diode" name="diodeDrop" type="number" min="0" max="2" step="any" value="0.7" required/><small>Use a datasheet operating-point assumption; 0 models ideal diodes.</small></div>
+   <div><label for="wb-diode">Forward drop per diode (V)</label><input id="wb-diode" name="diodeDrop" type="number" min="0" max="2" step="any" value="0.7" required/><small>Use a datasheet operating-point assumption; 0 models ideal diodes. Learn <a href="/blog/diode-forward-voltage-drop/">how to choose a diode forward-drop value</a>.</small></div>
   </div></fieldset>
   <fieldset data-filter-fields><legend>Capacitor and load</legend><div class="workbench-grid">
    <div><label for="wb-load-mode">Load model</label><select id="wb-load-mode" name="loadMode"><option value="current">Constant current</option><option value="resistance">Resistance</option></select></div>
