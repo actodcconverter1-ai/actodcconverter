@@ -1,9 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCards from '../../components/ArticleCards.astro';
 import { posts } from '../../lib/posts';
 const articles = await posts();
 const categories = [...new Set(articles.flatMap(entry => entry.data.categories))];
 ---
-<Base title="AC to DC Guides & Worked Examples" description="Learn AC RMS and peak voltage, rectifier averages, capacitor filtering, and ripple with model assumptions and worked examples."><section class="shell page-intro"><Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides' }]} /><span class="eyebrow">THE READING ROOM</span><h1>Make sense of the numbers.</h1><p>Practical guides to the models behind a rectifier calculation.</p><nav class="category-links" aria-label="Guide categories">{categories.map(category => <a href={`/category/${category}/`}>{category.replaceAll('-', ' ')}</a>)}</nav><ArticleCards entries={articles} headingLevel={2} /></section></Base>
+<Base title="AC to DC Guides & Worked Examples" description="Learn AC RMS and peak voltage, rectifier averages, capacitor filtering, and ripple with model assumptions and worked examples."><section class="shell page-intro"><span class="eyebrow">THE READING ROOM</span><h1>AC to DC Guides & Worked Examples</h1><p>Explore the models behind rectifier calculations, then use the <a href="/">AC to DC converter hub</a> to connect circuits, filtering and regulation.</p><nav class="category-links" aria-label="Guide categories">{categories.map(category => <a href={`/category/${category}/`}>{category.replaceAll('-', ' ')}</a>)}</nav><ArticleCards entries={articles} headingLevel={2} /></section></Base>

@@ -14,12 +14,13 @@
     "lint": "eslint .",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "audit:site": "node scripts/audit-site.mjs",
-    "verify": "npm run lint && npm run check && npm test && npm run audit:content && npm run build && npm run audit:site",
+    "verify": "npm run lint && npm run check && npm test && npm run audit:content && npm run build && npm run audit:site && npm run audit:graph",
     "preview:worker": "wrangler dev",
     "deploy:check": "wrangler deploy --dry-run --outdir .wrangler/dry-run",
     "deploy": "node scripts/check-release.mjs && npm run verify && wrangler deploy",
     "admin": "node --experimental-strip-types scripts/admin-server.mjs",
-    "audit:content": "node --experimental-strip-types scripts/audit-content.mjs"
+    "audit:content": "node --experimental-strip-types scripts/audit-content.mjs",
+    "audit:graph": "node scripts/audit-topic-graph.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.6",

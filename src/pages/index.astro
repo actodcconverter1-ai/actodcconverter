@@ -5,16 +5,22 @@ import BridgeExample from '../components/BridgeExample.astro';
 import EducationOverview from '../components/EducationOverview.astro';
 import ArticleCards from '../components/ArticleCards.astro';
 import {posts} from '../lib/posts';
+import RelatedSpokes from '../components/RelatedSpokes.astro';
+import {buildSpokes} from '../lib/topic-graph';
+import {webApplication,techArticle,faqPage} from '../lib/structured-data';
+import {homepageFaqs} from '../config/homepage-faq';
 const all = await posts();
+const spokes=buildSpokes(all);
+const schema=[webApplication('/','AC to DC converter calculator','Calculate rectifier output, capacitor ripple and conditional regulator-stage power.',['Basic diode-drop rectification','Current or resistance-load filtering','Conditional regulator-stage analysis']),techArticle('/','AC to DC Converter Calculate output and understand the circuit','Rectifier stages, circuit diagrams, components, formulas, filtering and regulation explained.',{about:{'@type':'Thing',name:'AC to DC conversion'}}),faqPage('/',homepageFaqs)];
 const preferred = ['ac-to-dc-formulas', 'ac-to-dc-calculator-worked-examples', 'full-wave-bridge-rectifier-explained', 'smoothing-capacitor-calculation', 'half-wave-vs-full-wave-rectifier', 'choosing-ac-to-dc-power-supply', 'power-supply-stages-explained', 'limits-of-simple-ac-to-dc-calculators'];
 const articles = preferred.map(slug => all.find(entry => entry.data.slug === slug)).filter((entry): entry is NonNullable<typeof entry> => !!entry);
 ---
-<Base title="AC to DC Converter: Calculator, Circuits & Formulas" titleIsComplete description="Calculate AC to DC output, ripple and regulator losses. Compare rectifier circuits, follow a 12 V worked example, and choose formulas for your load.">
+<Base title="AC to DC Converter: Calculator, Circuits & Formulas" titleIsComplete schema={schema} description="Calculate AC to DC output, ripple and regulator losses. Compare rectifier circuits, follow a 12 V worked example, and choose formulas for your load.">
   <section class="hub-hero shell">
     <div>
       <p class="eyebrow">CALCULATOR · CIRCUITS · PRACTICAL GUIDES</p>
       <h1>AC to DC Converter <span>Calculate output and understand the circuit</span></h1>
-      <p>Estimate rectified or capacitor-filtered DC from a sinusoidal AC input, or check a downstream regulator. See the output, ripple and assumptions together.</p>
+      <p>Estimate output with the <a href="/ac-to-dc-calculator/">AC to DC calculator</a>, explore a <a href="/blog/full-wave-bridge-rectifier-explained/">bridge rectifier circuit</a>, or compare filtering and downstream regulation. See the output, ripple and assumptions together.</p>
       <div class="hub-actions"><a class="button" href="#calculator">Calculate output ↓</a><a class="text-action" href="#working-principle">Explore circuits ↓</a></div>
       <div class="trust-strip"><span>Runs on your device</span><span>Source-linked methods</span><span>No signup</span></div>
     </div>
@@ -27,4 +33,5 @@ const articles = preferred.map(slug => all.find(entry => entry.data.slug === slu
   <div class="shell"><ConverterWorkbench/><BridgeExample/></div>
   <EducationOverview/>
   <section class="shell hub-guides"><p class="eyebrow">GO DEEPER, ONE QUESTION AT A TIME</p><div class="section-heading"><h2>AC to DC converter guides</h2><a href="/blog/">Browse every guide →</a></div><ArticleCards entries={articles}/></section>
+  <RelatedSpokes spokes={spokes} directory/>
 </Base>

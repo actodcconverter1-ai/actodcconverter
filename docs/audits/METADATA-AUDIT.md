@@ -1,6 +1,6 @@
 # Rendered metadata audit
 
-Generated from the current static build. 46 public HTML pages reviewed; private dashboard excluded. Pixel widths are approximate rendered glyph bounds with 20px Arial requested (platform font fallback can differ), not a Google truncation or ranking rule. Titles and snippets can be rewritten by Google. Public pages use the configured indexing directive on the production domain; private routes and the 404 remain noindex.
+Generated from the current static build. 47 public HTML pages reviewed; private dashboard excluded. Pixel widths are approximate rendered glyph bounds with 20px Arial requested (platform font fallback can differ), not a Google truncation or ranking rule. Titles and snippets can be rewritten by Google. Public pages use the configured indexing directive on the production domain; private routes and the 404 remain noindex.
 
 | Route | Title chars | Approx px | Description chars | Uniqueness | Recommendation |
 |---|---:|---:|---:|---|---|
@@ -33,6 +33,7 @@ Generated from the current static build. 46 public HTML pages reviewed; private 
 | /blog/transformer-rms-voltage-and-rectifiers/ | 49 | 462 | 156 | unique | No mechanical rewrite needed; review wording against page intent |
 | /blog/unregulated-vs-regulated-dc-supplies/ | 52 | 496 | 147 | unique | No mechanical rewrite needed; review wording against page intent |
 | /blog/why-ac-to-dc-output-voltage-varies/ | 48 | 469 | 163 | unique | No mechanical rewrite needed; review wording against page intent |
+| /calculators/ | 52 | 460 | 143 | unique | No mechanical rewrite needed; review wording against page intent |
 | /category/calculator-guides/ | 45 | 416 | 110 | unique | No mechanical rewrite needed; review wording against page intent |
 | /category/capacitor-filtering/ | 47 | 417 | 112 | unique | No mechanical rewrite needed; review wording against page intent |
 | /category/component-behavior/ | 46 | 447 | 111 | unique | No mechanical rewrite needed; review wording against page intent |

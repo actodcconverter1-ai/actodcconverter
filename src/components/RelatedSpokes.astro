@@ -1,0 +1,14 @@
+---
+import type {Spoke} from '../lib/topic-graph';
+interface Props {spokes:Spoke[];directory?:boolean;}
+const {spokes,directory=false}=Astro.props;
+const groups=[{name:'Calculators',kind:'calculator'},{name:'Technical guides',kind:'guide'}] as const;
+---
+{spokes.length>0 && <section class="shell spoke-directory" data-related-spokes aria-label={directory?'All calculators and technical guides':'Related tools and technical guides'}>
+  <h2>{directory?'Related Calculators & Technical Guides':'Related Tools & Technical Guides'}</h2>
+  <p>{directory?'Choose a calculation model or follow a focused guide to the circuit, waveform and load.':'Continue with a calculation model or a technical guide related to this topic.'}{directory&&<> <a href="/calculators/">Compare AC to DC calculator models</a>.</>}</p>
+  <div class="spoke-groups">{groups.map(group=>{
+    const links=spokes.filter(spoke=>spoke.kind===group.kind);
+    return links.length>0 && <div><h3>{group.name}</h3><ul>{links.map(spoke=><li><a href={spoke.href}>{spoke.title}</a><p>{spoke.description}</p></li>)}</ul></div>;
+  })}</div>
+</section>}

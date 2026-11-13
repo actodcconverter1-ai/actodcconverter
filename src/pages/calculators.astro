@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import RelatedSpokes from '../components/RelatedSpokes.astro';
+import {calculatorSpokes,buildSpokes,relatedSpokes} from '../lib/topic-graph';
+import {posts} from '../lib/posts';
+const related=relatedSpokes('/ac-to-dc-calculator/',buildSpokes(await posts()));
+---
+<Base title="AC to DC Calculators: Rectifier, Ripple & Regulation" titleIsComplete description="Choose an AC to DC calculator for diode-drop rectification, capacitor ripple, regulator-stage power, or ideal half-wave and full-wave averages.">
+  <section class="shell page-intro">
+    <p class="eyebrow">CHOOSE THE MODEL FIRST</p><h1>AC to DC calculators</h1>
+    <p>Choose a calculation that matches the output quantity you need. The <a href="/">AC to DC converter hub</a> explains the circuits, components and conversion stages behind these tools.</p>
+    <div class="tool-index">{calculatorSpokes.map(tool=><article><h2><a href={tool.href}>{tool.title}</a></h2><p>{tool.description}</p></article>)}</div>
+    <section class="prose narrow"><h2>Which calculator should you use?</h2>
+      <p>Use the main AC to DC calculator when you need to include an assumed forward drop, compare a current load with a resistance load, or analyze a downstream regulator. Choose its basic, filtered or regulated mode deliberately: a waveform average, a capacitor ripple valley and a regulated setpoint are different quantities.</p>
+      <p>The dedicated half-wave and full-wave tools start with ideal, zero-drop, unfiltered models. Use them for the complete-cycle average of a rectified sinusoid. Their results do not describe a capacitor-filtered or regulated power supply.</p>
+      <p>All three tools run on your device and state their assumptions. A numerical result does not establish transformer capacity, component ratings, isolation or available current. For a reproducible comparison, record topology, input RMS location, input frequency, filtering and the quantity being reported.</p>
+      <p>Start with the <a href="/blog/ac-to-dc-formulas/">AC to DC formula selection guide</a> if you are unsure which waveform or model applies.</p>
+    </section>
+  </section>
+  <RelatedSpokes spokes={related}/>
+</Base>

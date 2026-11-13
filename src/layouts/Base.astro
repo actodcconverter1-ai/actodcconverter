@@ -4,11 +4,25 @@ import { site } from '../config/site.config';
 import { seo, canonical } from '../config/seo.config';
 import AdSlot from '../components/AdSlot.astro';
 import Analytics from '../components/Analytics.astro';
-interface Props { title: string; titleIsComplete?:boolean; description: string; kind?: 'website' | 'article'; image?: string; imageAlt?: string; noindex?: boolean; schema?: Record<string, unknown>[]; }
-const { title, titleIsComplete=false, description, kind = 'website', image = site.social.image, imageAlt = site.social.imageAlt, noindex = false, schema = [] } = Astro.props;
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedSpokes from '../components/RelatedSpokes.astro';
+import {breadcrumbsForPath,breadcrumbSchema} from '../lib/breadcrumbs';
+import {buildSpokes,isSpokeRoute,relatedSpokes} from '../lib/topic-graph';
+import {posts} from '../lib/posts';
+import {serializeJsonLd} from '../lib/structured-data';
+interface Props { title: string; titleIsComplete?:boolean; breadcrumbTitle?:string; description: string; kind?: 'website' | 'article'; image?: string; imageAlt?: string; noindex?: boolean; schema?: Record<string, unknown>[]; }
+const { title, titleIsComplete=false, breadcrumbTitle=title, description, kind = 'website', image = site.social.image, imageAlt = site.social.imageAlt, noindex = false, schema = [] } = Astro.props;
 const url = canonical(Astro.url.pathname);
 const pageTitle = titleIsComplete ? title : `${title} | ${seo.titleSuffix}`;
-const structured = [{ '@context':'https://schema.org','@type':'Organization','@id':canonical('/editorial/')+'#organization',name:site.name+' editorial',url:canonical('/editorial/'),logo:canonical(site.logo) },{ '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: site.domain }, { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url }, ...schema];
+const crumbs=breadcrumbsForPath(Astro.url.pathname,breadcrumbTitle);
+const related=!noindex&&isSpokeRoute(Astro.url.pathname)?relatedSpokes(Astro.url.pathname,buildSpokes(await posts())):[];
+const structured = {'@context':'https://schema.org','@graph':[
+  {'@type':'Organization','@id':canonical('/editorial/')+'#organization',name:site.name+' editorial',url:canonical('/editorial/'),logo:canonical(site.logo)},
+  {'@type':'WebSite','@id':canonical('/')+'#website',name:site.name,url:canonical('/'),publisher:{'@id':canonical('/editorial/')+'#organization'}},
+  {'@type':'WebPage','@id':url+'#webpage',name:title,description,url,isPartOf:{'@id':canonical('/')+'#website'},...(crumbs.length?{breadcrumb:{'@id':url+'#breadcrumbs'}}:{})},
+  ...(crumbs.length?[breadcrumbSchema(crumbs,Astro.url.pathname)]:[]),
+  ...schema.map(node=>{const clean={...node};delete clean['@context'];return clean;}),
+]};
 ---
 <!doctype html>
 <html lang={seo.language} style={`--brand:${site.colors.primary};--accent:${site.colors.accent}`}>
@@ -24,7 +38,7 @@ const structured = [{ '@context':'https://schema.org','@type':'Organization','@i
     <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} /><meta name="twitter:image" content={canonical(image)} /><meta name="twitter:image:alt" content={imageAlt} />
     {site.social.twitterHandle && <meta name="twitter:site" content={site.social.twitterHandle} />}
-    <script type="application/ld+json" set:html={JSON.stringify(structured).replace(/</g, '\\u003c')} />
+    <script type="application/ld+json" set:html={serializeJsonLd(structured)} />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +47,7 @@ const structured = [{ '@context':'https://schema.org','@type':'Organization','@i
       <nav aria-label="Main navigation">{site.nav.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.label}</a>)}</nav>
       <span class="header-note"><span class="status-dot"></span> A little more clarity.</span>
     </div></header>
-    <main id="main"><div class="shell"><AdSlot placement="header" /></div><slot /><div class="shell"><AdSlot placement="footer" /></div></main>
+    <main id="main"><div class="shell"><AdSlot placement="header" /></div>{crumbs.length>0&&<div class="shell page-breadcrumbs"><Breadcrumbs items={crumbs}/></div>}<slot /><RelatedSpokes spokes={related}/><div class="shell"><AdSlot placement="footer" /></div></main>
     <footer><div class="shell"><div class="footer-top"><div><a class="brand" href="/">{site.wordmark}<span class="brand-dot">.</span></a><p>AC input. DC output. Clearly explained.</p></div><div class="footer-links"><a href="/about/">About</a><a href="/editorial/">Editorial standards</a><a href="/contact/">Contact</a><a href="/blog/">Guides</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclaimer/">Disclaimer</a></div></div><div class="footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><span>Calculated in your browser. No account needed.</span></div></div></footer>
     {!noindex && <Analytics/>}
   </body>
