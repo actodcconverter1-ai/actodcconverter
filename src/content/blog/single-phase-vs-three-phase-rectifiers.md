@@ -1,19 +1,20 @@
 ---
 title: 'Single-Phase vs Three-Phase Rectifiers: Voltage and Ripple'
 slug: single-phase-vs-three-phase-rectifiers
-description: 'Compare bridge topology, line-to-line input voltage, six-pulse timing, capacitor charging, and the assumptions behind three-phase output estimates.'
+description: 'A single-phase full-wave bridge produces two pulses per AC cycle; a three-phase six-diode bridge produces six, giving more frequent pulses and lower ideal unfiltered ripple.'
 image: /images/blogs/single-phase-vs-three-phase-rectifiers.webp
 imageAlt: 'Single-phase two-pulse and three-phase six-pulse rectifier outputs compared over two input cycles'
 author: AC to DC Converter editorial
 pubDate: 2026-11-05
+updatedDate: 2026-11-16
 categories: [rectifier-basics, power-supply-concepts]
 tags: [three-phase rectifier, six-pulse bridge, line-to-line RMS, ripple frequency]
-seoTitle: 'Single-Phase vs Three-Phase Rectifiers: A Model Guide'
-metaDescription: 'Compare single-phase and three-phase rectifiers, 2f versus 6f ripple, line-to-line RMS voltage, and when the ideal 1.35 voltage factor applies.'
+seoTitle: 'Single-Phase vs Three-Phase Rectifiers: Voltage & Ripple'
+metaDescription: 'Compare single-phase and three-phase bridges: diode count, 100/300 Hz ripple at 50 Hz input, and DC voltage formulas using the correct RMS input.'
 status: published
 ---
 
-A single-phase full-wave bridge produces two rectified pulses per input cycle. A conventional three-phase full-wave diode bridge produces six. That difference changes the output waveform and filtering problem, but it does not make three-phase output automatically regulated or free of ripple.
+At 50 Hz input, a single-phase full-wave bridge has 100 Hz ripple, while a balanced three-phase six-pulse bridge has 300 Hz ripple. The three-phase waveform has shallower valleys before filtering, but neither output is automatically regulated. For ideal unfiltered operation, single-phase average output is about 0.9003 times the RMS voltage across its AC terminals; the ideal three-phase continuous-conduction average is about 1.3505 times **line-to-line RMS** voltage. These factors describe different waveforms and voltage conventions, not efficiency. Use the [single-phase AC to DC calculator](/ac-to-dc-calculator/) only for its stated single-phase models, not a three-phase DC bus.
 
 The voltage conventions also change. A single-phase calculation usually begins with the RMS voltage across its two AC terminals. Three-phase equipment may specify either line-to-line or phase-to-neutral voltage. Confusing those quantities can introduce a factor of √3 before the rectifier calculation has even started. This guide compares the circuits conceptually; it is not an installation or mains-wiring procedure.
 
