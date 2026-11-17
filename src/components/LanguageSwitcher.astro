@@ -1,0 +1,6 @@
+---
+import {languages} from '../lib/languages';
+const path=Astro.url.pathname==='/404/'?'/':Astro.url.pathname;
+---
+<nav class="language-switcher" aria-label="Language" translate="no">{languages.map(language=><a data-language={language.code} href={`${language.prefix}${path}`} lang={language.code} aria-label={language.name}>{language.code.toUpperCase()}</a>)}</nav>
+<script src="/language-preference.js" is:inline></script>

@@ -18,3 +18,11 @@ test('manual choice wins and invalid cookie values never become a locale',()=>{
 test('Arabic uses right-to-left layout',()=>{
   assert.equal(languageDirection('ar'),'rtl');assert.equal(languageDirection('hi'),'ltr');
 });
+test('country and language code collisions do not select the wrong language',()=>{
+  assert.equal(languageForCountry('AR'),'es');
+  assert.equal(languageForCountry('SV'),'es');
+  assert.equal(languageForCountry('SE'),'sv');
+  assert.equal(languageForCountry('BN'),'ms');
+  assert.equal(languageForCountry('BD'),'bn');
+  assert.equal(preferredLanguage('site_language=../../admin','DE'),'de');
+});

@@ -7,7 +7,10 @@
       "name": "English",
       "direction": "ltr",
       "prefix": "",
-      "countries": []
+      "countries": [],
+      "translationNotice": "Machine translation from English.",
+      "ogLocale": "en_US",
+      "languageLabel": "Language"
     },
     {
       "code": "hi",
@@ -16,7 +19,10 @@
       "prefix": "/hi",
       "countries": [
         "IN"
-      ]
+      ],
+      "translationNotice": "अंग्रेज़ी से मशीन अनुवाद।",
+      "ogLocale": "hi_IN",
+      "languageLabel": "भाषा"
     },
     {
       "code": "es",
@@ -43,7 +49,10 @@
         "SV",
         "UY",
         "VE"
-      ]
+      ],
+      "translationNotice": "Traducción automática del inglés.",
+      "ogLocale": "es_ES",
+      "languageLabel": "Idioma"
     },
     {
       "code": "ru",
@@ -53,7 +62,10 @@
       "countries": [
         "RU",
         "BY"
-      ]
+      ],
+      "translationNotice": "Машинный перевод с английского.",
+      "ogLocale": "ru_RU",
+      "languageLabel": "Язык"
     },
     {
       "code": "fr",
@@ -63,7 +75,10 @@
       "countries": [
         "FR",
         "MC"
-      ]
+      ],
+      "translationNotice": "Traduction automatique depuis l’anglais.",
+      "ogLocale": "fr_FR",
+      "languageLabel": "Langue"
     },
     {
       "code": "de",
@@ -74,7 +89,10 @@
         "DE",
         "AT",
         "LI"
-      ]
+      ],
+      "translationNotice": "Maschinelle Übersetzung aus dem Englischen.",
+      "ogLocale": "de_DE",
+      "languageLabel": "Sprache"
     },
     {
       "code": "it",
@@ -85,7 +103,10 @@
         "IT",
         "SM",
         "VA"
-      ]
+      ],
+      "translationNotice": "Traduzione automatica dall’inglese.",
+      "ogLocale": "it_IT",
+      "languageLabel": "Lingua"
     },
     {
       "code": "pt",
@@ -100,7 +121,10 @@
         "CV",
         "GW",
         "ST"
-      ]
+      ],
+      "translationNotice": "Tradução automática do inglês.",
+      "ogLocale": "pt_PT",
+      "languageLabel": "Idioma"
     },
     {
       "code": "bn",
@@ -109,7 +133,10 @@
       "prefix": "/bn",
       "countries": [
         "BD"
-      ]
+      ],
+      "translationNotice": "ইংরেজি থেকে যান্ত্রিক অনুবাদ।",
+      "ogLocale": "bn_BD",
+      "languageLabel": "ভাষা"
     },
     {
       "code": "ja",
@@ -118,7 +145,10 @@
       "prefix": "/ja",
       "countries": [
         "JP"
-      ]
+      ],
+      "translationNotice": "英語からの機械翻訳です。",
+      "ogLocale": "ja_JP",
+      "languageLabel": "言語"
     },
     {
       "code": "ko",
@@ -127,7 +157,10 @@
       "prefix": "/ko",
       "countries": [
         "KR"
-      ]
+      ],
+      "translationNotice": "영어에서 기계 번역되었습니다.",
+      "ogLocale": "ko_KR",
+      "languageLabel": "언어"
     },
     {
       "code": "ms",
@@ -137,7 +170,10 @@
       "countries": [
         "MY",
         "BN"
-      ]
+      ],
+      "translationNotice": "Terjemahan mesin daripada bahasa Inggeris.",
+      "ogLocale": "ms_MY",
+      "languageLabel": "Bahasa"
     },
     {
       "code": "pl",
@@ -146,7 +182,10 @@
       "prefix": "/pl",
       "countries": [
         "PL"
-      ]
+      ],
+      "translationNotice": "Tłumaczenie maszynowe z języka angielskiego.",
+      "ogLocale": "pl_PL",
+      "languageLabel": "Język"
     },
     {
       "code": "id",
@@ -155,7 +194,10 @@
       "prefix": "/id",
       "countries": [
         "ID"
-      ]
+      ],
+      "translationNotice": "Terjemahan mesin dari bahasa Inggris.",
+      "ogLocale": "id_ID",
+      "languageLabel": "Bahasa"
     },
     {
       "code": "ar",
@@ -182,7 +224,10 @@
         "TN",
         "YE",
         "MR"
-      ]
+      ],
+      "translationNotice": "ترجمة آلية من الإنجليزية.",
+      "ogLocale": "ar_SA",
+      "languageLabel": "اللغة"
     },
     {
       "code": "bg",
@@ -191,7 +236,10 @@
       "prefix": "/bg",
       "countries": [
         "BG"
-      ]
+      ],
+      "translationNotice": "Машинен превод от английски.",
+      "ogLocale": "bg_BG",
+      "languageLabel": "Език"
     },
     {
       "code": "tr",
@@ -200,7 +248,10 @@
       "prefix": "/tr",
       "countries": [
         "TR"
-      ]
+      ],
+      "translationNotice": "İngilizceden makine çevirisi.",
+      "ogLocale": "tr_TR",
+      "languageLabel": "Dil"
     },
     {
       "code": "sv",
@@ -209,7 +260,10 @@
       "prefix": "/sv",
       "countries": [
         "SE"
-      ]
+      ],
+      "translationNotice": "Maskinöversättning från engelska.",
+      "ogLocale": "sv_SE",
+      "languageLabel": "Språk"
     }
   ]
 }

@@ -1,0 +1,20 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {parse} from 'parse5';
+import {walk,attr,norm} from './localization-core.mjs';
+const config=JSON.parse(await readFile('src/config/languages.json','utf8'));
+const domain=new URL(JSON.parse(await readFile('src/config/editorial.json','utf8')).domain).origin;
+const xml=await readFile('dist/sitemap.xml','utf8');const urls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);const known=new Set(urls.map(u=>new URL(u).pathname));
+const errors=[];const fail=(p,s)=>errors.push(p+': '+s);const text=n=>n.nodeName==='#text'?n.value:(n.childNodes??[]).map(text).join('');
+for(const url of urls){const path=new URL(url).pathname;const locale=config.languages.find(l=>l.prefix&&path.startsWith(l.prefix+'/'))??config.languages[0];
+ const html=await readFile('dist'+path+'index.html','utf8');const doc=parse(html);let canonical,lang,dir,title,graph,mainHeading;const alternates=new Map();const breadcrumbs=[];let links=0;
+ walk(doc,n=>{if(n.tagName==='html'){lang=attr(n,'lang');dir=attr(n,'dir');}if(n.tagName==='title'&&!title)title=text(n);if(n.tagName==='h1')mainHeading=text(n);if(n.tagName==='link'&&attr(n,'rel')==='canonical')canonical=attr(n,'href');if(n.tagName==='link'&&attr(n,'rel')==='alternate')alternates.set(attr(n,'hreflang'),attr(n,'href'));if(n.tagName==='script'&&attr(n,'type')==='application/ld+json')graph=JSON.parse(text(n))['@graph'];if(n.tagName==='nav'&&attr(n,'class')?.includes('breadcrumbs'))walk(n,c=>{if(c.tagName==='li')breadcrumbs.push(norm(text(c)));});if(n.tagName==='a'){const href=attr(n,'href');if(href?.startsWith('/')&&!href.startsWith('//')){const u=new URL(href,domain);if(!u.pathname.split('/').at(-1).includes('.')&&!known.has(u.pathname)&&!u.pathname.startsWith('/api/'))fail(path,'missing internal route '+href);links++;}}});
+ if(canonical!==url)fail(path,'canonical mismatch');if(lang!==locale.code)fail(path,'language mismatch');if((dir??'ltr')!==locale.direction)fail(path,'direction mismatch');if(!title||!mainHeading)fail(path,'missing title/H1');
+ const base=locale.prefix?path.slice(locale.prefix.length):path;
+ for(const l of config.languages)if(alternates.get(l.code)!==domain+l.prefix+base)fail(path,'invalid hreflang '+l.code);
+ if(alternates.get('x-default')!==domain+base)fail(path,'missing x-default');
+ const page=graph?.find(n=>n['@type']==='WebPage');if(page?.url!==url)fail(path,'schema page URL mismatch');
+ const article=graph?.find(n=>n['@type']==='TechArticle');if(article&&base.startsWith('/blog/')&&base!=='/blog/'&&norm(article.headline)!==norm(mainHeading))fail(path,'article headline mismatch');
+ const crumb=graph?.find(n=>n['@type']==='BreadcrumbList');if(crumb&&JSON.stringify(breadcrumbs)!==JSON.stringify(crumb.itemListElement.map(i=>norm(i.name))))fail(path,'breadcrumb text mismatch');
+ if(!links)fail(path,'no internal links');
+}
+const report={languages:config.languages.length,pages:urls.length,errors};await writeFile('artifacts/localization-audit.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));if(errors.length)process.exit(1);

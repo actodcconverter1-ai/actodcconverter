@@ -1,0 +1,9 @@
+{
+  "privacyUpdatedIntro": "Updated 17 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.",
+  "privacyHeading": "Language preference",
+  "privacyParagraphs": [
+    "Your footer language choice is stored in the site_language cookie for up to one year. You can change it using the language links or clear it in your browser.",
+    "On a first homepage visit, Cloudflare's country information can select a language. The application does not store a raw IP address for this preference.",
+    "Translated pages are served from saved files. Visitor text, calculator inputs and contact messages are not sent to a translation service."
+  ]
+}

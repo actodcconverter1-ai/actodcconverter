@@ -8,7 +8,7 @@ const files=(await walk(root)).filter(file=>file.endsWith('.html')&&!relative(ro
 const pages=new Map();
 for(const file of files){
  const name=relative(root,file).replaceAll('\\','/');
- if(name==='404.html')continue;
+ if(name==='404.html'||/^(hi|es|ru|fr|de|it|pt|bn|ja|ko|ms|pl|id|ar|bg|tr|sv)\//.test(name))continue;
  pages.set('/'+name.replace(/index\.html$/,''),await readFile(file,'utf8'));
 }
 const errors=[];
@@ -77,7 +77,7 @@ for(const [,entry] of urls){
  check(priority!==undefined&&Number(priority)>=0&&Number(priority)<=1,'Sitemap priority invalid: '+loc);
  const url=new URL(decode(loc??'https://invalid.invalid/'));
  check(url.origin===domain&&!url.search&&!url.hash,'Sitemap URL is not canonical: '+loc);
- sitemapPaths.push(url.pathname);
+ if(!/^\/(hi|es|ru|fr|de|it|pt|bn|ja|ko|ms|pl|id|ar|bg|tr|sv)\//.test(url.pathname))sitemapPaths.push(url.pathname);
  const lastmod=/<lastmod>([^<]+)<\/lastmod>/.exec(entry)?.[1];
  if(lastmod)check(/^\d{4}-\d{2}-\d{2}$/.test(lastmod)&&!Number.isNaN(Date.parse(lastmod)),'Invalid lastmod: '+loc);
 }

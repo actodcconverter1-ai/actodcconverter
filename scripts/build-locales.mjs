@@ -1,0 +1,34 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {parse,parseFragment,serialize} from 'parse5';
+import {localize,walk,attr} from './localization-core.mjs';
+import ts from 'typescript';
+const config=JSON.parse(await readFile('src/config/languages.json','utf8'));
+const settings=JSON.parse(await readFile('src/config/editorial.json','utf8'));
+const domain=new URL(settings.domain).origin;
+const xml=await readFile('dist/sitemap.xml','utf8');
+const paths=new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>new URL(m[1]).pathname));
+const sourceDictionary=JSON.parse(await readFile('src/i18n/en.json','utf8'));
+const dictionaries=new Map();for(const l of config.languages)if(l.code!=='en'){const dictionary=JSON.parse(await readFile('src/i18n/'+l.code+'.json','utf8'));const missing=Object.keys(sourceDictionary).filter(key=>typeof dictionary[key]!=='string'||!dictionary[key].trim());if(missing.length)throw Error(l.code+': '+missing.length+' missing translation entries');dictionaries.set(l.code,dictionary);}
+for(const path of paths){
+ const source=await readFile('dist'+path+'index.html','utf8');
+ for(const locale of config.languages){
+  const translated=locale.code==='en'?source:localize(source,locale,dictionaries.get(locale.code),domain,paths);
+  const doc=parse(translated);let head;
+  if(locale.code!=='en')walk(doc,n=>{if(n.tagName==='footer'){const note=parseFragment('<p class="translation-note" style="max-width:1100px;margin:16px auto;padding:0 24px;font-size:0.8rem">Translation</p>').childNodes[0];note.childNodes[0].value=locale.translationNotice;note.parentNode=n;n.childNodes.push(note);}});
+  const visibleFaqs=[];const nodeText=n=>n.nodeName==='#text'?n.value:(n.childNodes??[]).map(nodeText).join('');
+  walk(doc,n=>{if(n.tagName==='head')head=n;if(n.tagName==='a'&&attr(n,'data-language')===locale.code)attr(n,'aria-current','page');if(n.tagName==='details'&&attr(n,'class')==='hub-faq'){const q=n.childNodes.find(c=>c.tagName==='summary');const a=n.childNodes.find(c=>c.tagName==='p');if(q&&a)visibleFaqs.push({'@type':'Question',name:nodeText(q),acceptedAnswer:{'@type':'Answer',text:nodeText(a)}});}});
+  if(visibleFaqs.length)walk(doc,n=>{if(n.tagName==='script'&&attr(n,'type')==='application/ld+json'){const data=JSON.parse(n.childNodes[0].value);const faq=data['@graph'].find(item=>item['@type']==='FAQPage');if(faq)faq.mainEntity=visibleFaqs;n.childNodes[0].value=JSON.stringify(data).replaceAll('<','\\u003c');}});
+  const alternates=parseFragment(config.languages.map(l=>`<link rel="alternate" hreflang="${l.code}" href="${domain}${l.prefix}${path}">`).join('')+`<link rel="alternate" hreflang="x-default" href="${domain}${path}">`);
+  for(const n of alternates.childNodes){n.parentNode=head;head.childNodes.push(n);}
+  const dir='dist'+locale.prefix+path;await mkdir(dir,{recursive:true});await writeFile(dir+'index.html',serialize(doc));
+ }
+}
+const extra=config.languages.filter(l=>l.code!=='en').map(l=>[...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m=>'<url>'+m[1].replace(/<loc>([^<]+)<\/loc>/,(_,u)=>'<loc>'+domain+l.prefix+new URL(u).pathname+'</loc>')+'</url>').join('')).join('');
+await writeFile('dist/sitemap.xml',xml.replace('</urlset>',extra+'</urlset>'));
+const runtimeKeys=new Set(['enter a valid number from','enter a value from','to','Check the inputs.']);
+for(const file of ['src/calculators/converter.ts','src/scripts/converter-client.ts']){const source=ts.createSourceFile(file,await readFile(file,'utf8'),ts.ScriptTarget.Latest,true);const visit=n=>{if(ts.isStringLiteral(n))runtimeKeys.add(n.text);ts.forEachChild(n,visit);};visit(source);}
+const contactScript=(await readFile('src/components/ContactForm.astro','utf8')).match(/<script>([\s\S]*?)<\/script>/)?.[1]??'';
+const contactAst=ts.createSourceFile('contact.ts',contactScript,ts.ScriptTarget.Latest,true);const addContact=n=>{if(ts.isStringLiteral(n))runtimeKeys.add(n.text);ts.forEachChild(n,addContact);};addContact(contactAst);
+const contactWorker=await readFile('worker/contact.ts','utf8');const workerAst=ts.createSourceFile('worker.ts',contactWorker,ts.ScriptTarget.Latest,true);const start=contactWorker.indexOf('export async function contactRoute'),end=contactWorker.indexOf('export async function adminContactRoute');const addError=n=>{if(ts.isStringLiteral(n)&&n.getStart(workerAst)>start&&n.getStart(workerAst)<end&&((ts.isPropertyAssignment(n.parent)&&n.parent.name.getText(workerAst)==='error')||(ts.isNewExpression(n.parent)&&n.parent.expression.getText(workerAst)==='Error')))runtimeKeys.add(n.text);ts.forEachChild(n,addError);};addError(workerAst);
+await mkdir('dist/translations',{recursive:true});for(const [code,dict]of dictionaries)await writeFile('dist/translations/'+code+'.json',JSON.stringify(Object.fromEntries(Object.entries(dict).filter(([key])=>runtimeKeys.has(key)))));
+console.log('Built '+paths.size*config.languages.length+' indexable pages in '+config.languages.length+' languages.');

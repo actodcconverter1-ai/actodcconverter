@@ -1,3 +1,4 @@
+import {languageRedirect} from './language.ts';
 import { contactRoute, adminContactRoute, purgeContact, type ContactEnv } from './contact.ts';
 import { canonicalRedirect } from './canonical.ts';
 import { adminApi } from '../server/admin.ts';
@@ -16,7 +17,7 @@ export default {
     const redirect=canonicalRedirect(request);if(redirect)return redirect;
     if(url.pathname==='/api/contact'||url.pathname==='/api/contact/challenge')return contactRoute(request,env);
     const admin=url.pathname==='/admin'||url.pathname.startsWith('/admin/')||url.pathname.startsWith('/api/admin/');
-    if(!admin)return env.ASSETS.fetch(request);
+    if(!admin){const language=languageRedirect(request);return language??env.ASSETS.fetch(request);}
     const authResponse=await authenticationRoute(request,env);if(authResponse)return authResponse;
     const loginPage=['/admin/login','/admin/login/','/admin/login/index.html'].includes(url.pathname);
     const setupPage=['/admin/password-setup','/admin/password-setup/','/admin/password-setup/index.html'].includes(url.pathname);

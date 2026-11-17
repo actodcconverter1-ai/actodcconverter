@@ -17,8 +17,8 @@ for (const [file, html] of pages) {
   const meta = [...html.matchAll(/<meta\b[^>]*>/g)].map(match => match[0]);
   const description = meta.find(tag => attr(tag, 'name') === 'description');
   const desc = description && attr(description, 'content');
-  if (!title || titles.has(title)) fail(file, 'missing or duplicate title'); titles.add(title);
-  if (!desc || descriptions.has(desc)) fail(file, 'missing or duplicate description'); descriptions.add(desc);
+  if (!title || titles.has((/<html[^>]*lang="([^"]+)"/.exec(html)?.[1]??'en')+':'+title)) fail(file, 'missing or duplicate title'); titles.add((/<html[^>]*lang="([^"]+)"/.exec(html)?.[1]??'en')+':'+title);
+  if (!desc || descriptions.has((/<html[^>]*lang="([^"]+)"/.exec(html)?.[1]??'en')+':'+desc)) fail(file, 'missing or duplicate description'); descriptions.add((/<html[^>]*lang="([^"]+)"/.exec(html)?.[1]??'en')+':'+desc);
   if ((html.match(/<h1\b/g) ?? []).length !== 1) fail(file, 'must contain exactly one h1');
   if (!html.includes('rel="canonical"')) fail(file, 'missing canonical');
   for (const key of ['og:title', 'og:description', 'og:type', 'og:url', 'og:image', 'og:image:alt']) if (!meta.some(tag => attr(tag, 'property') === key)) fail(file, `missing ${key}`);

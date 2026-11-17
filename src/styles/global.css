@@ -35,3 +35,7 @@
 .breadcrumbs li+li:before{content:'›'}
 .spoke-intro a,.hub-hero>div>p:not(.eyebrow) a,.page-intro>p a,.spoke-directory>p a{color:var(--brand);text-decoration:underline;text-underline-offset:3px}.spoke-groups li>a,.tool-index h2 a{color:var(--brand)}.spoke-groups li>a:hover,.tool-index h2 a:hover{text-decoration:underline}
 .converter-workbench>p a,.workbench-grid small a{color:var(--brand);text-decoration:underline;text-underline-offset:3px}
+
+.language-switcher{display:flex;flex-wrap:wrap;gap:4px 10px;padding:20px 0;border-top:1px solid #d5dfeb}.language-switcher a{display:inline-flex;align-items:center;justify-content:center;min-width:42px;min-height:44px;font-weight:650}.language-switcher a[aria-current="page"]{background:#e6f0fd;border-radius:6px}[dir="rtl"] .metric-grid dd,[dir="rtl"] input[type="number"],[dir="rtl"] .workbench-formula{direction:ltr;unicode-bidi:isolate}[dir="rtl"] .prose th,[dir="rtl"] .prose td{text-align:right}
+[dir="rtl"] input[type="email"]{direction:ltr;text-align:left}
+html:not([lang="en"]) main h1,html:not([lang="en"]) main h2,html:not([lang="en"]) main h3{overflow-wrap:anywhere;hyphens:auto}html:not([lang="en"]) .header nav{flex-wrap:wrap;min-width:0}
