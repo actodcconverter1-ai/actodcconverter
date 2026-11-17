@@ -1,0 +1,215 @@
+{
+  "defaultLanguage": "en",
+  "preferenceCookie": "site_language",
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "direction": "ltr",
+      "prefix": "",
+      "countries": []
+    },
+    {
+      "code": "hi",
+      "name": "हिन्दी",
+      "direction": "ltr",
+      "prefix": "/hi",
+      "countries": [
+        "IN"
+      ]
+    },
+    {
+      "code": "es",
+      "name": "Español",
+      "direction": "ltr",
+      "prefix": "/es",
+      "countries": [
+        "ES",
+        "MX",
+        "AR",
+        "BO",
+        "CL",
+        "CO",
+        "CR",
+        "CU",
+        "DO",
+        "EC",
+        "GT",
+        "HN",
+        "NI",
+        "PA",
+        "PE",
+        "PY",
+        "SV",
+        "UY",
+        "VE"
+      ]
+    },
+    {
+      "code": "ru",
+      "name": "Русский",
+      "direction": "ltr",
+      "prefix": "/ru",
+      "countries": [
+        "RU",
+        "BY"
+      ]
+    },
+    {
+      "code": "fr",
+      "name": "Français",
+      "direction": "ltr",
+      "prefix": "/fr",
+      "countries": [
+        "FR",
+        "MC"
+      ]
+    },
+    {
+      "code": "de",
+      "name": "Deutsch",
+      "direction": "ltr",
+      "prefix": "/de",
+      "countries": [
+        "DE",
+        "AT",
+        "LI"
+      ]
+    },
+    {
+      "code": "it",
+      "name": "Italiano",
+      "direction": "ltr",
+      "prefix": "/it",
+      "countries": [
+        "IT",
+        "SM",
+        "VA"
+      ]
+    },
+    {
+      "code": "pt",
+      "name": "Português",
+      "direction": "ltr",
+      "prefix": "/pt",
+      "countries": [
+        "PT",
+        "BR",
+        "AO",
+        "MZ",
+        "CV",
+        "GW",
+        "ST"
+      ]
+    },
+    {
+      "code": "bn",
+      "name": "বাংলা",
+      "direction": "ltr",
+      "prefix": "/bn",
+      "countries": [
+        "BD"
+      ]
+    },
+    {
+      "code": "ja",
+      "name": "日本語",
+      "direction": "ltr",
+      "prefix": "/ja",
+      "countries": [
+        "JP"
+      ]
+    },
+    {
+      "code": "ko",
+      "name": "한국어",
+      "direction": "ltr",
+      "prefix": "/ko",
+      "countries": [
+        "KR"
+      ]
+    },
+    {
+      "code": "ms",
+      "name": "Bahasa Melayu",
+      "direction": "ltr",
+      "prefix": "/ms",
+      "countries": [
+        "MY",
+        "BN"
+      ]
+    },
+    {
+      "code": "pl",
+      "name": "Polski",
+      "direction": "ltr",
+      "prefix": "/pl",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "code": "id",
+      "name": "Bahasa Indonesia",
+      "direction": "ltr",
+      "prefix": "/id",
+      "countries": [
+        "ID"
+      ]
+    },
+    {
+      "code": "ar",
+      "name": "العربية",
+      "direction": "rtl",
+      "prefix": "/ar",
+      "countries": [
+        "SA",
+        "AE",
+        "EG",
+        "DZ",
+        "BH",
+        "IQ",
+        "JO",
+        "KW",
+        "LB",
+        "LY",
+        "MA",
+        "OM",
+        "PS",
+        "QA",
+        "SD",
+        "SY",
+        "TN",
+        "YE",
+        "MR"
+      ]
+    },
+    {
+      "code": "bg",
+      "name": "Български",
+      "direction": "ltr",
+      "prefix": "/bg",
+      "countries": [
+        "BG"
+      ]
+    },
+    {
+      "code": "tr",
+      "name": "Türkçe",
+      "direction": "ltr",
+      "prefix": "/tr",
+      "countries": [
+        "TR"
+      ]
+    },
+    {
+      "code": "sv",
+      "name": "Svenska",
+      "direction": "ltr",
+      "prefix": "/sv",
+      "countries": [
+        "SE"
+      ]
+    }
+  ]
+}
