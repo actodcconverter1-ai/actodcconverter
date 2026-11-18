@@ -8,6 +8,12 @@ Concise search and social metadata has separate, route-specific editorial overri
 
 Visible H1 overrides in `src/i18n/page-headings.json` keep article schema headlines aligned and preserve the homepage subtitle layout. They are independent of search-title overrides.
 
+## Public utility pages and indexing
+
+`src/config/indexing.json` lists public utility routes that use `noindex, follow`. Search pages remain translated and linked for visitors but are excluded from the XML sitemap and indexable hreflang clusters. Their self-referencing canonicals remain query-free. Do not block these routes in robots.txt: crawlers must fetch them to read noindex. The localization build uses both sitemap routes and public noindex routes so excluding a utility from the sitemap cannot remove its translated pages or break search forms.
+
+The locale audit covers all 882 public pages: 864 indexable pages and 18 search pages. The site and topic-graph audits require the XML sitemap to match the actual indexable pages, excluding all noindex routes.
+
 `src/i18n/en.json` contains source strings; each other language has its own JSON dictionary keyed by the exact normalized English text. Content includes the homepage, calculators, all published guides, category/directory pages, public contact information and legal pages. Private administration, private API data and credentials are excluded. Fixed public contact-form errors are localized in the browser; visitor-submitted text is not translated. Brand names, formula-only text and numerical values are preserved separately from prose.
 
 The initial text is machine-translated, not a claim of native professional or engineering review. Native-language editors can revise dictionary values directly. Keep keys unchanged. Original diagrams remain shared assets, with localized accessible descriptions and captions. Calculator formulas and numerical inputs are shared across languages; localization changes presentation rather than the calculation engine.

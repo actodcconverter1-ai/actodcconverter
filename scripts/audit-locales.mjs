@@ -6,7 +6,10 @@ const domain=new URL(JSON.parse(await readFile('src/config/editorial.json','utf8
 const seoTitles=JSON.parse(await readFile('src/i18n/seo-titles.json','utf8'));
 const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json','utf8'));
 const pageHeadings=JSON.parse(await readFile('src/i18n/page-headings.json','utf8'));
-const xml=await readFile('dist/sitemap.xml','utf8');const urls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);const known=new Set(urls.map(u=>new URL(u).pathname));
+const {publicNoindexRoutes}=JSON.parse(await readFile('src/config/indexing.json','utf8'));
+const xml=await readFile('dist/sitemap.xml','utf8');const indexableUrls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
+const noindexUrls=config.languages.flatMap(l=>publicNoindexRoutes.map(path=>domain+l.prefix+path));
+const urls=[...new Set([...indexableUrls,...noindexUrls])];const known=new Set(urls.map(u=>new URL(u).pathname));
 const errors=[];const fail=(p,s)=>errors.push(p+': '+s);const text=n=>n.nodeName==='#text'?n.value:(n.childNodes??[]).map(text).join('');
 const titleRoutes=new Map();
 for(const url of urls){const path=new URL(url).pathname;const locale=config.languages.find(l=>l.prefix&&path.startsWith(l.prefix+'/'))??config.languages[0];
@@ -17,8 +20,10 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  if(titleRoutes.has(titleKey))fail(path,'duplicate title also used at '+titleRoutes.get(titleKey));
  else titleRoutes.set(titleKey,path);
  const base=locale.prefix?path.slice(locale.prefix.length):path;
- for(const l of config.languages)if(alternates.get(l.code)!==domain+l.prefix+base)fail(path,'invalid hreflang '+l.code);
- if(alternates.get('x-default')!==domain+base)fail(path,'missing x-default');
+ const noindex=publicNoindexRoutes.includes(base);
+ let robots;walk(doc,n=>{if(n.tagName==='meta'&&attr(n,'name')==='robots')robots=attr(n,'content');});
+ if(noindex){if(robots!=='noindex, follow')fail(path,'utility page must be noindex, follow');if(indexableUrls.includes(url))fail(path,'noindex page is in XML sitemap');if([...alternates.keys()].some(key=>key!==undefined))fail(path,'noindex page must not advertise indexable language alternates');}
+ else{if(robots!=='index, follow')fail(path,'indexable page robots mismatch');for(const l of config.languages)if(alternates.get(l.code)!==domain+l.prefix+base)fail(path,'invalid hreflang '+l.code);if(alternates.get('x-default')!==domain+base)fail(path,'missing x-default');}
  const page=graph?.find(n=>n['@type']==='WebPage');if(page?.url!==url)fail(path,'schema page URL mismatch');
  if(title?.length>60)fail(path,'title exceeds the site editorial budget of 60 characters');
  if(title&&title.length<30)fail(path,'title is below the site editorial target of 30 characters');
@@ -39,4 +44,4 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  const crumb=graph?.find(n=>n['@type']==='BreadcrumbList');if(crumb&&JSON.stringify(breadcrumbs)!==JSON.stringify(crumb.itemListElement.map(i=>norm(i.name))))fail(path,'breadcrumb text mismatch');
  if(!links)fail(path,'no internal links');
 }
-const report={languages:config.languages.length,pages:urls.length,errors};await writeFile('artifacts/localization-audit.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));if(errors.length)process.exit(1);
+const report={languages:config.languages.length,pages:urls.length,indexablePages:indexableUrls.length,noindexPages:noindexUrls.length,errors};await writeFile('artifacts/localization-audit.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));if(errors.length)process.exit(1);

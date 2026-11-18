@@ -82,7 +82,7 @@ for(const [,entry] of urls){
  if(lastmod)check(/^\d{4}-\d{2}-\d{2}$/.test(lastmod)&&!Number.isNaN(Date.parse(lastmod)),'Invalid lastmod: '+loc);
 }
 check(new Set(sitemapPaths).size===sitemapPaths.length,'Sitemap contains duplicate URLs');
-if(activeSitemap)check(sitemapPaths.length===pages.size&&sitemapPaths.every(path=>pages.has(path)),'Sitemap does not exactly cover indexable public routes');
+if(activeSitemap){const indexablePages=new Map([...pages].filter(([,html])=>!/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/.test(html)));check(sitemapPaths.length===indexablePages.size&&sitemapPaths.every(path=>indexablePages.has(path)),'Sitemap does not exactly cover indexable public routes');}
 const report={publicPages:pages.size,spokes:spokes.length,homepageDirectoryLinks:homeLinks.size,visibleFaqs:faqCount,sitemapUrls:sitemapPaths.length,errors};
 await mkdir('artifacts',{recursive:true});
 await writeFile('artifacts/topic-graph-audit.json',JSON.stringify(report,null,2));

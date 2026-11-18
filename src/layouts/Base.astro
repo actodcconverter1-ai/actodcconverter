@@ -12,12 +12,14 @@ import {breadcrumbsForPath,breadcrumbSchema} from '../lib/breadcrumbs';
 import {buildSpokes,isSpokeRoute,relatedSpokes} from '../lib/topic-graph';
 import {posts} from '../lib/posts';
 import {serializeJsonLd} from '../lib/structured-data';
+import indexing from '../config/indexing.json';
 interface Props { title: string; titleIsComplete?:boolean; breadcrumbTitle?:string; description: string; kind?: 'website' | 'article'; image?: string; imageAlt?: string; noindex?: boolean; schema?: Record<string, unknown>[]; }
 const { title, titleIsComplete=false, breadcrumbTitle=title, description, kind = 'website', image = site.social.image, imageAlt = site.social.imageAlt, noindex = false, schema = [] } = Astro.props;
 const url = canonical(Astro.url.pathname);
+const pageNoindex=noindex||indexing.publicNoindexRoutes.includes(Astro.url.pathname);
 const pageTitle = titleIsComplete ? title : `${title} | ${seo.titleSuffix}`;
 const crumbs=breadcrumbsForPath(Astro.url.pathname,breadcrumbTitle);
-const related=!noindex&&isSpokeRoute(Astro.url.pathname)?relatedSpokes(Astro.url.pathname,buildSpokes(await posts())):[];
+const related=!pageNoindex&&isSpokeRoute(Astro.url.pathname)?relatedSpokes(Astro.url.pathname,buildSpokes(await posts())):[];
 const structured = {'@context':'https://schema.org','@graph':[
   {'@type':'Organization','@id':canonical('/editorial/')+'#organization',name:site.name+' editorial',url:canonical('/editorial/'),logo:canonical(site.logo)},
   {'@type':'WebSite','@id':canonical('/')+'#website',name:site.name,url:canonical('/'),publisher:{'@id':canonical('/editorial/')+'#organization'}},
@@ -34,7 +36,7 @@ const structured = {'@context':'https://schema.org','@graph':[
     <title>{pageTitle}</title><meta name="description" content={description} />
     <link rel="canonical" href={url} /><link rel="icon" type={site.favicon.endsWith('.svg') ? 'image/svg+xml' : undefined} href={site.favicon} />
     <link rel="alternate" type="application/rss+xml" title="English technical guides RSS feed" href="/rss.xml" />
-    <meta name="robots" content={!site.indexable || noindex ? 'noindex, follow' : site.defaultRobots} />
+    <meta name="robots" content={!site.indexable || pageNoindex ? 'noindex, follow' : site.defaultRobots} />
     <meta property="og:title" content={pageTitle} /><meta property="og:description" content={description} />
     <meta property="og:type" content={kind} /><meta property="og:url" content={url} />
     <meta property="og:site_name" content={site.name} /><meta property="og:locale" content={seo.locale} />

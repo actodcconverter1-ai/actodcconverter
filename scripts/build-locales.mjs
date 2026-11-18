@@ -6,7 +6,9 @@ const config=JSON.parse(await readFile('src/config/languages.json','utf8'));
 const settings=JSON.parse(await readFile('src/config/editorial.json','utf8'));
 const domain=new URL(settings.domain).origin;
 const xml=await readFile('dist/sitemap.xml','utf8');
-const paths=new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>new URL(m[1]).pathname));
+const {publicNoindexRoutes}=JSON.parse(await readFile('src/config/indexing.json','utf8'));
+const indexablePaths=new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>new URL(m[1]).pathname));
+const paths=new Set([...indexablePaths,...publicNoindexRoutes]);
 const seoTitles=JSON.parse(await readFile('src/i18n/seo-titles.json','utf8'));
 const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json','utf8'));
 const pageHeadings=JSON.parse(await readFile('src/i18n/page-headings.json','utf8'));
@@ -82,7 +84,7 @@ for(const path of paths){
   walk(doc,n=>{if(n.tagName==='head')head=n;if(n.tagName==='a'&&attr(n,'data-language')===locale.code)attr(n,'aria-current','page');if(n.tagName==='details'&&attr(n,'class')==='hub-faq'){const q=n.childNodes.find(c=>c.tagName==='summary');const a=n.childNodes.find(c=>c.tagName==='p');if(q&&a)visibleFaqs.push({'@type':'Question',name:nodeText(q),acceptedAnswer:{'@type':'Answer',text:nodeText(a)}});}});
   if(visibleFaqs.length)walk(doc,n=>{if(n.tagName==='script'&&attr(n,'type')==='application/ld+json'){const data=JSON.parse(n.childNodes[0].value);const faq=data['@graph'].find(item=>item['@type']==='FAQPage');if(faq)faq.mainEntity=visibleFaqs;n.childNodes[0].value=JSON.stringify(data).replaceAll('<','\\u003c');}});
   const alternates=parseFragment(config.languages.map(l=>`<link rel="alternate" hreflang="${l.code}" href="${domain}${l.prefix}${path}">`).join('')+`<link rel="alternate" hreflang="x-default" href="${domain}${path}">`);
-  for(const n of alternates.childNodes){n.parentNode=head;head.childNodes.push(n);}
+  if(indexablePaths.has(path))for(const n of alternates.childNodes){n.parentNode=head;head.childNodes.push(n);}
   const dir='dist'+locale.prefix+path;await mkdir(dir,{recursive:true});await writeFile(dir+'index.html',serialize(doc));
  }
 }
@@ -94,4 +96,4 @@ const contactScript=(await readFile('src/components/ContactForm.astro','utf8')).
 const contactAst=ts.createSourceFile('contact.ts',contactScript,ts.ScriptTarget.Latest,true);const addContact=n=>{if(ts.isStringLiteral(n))runtimeKeys.add(n.text);ts.forEachChild(n,addContact);};addContact(contactAst);
 const contactWorker=await readFile('worker/contact.ts','utf8');const workerAst=ts.createSourceFile('worker.ts',contactWorker,ts.ScriptTarget.Latest,true);const start=contactWorker.indexOf('export async function contactRoute'),end=contactWorker.indexOf('export async function adminContactRoute');const addError=n=>{if(ts.isStringLiteral(n)&&n.getStart(workerAst)>start&&n.getStart(workerAst)<end&&((ts.isPropertyAssignment(n.parent)&&n.parent.name.getText(workerAst)==='error')||(ts.isNewExpression(n.parent)&&n.parent.expression.getText(workerAst)==='Error')))runtimeKeys.add(n.text);ts.forEachChild(n,addError);};addError(workerAst);
 await mkdir('dist/translations',{recursive:true});for(const [code,dict]of dictionaries)await writeFile('dist/translations/'+code+'.json',JSON.stringify(Object.fromEntries(Object.entries(dict).filter(([key])=>runtimeKeys.has(key)))));
-console.log('Built '+paths.size*config.languages.length+' indexable pages in '+config.languages.length+' languages.');
+console.log('Built '+paths.size*config.languages.length+' public pages in '+config.languages.length+' languages; '+indexablePaths.size*config.languages.length+' indexable.');

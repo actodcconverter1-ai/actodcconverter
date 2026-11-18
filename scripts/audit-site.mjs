@@ -43,7 +43,13 @@ const editorial=JSON.parse(await readFile('src/config/editorial.json','utf8'));
 const activeSitemap=editorial.indexable&&editorial.defaultRobots==='index, follow';
 let sitemapPaths=[];
 const adminPages=htmlFiles.filter(file=>file.startsWith(join(root,'admin')+(process.platform==='win32'?'\\':'/')));
-if(activeSitemap){const sitemap=await readFile(join(root,'sitemap.xml'),'utf8');sitemapPaths=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>new URL(match[1]).pathname);for(const pathname of sitemapPaths){try{await access(await targetFile(pathname));}catch{errors.push(`Sitemap missing page: ${pathname}`);}}if(sitemapPaths.includes('/404/'))errors.push('404 must not be in sitemap');if(sitemapPaths.some(path=>path.startsWith('/admin/')))errors.push('Admin must not be in sitemap');if(sitemapPaths.length!==htmlFiles.length-adminPages.length-1)errors.push('Sitemap does not cover every indexable public HTML page');}
+if(activeSitemap){
+ const sitemap=await readFile(join(root,'sitemap.xml'),'utf8');sitemapPaths=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>new URL(match[1]).pathname);
+ const expectedPaths=[...pages].filter(([file,html])=>!adminPages.includes(file)&&file!==join(root,'404.html')&&!/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/.test(html)).map(([file])=>'/'+file.slice(root.length+1).replaceAll('\\','/').replace(/index\.html$/,''));
+ if(new Set(sitemapPaths).size!==sitemapPaths.length)errors.push('Duplicate sitemap URL');
+ if(sitemapPaths.length!==expectedPaths.length||sitemapPaths.some(path=>!expectedPaths.includes(path)))errors.push('Sitemap does not exactly cover indexable public HTML pages');
+ for(const pathname of sitemapPaths){try{await access(await targetFile(pathname));}catch{errors.push(`Sitemap missing page: ${pathname}`);}}
+}
 else{try{await access(join(root,'sitemap.xml'));errors.push('Inactive review sitemap must not be published');}catch{/* No noindex URLs advertised in a sitemap. */}const robots=await readFile(join(root,'robots.txt'),'utf8');if(robots.includes('Sitemap:'))errors.push('Review robots must not advertise inactive sitemap');if(/^Disallow: \/$/m.test(robots))errors.push('Review pages must remain crawlable so noindex can be read');}
 for (const file of ['robots.txt', '_headers', '404.html']) { try { await access(join(root, file)); } catch { errors.push(`Missing ${file}`); } }
 const publicScriptPaths = new Set([...pages].filter(([file]) => !adminPages.includes(file)).flatMap(([,html]) => [...html.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map(match => join(root,match[1]))));

@@ -1,6 +1,7 @@
 import type {CollectionEntry} from 'astro:content';
 import {canonical} from '../config/seo.config.ts';
 import {architectureUpdated,calculatorSpokes} from './topic-graph.ts';
+import indexing from '../config/indexing.json' with {type:'json'};
 export interface SitemapEntry {path:string;priority:number;lastmod?:string;}
 export function sitemapEntries(entries:CollectionEntry<'blog'>[]):SitemapEntry[] {
   const published=entries.filter(entry=>entry.data.status==='published');
@@ -16,7 +17,7 @@ export function sitemapEntries(entries:CollectionEntry<'blog'>[]):SitemapEntry[]
     ...[...new Set(published.flatMap(entry=>entry.data.categories))].sort().map(category=>({path:`/category/${category}/`,priority:.6,lastmod:architectureUpdated})),
     ...['about','authors','editorial','contact','sitemap','search'].map(route=>({path:`/${route}/`,priority:.3,lastmod:architectureUpdated})),
     ...['privacy','terms','disclaimer'].map(route=>({path:`/${route}/`,priority:.2})),
-  ];
+  ].filter(entry=>!indexing.publicNoindexRoutes.includes(entry.path));
 }
 export function renderSitemap(entries:SitemapEntry[]):string {
   const escape=(value:string)=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
