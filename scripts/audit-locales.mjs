@@ -5,6 +5,7 @@ const config=JSON.parse(await readFile('src/config/languages.json','utf8'));
 const domain=new URL(JSON.parse(await readFile('src/config/editorial.json','utf8')).domain).origin;
 const seoTitles=JSON.parse(await readFile('src/i18n/seo-titles.json','utf8'));
 const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json','utf8'));
+const pageHeadings=JSON.parse(await readFile('src/i18n/page-headings.json','utf8'));
 const xml=await readFile('dist/sitemap.xml','utf8');const urls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);const known=new Set(urls.map(u=>new URL(u).pathname));
 const errors=[];const fail=(p,s)=>errors.push(p+': '+s);const text=n=>n.nodeName==='#text'?n.value:(n.childNodes??[]).map(text).join('');
 const titleRoutes=new Map();
@@ -21,6 +22,10 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  const page=graph?.find(n=>n['@type']==='WebPage');if(page?.url!==url)fail(path,'schema page URL mismatch');
  if(title?.length>60)fail(path,'title exceeds the site editorial budget of 60 characters');
  if(title&&title.length<30)fail(path,'title is below the site editorial target of 30 characters');
+ if(mainHeading&&norm(mainHeading).length>70)fail(path,'H1 exceeds the site editorial budget of 70 characters');
+ const configuredHeading=pageHeadings[path];
+ if(configuredHeading&&norm(mainHeading)!==norm(typeof configuredHeading==='string'?configuredHeading:configuredHeading.lead+' '+configuredHeading.detail))fail(path,'configured page heading mismatch');
+ if(configuredHeading&&typeof configuredHeading==='object')walk(doc,n=>{if(n.tagName==='h1'&&!n.childNodes.some(child=>child.tagName==='span'&&norm(text(child))===norm(configuredHeading.detail)))fail(path,'styled homepage heading detail missing');});
  if(seoTitles[path]&&title!==seoTitles[path])fail(path,'configured SEO title mismatch');
  if(seoTitles[path]&&page?.name!==title)fail(path,'schema page name differs from concise SEO title');
  walk(doc,n=>{if(n.tagName==='meta'&&(attr(n,'property')==='og:title'||attr(n,'name')==='twitter:title'))if(attr(n,'content')!==title)fail(path,'social title differs from document title');});
@@ -30,6 +35,7 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  if(seoDescriptions[path]&&page?.description!==description)fail(path,'schema page description differs from meta description');
  walk(doc,n=>{if(n.tagName==='meta'&&(attr(n,'property')==='og:description'||attr(n,'name')==='twitter:description'))if(attr(n,'content')!==description)fail(path,'social description differs from meta description');});
  const article=graph?.find(n=>[].concat(n['@type']??[]).includes('TechArticle'));if(article&&base.startsWith('/blog/')&&base!=='/blog/'&&norm(article.headline)!==norm(mainHeading))fail(path,'article headline mismatch');
+ if(article&&configuredHeading&&norm(article.headline)!==norm(mainHeading))fail(path,'edited H1 and article schema headline mismatch');
  const crumb=graph?.find(n=>n['@type']==='BreadcrumbList');if(crumb&&JSON.stringify(breadcrumbs)!==JSON.stringify(crumb.itemListElement.map(i=>norm(i.name))))fail(path,'breadcrumb text mismatch');
  if(!links)fail(path,'no internal links');
 }

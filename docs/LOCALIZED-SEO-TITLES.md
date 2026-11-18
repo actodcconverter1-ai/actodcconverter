@@ -1,5 +1,11 @@
 # Localized search titles
 
+## Visible page headings
+
+`src/i18n/page-headings.json` contains separately edited visible H1 headings by complete pathname. Most values are plain text. A `{ "lead": "…", "detail": "…" }` value preserves the homepage's existing subtitle span and its styling. The build requires a single H1 and updates the corresponding TechArticle/BlogPosting headline to match its visible text. It leaves document titles, descriptions, breadcrumb labels, article bodies and publication dates unchanged.
+
+Keep headings technically accurate and concise, retaining the subject and useful context. The project uses a 70-character editorial budget to match its audit tool; this is not a Google ranking requirement. Build validation rejects unknown routes, invalid headings and headings over budget. The locale audit checks all indexable H1 lengths, configured text and article-headline agreement.
+
 ## Concise descriptions
 
 `src/i18n/seo-descriptions.json` supplies independently edited descriptions by complete pathname. The build applies them to the meta description, Open Graph description, Twitter description, WebPage description and other top-level schema descriptions that matched the original meta description. It preserves unrelated schema text, article bodies, dates and formulas.
@@ -8,7 +14,7 @@ Descriptions summarize the actual page in its language. They are not mechanicall
 
 `src/i18n/seo-titles.json` contains editorial overrides keyed by the complete public pathname, including the language prefix and trailing slash. These concise titles are separate from the full translated article headings in the language dictionaries.
 
-During `npm run build`, `scripts/build-locales.mjs` applies each override after translation to the document title, Open Graph title, Twitter title and WebPage schema name. It preserves article headlines, visible headings, breadcrumbs, descriptions, canonical URLs and hreflang links. Article schema headlines continue to match the visible article headings.
+During `npm run build`, `scripts/build-locales.mjs` applies each title override after translation to the document title, Open Graph title, Twitter title and WebPage schema name. Title overrides do not change article headlines, visible headings, breadcrumbs, descriptions, canonical URLs or hreflang links. Separate page-heading overrides described above update visible headings and their matching article schema headlines.
 
 Write descriptive titles in the page's language, retain the primary subject, and avoid repetitive site-name suffixes. Do not truncate text automatically or add unsupported claims. The project's editorial target is 30–60 JavaScript string characters; this matches the current audit tool, but is not a Google ranking requirement or a guarantee against display truncation. Japanese and Korean can express more information in fewer characters; add relevant subject detail rather than padding their titles merely to increase the count. See [Google's title guidance](https://developers.google.com/search/docs/appearance/title-link).
 
