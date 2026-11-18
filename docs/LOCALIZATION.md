@@ -4,6 +4,8 @@
 
 ## Translation content
 
+Concise search and social metadata has separate, route-specific editorial overrides in `src/i18n/seo-titles.json` and `src/i18n/seo-descriptions.json`. See [localized SEO metadata](LOCALIZED-SEO-TITLES.md) for the build behavior, validation and editing rules.
+
 `src/i18n/en.json` contains source strings; each other language has its own JSON dictionary keyed by the exact normalized English text. Content includes the homepage, calculators, all published guides, category/directory pages, public contact information and legal pages. Private administration, private API data and credentials are excluded. Fixed public contact-form errors are localized in the browser; visitor-submitted text is not translated. Brand names, formula-only text and numerical values are preserved separately from prose.
 
 The initial text is machine-translated, not a claim of native professional or engineering review. Native-language editors can revise dictionary values directly. Keep keys unchanged. Original diagrams remain shared assets, with localized accessible descriptions and captions. Calculator formulas and numerical inputs are shared across languages; localization changes presentation rather than the calculation engine.

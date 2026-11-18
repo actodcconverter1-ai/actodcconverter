@@ -7,6 +7,17 @@ const settings=JSON.parse(await readFile('src/config/editorial.json','utf8'));
 const domain=new URL(settings.domain).origin;
 const xml=await readFile('dist/sitemap.xml','utf8');
 const paths=new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>new URL(m[1]).pathname));
+const seoTitles=JSON.parse(await readFile('src/i18n/seo-titles.json','utf8'));
+const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json','utf8'));
+const localizedPaths=new Set(config.languages.flatMap(locale=>[...paths].map(path=>locale.prefix+path)));
+for(const [path,title] of Object.entries(seoTitles)){
+ if(!localizedPaths.has(path))throw Error('Unknown SEO title route: '+path);
+ if(typeof title!=='string'||!title.trim()||title!==title.trim()||title.length>60)throw Error('Invalid concise SEO title: '+path);
+}
+for(const [path,description] of Object.entries(seoDescriptions)){
+ if(!localizedPaths.has(path))throw Error('Unknown SEO description route: '+path);
+ if(typeof description!=='string'||!description.trim()||description!==description.trim()||description.length>155)throw Error('Invalid concise SEO description: '+path);
+}
 const sourceDictionary=JSON.parse(await readFile('src/i18n/en.json','utf8'));
 const dictionaries=new Map();for(const l of config.languages)if(l.code!=='en'){const dictionary=JSON.parse(await readFile('src/i18n/'+l.code+'.json','utf8'));const missing=Object.keys(sourceDictionary).filter(key=>typeof dictionary[key]!=='string'||!dictionary[key].trim());if(missing.length)throw Error(l.code+': '+missing.length+' missing translation entries');dictionaries.set(l.code,dictionary);}
 for(const path of paths){
@@ -14,6 +25,29 @@ for(const path of paths){
  for(const locale of config.languages){
   const translated=locale.code==='en'?source:localize(source,locale,dictionaries.get(locale.code),domain,paths);
   const doc=parse(translated);let head;
+  const seoTitle=seoTitles[locale.prefix+path];
+  if(seoTitle)walk(doc,node=>{
+   if(node.tagName==='title')node.childNodes=[{nodeName:'#text',value:seoTitle,parentNode:node}];
+   if(node.tagName==='meta'&&(attr(node,'property')==='og:title'||attr(node,'name')==='twitter:title'))attr(node,'content',seoTitle);
+   if(node.tagName==='script'&&attr(node,'type')==='application/ld+json'){
+    const data=JSON.parse(node.childNodes[0].value);
+    for(const item of data['@graph']??[])if(item['@type']==='WebPage')item.name=seoTitle;
+    node.childNodes[0].value=JSON.stringify(data).replaceAll('<','\\u003c');
+   }
+  });
+  const seoDescription=seoDescriptions[locale.prefix+path];
+  if(seoDescription){
+   let previousDescription;
+   walk(doc,node=>{if(node.tagName==='meta'&&attr(node,'name')==='description')previousDescription=attr(node,'content');});
+   walk(doc,node=>{
+    if(node.tagName==='meta'&&(['description','twitter:description'].includes(attr(node,'name'))||attr(node,'property')==='og:description'))attr(node,'content',seoDescription);
+    if(node.tagName==='script'&&attr(node,'type')==='application/ld+json'){
+     const data=JSON.parse(node.childNodes[0].value);
+     for(const item of data['@graph']??[])if(item['@type']==='WebPage'||item.description===previousDescription)item.description=seoDescription;
+     node.childNodes[0].value=JSON.stringify(data).replaceAll('<','\\u003c');
+    }
+   });
+  }
   if(locale.code!=='en')walk(doc,n=>{if(n.tagName==='footer'){const note=parseFragment('<p class="translation-note" style="max-width:1100px;margin:16px auto;padding:0 24px;font-size:0.8rem">Translation</p>').childNodes[0];note.childNodes[0].value=locale.translationNotice;note.parentNode=n;n.childNodes.push(note);}});
   const visibleFaqs=[];const nodeText=n=>n.nodeName==='#text'?n.value:(n.childNodes??[]).map(nodeText).join('');
   walk(doc,n=>{if(n.tagName==='head')head=n;if(n.tagName==='a'&&attr(n,'data-language')===locale.code)attr(n,'aria-current','page');if(n.tagName==='details'&&attr(n,'class')==='hub-faq'){const q=n.childNodes.find(c=>c.tagName==='summary');const a=n.childNodes.find(c=>c.tagName==='p');if(q&&a)visibleFaqs.push({'@type':'Question',name:nodeText(q),acceptedAnswer:{'@type':'Answer',text:nodeText(a)}});}});
