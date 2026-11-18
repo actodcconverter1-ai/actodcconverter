@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import type {CollectionEntry} from 'astro:content';
 import {buildSpokes,calculatorSpokes,relatedSpokes} from '../src/lib/topic-graph.ts';
 import {breadcrumbsForPath,breadcrumbSchema} from '../src/lib/breadcrumbs.ts';
-import {webApplication,techArticle,faqPage,serializeJsonLd} from '../src/lib/structured-data.ts';
+import {webApplication,techArticle,blogPosting,faqPage,serializeJsonLd} from '../src/lib/structured-data.ts';
 import {sitemapEntries,renderSitemap} from '../src/lib/sitemap.ts';
 import {homepageFaqs} from '../src/config/homepage-faq.ts';
 
@@ -40,6 +40,8 @@ test('schema models factual application/article content and exactly the shared v
  assert.ok(!('aggregateRating' in app));assert.ok(app.url.endsWith('/#calculator'));
  const articleNode=techArticle('/blog/bridge-formulas/','Bridge formulas','Defined models');
  assert.equal(articleNode['@type'],'TechArticle');assert.ok(articleNode.mainEntityOfPage['@id'].endsWith('/blog/bridge-formulas/#webpage'));
+ const blog=blogPosting('/blog/bridge-formulas/','Bridge formulas','Defined models',{datePublished:'2026-11-03',dateModified:'2026-11-17'});
+ assert.deepEqual(blog['@type'],['TechArticle','BlogPosting']);assert.equal(blog['@id'],articleNode['@id']);
  const faq=faqPage('/',homepageFaqs);
  assert.deepEqual(faq.mainEntity.map(item=>[item.name,item.acceptedAnswer.text]),homepageFaqs.map(item=>[...item]));
 });

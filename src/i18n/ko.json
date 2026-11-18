@@ -2623,5 +2623,22 @@
   "The site owner maintains the project and its private publishing dashboard. Guides explain the selected circuit model, cite relevant sources and link to worked examples. Software checks cover formula behavior and numerical boundary cases. These responsibilities do not imply a separate review board, laboratory staff or independent engineering certification.": "사이트 소유자는 프로젝트와 개인 출판 다이어트 보드를 유지합니다. 가이드는 선택한 회로 모델을 설명하고 관련 출처를 인용하고 작업 사례에 대한 링크를 제공합니다. 소프트웨어 검사는 공식 행동과 수수료 제한 사례를 커버합니다. 이러한 책임은 별도의 검토 보드, 실험실 직원 또는 독립 엔지니어링 인증을 포함하지 않습니다.",
   "is the public route for questions, content corrections and rights-related concerns. A technical report should include the page URL, model, inputs with units, observed result, expected result and supporting source. We do not publish private login contact details. No office address, phone support service, team photographs, customer testimonials or awards are presented without verifiable information.": "질문, 콘텐츠 수정 및 권리 관련 문제에 대한 공공 경로입니다. 기술 보고서는 페이지 URL, 모델, 단위 입력, 관찰 결과, 예상 결과 및 지원 출처를 포함해야합니다. 우리는 개인 로그인 연락처 정보를 게시하지 않습니다. 사무실 주소, 전화 지원 서비스, 팀 사진, 고객 증언 또는 상은 확인 가능한 정보없이 제시됩니다.",
   "This project developed around a common calculation problem: “AC to DC” can mean an unfiltered rectifier average, a capacitor-filtered voltage estimate or a regulated output. Those are different quantities and require different assumptions. The English guide collection began in November 2026. Development then added dedicated half-wave and full-wave reference tools, worked examples, contextual guides and translated pages. The": "이 프로젝트는 일반적인 계산 문제 주위에 개발되었습니다 : \"AC to DC\"는 필터화되지 않은 수정기 평균, 캡센터 필터화 된 전압 추정 또는 규제 된 출력을 의미 할 수 있습니다.이것은 다른 양이며 다른 가정이 필요합니다. 영어 가이드 컬렉션은 2026 년 11 월에 시작되었습니다.",
-  "We provide browser-based calculators and explanations for rectification, filtering, regulation, voltage measurement and component assumptions. The main workbench separates fixed-diode-drop rectification, capacitor filtering with current or resistance loads, and conditional downstream regulator analysis. Dedicated ideal tools provide zero-drop analytical reference cases. Calculations run on your device. We do not design a complete power supply, certify equipment, sell components or determine the available current from an AC voltage label.": "우리는 브라우저 기반 계산기 및 수정, 필터링, 규제, 전압 측정 및 구성 요소 가정에 대한 설명을 제공합니다. 주요 작업 밴드는 고정 디오드 떨어지는 수정, 전류 또는 저항 부하와 콘센서 필터링 및 조건 아래 스트림 규제 분석을 분리합니다. 특별한 이상적인 도구는 0 떨어지는 분석 참조 사례를 제공합니다. 계산은 장치에서 실행됩니다. 우리는 완전한 전원 공급, 인증 장비, 판매 구성 요소 또는 AC 전압 레이블에서 사용 가능한 전류를 결정하지 않습니다."
+  "We provide browser-based calculators and explanations for rectification, filtering, regulation, voltage measurement and component assumptions. The main workbench separates fixed-diode-drop rectification, capacitor filtering with current or resistance loads, and conditional downstream regulator analysis. Dedicated ideal tools provide zero-drop analytical reference cases. Calculations run on your device. We do not design a complete power supply, certify equipment, sell components or determine the available current from an AC voltage label.": "우리는 브라우저 기반 계산기 및 수정, 필터링, 규제, 전압 측정 및 구성 요소 가정에 대한 설명을 제공합니다. 주요 작업 밴드는 고정 디오드 떨어지는 수정, 전류 또는 저항 부하와 콘센서 필터링 및 조건 아래 스트림 규제 분석을 분리합니다. 특별한 이상적인 도구는 0 떨어지는 분석 참조 사례를 제공합니다. 계산은 장치에서 실행됩니다. 우리는 완전한 전원 공급, 인증 장비, 판매 구성 요소 또는 AC 전압 레이블에서 사용 가능한 전류를 결정하지 않습니다.",
+  "By": "는",
+  "Guide updated": "업데이트된 가이드",
+  "Share this guide": "이 가이드를 공유하기",
+  "· Published": "· 출판",
+  "13 November 2026": "2026년 11월 13일",
+  "16 November 2026": "2026년 11월 16일",
+  "17 November 2026": "2026년 11월 17일",
+  "18 November 2026": "2026년 11월 18일",
+  "Share this guide:": "이 가이드를 공유하십시오 :",
+  "· Last updated": "· 마지막 업데이트",
+  "AC to DC Converter logo": "AC에서 DC로 변환기 로고",
+  "changes alternating current into direct current. A": "전류가 직접 전류로 변환되는 변화.A",
+  "Share on Facebook (opens a new tab)": "Facebook에 공유 (새 탭을 열어)",
+  "Share on LinkedIn (opens a new tab)": "LinkedIn에 공유 (새 탭을 열어)",
+  "Share on X (opens a new tab)": "X에 공유 (새 탭을 열어)",
+  "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC to DC Converter: 계산기 & 회로 가이드 (2026)",
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC에서 DC로 변환기 단계 차트는 선형 및 고립 스위치 전원 공급을 비교합니다."
 }

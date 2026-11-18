@@ -2623,5 +2623,22 @@
   "The site owner maintains the project and its private publishing dashboard. Guides explain the selected circuit model, cite relevant sources and link to worked examples. Software checks cover formula behavior and numerical boundary cases. These responsibilities do not imply a separate review board, laboratory staff or independent engineering certification.": "サイト所有者はプロジェクトとそのプライベート出版のダッシュボードを維持します. ガイドは選択されたサークルモデルを説明し、関連するソースを引用し、実施した例へのリンクを参照します. ソフトウェアチェックは公式行動と数値限界ケースをカバーします. これらの責任は別々のレビューボード、研究室スタッフまたは独立したエンジニアリング認証を意味しない。",
   "is the public route for questions, content corrections and rights-related concerns. A technical report should include the page URL, model, inputs with units, observed result, expected result and supporting source. We do not publish private login contact details. No office address, phone support service, team photographs, customer testimonials or awards are presented without verifiable information.": "質問、内容修正および権利関連の問題に関する公開ルートです。技術報告書にはページのURL、モデル、ユニット付きの入力、観察結果、予想結果およびサポートソースが含まれなければなりません。私たちはプライベートログイン連絡先情報を公開しません。事務所アドレス、電話サポートサービス、チーム写真、顧客証言または賞品は確認可能な情報なしに提出されます。",
   "This project developed around a common calculation problem: “AC to DC” can mean an unfiltered rectifier average, a capacitor-filtered voltage estimate or a regulated output. Those are different quantities and require different assumptions. The English guide collection began in November 2026. Development then added dedicated half-wave and full-wave reference tools, worked examples, contextual guides and translated pages. The": "このプロジェクトは一般的な計算問題の周りに開発されました: 「AC to DC」は、非フィルタリングされた修正器平均、コンセプターフィルタリング電圧推定または規制出力を意味することができます. これらは異なる量であり、異なる仮定が必要です. 英語ガイドコレクションは2026年11月に始まりました。",
-  "We provide browser-based calculators and explanations for rectification, filtering, regulation, voltage measurement and component assumptions. The main workbench separates fixed-diode-drop rectification, capacitor filtering with current or resistance loads, and conditional downstream regulator analysis. Dedicated ideal tools provide zero-drop analytical reference cases. Calculations run on your device. We do not design a complete power supply, certify equipment, sell components or determine the available current from an AC voltage label.": "私たちはブラウザベースの計算機と修正、フィルタリング、規制、電圧測定およびコンポーネントの仮定のための説明を提供します。 主なワークベンチは固定ダイオド落下修正、電流または抵抗負荷でコンセッサターフィルタリングおよび条件下流規制分析を分離します。 専用理想的なツールはゼロ落下分析参照ケースを提供します。"
+  "We provide browser-based calculators and explanations for rectification, filtering, regulation, voltage measurement and component assumptions. The main workbench separates fixed-diode-drop rectification, capacitor filtering with current or resistance loads, and conditional downstream regulator analysis. Dedicated ideal tools provide zero-drop analytical reference cases. Calculations run on your device. We do not design a complete power supply, certify equipment, sell components or determine the available current from an AC voltage label.": "私たちはブラウザベースの計算機と修正、フィルタリング、規制、電圧測定およびコンポーネントの仮定のための説明を提供します。 主なワークベンチは固定ダイオド落下修正、電流または抵抗負荷でコンセッサターフィルタリングおよび条件下流規制分析を分離します。 専用理想的なツールはゼロ落下分析参照ケースを提供します。",
+  "By": "によって",
+  "Guide updated": "ガイド更新",
+  "Share this guide": "このガイドを共有する",
+  "· Published": "■出版",
+  "13 November 2026": "2026年11月13日",
+  "16 November 2026": "2026年11月16日",
+  "17 November 2026": "2026年11月17日",
+  "18 November 2026": "2026年11月18日",
+  "Share this guide:": "このガイドを共有する:",
+  "· Last updated": "■最新更新",
+  "AC to DC Converter logo": "AC から DC コンバーター ロゴ",
+  "changes alternating current into direct current. A": "流れを直接流れに変換する変化(A)",
+  "Share on Facebook (opens a new tab)": "Facebookで共有する(新しいタブを開く)",
+  "Share on LinkedIn (opens a new tab)": "LinkedInで共有する(新しいタブを開く)",
+  "Share on X (opens a new tab)": "共有する X (新しいタブを開く)",
+  "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC to DC Converter: 計算機&サーキットガイド(2026)",
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC から DC に変換ステージ グラフ 線形および隔離スイッチ電力供給を比較"
 }

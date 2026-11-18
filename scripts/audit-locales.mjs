@@ -13,7 +13,7 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  for(const l of config.languages)if(alternates.get(l.code)!==domain+l.prefix+base)fail(path,'invalid hreflang '+l.code);
  if(alternates.get('x-default')!==domain+base)fail(path,'missing x-default');
  const page=graph?.find(n=>n['@type']==='WebPage');if(page?.url!==url)fail(path,'schema page URL mismatch');
- const article=graph?.find(n=>n['@type']==='TechArticle');if(article&&base.startsWith('/blog/')&&base!=='/blog/'&&norm(article.headline)!==norm(mainHeading))fail(path,'article headline mismatch');
+ const article=graph?.find(n=>[].concat(n['@type']??[]).includes('TechArticle'));if(article&&base.startsWith('/blog/')&&base!=='/blog/'&&norm(article.headline)!==norm(mainHeading))fail(path,'article headline mismatch');
  const crumb=graph?.find(n=>n['@type']==='BreadcrumbList');if(crumb&&JSON.stringify(breadcrumbs)!==JSON.stringify(crumb.itemListElement.map(i=>norm(i.name))))fail(path,'breadcrumb text mismatch');
  if(!links)fail(path,'no internal links');
 }

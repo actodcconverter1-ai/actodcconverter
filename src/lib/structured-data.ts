@@ -13,6 +13,10 @@ export function techArticle(path:string,title:string,description:string,extra:Re
     mainEntityOfPage:{'@id':canonical(path)+'#webpage'},author:{'@id':editorialId},publisher:{'@id':editorialId},
     inLanguage:'en',...extra};
 }
+/** A technical guide published as a blog post is both types of Article. */
+export function blogPosting(path:string,title:string,description:string,extra:Record<string,unknown>={}) {
+  return {...techArticle(path,title,description,extra),'@type':['TechArticle','BlogPosting']};
+}
 export function faqPage(path:string,questions:readonly (readonly [string,string])[]) {
   return {'@type':'FAQPage','@id':canonical(path)+'#faq',url:canonical(path)+'#faq',
     mainEntity:questions.map(([name,text])=>({'@type':'Question',name,acceptedAnswer:{'@type':'Answer',text}}))};

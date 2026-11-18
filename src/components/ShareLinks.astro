@@ -1,0 +1,12 @@
+---
+import {canonical} from '../config/seo.config';
+interface Props { path:string; title:string; }
+const {path,title}=Astro.props;
+const url=canonical(path);
+const platforms=[
+ {id:'x',name:'X',label:'Share on X (opens a new tab)',href:'https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(title)},
+ {id:'facebook',name:'Facebook',label:'Share on Facebook (opens a new tab)',href:'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url)},
+ {id:'linkedin',name:'LinkedIn',label:'Share on LinkedIn (opens a new tab)',href:'https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url)},
+];
+---
+<nav class="social-sharing" aria-label="Share this guide"><span>Share this guide:</span>{platforms.map(p=><a data-share-platform={p.id} data-share-url={url} data-share-title={title} href={p.href} target="_blank" rel="noopener noreferrer" aria-label={p.label}><span translate="no">{p.name}</span></a>)}</nav>

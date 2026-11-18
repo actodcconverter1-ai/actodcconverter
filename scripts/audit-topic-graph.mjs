@@ -54,7 +54,7 @@ for(const [path,html] of pages){
  }
  if(spokes.includes(path)){
   const expectedType=toolPaths.includes(path)?'WebApplication':'TechArticle';
-  check(graph.some(node=>node['@type']===expectedType),path+': missing '+expectedType);
+  check(graph.some(node=>[].concat(node['@type']??[]).includes(expectedType)),path+': missing '+expectedType);
   const intro=/<p\b[^>]*class="spoke-intro"[^>]*>([\s\S]*?)<\/p>/.exec(html)?.[1]??'';
   check(links(intro).includes('/'),path+': opening paragraph missing hub backlink');
   const related=links(section(html));
@@ -63,7 +63,7 @@ for(const [path,html] of pages){
   check(navPosition>0&&navPosition<html.indexOf('<h1'),path+': breadcrumb must precede H1');
   const app=graph.find(node=>node['@type']==='WebApplication');
   if(app){const id=new URL(app.url).hash.slice(1);check(html.includes('id="'+id+'"'),path+': application URL fragment is absent');}
-  const article=graph.find(node=>node['@type']==='TechArticle');
+  const article=graph.find(node=>[].concat(node['@type']??[]).includes('TechArticle'));
   if(article)check(text(/<h1\b[^>]*>([\s\S]*?)<\/h1>/.exec(html)?.[1]??'')===article.headline,path+': article headline differs from visible H1');
  }
 }
