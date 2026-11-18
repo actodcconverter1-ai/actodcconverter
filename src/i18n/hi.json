@@ -2640,5 +2640,6 @@
   "Share on LinkedIn (opens a new tab)": "LinkedIn पर साझा करें (एक नया टैब खोलें)",
   "Share on X (opens a new tab)": "X पर साझा करें (एक नया टैब खोलें)",
   "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC to DC Converter: कैलकुलेटर और सर्किट गाइड (2026)",
-  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "एसी-डीसी रूपांतरण चरण चार्ट लाइन और इन्सुलेटेड स्विच बिजली की आपूर्ति की तुलना करता है"
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "एसी-डीसी रूपांतरण चरण चार्ट लाइन और इन्सुलेटेड स्विच बिजली की आपूर्ति की तुलना करता है",
+  "discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.": "इनपुट चयन, ओवरलोड सुरक्षा और रिपल मापन पर चर्चा करता है। किसी दूसरे मॉडल के निर्देश लागू करने के बजाय संबंधित उत्पाद के दस्तावेज़ का उपयोग करें।"
 }

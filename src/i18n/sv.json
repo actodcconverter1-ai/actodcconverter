@@ -2639,5 +2639,6 @@
   "Share on LinkedIn (opens a new tab)": "Dela på LinkedIn (öppna en ny flik)",
   "Share on X (opens a new tab)": "Dela på X (öppnar en ny flik)",
   "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC till DC Converter: Kalkylator & Circuit Guide (2026)",
-  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC till DC konverter fasdiagram jämför lineära och isolerade växling strömförsörjningar"
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC till DC konverter fasdiagram jämför lineära och isolerade växling strömförsörjningar",
+  "discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.": "beskriver val av ingång, överbelastningsskydd och mätning av rippel. Använd dokumentationen för den aktuella produkten i stället för anvisningar för en annan modell."
 }

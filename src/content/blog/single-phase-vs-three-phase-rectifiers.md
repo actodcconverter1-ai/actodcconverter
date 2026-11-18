@@ -42,7 +42,7 @@ The pulse comparison describes rectification. A downstream filter or regulator c
 
 For the ideal balanced bridge, the conducting upper diode connects the most positive phase to the positive DC terminal. The conducting lower diode connects the most negative phase to the negative terminal. The load therefore sees the difference between those phases: one of the instantaneous line-to-line voltages.
 
-The selected pair changes every 60 electrical degrees. These six successive intervals explain the term *six-pulse*. It does not mean the input has six phases. In the ideal description, two diodes carry load current at a time. Real source inductance makes current transfer take a finite interval; the [Virginia Tech rectifier-model thesis](https://vtechworks.lib.vt.edu/bitstream/handle/10919/30188/complete_final.pdf) illustrates this commutation overlap and why ideal switching is an approximation.
+The selected pair changes every 60 electrical degrees. These six successive intervals explain the term *six-pulse*. It does not mean the input has six phases. In the ideal description, two diodes carry load current at a time. Real source inductance makes current transfer take a finite interval; the [Virginia Tech rectifier-model thesis](https://vtechworks.lib.vt.edu/items/d1e3e79e-04f6-4168-bbc4-fa6840afefff) illustrates this commutation overlap and why ideal switching is an approximation.
 
 ## Ripple timing: 2f versus 6f
 

@@ -2639,5 +2639,6 @@
   "Share on LinkedIn (opens a new tab)": "Berkongsi di LinkedIn (membuka tab baru)",
   "Share on X (opens a new tab)": "Share on X (membuka tab baru)",
   "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC ke DC Converter: Calculator & Circuit Guide (2026)",
-  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC ke DC Converter stage diagram membandingkan linear dan terisolasi switching power supply"
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC ke DC Converter stage diagram membandingkan linear dan terisolasi switching power supply",
+  "discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.": "membahas pemilihan masukan, perlindungan beban berlebih, dan pengukuran riak. Gunakan dokumentasi produk yang bersangkutan, bukan petunjuk untuk model lain."
 }

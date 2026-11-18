@@ -2639,5 +2639,6 @@
   "Share on LinkedIn (opens a new tab)": "LinkedIn'de Paylaş (yeni bir sekme açılır)",
   "Share on X (opens a new tab)": "X'e paylaş (yeni bir sekme açılır)",
   "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC to DC Converter: Kalkınma ve Çember Rehberi (2026)",
-  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC to DC dönüştürücü aşama grafikleri lineer ve izolasyonlu dönüştürme güç kaynağı karşılaştırması"
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC to DC dönüştürücü aşama grafikleri lineer ve izolasyonlu dönüştürme güç kaynağı karşılaştırması",
+  "discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.": "giriş seçimini, aşırı yük korumasını ve dalgalanma ölçümünü açıklar. Başka bir modelin talimatlarını uygulamak yerine ilgili ürünün belgelerini kullanın."
 }

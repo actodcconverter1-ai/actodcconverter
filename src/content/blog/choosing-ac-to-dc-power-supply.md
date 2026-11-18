@@ -6,7 +6,7 @@ image: /images/blogs/choosing-ac-to-dc-power-supply.webp
 imageAlt: "Power supply selection checks linking load voltage, current, operating conditions, and protection"
 author: AC to DC Converter editorial
 pubDate: 2026-11-05
-updatedDate: 2026-11-17
+updatedDate: 2026-11-18
 categories: [power-supply-concepts]
 tags: [power supply ratings, load current, derating, DC output]
 seoTitle: "Choose an AC to DC Power Supply: Ratings That Matter"
@@ -76,7 +76,7 @@ The hypothetical supply has passed only one gate: 24 W continuous demand is belo
 
 Ambient temperature, ventilation, mounting orientation, enclosure temperature, altitude, and input voltage can affect usable output. A fan-cooled rating may not apply with the fan absent. A supply assessed in free air may need a different operating limit inside a warm enclosure beside other heat sources.
 
-MEAN WELL's [installation-manual collection](https://www.meanwell.com/productManual.aspx) provides application instructions by supply family. Its [technical FAQ](https://www.meanwell.com/qa.aspx) discusses model-dependent conditions including mounting orientation, output behavior, and input selection. Use the specific product documentation rather than transplanting guidance from an unrelated model.
+MEAN WELL's [installation-manual collection](https://www.meanwell.com/productManual.aspx) provides application instructions by supply family. Its [technical FAQ](https://www.meanwell.com/qa.aspx?c=9) discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.
 
 Keep current and thermal margins tied to identified uncertainties. A margin intended for startup demand does not replace temperature derating. A conservative power budget cannot compensate for an incompatible connector or missing isolation requirement.
 

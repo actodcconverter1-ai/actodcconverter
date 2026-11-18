@@ -2640,5 +2640,6 @@
   "Share on LinkedIn (opens a new tab)": "Поделиться на LinkedIn (открыть новую страницу)",
   "Share on X (opens a new tab)": "Поделиться на X (откроется новая таблица)",
   "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC to DC Converter: Calculator & Circuit Guide (2026)",
-  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC-DC конвертерная стадия диаграмма сравнения линейных и изолированных переключательных поставок"
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC-DC конвертерная стадия диаграмма сравнения линейных и изолированных переключательных поставок",
+  "discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.": "рассматривает выбор входа, защиту от перегрузки и измерение пульсаций. Используйте документацию конкретного изделия, а не инструкции для другой модели."
 }

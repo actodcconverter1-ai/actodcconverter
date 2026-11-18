@@ -2640,5 +2640,6 @@
   "Share on LinkedIn (opens a new tab)": "LinkedIn에 공유 (새 탭을 열어)",
   "Share on X (opens a new tab)": "X에 공유 (새 탭을 열어)",
   "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC to DC Converter: 계산기 & 회로 가이드 (2026)",
-  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC에서 DC로 변환기 단계 차트는 선형 및 고립 스위치 전원 공급을 비교합니다."
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC에서 DC로 변환기 단계 차트는 선형 및 고립 스위치 전원 공급을 비교합니다.",
+  "discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.": "에서는 입력 선택, 과부하 보호 및 리플 측정을 설명합니다. 다른 모델의 지침을 적용하지 말고 해당 제품의 문서를 참조하세요."
 }

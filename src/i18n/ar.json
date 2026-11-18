@@ -2639,5 +2639,6 @@
   "Share on LinkedIn (opens a new tab)": "المشاركة على LinkedIn (يفتح في علامة تبويب جديدة)",
   "Share on X (opens a new tab)": "المشاركة على X (يفتح في علامة تبويب جديدة)",
   "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC to DC Converter: حاسبة ودليل الدوائر (2026)",
-  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "مخطط مراحل محوّل AC إلى DC يقارن مزودات الطاقة الخطية ومزودات التبديل المعزولة"
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "مخطط مراحل محوّل AC إلى DC يقارن مزودات الطاقة الخطية ومزودات التبديل المعزولة",
+  "discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.": "يناقش اختيار الدخل والحماية من الحمل الزائد وقياس التموج. استخدم وثائق المنتج المعني بدلاً من تطبيق إرشادات تخص طرازاً آخر."
 }

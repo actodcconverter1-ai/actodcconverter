@@ -46,7 +46,7 @@ For a simple single-input positive linear regulator, let Vin be the regulator in
 
 If Iq is negligible compared with Iout, efficiency approaches Vout/Vin and loss approaches (Vin − Vout) × Iout. These simplified limits should not hide an appreciable quiescent-current contribution at light load. Devices with separate bias rails or different current paths need their actual input-power relationships.
 
-Texas Instruments' [TPS7A11 datasheet](https://www.ti.com/lit/ds/symlink/tps7a11.pdf) is an example where a separate bias supply must be included in an efficiency calculation. It illustrates why the simple single-rail expression is not universal.
+Texas Instruments' [TPS7A11 datasheet](https://www.ti.com/document-viewer/TPS7A11/datasheet) is an example where a separate bias supply must be included in an efficiency calculation. It illustrates why the simple single-rail expression is not universal.
 
 ## Work through a 12 V to 5 V example
 

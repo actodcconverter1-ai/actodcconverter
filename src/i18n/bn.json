@@ -2640,5 +2640,6 @@
   "Share on LinkedIn (opens a new tab)": "LinkedIn এর সাথে শেয়ার করুন (নতুন ট্যাগ খুলে)",
   "Share on X (opens a new tab)": "X-এ শেয়ার করুন (নতুন ট্যাগ খুলে)",
   "AC to DC Converter: Calculator & Circuit Guide (2026)": "AC to DC Converter: ক্যালকুলেটার & সার্কিট গাইড (2026)",
-  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC-DC পরিদর্শন স্টেশন ডিজাইম linear এবং isolated switching power supply comparing"
+  "AC to DC converter stage diagram comparing linear and isolated switching power supplies": "AC-DC পরিদর্শন স্টেশন ডিজাইম linear এবং isolated switching power supply comparing",
+  "discusses input selection, overload protection, and ripple measurement. Use the specific product documentation rather than transplanting guidance from an unrelated model.": "ইনপুট নির্বাচন, ওভারলোড সুরক্ষা এবং রিপল পরিমাপ নিয়ে আলোচনা করে। অন্য মডেলের নির্দেশনা প্রয়োগ না করে নির্দিষ্ট পণ্যের নথি ব্যবহার করুন।"
 }
