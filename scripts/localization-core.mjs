@@ -24,6 +24,7 @@ export function localize(html,locale,dictionary,domain,paths){
  walk(doc,node=>{
   if(node.tagName==='html'){attr(node,'lang',locale.code);attr(node,'dir',locale.direction);}
   if(node.tagName==='a'&&!attr(node,'data-language'))attr(node,'href',url(attr(node,'href')??''));
+  if(node.tagName==='form'&&attr(node,'action'))attr(node,'action',url(attr(node,'action')));
   if(node.tagName==='link'&&attr(node,'rel')==='canonical')attr(node,'href',domain+url(attr(node,'href')));
   if(node.tagName==='meta'&&attr(node,'property')==='og:url')attr(node,'content',domain+url(attr(node,'content')));
   if(node.tagName==='meta'&&attr(node,'property')==='og:locale')attr(node,'content',locale.ogLocale??locale.code);

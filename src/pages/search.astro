@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteSearchForm from '../components/SiteSearchForm.astro';
+import {posts} from '../lib/posts';
+import {siteDirectory} from '../lib/site-directory';
+const directory=siteDirectory(await posts());
+---
+<Base title="Search Calculators & Technical Guides" titleIsComplete description="Find AC to DC calculators, rectifier explanations, ripple formulas, worked examples and website information with local site search.">
+ <section class="shell page-intro prose search-page"><h1>Search calculators and technical guides</h1><p>Search page titles and summaries. Your search runs in this browser; no external search service receives your query.</p>
+ <div data-site-search><SiteSearchForm id="page-search"/><p class="search-count"><span>Results:</span> <output aria-live="polite" data-search-count>{directory.length}</output></p><p data-search-empty hidden>No matching pages. Try a shorter phrase, a formula name or a component.</p>
+ <ul class="directory-list" data-search-list>{directory.map(page=><li><a href={page.href}>{page.title}</a><p>{page.description}</p></li>)}</ul>
+ <noscript>JavaScript is disabled. All page links remain available below; you can use your browser's Find command.</noscript></div></section>
+</Base>
+<script>
+ const root=document.querySelector<HTMLElement>('[data-site-search]');
+ const input=root?.querySelector<HTMLInputElement>('input[name=q]');
+ const form=root?.querySelector('form');
+ const count=root?.querySelector<HTMLOutputElement>('[data-search-count]');
+ const empty=root?.querySelector<HTMLElement>('[data-search-empty]');
+ const items=[...root?.querySelectorAll<HTMLElement>('[data-search-list]>li')??[]];
+ const normalize=(value:string)=>value.normalize('NFKD').replace(/\p{M}/gu,'').toLocaleLowerCase();
+ function filter(){if(!input||!count||!empty)return;const terms=normalize(input.value).trim().split(/\s+/).filter(Boolean);let visible=0;for(const item of items){item.hidden=!terms.every(term=>normalize(item.textContent??'').includes(term));if(!item.hidden)visible++;}count.value=String(visible);empty.hidden=visible>0;}
+ if(input){input.value=(new URLSearchParams(location.search).get('q')??'').slice(0,150);filter();input.addEventListener('input',filter);}
+ form?.addEventListener('submit',event=>{event.preventDefault();filter();const url=new URL(location.href);if(input?.value.trim())url.searchParams.set('q',input.value.trim());else url.searchParams.delete('q');history.replaceState(null,'',url);});
+</script>

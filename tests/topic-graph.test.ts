@@ -57,6 +57,6 @@ test('sitemap covers hub, calculators, published guides and categories with vali
  assert.ok(entries.some(entry=>entry.path==='/category/rectifier-basics/'));
  assert.ok(!entries.some(entry=>/draft|admin|404/.test(entry.path)));
  assert.ok(entries.every(entry=>entry.priority>=0&&entry.priority<=1));
- assert.equal(entries.find(entry=>entry.path==='/blog/bridge-formulas/')?.lastmod,'2026-11-17');
- const xml=renderSitemap(entries);assert.ok(xml.includes('<priority>1.0</priority>'));assert.ok(xml.includes('<lastmod>2026-11-17</lastmod>'));
+ assert.equal(entries.find(entry=>entry.path==='/blog/bridge-formulas/')?.lastmod,'2026-11-18');
+ const xml=renderSitemap(entries);assert.ok(xml.includes('<priority>1.0</priority>'));assert.ok(xml.includes('<lastmod>2026-11-18</lastmod>'));
 });

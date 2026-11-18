@@ -1,0 +1,8 @@
+---
+interface Props { id?:string; }
+const {id='footer-search'}=Astro.props;
+---
+<form action="/search/" method="get" role="search" class="site-search-form">
+  <label for={id}>Search calculators and guides</label>
+  <div><input id={id} type="search" name="q" placeholder="Try ripple frequency or RMS" maxlength="150" /><button type="submit" class="button">Search</button></div>
+</form>

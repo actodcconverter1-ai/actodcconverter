@@ -1,0 +1,5 @@
+import type {APIRoute} from 'astro';
+import {posts} from '../lib/posts';
+import {canonical} from '../config/seo.config';
+const escape=(value:string)=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+export const GET:APIRoute=async()=>new Response(`<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AC to DC Converter Guides</title><link>${canonical('/blog/')}</link><description>English technical guides, calculator methods and worked examples.</description><language>en</language><atom:link href="${canonical('/rss.xml')}" rel="self" type="application/rss+xml"/>${(await posts()).map(p=>{const url=canonical('/blog/'+p.data.slug+'/');return `<item><title>${escape(p.data.title)}</title><link>${url}</link><guid isPermaLink="true">${url}</guid><description>${escape(p.data.description)}</description><pubDate>${p.data.pubDate.toUTCString()}</pubDate></item>`;}).join('')}</channel></rss>`,{headers:{'Content-Type':'application/rss+xml; charset=utf-8'}});

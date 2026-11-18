@@ -8,7 +8,7 @@ export interface Spoke {
   topics: string[];
 }
 
-export const architectureUpdated = '2026-11-17';
+export const architectureUpdated = '2026-11-18';
 export const calculatorSpokes: Spoke[] = [
   {href:'/ac-to-dc-calculator/', title:'AC to DC calculator', description:'Compare diode-drop rectification, capacitor ripple and downstream regulator models.', kind:'calculator', topics:['rectifier-basics','worked-examples','filtering','regulation']},
   {href:'/full-wave-rectifier-calculator/', title:'Full-wave rectifier calculator', description:'Calculate an ideal unfiltered full-wave sine average, peak and pulse frequency.', kind:'calculator', topics:['rectifier-basics','full-wave','average']},
