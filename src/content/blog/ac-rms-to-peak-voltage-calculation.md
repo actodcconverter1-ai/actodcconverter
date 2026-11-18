@@ -1,16 +1,21 @@
 ---
-title: 'AC RMS to peak voltage: derive the sine-wave conversion'
+title: 'RMS to Peak Voltage: Sine-Wave Formulas and Examples'
 slug: ac-rms-to-peak-voltage-calculation
-description: 'Understand the square-root-of-two factor, its waveform assumption, and how peak voltage enters a rectifier model.'
+description: 'Convert sine-wave RMS voltage to peak or peak-to-peak voltage, and
+  reverse the calculation when an oscilloscope gives a Vpp reading.'
 image: /images/blogs/ac-rms-to-peak-voltage-calculation.webp
-imageAlt: 'A sine wave with RMS, positive peak, negative peak, and peak-to-peak values labeled'
+imageAlt: 'A sine wave with RMS, positive peak, negative peak, and peak-to-peak
+  values labeled'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [measurement-guides]
-tags: [RMS, peak voltage, sine waves, crest factor]
-seoTitle: 'AC RMS to Peak Voltage Calculation & Examples'
-metaDescription: 'Derive peak = RMS × square root of two for a sinusoidal voltage, work through numerical examples, and avoid common rectifier input mistakes.'
+categories: [ measurement-guides ]
+tags: [ RMS, peak voltage, sine waves, crest factor ]
+seoTitle: 'RMS to Peak & Peak-to-Peak Voltage: Formula & Examples'
+metaDescription: 'Convert RMS to peak and peak-to-peak voltage for a sine wave.
+  See the formulas, a 12 V RMS example and why 1 Vpp is about 0.3536 Vrms for a
+  sine.'
 status: published
+updatedDate: 2026-11-17
 ---
 
 For a sinusoidal voltage with no DC offset, peak voltage equals RMS voltage multiplied by the square root of two. A 12 V RMS sine therefore has a positive peak of approximately 16.9706 V. Its negative peak is the same magnitude with opposite sign, and its peak-to-peak span is approximately 33.9411 V.
@@ -48,6 +53,12 @@ For a symmetric sine centered on zero, the waveform runs from −Vm to +Vm. Its 
 Suppose a waveform is described as 20 V peak-to-peak. Its positive peak magnitude is 10 V, so its RMS value is approximately 7.0711 V. Entering 20 V as an RMS input would imply a much larger sine, with a peak of approximately 28.2843 V.
 
 This naming distinction matters before any rectifier formula is applied. An input entered with the wrong convention can still produce a plausible-looking result. The calculator cannot recover the intended convention from the number alone. Labels such as V RMS, V peak, and V p-p prevent that ambiguity.
+
+## Convert 1 Vpp to Vrms
+
+For a zero-offset sine wave, use `Vrms = Vpp/(2√2)`. A `1 Vpp` sine therefore has about `0.353553 V RMS` and a `0.5 V` peak. That is a waveform conversion, not a rectifier output estimate.
+
+The waveform matters: a symmetric `1 Vpp` square wave has `0.5 V RMS`, while a symmetric triangular wave has about `0.288675 V RMS`. An unexplained peak-to-peak reading is not enough to select the correct RMS factor. Compare the [RMS, peak and average definitions](/blog/rms-peak-average-voltage/) before entering a value.
 
 ## Compare other waveform shapes
 

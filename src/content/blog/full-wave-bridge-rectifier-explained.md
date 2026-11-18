@@ -1,16 +1,21 @@
 ---
 title: 'Full-Wave Bridge Rectifier: Circuit, Working and DC Output'
 slug: full-wave-bridge-rectifier-explained
-description: 'A full-wave bridge rectifier uses four diodes to turn both AC half-cycles into pulsating DC. Two diodes conduct at a time; a capacitor can smooth the output.'
+description: 'A full-wave bridge rectifier uses four diodes to turn both AC
+  half-cycles into pulsating DC. Two diodes conduct at a time; a capacitor can
+  smooth the output.'
 image: /images/blogs/full-wave-bridge-rectifier-explained.webp
-imageAlt: 'A signed sine waveform becoming positive full-wave pulses, with optional capacitor filtering shown as a separate stage'
+imageAlt: 'A signed sine waveform becoming positive full-wave pulses, with
+  optional capacitor filtering shown as a separate stage'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-updatedDate: 2026-11-16
-categories: [rectifier-basics]
-tags: [bridge rectifier, full-wave, filtering]
+updatedDate: 2026-11-17
+categories: [ rectifier-basics ]
+tags: [ bridge rectifier, full-wave, filtering ]
 seoTitle: 'Full-Wave Bridge Rectifier: Circuit, Working & DC Output'
-metaDescription: 'Learn how a four-diode bridge rectifier works. Follow the circuit paths, DC voltage formulas and 12 V RMS example, with diode drops and capacitor ripple.'
+metaDescription: 'Learn how a four-diode bridge rectifier works. Follow the
+  circuit paths, DC voltage formulas and 12 V RMS example, with diode drops and
+  capacitor ripple.'
 status: published
 ---
 
@@ -18,7 +23,9 @@ A bridge rectifier keeps current through the load flowing in the same direction 
 
 For calculation, separate the ideal rectified waveform from the behavior of a capacitor-filtered bridge. The [AC to DC calculator](/ac-to-dc-calculator/) offers basic rectification with a selectable diode drop and a separate filtered-output mode. Set the basic-mode drop to zero to reproduce the ideal full-wave reference. Understanding the distinction prevents the common mistake of treating an unfiltered multiplier and a peak-based filtered model as though they describe the same circuit.
 
-## What full-wave rectification changes
+<span id="what-full-wave-rectification-changes"></span>
+
+## Full-wave bridge rectifier output waveform
 
 Represent a sinusoidal input by v = Vm sin θ. It is positive during one half of the cycle and negative during the other. An ideal full-wave rectifier delivers the absolute value, Vm|sin θ|, to its output. Both input half-cycles therefore contribute positive output voltage.
 

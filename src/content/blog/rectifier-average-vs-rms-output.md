@@ -1,16 +1,21 @@
 ---
-title: 'Rectifier average versus RMS output: calculate both correctly'
+title: 'Rectifier Average vs RMS Output Voltage'
 slug: rectifier-average-vs-rms-output
-description: 'Derive why a rectified waveform can have one average, another RMS value, and a separate ripple component.'
+description: 'Compare average and total RMS output for ideal full-wave and
+  half-wave rectifiers, keeping the DC component separate from RMS ripple.'
 image: /images/blogs/rectifier-average-vs-rms-output.webp
-imageAlt: 'Ideal full-wave and half-wave outputs compared by average and total RMS values'
+imageAlt: 'Ideal full-wave and half-wave outputs compared by average and total
+  RMS values'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [measurement-guides]
-tags: [rectifier average, RMS output, ripple, waveform analysis]
-seoTitle: 'Rectifier Average vs RMS Output: Full-Wave & Half-Wave'
-metaDescription: 'Derive ideal rectifier average and RMS values, calculate 12 V RMS examples, and separate DC average from the RMS of the remaining ripple.'
+categories: [ measurement-guides ]
+tags: [ rectifier average, RMS output, ripple, waveform analysis ]
+seoTitle: 'Rectifier Average Output Voltage vs RMS: Formulas'
+metaDescription: 'Compare average output voltage and RMS for full-wave and
+  half-wave sine rectifiers. Use a 12 V RMS table and distinguish DC average
+  from RMS ripple.'
 status: published
+updatedDate: 2026-11-17
 ---
 
 An ideal full-wave rectifier supplied by a 12 V RMS sine has approximately 10.8038 V average output and 12 V total RMS output. Those values describe the same positive waveform. The difference is not a contradiction or an unexplained loss; average and RMS are different mathematical operations.
@@ -18,6 +23,17 @@ An ideal full-wave rectifier supplied by a 12 V RMS sine has approximately 10.80
 The average describes the signed area per unit time. RMS describes the square root of the mean squared voltage. Rectification changes the sign pattern, and that affects these operations differently. Working through the definitions is more reliable than treating every quantity labeled “DC” as interchangeable.
 
 This article considers ideal zero-drop rectifiers with no smoothing capacitor and a resistive load. A capacitor-filtered output is introduced separately to show why its waveform cannot inherit the unfiltered formulas automatically. The examples are analytical calculations, not reports of measured hardware performance.
+
+
+## Average and RMS output at 12 V input
+
+| Ideal waveform | Complete-cycle average | Total RMS |
+|---|---|---|
+| Original sine | `0 V` | `12 V` |
+| Full-wave rectified | `10.8038 V` | `12 V` |
+| Half-wave rectified | `5.4019 V` | `8.4853 V` |
+
+These are zero-drop, unfiltered results. The [full-wave calculator](/full-wave-rectifier-calculator/) and [half-wave calculator](/half-wave-rectifier-calculator/) use the corresponding ideal model. A capacitor changes the waveform and requires a separate estimate.
 
 ## Define the waveform before the statistic
 
@@ -66,6 +82,8 @@ Any periodic waveform can be written as its average D plus a zero-mean remainder
 Therefore total RMS squared equals D² plus the RMS of the zero-mean remainder squared. Rearranging, ripple RMS = √(total RMS² − average²), provided both terms describe the same waveform and observation interval.
 
 For the ideal full-wave example, ripple RMS is √(12² − 10.8038²), approximately 5.2228 V using unrounded intermediate values. This is not its peak-to-peak ripple, which spans zero to the 16.9706 V peak. RMS amplitude and peak-to-peak amplitude remain distinct even after the DC component has been separated.
+
+Compare the [half-wave and full-wave RMS ripple factors](/blog/half-wave-vs-full-wave-rectifier/#ripple-factor-of-a-half-wave-and-full-wave-rectifier) before using a ripple percentage from another source.
 
 ## Why instrument modes matter here
 

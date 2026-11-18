@@ -1,21 +1,36 @@
 ---
-title: 'Rectifier Ripple Frequency: Why Full-Wave Output Repeats at 2f'
+title: 'Rectifier Ripple Frequency: Formula and 50/60 Hz Examples'
 slug: rectifier-ripple-frequency
-description: 'Separate AC input frequency, rectified pulse repetition, ripple magnitude, and waveform harmonics using timing diagrams and worked examples.'
+description: 'Ripple repeats once per AC cycle in a half-wave rectifier and
+  twice per cycle in a single-phase full-wave rectifier.'
 image: /images/blogs/rectifier-ripple-frequency.webp
-imageAlt: 'One input sine cycle aligned with one half-wave output pulse and two full-wave output pulses'
+imageAlt: 'One input sine cycle aligned with one half-wave output pulse and two
+  full-wave output pulses'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [rectifier-basics, voltage-measurement]
-tags: [ripple frequency, full-wave, timing]
-seoTitle: 'Rectifier Ripple Frequency: Half-Wave f vs Full-Wave 2f'
-metaDescription: 'See why half-wave ripple repeats at input frequency and full-wave ripple at twice input frequency, with 50/60 Hz examples and correct use in I/(2fC).'
+categories: [ rectifier-basics, voltage-measurement ]
+tags: [ ripple frequency, full-wave, timing ]
+seoTitle: 'Ripple Frequency Formula: Half-Wave, Full-Wave & 50/60 Hz'
+metaDescription: 'Use ripple frequency f for half-wave and 2f for single-phase
+  full-wave rectifiers. Compare 50/60 Hz examples and avoid counting the factor
+  of two twice.'
 status: published
+updatedDate: 2026-11-17
 ---
 
-Ripple frequency describes how often a repeating variation occurs. It does not describe how many volts the output changes by. Keeping those two ideas separate makes rectifier calculations much easier to interpret, particularly when a capacitor-ripple equation already includes a factor of two.
+The ripple frequency formula is `fr = f` for half-wave rectification and `fr = 2f` for single-phase full-wave rectification. Here, `f` is the AC input frequency. At 50 Hz input, the outputs repeat at 50 Hz and 100 Hz respectively. Frequency describes repetition, not the voltage amplitude of the ripple.
 
 For the single-phase sinusoidal models on this site, ideal half-wave output repeats at the AC input frequency f, while ideal full-wave output repeats at 2f. A filtered bridge retains two charging opportunities per input cycle under the same basic model. This guide derives the timing, works through 50 Hz and 60 Hz examples, and explains where those simple relationships should not be extended.
+
+
+## Ripple frequency formula and reference table
+
+| Rectifier | Ripple frequency | 50 Hz input | 60 Hz input |
+|---|---|---|---|
+| Half-wave | `fr = f` | `50 Hz` | `60 Hz` |
+| Single-phase full-wave | `fr = 2f` | `100 Hz` | `120 Hz` |
+
+Use the [ideal half-wave calculator](/half-wave-rectifier-calculator/) or [ideal full-wave calculator](/full-wave-rectifier-calculator/) to reproduce these pulse frequencies. The [capacitor ripple equation](/blog/capacitor-ripple-explained/) uses the same timing; do not double an already doubled ripple frequency.
 
 ## Frequency and period describe the same timing differently
 

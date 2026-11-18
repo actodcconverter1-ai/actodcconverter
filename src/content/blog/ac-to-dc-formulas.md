@@ -1,28 +1,28 @@
 ---
-title: "AC to DC Formulas: Choose the Circuit Before the Multiplier"
+title: "AC to DC Formulas: Choose the Right Circuit Model"
 slug: ac-to-dc-formulas
-description: Compare ideal rectifier averages and capacitor-filtered bridge
-  estimates using clear assumptions and worked examples.
+description: Choose the full-wave, half-wave or capacitor-filtered AC to DC
+  formula, keeping the waveform, diode-drop and load assumptions explicit.
 image: /images/blogs/ac-to-dc-formulas.webp
 imageAlt: "Three model equations compared: full-wave average, half-wave average,
   and capacitor-filtered bridge estimate"
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-updatedDate: 2026-11-13
+updatedDate: 2026-11-17
 categories:
   - rectifier-basics
 tags:
   - AC to DC
   - formulas
   - rectifier models
-seoTitle: "AC to DC Formulas: Filtered Bridge, Full-Wave & Half-Wave"
-metaDescription: Choose the correct AC to DC formula. Compare filtered bridge
-  voltage, ideal full-wave and half-wave averages, diode losses, and a complete
-  12 V example.
+seoTitle: "AC to DC Formula: Full-Wave, Half-Wave & Filtered"
+metaDescription: "Choose the right AC to DC formula: ideal full-wave and
+  half-wave averages or a filtered bridge estimate. Compare equations and a
+  worked 12 V example."
 status: published
 ---
 
-An AC voltage does not have one universal DC equivalent. The answer depends on the waveform, the rectifier, any filtering, and the quantity being reported. A calculator that multiplies every AC reading by the same number leaves those decisions hidden. A more useful calculation starts with a circuit model and identifies whether the result is a peak, a complete-cycle average, or an approximate filtered level.
+For an ideal unfiltered sine-wave rectifier, average DC output is `2√2 Vrms/π` for full-wave and `√2 Vrms/π` for half-wave. A capacitor-filtered bridge uses a different estimate: available peak minus half the discharge ripple. There is no universal AC-to-DC multiplier; select the circuit and output quantity first.
 
 This guide selects between three reference cases: an ideal unfiltered full-wave rectifier, an ideal unfiltered half-wave rectifier, and a capacitor-filtered bridge. Each starts with sinusoidal, single-phase RMS voltage at the rectifier input. The [calculator methodology](/ac-to-dc-calculator/#methodology) also covers nonzero diode-drop clipping, resistance loads and a separate regulator stage; those additional models should not silently inherit an ideal multiplier.
 

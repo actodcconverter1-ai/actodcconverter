@@ -1,21 +1,33 @@
 ---
 title: 'Why AC voltage alone cannot tell you the available DC current'
 slug: ac-voltage-does-not-determine-dc-current
-description: 'Separate output voltage estimates from load current, transformer capacity, power, and component stress.'
+description: 'Separate output voltage estimates from load current, transformer
+  capacity, power, and component stress.'
 image: /images/blogs/ac-voltage-does-not-determine-dc-current.webp
-imageAlt: 'Voltage and current shown as independent inputs to a rectifier power calculation'
+imageAlt: 'Voltage and current shown as independent inputs to a rectifier power
+  calculation'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [rectifier-basics]
-tags: [DC current, transformer capacity, power, calculator scope]
-seoTitle: 'Can AC Voltage Determine DC Current? What Else You Need'
-metaDescription: 'Learn why AC RMS voltage cannot determine available DC current, distinguish assumed load from supply capability, and interpret power calculations within their limits.'
+categories: [ rectifier-basics ]
+tags: [ DC current, transformer capacity, power, calculator scope ]
+seoTitle: 'AC Current to DC Current: What Else Must You Know?'
+metaDescription: 'AC voltage or current alone cannot determine available DC
+  amps. Learn which load, power, power-factor and efficiency assumptions a
+  current estimate needs.'
 status: published
+updatedDate: 2026-11-17
 ---
 
 Knowing that a source provides a stated AC voltage does not tell you how much DC current can be drawn after rectification. Voltage describes a potential difference. Current depends on the connected circuit and its operating condition, while available current capacity depends on source and component constraints that a voltage value does not contain.
 
 This distinction is easy to overlook when a calculator accepts an AC input and displays a DC voltage. The result may be useful for its defined model, but it cannot manufacture missing transformer ratings, thermal information, load behavior, or component limits. A separate current input is an assumption about the load, not a prediction that the source can support it.
+
+
+## Can you convert AC current to DC current?
+
+AC amps alone do not determine DC amps. For a single-phase steady power-balance estimate, `Pin = Vac,rms × Iac,rms × PF` and `Idc ≈ η Pin/Vdc`. This requires true input power factor, conversion efficiency and the defined DC voltage. [Texas Instruments defines power factor](https://www.ti.com/document-viewer/lit/html/SSZTDA4/GUID-74DF7FDF-F08C-47CF-951A-00619A2BE84E) using real power and RMS apparent power. This is not a diode-current or transformer-rating formula.
+
+The calculator asks for an assumed DC load; it does not infer available current from AC voltage. Use the [power-supply selection guide](/blog/choosing-ac-to-dc-power-supply/) to check documented current capability.
 
 ## Distinguish an operating current from a current rating
 

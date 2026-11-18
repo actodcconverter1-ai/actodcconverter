@@ -1,21 +1,38 @@
 ---
-title: 'RMS, Peak, and Average Voltage: Keep the Measurement Convention'
+title: 'RMS vs Peak vs Average Voltage: Formulas and Examples'
 slug: rms-peak-average-voltage
-description: 'Distinguish sine-wave RMS, peak, signed average, rectified average, and filtered estimates before calculating AC to DC output.'
+description: 'Compare sine-wave RMS, peak, peak-to-peak and average voltage,
+  then distinguish the average of rectified output from its RMS value.'
 image: /images/blogs/rms-peak-average-voltage.webp
-imageAlt: 'Sinusoidal input with positive peak, negative peak, RMS level, and zero signed average identified'
+imageAlt: 'Sinusoidal input with positive peak, negative peak, RMS level, and
+  zero signed average identified'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [voltage-measurement, rectifier-basics]
-tags: [RMS, peak voltage, average voltage]
-seoTitle: 'RMS vs Peak vs Average Voltage for AC to DC Calculations'
-metaDescription: 'Understand RMS, peak, peak-to-peak, signed average, and rectified average voltage with a 12 V sine example and clear limits on waveform conversions.'
+categories: [ voltage-measurement, rectifier-basics ]
+tags: [ RMS, peak voltage, average voltage ]
+seoTitle: 'RMS vs Peak vs Average Voltage: Formulas & Examples'
+metaDescription: 'Compare RMS, peak, peak-to-peak and average voltage with a 12
+  V sine-wave table. Learn which values change after half-wave or full-wave
+  rectification.'
 status: published
+updatedDate: 2026-11-17
 ---
 
-A voltage number becomes meaningful when its measurement convention is attached. “12 volts” could describe a steady DC level, a sinusoidal RMS reading, a positive peak, or a peak-to-peak span. These values describe different features of a waveform. Treating them as interchangeable can produce a large calculation error even when every arithmetic step is correct.
+For a sine wave without DC offset, peak voltage is `Vpk = √2 Vrms` and peak-to-peak voltage is `Vpp = 2Vpk`. Its signed complete-cycle average is zero. Rectification creates a nonzero average, while RMS remains a separate measurement. Always identify the waveform before converting between these quantities.
 
 The [AC to DC calculator](/ac-to-dc-calculator/) asks for sinusoidal AC RMS voltage at the rectifier input. Its formulas depend on that definition. This guide derives the main relationships, shows what changes after rectification, and explains why a filtered average must be interpreted separately. The purpose is to make the input and output quantities clear before using a multiplier.
+
+
+## Sine-wave voltage quick reference
+
+| Quantity | Relationship | At 12 V RMS input |
+|---|---|---|
+| RMS voltage | `Vrms` | `12 V` |
+| Positive peak | `√2 Vrms` | `16.9706 V` |
+| Peak-to-peak | `2√2 Vrms` | `33.9411 V` |
+| Signed complete-cycle average | `0` | `0 V` |
+
+This table assumes a sine wave centered on zero. For a rectified waveform, use the [average and RMS output comparison](/blog/rectifier-average-vs-rms-output/); for a peak-to-peak reading, follow the [Vpp-to-RMS example](/blog/ac-rms-to-peak-voltage-calculation/#convert-1-vpp-to-vrms).
 
 ## Peak is the waveform's largest excursion
 

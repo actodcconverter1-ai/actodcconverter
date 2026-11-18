@@ -1,19 +1,25 @@
 ---
-title: 'Capacitor Ripple Explained: What Happens Between Charging Peaks'
+title: 'Capacitor Ripple Voltage: Formula, Example and Limits'
 slug: capacitor-ripple-explained
-description: 'Derive bridge ripple from charge balance, work through units, and understand where the small-ripple approximation stops being useful.'
+description: 'Estimate capacitor ripple from load current, recharge frequency
+  and capacitance, then check the assumptions behind the small-ripple
+  approximation.'
 image: /images/blogs/capacitor-ripple-explained.webp
-imageAlt: 'Capacitor top, valley, and approximate average labeled on a repeated linear discharge waveform'
+imageAlt: 'Capacitor top, valley, and approximate average labeled on a repeated
+  linear discharge waveform'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [rectifier-basics, worked-examples]
-tags: [capacitor ripple, filtering, charge balance]
-seoTitle: 'Capacitor Ripple Explained: I/(2fC) Bridge Formula & Example'
-metaDescription: 'Understand bridge rectifier capacitor ripple using charge balance, correct µF conversion, average and valley estimates, and a worked 1 V p-p example.'
+categories: [ rectifier-basics, worked-examples ]
+tags: [ capacitor ripple, filtering, charge balance ]
+seoTitle: 'Capacitor Ripple Voltage: Formula & Worked Example'
+metaDescription: 'Use the capacitor ripple voltage formula with correct
+  frequency and farad units. Follow a 1 V ripple example and check the
+  small-ripple approximation.'
 status: published
+updatedDate: 2026-11-17
 ---
 
-A smoothing capacitor reduces changes in rectifier output, but it does not create a perfectly constant voltage. Between charging crests, the load removes charge from the capacitor and its voltage falls. A useful ripple calculation describes that discharge while being explicit about how it approximates the recharge process.
+For a constant-current load on a single-phase full-wave bridge, the small-ripple estimate is `ΔVpp ≈ I/(2fC)`. Use AC input frequency for `f` and capacitance in farads for `C`. This estimates capacitor discharge between charging peaks; it does not include ESR, finite charging time or regulation.
 
 This guide explains the filtered bridge model used by the [AC to DC calculator](/ac-to-dc-calculator/). It assumes a sinusoidal single-phase input, a bridge rectifier, approximately constant load current, fixed diode forward drop, and small approximately linear ripple. It estimates voltage behavior rather than selecting components or guaranteeing the performance of a physical power supply.
 
@@ -65,7 +71,9 @@ These comparisons describe a mathematical model with the other inputs held const
 
 For useful comparisons, make a small table with one changed variable per row and record the resulting top, average, valley, and ripple. This distinguishes the equation's direct sensitivity from assumptions about how the actual source and load behave. Avoid changing three settings together and then attributing the result to only one of them.
 
-## Know what the 20% guardrail means
+<span id="know-what-the-20-guardrail-means"></span>
+
+## Small-ripple approximation and the 20% model guardrail
 
 The calculator rejects filtered cases when estimated ripple exceeds 20% of the available top. The threshold defines the tool's chosen small-ripple scope. It does not claim that all accepted results are accurate within a particular percentage, nor does it establish a universal boundary between good and bad circuit designs.
 

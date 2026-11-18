@@ -1,23 +1,31 @@
 ---
-title: "AC to DC Power Supply Stages: From Input to Regulated Output"
+title: "AC to DC Power Supply Stages: From AC Input to DC Output"
 slug: power-supply-stages-explained
-description: "Follow the signal through a conventional transformer supply and an isolated switching supply, and see why rectification alone is not regulation."
+description: "Follow AC input through conversion, rectification, filtering and
+  regulation, and see why isolation depends on the complete supply
+  architecture."
 image: /images/blogs/power-supply-stages-explained.webp
-imageAlt: "Two AC to DC conversion paths showing the different positions of the isolation transformer"
+imageAlt: "Two AC to DC conversion paths showing the different positions of the
+  isolation transformer"
 author: AC to DC Converter editorial
 pubDate: 2026-11-05
-categories: [power-supply-concepts]
-tags: [AC to DC, isolation, power supply stages, rectification]
-seoTitle: "AC to DC Power Supply Stages, Explained"
-metaDescription: "Understand rectification, smoothing, isolation, and regulation. Compare conventional transformer and isolated switching supply stages with a worked example."
+categories: [ power-supply-concepts ]
+tags: [ AC to DC, isolation, power supply stages, rectification ]
+seoTitle: "AC to DC Power Supply: 5 Stages & Block Diagram"
+metaDescription: "Follow AC input to DC output through input checks, conversion,
+  rectification, filtering and regulation. Compare linear and switching block
+  diagrams."
 status: published
+updatedDate: 2026-11-17
 ---
 
 An AC-to-DC power supply changes an alternating input into an output suitable for a particular DC load. Rectification gives the current a preferred direction, but the complete supply may also need isolation, filtering, regulation, protection, and control. These functions answer different questions: which direction does current flow, how much does voltage vary, and what keeps the output within its specified limits?
 
 There is no single component order that describes every supply. A conventional low-frequency transformer supply reduces and isolates AC before rectification. An isolated offline switching supply generally rectifies the incoming AC first, then transfers switched energy through a high-frequency transformer. Understanding that difference prevents a block diagram from becoming a misleading construction recipe.
 
-## Read the diagram as a signal path
+<span id="read-the-diagram-as-a-signal-path"></span>
+
+## AC input to DC output: the block diagram
 
 ![Conventional and switching conversion stages, with their isolation boundaries](/images/education/conversion-stages.svg)
 
@@ -27,7 +35,9 @@ A useful block diagram identifies what enters and leaves each stage. A sine wave
 
 For a more focused description of the diode stage, see the [full-wave bridge rectifier guide](/blog/full-wave-bridge-rectifier-explained/). The distinction between a waveform average and a smoothed level is explained in [RMS, peak, and average voltage](/blog/rms-peak-average-voltage/).
 
-## Stage 1: establish the input conditions
+<span id="stage-1-establish-the-input-conditions"></span>
+
+## Stage 1: define the AC input range and frequency
 
 The input specification includes voltage range, frequency, phase configuration, and the environment in which the supply operates. A nominal AC voltage is normally an RMS value. It does not describe the instantaneous crest, and a nominal value is not a guarantee that the input never changes.
 

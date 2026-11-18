@@ -6,7 +6,7 @@ image: /images/blogs/choosing-ac-to-dc-power-supply.webp
 imageAlt: "Power supply selection checks linking load voltage, current, operating conditions, and protection"
 author: AC to DC Converter editorial
 pubDate: 2026-11-05
-updatedDate: 2026-11-13
+updatedDate: 2026-11-17
 categories: [power-supply-concepts]
 tags: [power supply ratings, load current, derating, DC output]
 seoTitle: "Choose an AC to DC Power Supply: Ratings That Matter"
@@ -80,9 +80,11 @@ MEAN WELL's [installation-manual collection](https://www.meanwell.com/productMan
 
 Keep current and thermal margins tied to identified uncertainties. A margin intended for startup demand does not replace temperature derating. A conservative power budget cannot compensate for an incompatible connector or missing isolation requirement.
 
-## Check input range and the installation category
+<span id="check-input-range-and-the-installation-category"></span>
 
-A supply's AC input range must cover the intended source conditions. “Universal input” must be confirmed from the actual specifications. Some supplies have input-selection arrangements; others are intended for a defined voltage range or phase configuration. Do not assume a selector position or internal arrangement from appearance.
+## What does the AC input range mean?
+
+The AC input range states the minimum and maximum RMS supply voltage permitted under the specified operating conditions. Check frequency and phase requirements separately. “Universal input” must be confirmed from the actual specifications. Some supplies have input-selection arrangements; others support a defined range. Do not infer an internal arrangement from appearance.
 
 Match the supply type to the equipment and setting. A user-accessible external adapter differs from an open-frame module intended for incorporation by a qualified equipment designer. Exposed terminals, earthing arrangements, enclosure protection, clearance, and applicable approvals require their own assessment.
 
