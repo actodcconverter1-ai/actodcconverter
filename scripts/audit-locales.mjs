@@ -20,6 +20,7 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  if(alternates.get('x-default')!==domain+base)fail(path,'missing x-default');
  const page=graph?.find(n=>n['@type']==='WebPage');if(page?.url!==url)fail(path,'schema page URL mismatch');
  if(title?.length>60)fail(path,'title exceeds the site editorial budget of 60 characters');
+ if(title&&title.length<30)fail(path,'title is below the site editorial target of 30 characters');
  if(seoTitles[path]&&title!==seoTitles[path])fail(path,'configured SEO title mismatch');
  if(seoTitles[path]&&page?.name!==title)fail(path,'schema page name differs from concise SEO title');
  walk(doc,n=>{if(n.tagName==='meta'&&(attr(n,'property')==='og:title'||attr(n,'name')==='twitter:title'))if(attr(n,'content')!==title)fail(path,'social title differs from document title');});

@@ -12,7 +12,7 @@ const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json'
 const localizedPaths=new Set(config.languages.flatMap(locale=>[...paths].map(path=>locale.prefix+path)));
 for(const [path,title] of Object.entries(seoTitles)){
  if(!localizedPaths.has(path))throw Error('Unknown SEO title route: '+path);
- if(typeof title!=='string'||!title.trim()||title!==title.trim()||title.length>60)throw Error('Invalid concise SEO title: '+path);
+ if(typeof title!=='string'||!title.trim()||title!==title.trim()||title.length<30||title.length>60)throw Error('Invalid concise SEO title: '+path);
 }
 for(const [path,description] of Object.entries(seoDescriptions)){
  if(!localizedPaths.has(path))throw Error('Unknown SEO description route: '+path);
