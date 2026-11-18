@@ -14,6 +14,11 @@ for (const [file, html] of pages) {
     continue;
   }
   const title = /<title>([^<]+)<\/title>/.exec(html)?.[1];
+  const head = /<head\b[^>]*>([\s\S]*?)<\/head>/.exec(html)?.[1] ?? '';
+  if ((head.match(/<title\b/g) ?? []).length !== 1) fail(file, 'must contain exactly one document head title');
+  // Inline SVG names use ARIA, keeping naive page-title crawlers unambiguous.
+  if ((html.match(/<title\b/g) ?? []).length !== 1) fail(file, 'extra title elements; use ARIA labels for inline SVG names');
+  if (html.includes('data-wave-input') && (!/<svg\b[^>]*role="img"[^>]*aria-label="[^"]+"[^>]*aria-describedby="wb-wave-caption"/.test(html) || !html.includes('id="wb-wave-caption"'))) fail(file, 'waveform must retain its accessible name and caption');
   const meta = [...html.matchAll(/<meta\b[^>]*>/g)].map(match => match[0]);
   const description = meta.find(tag => attr(tag, 'name') === 'description');
   const desc = description && attr(description, 'content');
