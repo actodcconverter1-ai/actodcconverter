@@ -2702,5 +2702,10 @@
   "Ideal unfiltered full-wave": "평활 없는 이상적인 전파 정류",
   "Filtered bridge: small ripple, constant-current load": "평활 브리지: 작은 리플, 정전류 부하",
   "A rectifier alone does not regulate the output.": "정류기만으로는 출력 전압이 안정화되지 않습니다.",
-  ", not a regulated 12 V output.": ", 안정화된 12 V 출력이 아닙니다."
+  ", not a regulated 12 V output.": ", 안정화된 12 V 출력이 아닙니다.",
+  "How we validated this calculator": "계산기 검증 방법",
+  "Inputs": "입력",
+  "Calculator result": "계산 결과",
+  "LTspice or bench result": "LTspice 또는 실측 결과",
+  "Needs owner input": "운영자 정보 필요"
 }

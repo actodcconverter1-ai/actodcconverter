@@ -2702,5 +2702,10 @@
   "Ideal unfiltered full-wave": "Double alternance idéale sans filtre",
   "Filtered bridge: small ripple, constant-current load": "Pont filtré : faible ondulation, charge à courant constant",
   "A rectifier alone does not regulate the output.": "Un redresseur seul ne régule pas la sortie.",
-  ", not a regulated 12 V output.": ", pas une sortie régulée de 12 V."
+  ", not a regulated 12 V output.": ", pas une sortie régulée de 12 V.",
+  "How we validated this calculator": "Comment nous avons validé ce calculateur",
+  "Inputs": "Entrées",
+  "Calculator result": "Résultat du calculateur",
+  "LTspice or bench result": "Résultat LTspice ou sur banc",
+  "Needs owner input": "Données du propriétaire nécessaires"
 }

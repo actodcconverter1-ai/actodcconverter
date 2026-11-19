@@ -2701,5 +2701,10 @@
   "Ideal unfiltered full-wave": "Idealne prostowanie dwupołówkowe bez filtra",
   "Filtered bridge: small ripple, constant-current load": "Mostek z filtrem: małe tętnienia, stały prąd obciążenia",
   "A rectifier alone does not regulate the output.": "Sam prostownik nie stabilizuje wyjścia.",
-  ", not a regulated 12 V output.": ", a nie stabilizowane wyjście 12 V."
+  ", not a regulated 12 V output.": ", a nie stabilizowane wyjście 12 V.",
+  "How we validated this calculator": "Jak sprawdziliśmy kalkulator",
+  "Inputs": "Dane wejściowe",
+  "Calculator result": "Wynik kalkulatora",
+  "LTspice or bench result": "Wynik LTspice lub pomiaru",
+  "Needs owner input": "Potrzebne dane właściciela"
 }

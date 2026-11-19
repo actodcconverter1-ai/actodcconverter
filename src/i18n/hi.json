@@ -2702,5 +2702,10 @@
   "Ideal unfiltered full-wave": "आदर्श, बिना फ़िल्टर वाला फुल-वेव रेक्टिफायर",
   "Filtered bridge: small ripple, constant-current load": "फ़िल्टर ब्रिज: कम रिपल और स्थिर करंट वाला लोड",
   "A rectifier alone does not regulate the output.": "केवल रेक्टिफायर आउटपुट वोल्टेज को रेगुलेट नहीं करता।",
-  ", not a regulated 12 V output.": ", रेगुलेटेड 12 V आउटपुट नहीं।"
+  ", not a regulated 12 V output.": ", रेगुलेटेड 12 V आउटपुट नहीं।",
+  "How we validated this calculator": "कैलकुलेटर की जाँच कैसे की गई",
+  "Inputs": "इनपुट",
+  "Calculator result": "कैलकुलेटर का परिणाम",
+  "LTspice or bench result": "LTspice या वास्तविक परीक्षण का परिणाम",
+  "Needs owner input": "मालिक की जानकारी आवश्यक"
 }

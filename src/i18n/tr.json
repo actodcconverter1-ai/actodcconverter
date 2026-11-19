@@ -2701,5 +2701,10 @@
   "Ideal unfiltered full-wave": "Filtresiz ideal tam dalga doğrultma",
   "Filtered bridge: small ripple, constant-current load": "Filtreli köprü: küçük dalgalanma, sabit akım yükü",
   "A rectifier alone does not regulate the output.": "Doğrultucu tek başına çıkış gerilimini düzenlemez.",
-  ", not a regulated 12 V output.": ", regüle edilmiş 12 V çıkışı değildir."
+  ", not a regulated 12 V output.": ", regüle edilmiş 12 V çıkışı değildir.",
+  "How we validated this calculator": "Hesaplayıcıyı nasıl doğruladık?",
+  "Inputs": "Girdiler",
+  "Calculator result": "Hesaplayıcı sonucu",
+  "LTspice or bench result": "LTspice veya deney sonucu",
+  "Needs owner input": "Site sahibinin verileri gerekli"
 }

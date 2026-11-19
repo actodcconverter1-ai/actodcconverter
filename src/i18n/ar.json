@@ -2701,5 +2701,10 @@
   "Ideal unfiltered full-wave": "تقويم مثالي للموجة الكاملة دون ترشيح",
   "Filtered bridge: small ripple, constant-current load": "جسر مرشح: تموج صغير وحمل بتيار ثابت",
   "A rectifier alone does not regulate the output.": "المقوم وحده لا ينظم جهد الخرج.",
-  ", not a regulated 12 V output.": "، وليس خرجًا منظمًا عند 12 V."
+  ", not a regulated 12 V output.": "، وليس خرجًا منظمًا عند 12 V.",
+  "How we validated this calculator": "كيف تحققنا من هذه الحاسبة",
+  "Inputs": "المدخلات",
+  "Calculator result": "نتيجة الحاسبة",
+  "LTspice or bench result": "نتيجة LTspice أو الاختبار العملي",
+  "Needs owner input": "تحتاج إلى بيانات المالك"
 }

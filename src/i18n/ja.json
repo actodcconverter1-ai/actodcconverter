@@ -2702,5 +2702,10 @@
   "Ideal unfiltered full-wave": "理想的な平滑なしの全波整流",
   "Filtered bridge: small ripple, constant-current load": "平滑ブリッジ：小リップル、定電流負荷",
   "A rectifier alone does not regulate the output.": "整流器だけでは出力電圧を安定化しません。",
-  ", not a regulated 12 V output.": "であり、安定化された12 V出力ではありません。"
+  ", not a regulated 12 V output.": "であり、安定化された12 V出力ではありません。",
+  "How we validated this calculator": "この計算機の検証方法",
+  "Inputs": "入力",
+  "Calculator result": "計算結果",
+  "LTspice or bench result": "LTspiceまたは実測の結果",
+  "Needs owner input": "運営者からの情報が必要"
 }

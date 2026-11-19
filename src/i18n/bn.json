@@ -2702,5 +2702,10 @@
   "Ideal unfiltered full-wave": "ফিল্টারবিহীন আদর্শ ফুল-ওয়েভ রেকটিফায়ার",
   "Filtered bridge: small ripple, constant-current load": "ফিল্টার ব্রিজ: কম রিপল ও স্থির কারেন্টের লোড",
   "A rectifier alone does not regulate the output.": "শুধু রেকটিফায়ার আউটপুট ভোল্টেজ নিয়ন্ত্রণ করে না।",
-  ", not a regulated 12 V output.": ", নিয়ন্ত্রিত 12 V আউটপুট নয়।"
+  ", not a regulated 12 V output.": ", নিয়ন্ত্রিত 12 V আউটপুট নয়।",
+  "How we validated this calculator": "ক্যালকুলেটর যাচাইয়ের পদ্ধতি",
+  "Inputs": "ইনপুট",
+  "Calculator result": "ক্যালকুলেটরের ফলাফল",
+  "LTspice or bench result": "LTspice বা বাস্তব পরীক্ষার ফলাফল",
+  "Needs owner input": "মালিকের তথ্য প্রয়োজন"
 }

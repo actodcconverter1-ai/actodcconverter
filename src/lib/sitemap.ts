@@ -2,7 +2,7 @@ import type {CollectionEntry} from 'astro:content';
 import {canonical} from '../config/seo.config.ts';
 import {architectureUpdated,calculatorSpokes} from './topic-graph.ts';
 import indexing from '../config/indexing.json' with {type:'json'};
-import {homepageUpdated} from '../config/content-dates.ts';
+import {homepageUpdated,calculatorUpdated} from '../config/content-dates.ts';
 export interface SitemapEntry {path:string;priority:number;lastmod?:string;}
 export function sitemapEntries(entries:CollectionEntry<'blog'>[]):SitemapEntry[] {
   const published=entries.filter(entry=>entry.data.status==='published');
@@ -12,7 +12,7 @@ export function sitemapEntries(entries:CollectionEntry<'blog'>[]):SitemapEntry[]
   return [
     {path:'/',priority:1,lastmod:homepageUpdated},
     {path:'/calculators/',priority:.9,lastmod:architectureUpdated},
-    ...calculatorSpokes.map(spoke=>({path:spoke.href,priority:.9,lastmod:architectureUpdated})),
+    ...calculatorSpokes.map(spoke=>({path:spoke.href,priority:.9,lastmod:spoke.href==='/ac-to-dc-calculator/'?calculatorUpdated:architectureUpdated})),
     {path:'/blog/',priority:.8,lastmod:architectureUpdated},
     ...published.map(entry=>({path:`/blog/${entry.data.slug}/`,priority:.8,lastmod:modified(entry)})),
     ...[...new Set(published.flatMap(entry=>entry.data.categories))].sort().map(category=>({path:`/category/${category}/`,priority:.6,lastmod:architectureUpdated})),

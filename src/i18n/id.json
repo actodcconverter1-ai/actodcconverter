@@ -2701,5 +2701,10 @@
   "Ideal unfiltered full-wave": "Gelombang penuh ideal tanpa filter",
   "Filtered bridge: small ripple, constant-current load": "Jembatan berfilter: riak kecil, beban arus konstan",
   "A rectifier alone does not regulate the output.": "Penyearah saja tidak menstabilkan tegangan keluaran.",
-  ", not a regulated 12 V output.": ", bukan keluaran 12 V yang distabilkan."
+  ", not a regulated 12 V output.": ", bukan keluaran 12 V yang distabilkan.",
+  "How we validated this calculator": "Cara kami memvalidasi kalkulator",
+  "Inputs": "Masukan",
+  "Calculator result": "Hasil kalkulator",
+  "LTspice or bench result": "Hasil LTspice atau pengukuran",
+  "Needs owner input": "Memerlukan data pemilik"
 }

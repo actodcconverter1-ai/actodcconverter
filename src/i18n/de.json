@@ -2702,5 +2702,10 @@
   "Ideal unfiltered full-wave": "Ideale Vollweggleichrichtung ohne Filter",
   "Filtered bridge: small ripple, constant-current load": "Geglättete Brücke: kleine Restwelligkeit, konstante Stromlast",
   "A rectifier alone does not regulate the output.": "Ein Gleichrichter allein regelt die Ausgangsspannung nicht.",
-  ", not a regulated 12 V output.": ", kein geregelter 12-V-Ausgang."
+  ", not a regulated 12 V output.": ", kein geregelter 12-V-Ausgang.",
+  "How we validated this calculator": "So haben wir den Rechner geprüft",
+  "Inputs": "Eingaben",
+  "Calculator result": "Rechnerergebnis",
+  "LTspice or bench result": "LTspice- oder Messergebnis",
+  "Needs owner input": "Angaben des Betreibers erforderlich"
 }

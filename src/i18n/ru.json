@@ -2702,5 +2702,10 @@
   "Ideal unfiltered full-wave": "Идеальное двухполупериодное выпрямление без фильтра",
   "Filtered bridge: small ripple, constant-current load": "Мост с фильтром: малые пульсации, постоянный ток нагрузки",
   "A rectifier alone does not regulate the output.": "Один выпрямитель не стабилизирует выходное напряжение.",
-  ", not a regulated 12 V output.": ", а не стабилизированный выход 12 V."
+  ", not a regulated 12 V output.": ", а не стабилизированный выход 12 V.",
+  "How we validated this calculator": "Как проверялся калькулятор",
+  "Inputs": "Входные данные",
+  "Calculator result": "Результат калькулятора",
+  "LTspice or bench result": "Результат LTspice или стенда",
+  "Needs owner input": "Нужны данные владельца"
 }

@@ -2701,5 +2701,10 @@
   "Ideal unfiltered full-wave": "Ideal helvågslikriktning utan filter",
   "Filtered bridge: small ripple, constant-current load": "Filtrerad brygga: litet rippel, konstant strömlast",
   "A rectifier alone does not regulate the output.": "En likriktare ensam reglerar inte utspänningen.",
-  ", not a regulated 12 V output.": ", inte en reglerad 12 V-utgång."
+  ", not a regulated 12 V output.": ", inte en reglerad 12 V-utgång.",
+  "How we validated this calculator": "Så kontrollerade vi kalkylatorn",
+  "Inputs": "Indata",
+  "Calculator result": "Kalkylatorns resultat",
+  "LTspice or bench result": "Resultat från LTspice eller mätning",
+  "Needs owner input": "Uppgifter från ägaren behövs"
 }

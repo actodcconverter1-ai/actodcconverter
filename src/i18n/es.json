@@ -2702,5 +2702,10 @@
   "Ideal unfiltered full-wave": "Onda completa ideal sin filtro",
   "Filtered bridge: small ripple, constant-current load": "Puente filtrado: poco rizado y carga de corriente constante",
   "A rectifier alone does not regulate the output.": "Un rectificador por sí solo no regula la salida.",
-  ", not a regulated 12 V output.": ", no una salida regulada de 12 V."
+  ", not a regulated 12 V output.": ", no una salida regulada de 12 V.",
+  "How we validated this calculator": "Cómo validamos esta calculadora",
+  "Inputs": "Entradas",
+  "Calculator result": "Resultado de la calculadora",
+  "LTspice or bench result": "Resultado de LTspice o de laboratorio",
+  "Needs owner input": "Se necesitan datos del propietario"
 }

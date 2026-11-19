@@ -2593,5 +2593,10 @@
   ", not a regulated 12 V output.": ", not a regulated 12 V output.",
   "Pulsating output; average and RMS differ.": "Pulsating output; average and RMS differ.",
   "A capacitor reduces ripple; load changes the result.": "A capacitor reduces ripple; load changes the result.",
-  "A target voltage requires headroom and a suitable stage.": "A target voltage requires headroom and a suitable stage."
+  "A target voltage requires headroom and a suitable stage.": "A target voltage requires headroom and a suitable stage.",
+  "How we validated this calculator": "How we validated this calculator",
+  "Inputs": "Inputs",
+  "Calculator result": "Calculator result",
+  "LTspice or bench result": "LTspice or bench result",
+  "Needs owner input": "Needs owner input"
 }

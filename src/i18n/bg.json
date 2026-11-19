@@ -2701,5 +2701,10 @@
   "Ideal unfiltered full-wave": "Идеално двуполупериодно изправяне без филтър",
   "Filtered bridge: small ripple, constant-current load": "Мост с филтър: малки пулсации, постоянен ток на товара",
   "A rectifier alone does not regulate the output.": "Самият токоизправител не стабилизира изхода.",
-  ", not a regulated 12 V output.": ", а не стабилизиран изход 12 V."
+  ", not a regulated 12 V output.": ", а не стабилизиран изход 12 V.",
+  "How we validated this calculator": "Как проверихме калкулатора",
+  "Inputs": "Входни данни",
+  "Calculator result": "Резултат от калкулатора",
+  "LTspice or bench result": "Резултат от LTspice или измерване",
+  "Needs owner input": "Необходими са данни от собственика"
 }
