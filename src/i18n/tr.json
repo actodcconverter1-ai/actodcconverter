@@ -2693,5 +2693,13 @@
   "How to identify half-wave and full-wave rectification": "Yarım ve tam dalga doğrultma nasıl ayırt edilir?",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Yarım dalga çıkışında AC çevrimi başına bir darbe vardır ve diğer yarım çevrim eksiktir. Tam dalga çıkışında çevrim başına iki darbe vardır. Dalga biçimini kaynak frekansıyla birlikte değerlendirin; yalnızca diyot sayısı tüm tam dalga düzenlerini ayırt etmeye yetmez.",
   "What does AC input range mean here?": "Burada AC giriş aralığı ne anlama gelir?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Sayısal alanlar 0–1,000 V RMS ve 1–1,000 Hz kabul eder; modele özgü doğrulama yine de bir çalışma noktasını reddedebilir. Bu yazılım sınırları cihaz anma değerlerini veya güvenli AC giriş aralığını belirlemez."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Sayısal alanlar 0–1,000 V RMS ve 1–1,000 Hz kabul eder; modele özgü doğrulama yine de bir çalışma noktasını reddedebilir. Bu yazılım sınırları cihaz anma değerlerini veya güvenli AC giriş aralığını belirlemez.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "AC-DC hesaplayıcı: gerilim, dalgalanma ve devreler",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "AC-DC dönüştürücü: hesaplayıcı, devreler ve çalışma ilkesi",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "RMS, diyot düşümü, kapasitans ve yükten DC çıkışını ve dalgalanmayı hesaplayın. Devreler ve 12 V örneği içerir.",
+  "Quick answer": "Hızlı yanıt",
+  "Ideal unfiltered full-wave": "Filtresiz ideal tam dalga doğrultma",
+  "Filtered bridge: small ripple, constant-current load": "Filtreli köprü: küçük dalgalanma, sabit akım yükü",
+  "A rectifier alone does not regulate the output.": "Doğrultucu tek başına çıkış gerilimini düzenlemez.",
+  ", not a regulated 12 V output.": ", regüle edilmiş 12 V çıkışı değildir."
 }

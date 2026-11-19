@@ -2694,5 +2694,13 @@
   "How to identify half-wave and full-wave rectification": "Identifier le redressement simple et double alternance",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Une sortie simple alternance présente une impulsion par période CA et supprime l’alternance suivante. Une sortie double alternance en présente deux. Comparez la forme d’onde à la fréquence de la source : le nombre de diodes ne suffit pas à identifier tous les montages double alternance.",
   "What does AC input range mean here?": "Que signifie ici la plage d’entrée CA ?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Les champs acceptent 0–1,000 V RMS et 1–1,000 Hz ; la validation du modèle peut néanmoins refuser un point de fonctionnement. Ces limites logicielles ne définissent ni les caractéristiques du matériel ni une plage d’entrée CA sûre."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Les champs acceptent 0–1,000 V RMS et 1–1,000 Hz ; la validation du modèle peut néanmoins refuser un point de fonctionnement. Ces limites logicielles ne définissent ni les caractéristiques du matériel ni une plage d’entrée CA sûre.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "Calculateur CA/CC : tension, ondulation et circuits",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "Convertisseur CA/CC : calculateur, circuits et fonctionnement",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "Estimez tension CC et ondulation selon la tension efficace, les diodes, la capacité et la charge. Schémas et exemple à 12 V.",
+  "Quick answer": "Réponse rapide",
+  "Ideal unfiltered full-wave": "Double alternance idéale sans filtre",
+  "Filtered bridge: small ripple, constant-current load": "Pont filtré : faible ondulation, charge à courant constant",
+  "A rectifier alone does not regulate the output.": "Un redresseur seul ne régule pas la sortie.",
+  ", not a regulated 12 V output.": ", pas une sortie régulée de 12 V."
 }

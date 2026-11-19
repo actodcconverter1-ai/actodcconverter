@@ -2694,5 +2694,13 @@
   "How to identify half-wave and full-wave rectification": "हाफ-वेव और फुल-वेव रेक्टिफिकेशन की पहचान",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "हाफ-वेव आउटपुट में हर AC चक्र में एक पल्स आता है और अगला अर्धचक्र खाली रहता है। फुल-वेव आउटपुट में दो पल्स आते हैं। वेवफॉर्म के साथ स्रोत की आवृत्ति भी देखें; केवल डायोड गिनने से हर फुल-वेव विन्यास की पहचान नहीं होती।",
   "What does AC input range mean here?": "यहाँ AC इनपुट रेंज का क्या अर्थ है?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "संख्यात्मक फ़ील्ड में 0–1,000 V RMS और 1–1,000 Hz दर्ज कर सकते हैं; मॉडल की जाँच किसी ऑपरेटिंग पॉइंट को फिर भी अस्वीकार कर सकती है। ये सॉफ़्टवेयर सीमाएँ उपकरण की रेटिंग या सुरक्षित AC इनपुट रेंज नहीं बतातीं।"
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "संख्यात्मक फ़ील्ड में 0–1,000 V RMS और 1–1,000 Hz दर्ज कर सकते हैं; मॉडल की जाँच किसी ऑपरेटिंग पॉइंट को फिर भी अस्वीकार कर सकती है। ये सॉफ़्टवेयर सीमाएँ उपकरण की रेटिंग या सुरक्षित AC इनपुट रेंज नहीं बतातीं।",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "AC से DC कैलकुलेटर: वोल्टेज, रिपल और सर्किट",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "AC से DC कनवर्टर: कैलकुलेटर, सर्किट और कार्यप्रणाली",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "RMS वोल्टेज, डायोड ड्रॉप, धारिता और लोड से DC आउटपुट व रिपल का अनुमान लगाएँ। सर्किट और 12 V का उदाहरण देखें।",
+  "Quick answer": "त्वरित उत्तर",
+  "Ideal unfiltered full-wave": "आदर्श, बिना फ़िल्टर वाला फुल-वेव रेक्टिफायर",
+  "Filtered bridge: small ripple, constant-current load": "फ़िल्टर ब्रिज: कम रिपल और स्थिर करंट वाला लोड",
+  "A rectifier alone does not regulate the output.": "केवल रेक्टिफायर आउटपुट वोल्टेज को रेगुलेट नहीं करता।",
+  ", not a regulated 12 V output.": ", रेगुलेटेड 12 V आउटपुट नहीं।"
 }

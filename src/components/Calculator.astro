@@ -1,6 +1,7 @@
 ---
 import { calculator } from '../config/calculator.config';
-import { formatNumber, type RectifierMode } from '../calculators/rectifier';
+import { type RectifierMode } from '../calculators/rectifier';
+import {formatResult as formatNumber} from '../lib/result-presentation';
 interface Props { mode?: RectifierMode }
 const { mode = calculator.defaults.mode } = Astro.props;
 const d = { ...calculator.defaults, mode };
@@ -22,7 +23,8 @@ const filtered = mode === 'bridge-filtered';
 </section>
 <script>
   import { calculator } from '../config/calculator.config';
-  import { parseNumber, formatNumber, type RectifierInput, type RectifierMode } from '../calculators/rectifier';
+  import { parseNumber, type RectifierInput, type RectifierMode } from '../calculators/rectifier';
+import {formatResult as formatNumber} from '../lib/result-presentation';
   document.querySelectorAll<HTMLElement>('[data-calculator]').forEach(root => {
     const form = root.querySelector<HTMLFormElement>('form')!;
     const mode = form.elements.namedItem('mode') as HTMLSelectElement;

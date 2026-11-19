@@ -1,5 +1,6 @@
 import{calculateConverter,converterMetrics,waveformPaths,type ConverterInput,type Topology}from'../calculators/converter';
-import{parseNumber,formatNumber}from'../calculators/rectifier';
+import{parseNumber}from'../calculators/rectifier';
+import{formatResult as formatNumber}from'../lib/result-presentation';
 for(const root of document.querySelectorAll<HTMLElement>('[data-converter]')){
  const form=root.querySelector<HTMLFormElement>('form')!,error=root.querySelector<HTMLElement>('#wb-error')!;
  const el=(name:string)=>form.elements.namedItem(name) as HTMLInputElement|HTMLSelectElement;

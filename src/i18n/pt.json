@@ -2694,5 +2694,13 @@
   "How to identify half-wave and full-wave rectification": "Como identificar retificação de meia onda e onda completa",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "A saída de meia onda tem um pulso por ciclo CA e omite o semiciclo alternado. A saída de onda completa tem dois pulsos por ciclo. Observe a forma de onda e a frequência da fonte juntas; contar diodos não distingue todas as configurações de onda completa.",
   "What does AC input range mean here?": "O que significa aqui a faixa de entrada CA?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Os campos aceitam 0–1,000 V RMS e 1–1,000 Hz; a validação do modelo ainda pode rejeitar um ponto de operação. Esses limites de software não definem os valores nominais do equipamento nem uma faixa segura de entrada CA."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Os campos aceitam 0–1,000 V RMS e 1–1,000 Hz; a validação do modelo ainda pode rejeitar um ponto de operação. Esses limites de software não definem os valores nominais do equipamento nem uma faixa segura de entrada CA.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "Calculadora CA/CC: tensão, ondulação e circuitos",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "Conversor CA/CC: calculadora, circuitos e funcionamento",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "Estime saída CC e ondulação com RMS, queda nos diodos, capacitância e carga. Inclui circuitos e exemplo de 12 V.",
+  "Quick answer": "Resposta rápida",
+  "Ideal unfiltered full-wave": "Onda completa ideal sem filtro",
+  "Filtered bridge: small ripple, constant-current load": "Ponte filtrada: pouca ondulação, carga de corrente constante",
+  "A rectifier alone does not regulate the output.": "Um retificador sozinho não regula a saída.",
+  ", not a regulated 12 V output.": ", não uma saída regulada de 12 V."
 }

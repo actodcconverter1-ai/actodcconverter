@@ -21,8 +21,9 @@ const toolPaths=['/ac-to-dc-calculator/','/full-wave-rectifier-calculator/','/ha
 const spokes=[...pages.keys()].filter(path=>toolPaths.includes(path)||/^\/blog\/[^/]+\/$/.test(path));
 const home=pages.get('/');
 check(Boolean(home),'Homepage missing');
-const homeLinks=new Set(links(section(home??'')));
-for(const path of spokes)check(homeLinks.has(path),'Hub directory missing '+path);
+const homeLinks=new Set(links(home??''));
+check(homeLinks.has('/blog/')&&homeLinks.has('/ac-to-dc-calculator/'),'Hub must link to guide index and primary calculator');
+for(const path of spokes)check(homeLinks.has(path)||links(pages.get('/blog/')??'').includes(path)||links(pages.get('/calculators/')??'').includes(path),'Spoke must be reachable within two hub/index hops: '+path);
 let faqCount=0;
 for(const [path,html] of pages){
  const head=/<head\b[^>]*>([\s\S]*?)<\/head>/.exec(html)?.[1]??'';

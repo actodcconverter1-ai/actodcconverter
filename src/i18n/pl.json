@@ -2693,5 +2693,13 @@
   "How to identify half-wave and full-wave rectification": "Jak rozpoznać prostowanie jedno- i dwupołówkowe",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Wyjście jednopołówkowe ma jeden impuls na okres AC i pomija co drugą połówkę. Wyjście dwupołówkowe ma dwa impulsy na okres. Oceniaj przebieg wraz z częstotliwością źródła; sama liczba diod nie rozróżnia wszystkich układów dwupołówkowych.",
   "What does AC input range mean here?": "Co oznacza tutaj zakres wejścia AC?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Pola przyjmują 0–1,000 V RMS oraz 1–1,000 Hz; walidacja modelu nadal może odrzucić punkt pracy. Te granice programu nie określają parametrów znamionowych urządzenia ani bezpiecznego zakresu wejścia AC."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Pola przyjmują 0–1,000 V RMS oraz 1–1,000 Hz; walidacja modelu nadal może odrzucić punkt pracy. Te granice programu nie określają parametrów znamionowych urządzenia ani bezpiecznego zakresu wejścia AC.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "Kalkulator AC/DC: napięcie, tętnienia i układy",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "Przetwornik AC/DC: kalkulator, schematy i zasada działania",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "Oszacuj wyjście DC i tętnienia na podstawie RMS, diod, pojemności i obciążenia. Schematy i przykład dla 12 V.",
+  "Quick answer": "Szybka odpowiedź",
+  "Ideal unfiltered full-wave": "Idealne prostowanie dwupołówkowe bez filtra",
+  "Filtered bridge: small ripple, constant-current load": "Mostek z filtrem: małe tętnienia, stały prąd obciążenia",
+  "A rectifier alone does not regulate the output.": "Sam prostownik nie stabilizuje wyjścia.",
+  ", not a regulated 12 V output.": ", a nie stabilizowane wyjście 12 V."
 }

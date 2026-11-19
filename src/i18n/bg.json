@@ -2693,5 +2693,13 @@
   "How to identify half-wave and full-wave rectification": "Как да разпознаете едно- и двуполупериодно изправяне",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Еднополупериодният изход има един импулс за AC период и пропуска всеки следващ полупериод. Двуполупериодният има два импулса за период. Сравнявайте формата на сигнала с честотата на източника; само броят на диодите не различава всички двуполупериодни схеми.",
   "What does AC input range mean here?": "Какво означава тук диапазонът на входа AC?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Полетата приемат 0–1,000 V RMS и 1–1,000 Hz; проверката на модела все пак може да отхвърли работна точка. Тези софтуерни граници не определят номиналните параметри на оборудването или безопасен входен диапазон AC."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Полетата приемат 0–1,000 V RMS и 1–1,000 Hz; проверката на модела все пак може да отхвърли работна точка. Тези софтуерни граници не определят номиналните параметри на оборудването или безопасен входен диапазон AC.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "AC/DC калкулатор: напрежение, пулсации и схеми",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "AC/DC преобразувател: калкулатор, схеми и работа",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "Оценете DC изхода и пулсациите чрез RMS, пад на диодите, капацитет и товар. Схеми и пример за 12 V.",
+  "Quick answer": "Бърз отговор",
+  "Ideal unfiltered full-wave": "Идеално двуполупериодно изправяне без филтър",
+  "Filtered bridge: small ripple, constant-current load": "Мост с филтър: малки пулсации, постоянен ток на товара",
+  "A rectifier alone does not regulate the output.": "Самият токоизправител не стабилизира изхода.",
+  ", not a regulated 12 V output.": ", а не стабилизиран изход 12 V."
 }

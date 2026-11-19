@@ -2693,5 +2693,13 @@
   "How to identify half-wave and full-wave rectification": "Cara mengenali penyearahan setengah dan gelombang penuh",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Keluaran setengah gelombang memiliki satu pulsa per siklus AC dan melewatkan setengah siklus berikutnya. Keluaran gelombang penuh memiliki dua pulsa per siklus. Periksa bentuk gelombang bersama frekuensi sumber; jumlah dioda saja tidak membedakan semua susunan gelombang penuh.",
   "What does AC input range mean here?": "Apa arti rentang masukan AC di sini?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Kolom angka menerima 0–1,000 V RMS dan 1–1,000 Hz; validasi model tetap dapat menolak titik kerja. Batas perangkat lunak ini tidak menentukan rating peralatan atau rentang masukan AC yang aman."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Kolom angka menerima 0–1,000 V RMS dan 1–1,000 Hz; validasi model tetap dapat menolak titik kerja. Batas perangkat lunak ini tidak menentukan rating peralatan atau rentang masukan AC yang aman.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "Kalkulator AC ke DC: tegangan, riak, dan rangkaian",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "Konverter AC ke DC: kalkulator, rangkaian, dan cara kerja",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "Perkirakan keluaran DC dan riak dari RMS, jatuh tegangan dioda, kapasitansi, dan beban. Dengan rangkaian dan contoh 12 V.",
+  "Quick answer": "Jawaban cepat",
+  "Ideal unfiltered full-wave": "Gelombang penuh ideal tanpa filter",
+  "Filtered bridge: small ripple, constant-current load": "Jembatan berfilter: riak kecil, beban arus konstan",
+  "A rectifier alone does not regulate the output.": "Penyearah saja tidak menstabilkan tegangan keluaran.",
+  ", not a regulated 12 V output.": ", bukan keluaran 12 V yang distabilkan."
 }

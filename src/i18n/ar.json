@@ -2693,5 +2693,13 @@
   "How to identify half-wave and full-wave rectification": "كيفية تمييز تقويم نصف الموجة والموجة الكاملة",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "لخرج نصف الموجة نبضة واحدة في كل دورة AC مع غياب نصف الدورة المتناوب. ولخرج الموجة الكاملة نبضتان في كل دورة. افحص شكل الموجة مع تردد المصدر؛ فعدد الدايودات وحده لا يميز جميع ترتيبات تقويم الموجة الكاملة.",
   "What does AC input range mean here?": "ماذا يعني نطاق دخل AC هنا؟",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "تسمح الحقول العددية بقيم 0–1,000 V RMS و1–1,000 Hz، لكن تحقق النموذج قد يرفض نقطة تشغيل معينة. هذه الحدود البرمجية لا تحدد تصنيفات الجهاز أو نطاق دخل AC الآمن."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "تسمح الحقول العددية بقيم 0–1,000 V RMS و1–1,000 Hz، لكن تحقق النموذج قد يرفض نقطة تشغيل معينة. هذه الحدود البرمجية لا تحدد تصنيفات الجهاز أو نطاق دخل AC الآمن.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "حاسبة تحويل AC إلى DC: الجهد والتموج والدوائر",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "محول AC إلى DC: الحاسبة والدوائر وطريقة العمل",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "قدّر خرج DC والتموج من جهد RMS وهبوط الدايود والسعة والحمل. يتضمن دوائر ومثالًا عند 12 V.",
+  "Quick answer": "إجابة سريعة",
+  "Ideal unfiltered full-wave": "تقويم مثالي للموجة الكاملة دون ترشيح",
+  "Filtered bridge: small ripple, constant-current load": "جسر مرشح: تموج صغير وحمل بتيار ثابت",
+  "A rectifier alone does not regulate the output.": "المقوم وحده لا ينظم جهد الخرج.",
+  ", not a regulated 12 V output.": "، وليس خرجًا منظمًا عند 12 V."
 }

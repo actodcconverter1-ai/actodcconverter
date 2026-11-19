@@ -2694,5 +2694,13 @@
   "How to identify half-wave and full-wave rectification": "半波整流と全波整流を見分ける方法",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "半波整流出力は交流1周期につき1パルスで、交互の半周期が欠けます。全波整流では1周期につき2パルスです。波形と電源周波数を併せて確認してください。ダイオード数だけでは全波整流のすべての構成を区別できません。",
   "What does AC input range mean here?": "ここでいうAC入力範囲とは？",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "数値欄は0–1,000 V RMSと1–1,000 Hzに対応しますが、モデルの検証で動作点が拒否される場合もあります。このソフトウェア上の制限は、機器の定格や安全なAC入力範囲を示すものではありません。"
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "数値欄は0–1,000 V RMSと1–1,000 Hzに対応しますが、モデルの検証で動作点が拒否される場合もあります。このソフトウェア上の制限は、機器の定格や安全なAC入力範囲を示すものではありません。",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "AC/DC変換計算機：直流出力電圧・リップル・整流回路を解説",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "AC/DC変換器：計算機、回路、動作の仕組み",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "実効値電圧、ダイオード降下、静電容量、負荷から直流出力とリップルを推定。整流回路と12 Vの計算例も確認できます。",
+  "Quick answer": "すぐにわかる答え",
+  "Ideal unfiltered full-wave": "理想的な平滑なしの全波整流",
+  "Filtered bridge: small ripple, constant-current load": "平滑ブリッジ：小リップル、定電流負荷",
+  "A rectifier alone does not regulate the output.": "整流器だけでは出力電圧を安定化しません。",
+  ", not a regulated 12 V output.": "であり、安定化された12 V出力ではありません。"
 }

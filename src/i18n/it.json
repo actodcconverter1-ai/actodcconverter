@@ -2694,5 +2694,13 @@
   "How to identify half-wave and full-wave rectification": "Riconoscere il raddrizzamento a semionda e a onda intera",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "L’uscita a semionda ha un impulso per ciclo CA e manca della semionda alternata. L’uscita a onda intera ha due impulsi per ciclo. Valuta forma d’onda e frequenza della sorgente insieme: il solo numero di diodi non distingue tutti i circuiti a onda intera.",
   "What does AC input range mean here?": "Che cosa indica qui l’intervallo di ingresso CA?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "I campi ammettono 0–1,000 V RMS e 1–1,000 Hz; la verifica del modello può comunque rifiutare un punto operativo. Questi limiti software non definiscono i valori nominali del dispositivo né un intervallo di ingresso CA sicuro."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "I campi ammettono 0–1,000 V RMS e 1–1,000 Hz; la verifica del modello può comunque rifiutare un punto operativo. Questi limiti software non definiscono i valori nominali del dispositivo né un intervallo di ingresso CA sicuro.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "Calcolatore CA/CC: tensione, ondulazione e circuiti",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "Convertitore CA/CC: calcolatore, circuiti e funzionamento",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "Stima uscita CC e ondulazione da RMS, caduta dei diodi, capacità e carico. Con schemi e un esempio a 12 V.",
+  "Quick answer": "Risposta rapida",
+  "Ideal unfiltered full-wave": "Onda intera ideale senza filtro",
+  "Filtered bridge: small ripple, constant-current load": "Ponte filtrato: piccola ondulazione, carico a corrente costante",
+  "A rectifier alone does not regulate the output.": "Un raddrizzatore da solo non regola l’uscita.",
+  ", not a regulated 12 V output.": ", non un’uscita regolata a 12 V."
 }

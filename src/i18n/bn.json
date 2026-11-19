@@ -2694,5 +2694,13 @@
   "How to identify half-wave and full-wave rectification": "হাফ-ওয়েভ ও ফুল-ওয়েভ রেকটিফিকেশন চেনার উপায়",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "হাফ-ওয়েভ আউটপুটে প্রতি AC চক্রে একটি পালস থাকে এবং বিকল্প অর্ধচক্র বাদ যায়। ফুল-ওয়েভ আউটপুটে দুটি পালস থাকে। তরঙ্গরূপের সঙ্গে উৎসের কম্পাঙ্ক দেখুন; শুধু ডায়োড গুনে সব ফুল-ওয়েভ বিন্যাস চেনা যায় না।",
   "What does AC input range mean here?": "এখানে AC ইনপুট রেঞ্জ বলতে কী বোঝায়?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "সংখ্যার ঘরে 0–1,000 V RMS ও 1–1,000 Hz দেওয়া যায়; মডেলের যাচাই তবুও কোনো কার্যবিন্দু প্রত্যাখ্যান করতে পারে। সফটওয়্যারের এই সীমা যন্ত্রের রেটিং বা নিরাপদ AC ইনপুট রেঞ্জ নির্ধারণ করে না।"
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "সংখ্যার ঘরে 0–1,000 V RMS ও 1–1,000 Hz দেওয়া যায়; মডেলের যাচাই তবুও কোনো কার্যবিন্দু প্রত্যাখ্যান করতে পারে। সফটওয়্যারের এই সীমা যন্ত্রের রেটিং বা নিরাপদ AC ইনপুট রেঞ্জ নির্ধারণ করে না।",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "AC থেকে DC ক্যালকুলেটর: ভোল্টেজ, রিপল ও সার্কিট",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "AC থেকে DC কনভার্টার: ক্যালকুলেটর, সার্কিট ও কাজের পদ্ধতি",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "RMS, ডায়োড ড্রপ, ধারকত্ব ও লোড দিয়ে DC আউটপুট ও রিপল হিসাব করুন। সার্কিট এবং 12 V-এর উদাহরণ দেখুন।",
+  "Quick answer": "দ্রুত উত্তর",
+  "Ideal unfiltered full-wave": "ফিল্টারবিহীন আদর্শ ফুল-ওয়েভ রেকটিফায়ার",
+  "Filtered bridge: small ripple, constant-current load": "ফিল্টার ব্রিজ: কম রিপল ও স্থির কারেন্টের লোড",
+  "A rectifier alone does not regulate the output.": "শুধু রেকটিফায়ার আউটপুট ভোল্টেজ নিয়ন্ত্রণ করে না।",
+  ", not a regulated 12 V output.": ", নিয়ন্ত্রিত 12 V আউটপুট নয়।"
 }

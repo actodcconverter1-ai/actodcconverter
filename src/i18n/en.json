@@ -2582,5 +2582,16 @@
   "How to identify half-wave and full-wave rectification": "How to identify half-wave and full-wave rectification",
   "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.",
   "What does AC input range mean here?": "What does AC input range mean here?",
-  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range."
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.",
+  "AC to DC Converter Calculator: Voltage, Ripple & Circuits": "AC to DC Converter Calculator: Voltage, Ripple & Circuits",
+  "AC to DC Converter: Calculator, Circuits and How It Works": "AC to DC Converter: Calculator, Circuits and How It Works",
+  "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.": "Free AC to DC calculator: enter RMS voltage, diode drop, capacitor and load to estimate DC output and ripple. Includes circuits and a 12 V worked example.",
+  "Quick answer": "Quick answer",
+  "Ideal unfiltered full-wave": "Ideal unfiltered full-wave",
+  "Filtered bridge: small ripple, constant-current load": "Filtered bridge: small ripple, constant-current load",
+  "A rectifier alone does not regulate the output.": "A rectifier alone does not regulate the output.",
+  ", not a regulated 12 V output.": ", not a regulated 12 V output.",
+  "Pulsating output; average and RMS differ.": "Pulsating output; average and RMS differ.",
+  "A capacitor reduces ripple; load changes the result.": "A capacitor reduces ripple; load changes the result.",
+  "A target voltage requires headroom and a suitable stage.": "A target voltage requires headroom and a suitable stage."
 }
