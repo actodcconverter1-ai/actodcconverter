@@ -2689,5 +2689,10 @@
   "Model circuit": "মডেলের সার্কিট",
   "Select the circuit and enter RMS voltage at the rectifier input.": "সার্কিট বেছে রেকটিফায়ারের ইনপুট RMS ভোল্টেজ লিখুন।",
   "The diagram follows your model selection. It is not a wiring plan.": "চিত্রটি নির্বাচিত মডেল অনুসরণ করে। এটি তার সংযোগের নকশা নয়।",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "AC থেকে DC আউটপুট ভোল্টেজ ও রিপল হিসাব করুন। রেকটিফায়ার, সূত্র, সার্কিট ও উদাহরণ দেখুন এবং মডেলের অনুমান বুঝুন।"
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "AC থেকে DC আউটপুট ভোল্টেজ ও রিপল হিসাব করুন। রেকটিফায়ার, সূত্র, সার্কিট ও উদাহরণ দেখুন এবং মডেলের অনুমান বুঝুন।",
+  "Answer in brief": "সংক্ষিপ্ত উত্তর",
+  "How to identify half-wave and full-wave rectification": "হাফ-ওয়েভ ও ফুল-ওয়েভ রেকটিফিকেশন চেনার উপায়",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "হাফ-ওয়েভ আউটপুটে প্রতি AC চক্রে একটি পালস থাকে এবং বিকল্প অর্ধচক্র বাদ যায়। ফুল-ওয়েভ আউটপুটে দুটি পালস থাকে। তরঙ্গরূপের সঙ্গে উৎসের কম্পাঙ্ক দেখুন; শুধু ডায়োড গুনে সব ফুল-ওয়েভ বিন্যাস চেনা যায় না।",
+  "What does AC input range mean here?": "এখানে AC ইনপুট রেঞ্জ বলতে কী বোঝায়?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "সংখ্যার ঘরে 0–1,000 V RMS ও 1–1,000 Hz দেওয়া যায়; মডেলের যাচাই তবুও কোনো কার্যবিন্দু প্রত্যাখ্যান করতে পারে। সফটওয়্যারের এই সীমা যন্ত্রের রেটিং বা নিরাপদ AC ইনপুট রেঞ্জ নির্ধারণ করে না।"
 }

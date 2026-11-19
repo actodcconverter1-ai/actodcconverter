@@ -9,7 +9,7 @@ imageAlt: 'Half-wave output with alternate missing pulses beside full-wave
   output with both input half-cycles represented'
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-updatedDate: 2026-11-17
+updatedDate: 2026-11-19
 categories: [ rectifier-basics, worked-examples ]
 tags: [ half-wave, full-wave, waveform comparison ]
 seoTitle: 'Half-Wave vs Full-Wave Rectifier: Differences & Advantages'
@@ -22,6 +22,10 @@ status: published
 The main advantages of a full-wave rectifier over a half-wave rectifier are a higher average output and more frequent pulses, which make capacitor smoothing easier for the same load and capacitance. With ideal diodes, no capacitor and the same sinusoidal input, full-wave average output is about 0.90 × input RMS voltage; half-wave is about 0.45 × input RMS voltage. At 50 Hz input their ripple frequencies are 100 Hz and 50 Hz respectively. A half-wave circuit needs fewer components, but leaves one half-cycle unused.
 
 This guide begins with ideal zero-drop diodes, no smoothing capacitor, a resistive load, and sinusoidal single-phase input. These are the assumptions behind the site's [half-wave calculator](/half-wave-rectifier-calculator/) and [full-wave calculator](/full-wave-rectifier-calculator/). The comparison then explains how a filter changes the questions a calculator needs to answer.
+
+## How to identify half-wave and full-wave rectification
+
+A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.
 
 ## Half-wave vs full-wave rectifier comparison table
 

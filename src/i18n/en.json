@@ -2577,5 +2577,10 @@
   "— Use the correct secondary RMS voltage and its stated load condition.": "— Use the correct secondary RMS voltage and its stated load condition.",
   "“DC output” can mean a waveform average, a capacitor’s highest recurring level, the lowest level between charging peaks, or a regulated output specification. These quantities need not agree. A single multiplier cannot answer all of them.": "“DC output” can mean a waveform average, a capacitor’s highest recurring level, the lowest level between charging peaks, or a regulated output specification. These quantities need not agree. A single multiplier cannot answer all of them.",
   "“Full-wave” describes using both half-cycles. A bridge is one full-wave implementation; a center-tapped circuit is another. Three-phase and controlled rectifiers add different input and switching assumptions.": "“Full-wave” describes using both half-cycles. A bridge is one full-wave implementation; a center-tapped circuit is another. Three-phase and controlled rectifiers add different input and switching assumptions.",
-  "↺ Reset": "↺ Reset"
+  "↺ Reset": "↺ Reset",
+  "Answer in brief": "Answer in brief",
+  "How to identify half-wave and full-wave rectification": "How to identify half-wave and full-wave rectification",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.",
+  "What does AC input range mean here?": "What does AC input range mean here?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range."
 }

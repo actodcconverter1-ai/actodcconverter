@@ -2689,5 +2689,10 @@
   "Model circuit": "Circuito del modello",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Scegli il circuito e inserisci la tensione RMS all’ingresso del raddrizzatore.",
   "The diagram follows your model selection. It is not a wiring plan.": "Lo schema segue il modello selezionato. Non è un piano di cablaggio.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Stima tensione di uscita CA/CC e ondulazione. Consulta raddrizzatori, formule, schemi ed esempi con le relative ipotesi."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Stima tensione di uscita CA/CC e ondulazione. Consulta raddrizzatori, formule, schemi ed esempi con le relative ipotesi.",
+  "Answer in brief": "Risposta in breve",
+  "How to identify half-wave and full-wave rectification": "Riconoscere il raddrizzamento a semionda e a onda intera",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "L’uscita a semionda ha un impulso per ciclo CA e manca della semionda alternata. L’uscita a onda intera ha due impulsi per ciclo. Valuta forma d’onda e frequenza della sorgente insieme: il solo numero di diodi non distingue tutti i circuiti a onda intera.",
+  "What does AC input range mean here?": "Che cosa indica qui l’intervallo di ingresso CA?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "I campi ammettono 0–1,000 V RMS e 1–1,000 Hz; la verifica del modello può comunque rifiutare un punto operativo. Questi limiti software non definiscono i valori nominali del dispositivo né un intervallo di ingresso CA sicuro."
 }

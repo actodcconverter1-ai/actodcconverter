@@ -2688,5 +2688,10 @@
   "Model circuit": "Schemat modelu",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Wybierz układ i wpisz napięcie skuteczne na wejściu prostownika.",
   "The diagram follows your model selection. It is not a wiring plan.": "Rysunek odpowiada wybranemu modelowi. Nie jest schematem montażowym.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Oblicz napięcie wyjściowe AC/DC i tętnienia. Poznaj prostowniki, wzory, schematy oraz przykłady z objaśnieniem założeń."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Oblicz napięcie wyjściowe AC/DC i tętnienia. Poznaj prostowniki, wzory, schematy oraz przykłady z objaśnieniem założeń.",
+  "Answer in brief": "Odpowiedź w skrócie",
+  "How to identify half-wave and full-wave rectification": "Jak rozpoznać prostowanie jedno- i dwupołówkowe",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Wyjście jednopołówkowe ma jeden impuls na okres AC i pomija co drugą połówkę. Wyjście dwupołówkowe ma dwa impulsy na okres. Oceniaj przebieg wraz z częstotliwością źródła; sama liczba diod nie rozróżnia wszystkich układów dwupołówkowych.",
+  "What does AC input range mean here?": "Co oznacza tutaj zakres wejścia AC?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Pola przyjmują 0–1,000 V RMS oraz 1–1,000 Hz; walidacja modelu nadal może odrzucić punkt pracy. Te granice programu nie określają parametrów znamionowych urządzenia ani bezpiecznego zakresu wejścia AC."
 }

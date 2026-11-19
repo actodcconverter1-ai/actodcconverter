@@ -2689,5 +2689,10 @@
   "Model circuit": "モデルの回路",
   "Select the circuit and enter RMS voltage at the rectifier input.": "回路を選び、整流器入力の実効値電圧を入力します。",
   "The diagram follows your model selection. It is not a wiring plan.": "図は選択したモデルに対応します。配線図ではありません。",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "交流入力から直流出力電圧とリップルを推定します。整流器の種類、計算式、回路図、計算例とモデルの仮定を確認できます。"
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "交流入力から直流出力電圧とリップルを推定します。整流器の種類、計算式、回路図、計算例とモデルの仮定を確認できます。",
+  "Answer in brief": "要点",
+  "How to identify half-wave and full-wave rectification": "半波整流と全波整流を見分ける方法",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "半波整流出力は交流1周期につき1パルスで、交互の半周期が欠けます。全波整流では1周期につき2パルスです。波形と電源周波数を併せて確認してください。ダイオード数だけでは全波整流のすべての構成を区別できません。",
+  "What does AC input range mean here?": "ここでいうAC入力範囲とは？",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "数値欄は0–1,000 V RMSと1–1,000 Hzに対応しますが、モデルの検証で動作点が拒否される場合もあります。このソフトウェア上の制限は、機器の定格や安全なAC入力範囲を示すものではありません。"
 }

@@ -2689,5 +2689,10 @@
   "Model circuit": "Litar model",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Pilih litar dan masukkan voltan RMS pada input penerus.",
   "The diagram follows your model selection. It is not a wiring plan.": "Rajah mengikut model pilihan anda. Ini bukan pelan pendawaian.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Anggar voltan keluaran AC ke DC dan riak. Lihat jenis penerus, formula, rajah litar dan contoh berserta andaian model."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Anggar voltan keluaran AC ke DC dan riak. Lihat jenis penerus, formula, rajah litar dan contoh berserta andaian model.",
+  "Answer in brief": "Jawapan ringkas",
+  "How to identify half-wave and full-wave rectification": "Cara mengenal pasti penerusan separuh dan gelombang penuh",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Keluaran separuh gelombang mempunyai satu denyut bagi setiap kitaran AC dan menggugurkan separuh kitaran berselang. Keluaran gelombang penuh mempunyai dua denyut. Semak bentuk gelombang bersama frekuensi sumber; bilangan diod sahaja tidak membezakan semua susunan gelombang penuh.",
+  "What does AC input range mean here?": "Apakah maksud julat input AC di sini?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Medan angka membenarkan 0–1,000 V RMS dan 1–1,000 Hz; pengesahan model masih boleh menolak titik operasi. Had perisian ini tidak menentukan kadaran peralatan atau julat input AC yang selamat."
 }

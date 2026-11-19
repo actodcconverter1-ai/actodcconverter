@@ -2689,5 +2689,10 @@
   "Model circuit": "Circuito del modelo",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Selecciona el circuito e introduce la tensión RMS a la entrada del rectificador.",
   "The diagram follows your model selection. It is not a wiring plan.": "El diagrama sigue el modelo seleccionado. No es un plano de cableado.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Calcula la tensión de salida de CA a CC y el rizado. Consulta rectificadores, fórmulas, diagramas y ejemplos con supuestos claros."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Calcula la tensión de salida de CA a CC y el rizado. Consulta rectificadores, fórmulas, diagramas y ejemplos con supuestos claros.",
+  "Answer in brief": "Respuesta breve",
+  "How to identify half-wave and full-wave rectification": "Cómo identificar la rectificación de media onda y onda completa",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "La salida de media onda tiene un pulso por ciclo de CA y omite el semiciclo alterno. La de onda completa tiene dos pulsos por ciclo. Observe la forma de onda junto con la frecuencia de la fuente; contar diodos no basta para distinguir todas las configuraciones de onda completa.",
+  "What does AC input range mean here?": "¿Qué significa aquí el rango de entrada de CA?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Los campos admiten 0–1,000 V RMS y 1–1,000 Hz; la validación del modelo puede rechazar un punto de funcionamiento. Estos límites del programa no establecen las especificaciones del equipo ni un rango seguro de entrada de CA."
 }

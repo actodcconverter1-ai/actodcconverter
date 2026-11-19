@@ -2688,5 +2688,10 @@
   "Model circuit": "دائرة النموذج",
   "Select the circuit and enter RMS voltage at the rectifier input.": "اختر الدائرة وأدخل جهد RMS عند مدخل المقوم.",
   "The diagram follows your model selection. It is not a wiring plan.": "يتبع الرسم النموذج المختار. وهو ليس مخطط توصيل.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "قدّر جهد الخرج المستمر والتموج من دخل متردد. تعرّف على المقومات والمعادلات والدوائر والأمثلة وافتراضات الحساب."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "قدّر جهد الخرج المستمر والتموج من دخل متردد. تعرّف على المقومات والمعادلات والدوائر والأمثلة وافتراضات الحساب.",
+  "Answer in brief": "الإجابة باختصار",
+  "How to identify half-wave and full-wave rectification": "كيفية تمييز تقويم نصف الموجة والموجة الكاملة",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "لخرج نصف الموجة نبضة واحدة في كل دورة AC مع غياب نصف الدورة المتناوب. ولخرج الموجة الكاملة نبضتان في كل دورة. افحص شكل الموجة مع تردد المصدر؛ فعدد الدايودات وحده لا يميز جميع ترتيبات تقويم الموجة الكاملة.",
+  "What does AC input range mean here?": "ماذا يعني نطاق دخل AC هنا؟",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "تسمح الحقول العددية بقيم 0–1,000 V RMS و1–1,000 Hz، لكن تحقق النموذج قد يرفض نقطة تشغيل معينة. هذه الحدود البرمجية لا تحدد تصنيفات الجهاز أو نطاق دخل AC الآمن."
 }

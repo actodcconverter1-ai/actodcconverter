@@ -2689,5 +2689,10 @@
   "Model circuit": "Circuit du modèle",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Choisissez le circuit et saisissez la tension efficace à l’entrée du redresseur.",
   "The diagram follows your model selection. It is not a wiring plan.": "Le schéma suit le modèle sélectionné. Ce n’est pas un plan de câblage.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Estimez la tension de sortie CA/CC et l’ondulation. Consultez les redresseurs, formules, schémas et exemples avec leurs hypothèses."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Estimez la tension de sortie CA/CC et l’ondulation. Consultez les redresseurs, formules, schémas et exemples avec leurs hypothèses.",
+  "Answer in brief": "Réponse en bref",
+  "How to identify half-wave and full-wave rectification": "Identifier le redressement simple et double alternance",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Une sortie simple alternance présente une impulsion par période CA et supprime l’alternance suivante. Une sortie double alternance en présente deux. Comparez la forme d’onde à la fréquence de la source : le nombre de diodes ne suffit pas à identifier tous les montages double alternance.",
+  "What does AC input range mean here?": "Que signifie ici la plage d’entrée CA ?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Les champs acceptent 0–1,000 V RMS et 1–1,000 Hz ; la validation du modèle peut néanmoins refuser un point de fonctionnement. Ces limites logicielles ne définissent ni les caractéristiques du matériel ni une plage d’entrée CA sûre."
 }

@@ -2689,5 +2689,10 @@
   "Model circuit": "모델 회로",
   "Select the circuit and enter RMS voltage at the rectifier input.": "회로를 선택하고 정류기 입력의 RMS 전압을 입력하세요.",
   "The diagram follows your model selection. It is not a wiring plan.": "그림은 선택한 모델을 따릅니다. 배선도가 아닙니다.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "교류 입력에서 직류 출력 전압과 리플을 추정하세요. 정류기 종류, 공식, 회로도, 계산 예제와 모델의 가정을 확인할 수 있습니다."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "교류 입력에서 직류 출력 전압과 리플을 추정하세요. 정류기 종류, 공식, 회로도, 계산 예제와 모델의 가정을 확인할 수 있습니다.",
+  "Answer in brief": "핵심 답변",
+  "How to identify half-wave and full-wave rectification": "반파 정류와 전파 정류를 구별하는 방법",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "반파 출력은 교류 한 주기당 펄스가 하나이며 교대로 반주기가 빠집니다. 전파 출력은 한 주기당 펄스가 두 개입니다. 파형과 전원 주파수를 함께 확인하세요. 다이오드 개수만으로 모든 전파 정류 구성을 구별할 수는 없습니다.",
+  "What does AC input range mean here?": "여기서 AC 입력 범위란 무엇인가요?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "숫자 입력란은 0–1,000 V RMS와 1–1,000 Hz를 허용하지만 모델 검증에서 동작점이 거부될 수 있습니다. 이 소프트웨어 한계는 장비 정격이나 안전한 AC 입력 범위를 뜻하지 않습니다."
 }

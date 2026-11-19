@@ -2688,5 +2688,10 @@
   "Model circuit": "Схема на модела",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Изберете схема и въведете ефективното напрежение на входа на токоизправителя.",
   "The diagram follows your model selection. It is not a wiring plan.": "Диаграмата следва избрания модел. Тя не е монтажна схема.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Изчислете изходното напрежение AC/DC и пулсациите. Разгледайте токоизправители, формули, схеми и примери с пояснени допускания."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Изчислете изходното напрежение AC/DC и пулсациите. Разгледайте токоизправители, формули, схеми и примери с пояснени допускания.",
+  "Answer in brief": "Кратък отговор",
+  "How to identify half-wave and full-wave rectification": "Как да разпознаете едно- и двуполупериодно изправяне",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Еднополупериодният изход има един импулс за AC период и пропуска всеки следващ полупериод. Двуполупериодният има два импулса за период. Сравнявайте формата на сигнала с честотата на източника; само броят на диодите не различава всички двуполупериодни схеми.",
+  "What does AC input range mean here?": "Какво означава тук диапазонът на входа AC?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Полетата приемат 0–1,000 V RMS и 1–1,000 Hz; проверката на модела все пак може да отхвърли работна точка. Тези софтуерни граници не определят номиналните параметри на оборудването или безопасен входен диапазон AC."
 }

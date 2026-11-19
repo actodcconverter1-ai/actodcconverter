@@ -2688,5 +2688,10 @@
   "Model circuit": "Modellens krets",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Välj krets och ange effektivvärdet på likriktarens ingångsspänning.",
   "The diagram follows your model selection. It is not a wiring plan.": "Diagrammet följer vald modell. Det är inget kopplingsunderlag.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Beräkna AC/DC-utspänning och rippel. Läs om likriktare, formler, kretsdiagram och exempel med tydliga modellantaganden."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Beräkna AC/DC-utspänning och rippel. Läs om likriktare, formler, kretsdiagram och exempel med tydliga modellantaganden.",
+  "Answer in brief": "Kort svar",
+  "How to identify half-wave and full-wave rectification": "Så skiljer du halv- och helvågslikriktning åt",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Halvvågsutgången har en puls per AC-period och saknar varannan halvperiod. Helvågsutgången har två pulser per period. Jämför vågformen med källans frekvens; enbart antalet dioder skiljer inte alla helvågskopplingar åt.",
+  "What does AC input range mean here?": "Vad betyder AC-ingångsområde här?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Fälten tillåter 0–1,000 V RMS och 1–1,000 Hz; modellkontrollen kan ändå avvisa en arbetspunkt. Dessa programgränser anger varken utrustningens märkdata eller ett säkert AC-ingångsområde."
 }

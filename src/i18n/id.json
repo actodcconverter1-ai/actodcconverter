@@ -2688,5 +2688,10 @@
   "Model circuit": "Rangkaian model",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Pilih rangkaian dan masukkan tegangan RMS pada masukan penyearah.",
   "The diagram follows your model selection. It is not a wiring plan.": "Diagram mengikuti model pilihan Anda. Ini bukan panduan pengawatan.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Perkirakan tegangan keluaran AC ke DC dan riak. Pelajari penyearah, rumus, diagram rangkaian, dan contoh beserta asumsi model."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Perkirakan tegangan keluaran AC ke DC dan riak. Pelajari penyearah, rumus, diagram rangkaian, dan contoh beserta asumsi model.",
+  "Answer in brief": "Jawaban singkat",
+  "How to identify half-wave and full-wave rectification": "Cara mengenali penyearahan setengah dan gelombang penuh",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "Keluaran setengah gelombang memiliki satu pulsa per siklus AC dan melewatkan setengah siklus berikutnya. Keluaran gelombang penuh memiliki dua pulsa per siklus. Periksa bentuk gelombang bersama frekuensi sumber; jumlah dioda saja tidak membedakan semua susunan gelombang penuh.",
+  "What does AC input range mean here?": "Apa arti rentang masukan AC di sini?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Kolom angka menerima 0–1,000 V RMS dan 1–1,000 Hz; validasi model tetap dapat menolak titik kerja. Batas perangkat lunak ini tidak menentukan rating peralatan atau rentang masukan AC yang aman."
 }

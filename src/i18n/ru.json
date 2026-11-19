@@ -2689,5 +2689,10 @@
   "Model circuit": "Схема модели",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Выберите схему и введите действующее напряжение на входе выпрямителя.",
   "The diagram follows your model selection. It is not a wiring plan.": "Диаграмма соответствует выбранной модели. Это не монтажная схема.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Рассчитайте выходное напряжение AC/DC и пульсации. Изучите типы выпрямителей, формулы, схемы и примеры с пояснениями допущений."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Рассчитайте выходное напряжение AC/DC и пульсации. Изучите типы выпрямителей, формулы, схемы и примеры с пояснениями допущений.",
+  "Answer in brief": "Краткий ответ",
+  "How to identify half-wave and full-wave rectification": "Как отличить однополупериодное и двухполупериодное выпрямление",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "При однополупериодном выпрямлении на цикл AC приходится один импульс, а следующий полупериод пропускается. При двухполупериодном импульсов два. Сопоставляйте форму сигнала с частотой источника: одного числа диодов недостаточно для различения всех двухполупериодных схем.",
+  "What does AC input range mean here?": "Что здесь означает диапазон входа AC?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Поля допускают 0–1,000 V RMS и 1–1,000 Hz; проверка модели всё же может отклонить рабочую точку. Эти программные пределы не определяют номиналы оборудования или безопасный диапазон входного напряжения AC."
 }

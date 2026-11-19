@@ -2689,5 +2689,10 @@
   "Model circuit": "Circuito do modelo",
   "Select the circuit and enter RMS voltage at the rectifier input.": "Selecione o circuito e informe a tensão RMS na entrada do retificador.",
   "The diagram follows your model selection. It is not a wiring plan.": "O diagrama acompanha o modelo escolhido. Não é um plano de ligação.",
-  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Estime a tensão de saída CA/CC e a ondulação. Consulte retificadores, fórmulas, circuitos e exemplos com suas hipóteses."
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Estime a tensão de saída CA/CC e a ondulação. Consulte retificadores, fórmulas, circuitos e exemplos com suas hipóteses.",
+  "Answer in brief": "Resposta breve",
+  "How to identify half-wave and full-wave rectification": "Como identificar retificação de meia onda e onda completa",
+  "A half-wave output has one pulse per AC cycle and a missing alternate half-cycle. A full-wave output has two pulses per cycle. Identify the waveform and source frequency together; diode count alone cannot distinguish every full-wave arrangement.": "A saída de meia onda tem um pulso por ciclo CA e omite o semiciclo alternado. A saída de onda completa tem dois pulsos por ciclo. Observe a forma de onda e a frequência da fonte juntas; contar diodos não distingue todas as configurações de onda completa.",
+  "What does AC input range mean here?": "O que significa aqui a faixa de entrada CA?",
+  "Numeric fields allow 0–1,000 V RMS and 1–1,000 Hz; model-specific validation can still reject an operating point. These software limits do not establish equipment ratings or a safe AC input range.": "Os campos aceitam 0–1,000 V RMS e 1–1,000 Hz; a validação do modelo ainda pode rejeitar um ponto de operação. Esses limites de software não definem os valores nominais do equipamento nem uma faixa segura de entrada CA."
 }
