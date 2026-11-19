@@ -2,6 +2,10 @@
 
 ## Section headings and card labels
 
+`src/i18n/primary-section-headings.json` provides contextual first-H2 wording by complete pathname. It distinguishes shared calculator components and category reading paths, with separate native-language labels. The build retains the original heading's attributes. When a category's first H2 is an article-card link, it inserts a category heading before the grid instead of changing the meaning of that article link.
+
+The locale audit checks configured first-H2 text and duplicate primary headings across public routes as an editorial convention. Repeated secondary labels such as FAQ headings are not globally renamed. Reusing an H2 across pages is not by itself proof of a Google indexing or ranking problem.
+
 `src/i18n/section-headings.json` maps existing localized H2 text to concise, technically reviewed wording. The build applies these edits after translation and preserves heading elements, their IDs and linked-card destinations. It rejects unsupported nested markup instead of silently removing it.
 
 Linked H2/H3 card labels also reuse the corresponding destination override in `page-headings.json` where one exists. This keeps article-card labels aligned with the reviewed destination heading without changing URLs, document titles or article schema headlines. The locale audit enforces the site's 70-character editorial budget for H2 headings across all public pages. This budget is an audit convention, not a Google ranking requirement.

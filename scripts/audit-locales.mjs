@@ -6,12 +6,14 @@ const domain=new URL(JSON.parse(await readFile('src/config/editorial.json','utf8
 const seoTitles=JSON.parse(await readFile('src/i18n/seo-titles.json','utf8'));
 const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json','utf8'));
 const pageHeadings=JSON.parse(await readFile('src/i18n/page-headings.json','utf8'));
+const primarySectionHeadings=JSON.parse(await readFile('src/i18n/primary-section-headings.json','utf8'));
 const {publicNoindexRoutes}=JSON.parse(await readFile('src/config/indexing.json','utf8'));
 const xml=await readFile('dist/sitemap.xml','utf8');const indexableUrls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
 const noindexUrls=config.languages.flatMap(l=>publicNoindexRoutes.map(path=>domain+l.prefix+path));
 const urls=[...new Set([...indexableUrls,...noindexUrls])];const known=new Set(urls.map(u=>new URL(u).pathname));
 const errors=[];const fail=(p,s)=>errors.push(p+': '+s);const text=n=>n.nodeName==='#text'?n.value:(n.childNodes??[]).map(text).join('');
 const titleRoutes=new Map();
+const primaryHeadingRoutes=new Map();
 for(const url of urls){const path=new URL(url).pathname;const locale=config.languages.find(l=>l.prefix&&path.startsWith(l.prefix+'/'))??config.languages[0];
  const html=await readFile('dist'+path+'index.html','utf8');const doc=parse(html);let canonical,lang,dir,title,graph,mainHeading;const alternates=new Map();const breadcrumbs=[];let links=0;
  walk(doc,n=>{if(n.tagName==='html'){lang=attr(n,'lang');dir=attr(n,'dir');}if(n.tagName==='title'&&!title)title=text(n);if(n.tagName==='h1')mainHeading=text(n);if(n.tagName==='link'&&attr(n,'rel')==='canonical')canonical=attr(n,'href');if(n.tagName==='link'&&attr(n,'rel')==='alternate')alternates.set(attr(n,'hreflang'),attr(n,'href'));if(n.tagName==='script'&&attr(n,'type')==='application/ld+json')graph=JSON.parse(text(n))['@graph'];if(n.tagName==='nav'&&attr(n,'class')?.includes('breadcrumbs'))walk(n,c=>{if(c.tagName==='li')breadcrumbs.push(norm(text(c)));});if(n.tagName==='a'){const href=attr(n,'href');if(href?.startsWith('/')&&!href.startsWith('//')){const u=new URL(href,domain);if(!u.pathname.split('/').at(-1).includes('.')&&!known.has(u.pathname)&&!u.pathname.startsWith('/api/'))fail(path,'missing internal route '+href);links++;}}});
@@ -29,6 +31,9 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  if(title&&title.length<30)fail(path,'title is below the site editorial target of 30 characters');
  if(mainHeading&&norm(mainHeading).length>70)fail(path,'H1 exceeds the site editorial budget of 70 characters');
  walk(doc,n=>{if(n.tagName==='h2'&&norm(text(n)).length>70)fail(path,'H2 exceeds the site editorial budget of 70 characters: '+norm(text(n)));});
+ let firstSectionHeading;walk(doc,n=>{if(firstSectionHeading===undefined&&n.tagName==='h2')firstSectionHeading=norm(text(n));});
+ if(primarySectionHeadings[path]&&firstSectionHeading!==primarySectionHeadings[path])fail(path,'configured primary H2 mismatch');
+ if(firstSectionHeading){const key=firstSectionHeading.normalize('NFC').toLowerCase();if(primaryHeadingRoutes.has(key))fail(path,'primary H2 also used at '+primaryHeadingRoutes.get(key));else primaryHeadingRoutes.set(key,path);}
  const configuredHeading=pageHeadings[path];
  if(configuredHeading&&norm(mainHeading)!==norm(typeof configuredHeading==='string'?configuredHeading:configuredHeading.lead+' '+configuredHeading.detail))fail(path,'configured page heading mismatch');
  if(configuredHeading&&typeof configuredHeading==='object')walk(doc,n=>{if(n.tagName==='h1'&&!n.childNodes.some(child=>child.tagName==='span'&&norm(text(child))===norm(configuredHeading.detail)))fail(path,'styled homepage heading detail missing');});

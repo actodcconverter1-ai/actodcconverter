@@ -13,6 +13,7 @@ const seoTitles=JSON.parse(await readFile('src/i18n/seo-titles.json','utf8'));
 const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json','utf8'));
 const pageHeadings=JSON.parse(await readFile('src/i18n/page-headings.json','utf8'));
 const sectionHeadings=JSON.parse(await readFile('src/i18n/section-headings.json','utf8'));
+const primarySectionHeadings=JSON.parse(await readFile('src/i18n/primary-section-headings.json','utf8'));
 const headingText=value=>typeof value==='string'?norm(value):value&&typeof value.lead==='string'&&typeof value.detail==='string'?norm(value.lead+' '+value.detail):'';
 const elementText=node=>node.nodeName==='#text'?node.value:(node.childNodes??[]).map(elementText).join('');
 for(const [code,headings]of Object.entries(sectionHeadings)){
@@ -20,6 +21,7 @@ for(const [code,headings]of Object.entries(sectionHeadings)){
  for(const [original,replacement]of Object.entries(headings))if(!original.trim()||typeof replacement!=='string'||!replacement.trim()||replacement!==norm(replacement)||replacement.length>70)throw Error('Invalid section heading: '+code+': '+original);
 }
 const localizedPaths=new Set(config.languages.flatMap(locale=>[...paths].map(path=>locale.prefix+path)));
+for(const [path,heading]of Object.entries(primarySectionHeadings))if(!localizedPaths.has(path)||typeof heading!=='string'||!heading.trim()||heading!==norm(heading)||heading.length>70)throw Error('Invalid primary section heading: '+path);
 for(const [path,title] of Object.entries(seoTitles)){
  if(!localizedPaths.has(path))throw Error('Unknown SEO title route: '+path);
  if(typeof title!=='string'||!title.trim()||title!==title.trim()||title.length<30||title.length>60)throw Error('Invalid concise SEO title: '+path);
@@ -40,6 +42,25 @@ for(const path of paths){
  for(const locale of config.languages){
   const translated=locale.code==='en'?source:localize(source,locale,dictionaries.get(locale.code),domain,paths);
   const doc=parse(translated);let head;
+  const primarySectionHeading=primarySectionHeadings[locale.prefix+path];
+  if(primarySectionHeading){
+   let first;
+   walk(doc,node=>{if(!first&&node.tagName==='h2')first=node;});
+   if(!first)throw Error('Primary section heading requires an H2: '+locale.prefix+path);
+   let card=first.parentNode;
+   while(card&&!attr(card,'class')?.split(/\s+/).includes('article-card'))card=card.parentNode;
+   if(card){
+    const grid=card.parentNode;
+    if(!attr(grid,'class')?.split(/\s+/).includes('article-grid')||!grid.parentNode)throw Error('Missing category grid for primary heading: '+locale.prefix+path);
+    const parent=grid.parentNode;
+    const heading={nodeName:'h2',tagName:'h2',namespaceURI:first.namespaceURI,attrs:[],childNodes:[],parentNode:parent};
+    heading.childNodes.push({nodeName:'#text',value:primarySectionHeading,parentNode:heading});
+    parent.childNodes.splice(parent.childNodes.indexOf(grid),0,heading);
+   }else{
+    if(first.childNodes.some(node=>node.nodeName!=='#text'))throw Error('Unsupported primary-heading markup: '+locale.prefix+path);
+    first.childNodes=[{nodeName:'#text',value:primarySectionHeading,parentNode:first}];
+   }
+  }
   walk(doc,node=>{
    if(!['h2','h3'].includes(node.tagName))return;
    const children=node.childNodes??[];
