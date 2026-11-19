@@ -2677,5 +2677,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "Yükleme akışı ile başlar ve yük zirveleri arasındaki gerilim değişikliği izin verir. Yaklaşık sürekli akış boşaltma için, kapasite, ripple frekansı ve peak-to-peak ripple yük dengesi aracılığıyla bağlanır. eşitliğe farad kullanın, mikrofaradları açıkça dönüştürün ve otomatik olarak el frekansını kullanmak yerine düzeltmenin yükleme tekrarlama frekansını seçin. tek aşama tam dalga köprüsü ideal modelde AC döngüsü başına iki yükleme fırsatına sahiptir.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "Bir dirençli yük, konvansiyon geriliminin düştüğü zaman tam olarak sabit bir akım çekmez. destekli direnç yük seçeneğini seçin, bu varsayım sorununu daha iyi tanımlarken, sürekli bir akım sonucu tekrar kullanmadan anlamını kontrol etmeden.",
   "Browse all public pages": "Tüm herkese açık sayfalara göz atın",
-  "Matching calculators and guides": "Eşleşen hesaplayıcılar ve kılavuzlar"
+  "Matching calculators and guides": "Eşleşen hesaplayıcılar ve kılavuzlar",
+  "19 November 2026": "19 Kasım 2026",
+  "AC to DC Converter & Calculator": "AC-DC dönüştürücü ve hesaplayıcı",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "AC-DC hesaplayıcı – Çıkış gerilimi ve dalgalanma",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "Çıkışı hesaplayın; dalgalanmayı, en düşük gerilimi ve model varsayımlarını kontrol edin.",
+  "Compare electrical calculators": "Elektrik hesaplayıcılarını karşılaştırın",
+  "For filtered output, enter capacitance and the load current or resistance.": "Filtreli çıkış için kapasitansı ve yük akımını veya direncini girin.",
+  "How to use the calculator": "Hesaplayıcı nasıl kullanılır?",
+  "Model circuit": "Model devresi",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "Devreyi seçin ve doğrultucu girişindeki RMS gerilimini girin.",
+  "The diagram follows your model selection. It is not a wiring plan.": "Şema seçilen modele göre değişir. Kablolama planı değildir.",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "AC girişinden DC çıkış gerilimini ve dalgalanmayı hesaplayın. Doğrultucuları, formülleri, devreleri ve varsayımları açıklanan örnekleri inceleyin."
 }

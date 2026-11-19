@@ -10,33 +10,29 @@ import {buildSpokes} from '../lib/topic-graph';
 import {webApplication,techArticle,faqPage} from '../lib/structured-data';
 import {homepageFaqs} from '../config/homepage-faq';
 import ShareLinks from '../components/ShareLinks.astro';
-const guideTitle='AC to DC Converter: Calculator & Circuit Guide (2026)';
-const guideUpdated='2026-11-18';
+import {homepageUpdated} from '../config/content-dates';
+const guideTitle='AC to DC Converter Calculator – Convert AC Voltage to DC';
+const guideUpdated=homepageUpdated;
 const all = await posts();
 const spokes=buildSpokes(all);
 const schema=[webApplication('/','AC to DC converter calculator','Calculate rectifier output, capacitor ripple and conditional regulator-stage power.',['Basic diode-drop rectification','Current or resistance-load filtering','Conditional regulator-stage analysis']),techArticle('/',guideTitle,'How rectification, filtering and regulation convert AC into DC, with circuit diagrams and output calculations.',{dateModified:guideUpdated,about:{'@type':'Thing',name:'AC to DC conversion'}}),faqPage('/',homepageFaqs)];
 const preferred = ['ac-to-dc-formulas', 'ac-to-dc-calculator-worked-examples', 'full-wave-bridge-rectifier-explained', 'smoothing-capacitor-calculation', 'half-wave-vs-full-wave-rectifier', 'single-phase-vs-three-phase-rectifiers', 'choosing-ac-to-dc-power-supply', 'power-supply-stages-explained'];
 const articles = preferred.map(slug => all.find(entry => entry.data.slug === slug)).filter((entry): entry is NonNullable<typeof entry> => !!entry);
 ---
-<Base title={guideTitle} titleIsComplete schema={schema} description="See how an AC to DC converter works: rectifier circuits, filtering and regulation. Calculate output voltage and ripple, with formulas and a 12 V example.">
-  <section class="hub-hero shell">
+<Base title={guideTitle} titleIsComplete schema={schema} description="Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.">
+  <section class="hub-hero shell calculator-hero">
     <div>
       <p class="eyebrow">CALCULATOR · CIRCUITS · PRACTICAL GUIDES</p>
-      <h1>AC to DC Converter <span>How it works, circuits and output calculations</span></h1>
-      <p>An <strong>AC to DC converter</strong> changes alternating current into direct current. A <a href="/blog/full-wave-bridge-rectifier-explained/">bridge rectifier</a> produces pulsating DC; a filter reduces ripple, and a suitable regulator can hold a target voltage within its operating limits.</p>
-      <p>Use the <a href="/ac-to-dc-calculator/">AC to DC output voltage calculator</a> below, or compare <a href="/blog/half-wave-vs-full-wave-rectifier/">half-wave and full-wave rectifier outputs</a>. The result depends on the circuit, diode drops, filtering and load.</p>
-      <div class="hub-actions"><a class="button" href="#calculator">Calculate output ↓</a><a class="text-action" href="#working-principle">Explore circuits ↓</a></div>
+      <h1>AC to DC Converter &amp; Calculator</h1>
+      <p>Use the <a href="#calculator">AC to DC converter calculator</a> below, or compare <a href="/blog/half-wave-vs-full-wave-rectifier/">half-wave and full-wave rectifier outputs</a>. The result depends on the circuit, diode drops, filtering and load.</p>
       <div class="trust-strip"><span>Runs on your device</span><span>Source-linked methods</span><span>No signup</span></div>
     </div>
-    <aside class="hero-models" aria-label="Choose the right output model">
-      <p class="eyebrow">THREE DIFFERENT QUESTIONS</p>
-      <dl><div><dt>Rectified</dt><dd>Pulsating output; average and RMS differ.</dd></div><div><dt>Filtered</dt><dd>A capacitor reduces ripple; load changes the result.</dd></div><div><dt>Regulated</dt><dd>A target voltage requires headroom and a suitable stage.</dd></div></dl>
-      <a href="#conversion-formulas">Which formula applies? →</a>
-    </aside>
+    <ConverterWorkbench/>
+    <p class="hero-definition">An <strong>AC to DC converter</strong> changes alternating current into direct current. A <a href="/blog/full-wave-bridge-rectifier-explained/">bridge rectifier</a> produces pulsating DC; a filter reduces ripple, and a suitable regulator can hold a target voltage within its operating limits.</p>
   </section>
-  <div class="shell"><ConverterWorkbench/><BridgeExample/></div>
+  <div class="shell"><BridgeExample/></div>
   <EducationOverview/>
-  <section class="shell guide-publication"><p class="byline">Guide updated <time datetime={guideUpdated}>18 November 2026</time> · <a href="/editorial/" rel="author">AC to DC Converter editorial</a></p><ShareLinks path="/" title={guideTitle}/></section>
+  <section class="shell guide-publication"><p class="byline">Guide updated <time datetime={guideUpdated}>19 November 2026</time> · <a href="/editorial/" rel="author">AC to DC Converter editorial</a></p><ShareLinks path="/" title={guideTitle}/></section>
   <section class="shell hub-guides"><p class="eyebrow">GO DEEPER, ONE QUESTION AT A TIME</p><div class="section-heading"><h2>AC to DC converter guides</h2><a href="/blog/">Browse every guide →</a></div><ArticleCards entries={articles}/></section>
   <RelatedSpokes spokes={spokes} directory/>
 </Base>

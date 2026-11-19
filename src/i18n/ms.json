@@ -2678,5 +2678,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "Mulakan dengan aliran beban dan perubahan voltan yang dibenarkan antara puncak pengecasan. Untuk pengecasan berterusan yang kira-kira, kapasiti, frekuensi ripple dan puncak-ke puncak ripple disambungkan melalui keseimbangan pengecasan. Gunakan farad dalam persamaan, menukar microfarad secara eksplisit, dan pilih frekuensi pengecasan pengulangan daripada secara automatik menggunakan frekuensi tangan. Jambatan gelombang penuh satu fasa mempunyai dua peluang pengecasan per kitaran AC dalam model yang diidealkan.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "Sebuah beban tahan tidak menarik aliran yang tetap tepat apabila tegangan kondensor jatuh. Pilih opsyen beban rintangan yang disokong apabila asumsi itu lebih baik menggambarkan masalah, daripada menggunakan semula hasil yang berterusan tanpa memeriksa makna.",
   "Browse all public pages": "Lihat semua halaman awam",
-  "Matching calculators and guides": "Kalkulator dan panduan yang sepadan"
+  "Matching calculators and guides": "Kalkulator dan panduan yang sepadan",
+  "19 November 2026": "19 November 2026",
+  "AC to DC Converter & Calculator": "Penukar AC ke DC dan kalkulator",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "Kalkulator AC ke DC – Voltan keluaran dan riak",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "Kira keluaran, kemudian semak riak, voltan minimum dan andaian model.",
+  "Compare electrical calculators": "Bandingkan kalkulator elektrik",
+  "For filtered output, enter capacitance and the load current or resistance.": "Untuk keluaran bertapis, masukkan kapasitans serta arus atau rintangan beban.",
+  "How to use the calculator": "Cara menggunakan kalkulator",
+  "Model circuit": "Litar model",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "Pilih litar dan masukkan voltan RMS pada input penerus.",
+  "The diagram follows your model selection. It is not a wiring plan.": "Rajah mengikut model pilihan anda. Ini bukan pelan pendawaian.",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Anggar voltan keluaran AC ke DC dan riak. Lihat jenis penerus, formula, rajah litar dan contoh berserta andaian model."
 }

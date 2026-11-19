@@ -2677,5 +2677,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "ابدأ مع التحميل التيار والتغير المسموح به في الفولطية بين شحن قمم. وبالنسبة للتفريغ المستمر التقريبي، يتم الربط بين التكثيف والتردد التموجي والتموج من القمة إلى القمة من خلال رصيد الشحنة. استخدم المفردات في المعادلة، تحويل المصغرات بشكل واضح، واختيار تكرار الشحن تردد المقوم بدلا من استخدام تردد الرئيسيات تلقائيا. وينطوي جسر الموجة الكاملة ذو المرحلة الواحدة على فرصتين للشحن لكل دورة من دورات التكييف في النموذج المثالي.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "الحمل المقاوم لا يرسم تيار ثابت تماما مع سقوط الفولطية المكثف. اختر خيار القدرة على المقاومة عندما يصف هذا الافتراض المشكلة بشكل أفضل، بدلاً من إعادة استخدام النتيجة الثابتة الجارية دون التحقق من معناها.",
   "Browse all public pages": "تصفح جميع الصفحات العامة",
-  "Matching calculators and guides": "الحاسبات والأدلة المطابقة"
+  "Matching calculators and guides": "الحاسبات والأدلة المطابقة",
+  "19 November 2026": "19 نوفمبر 2026",
+  "AC to DC Converter & Calculator": "محول التيار المتردد إلى المستمر وحاسبة الجهد",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "حاسبة تحويل AC إلى DC – جهد الخرج والتموج",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "احسب الخرج ثم تحقق من التموج وأدنى جهد وافتراضات النموذج.",
+  "Compare electrical calculators": "مقارنة الحاسبات الكهربائية",
+  "For filtered output, enter capacitance and the load current or resistance.": "للخرج المرشح، أدخل السعة وتيار الحمل أو مقاومته.",
+  "How to use the calculator": "كيفية استخدام الحاسبة",
+  "Model circuit": "دائرة النموذج",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "اختر الدائرة وأدخل جهد RMS عند مدخل المقوم.",
+  "The diagram follows your model selection. It is not a wiring plan.": "يتبع الرسم النموذج المختار. وهو ليس مخطط توصيل.",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "قدّر جهد الخرج المستمر والتموج من دخل متردد. تعرّف على المقومات والمعادلات والدوائر والأمثلة وافتراضات الحساب."
 }

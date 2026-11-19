@@ -2677,5 +2677,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "Започнете с тока на зареждане и разрешената промяна в напрежението между върховете на зареждането. За приблизително постоянна текуща изтичане, капацитетът, честотата на репл и пик-на-пек репл са свързани чрез баланса на зареждане. Използвайте фаради в уравнението, конвертирайте микрофаради изрично и изберете честотата на повтаряне на зареждане на коригиращия, а не автоматично използвайки честотата на ръката. Еднофазен пълен вълнен мост има две възможности за зареждане на цикъл AC в идеалния модел.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "Резистентният товар не извлича точно постоянния ток, тъй като напрежението на кондензатора пада. Изберете опцията за поддържано съпротивление-товарване, когато тази предпоставка описва по-добре проблема, вместо да използвате отново константен резултат без да проверите значението му.",
   "Browse all public pages": "Преглед на всички публични страници",
-  "Matching calculators and guides": "Съвпадащи калкулатори и ръководства"
+  "Matching calculators and guides": "Съвпадащи калкулатори и ръководства",
+  "19 November 2026": "19 ноември 2026",
+  "AC to DC Converter & Calculator": "AC/DC преобразувател и калкулатор",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "AC/DC калкулатор – изходно напрежение и пулсации",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "Изчислете изхода и проверете пулсациите, минималното напрежение и допусканията на модела.",
+  "Compare electrical calculators": "Сравнете електрическите калкулатори",
+  "For filtered output, enter capacitance and the load current or resistance.": "За филтриран изход въведете капацитет и ток или съпротивление на товара.",
+  "How to use the calculator": "Как да използвате калкулатора",
+  "Model circuit": "Схема на модела",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "Изберете схема и въведете ефективното напрежение на входа на токоизправителя.",
+  "The diagram follows your model selection. It is not a wiring plan.": "Диаграмата следва избрания модел. Тя не е монтажна схема.",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Изчислете изходното напрежение AC/DC и пулсациите. Разгледайте токоизправители, формули, схеми и примери с пояснени допускания."
 }

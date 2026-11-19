@@ -2678,5 +2678,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "लोड प्रवाह और लोड के चरम के बीच वोल्टेज में अनुमति परिवर्तन से शुरू करें. एक अनुमानित निरंतर-प्रवाह डिस्चार्ज के लिए, क्षमता, रिपल आवृत्ति और शीर्ष-टॉप रिपल को लोड संतुलन के माध्यम से कनेक्ट किया जाता है. इकाई में फार्ड का उपयोग करें, माइक्रोफार्ड को स्पष्ट रूप से परिवर्तित करें, और स्वचालित रूप से हाथों की आवृत्ति का उपयोग करने के बजाय रिकॉर्टर की लोड पुनरावृत्ति आवृत्ति का चयन करें. एक एकल चरण पूर्ण तरंग पुल में आदर्श मॉडल में एसी चक्र के लिए दो लोड अवसर हैं.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "एक प्रतिरोधी लोड को कंटेनर वोल्टेज गिरने के रूप में बिल्कुल स्थिर प्रवाह नहीं बनाता है. जब यह धारणा समस्या का बेहतर वर्णन करती है तो समर्थित प्रतिरोध-लॉड विकल्प चुनें, इसके अर्थ की जांच किए बिना एक स्थिर-प्रवाह परिणाम का पुन: उपयोग करने के बजाय।",
   "Browse all public pages": "सभी सार्वजनिक पेज देखें",
-  "Matching calculators and guides": "मिलते-जुलते कैलकुलेटर और गाइड"
+  "Matching calculators and guides": "मिलते-जुलते कैलकुलेटर और गाइड",
+  "19 November 2026": "19 नवंबर 2026",
+  "AC to DC Converter & Calculator": "AC से DC कनवर्टर और कैलकुलेटर",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "AC से DC कनवर्टर कैलकुलेटर – वोल्टेज और रिपल की गणना",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "आउटपुट निकालें, फिर रिपल, न्यूनतम वोल्टेज और मॉडल की मान्यताएँ देखें।",
+  "Compare electrical calculators": "विद्युत कैलकुलेटर की तुलना करें",
+  "For filtered output, enter capacitance and the load current or resistance.": "फ़िल्टर वाले आउटपुट के लिए धारिता और लोड का करंट या प्रतिरोध दर्ज करें।",
+  "How to use the calculator": "कैलकुलेटर का उपयोग कैसे करें",
+  "Model circuit": "मॉडल का सर्किट",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "सर्किट चुनें और रेक्टिफायर इनपुट का RMS वोल्टेज दर्ज करें।",
+  "The diagram follows your model selection. It is not a wiring plan.": "चित्र चुने हुए मॉडल के अनुसार बदलता है। यह वायरिंग की योजना नहीं है।",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "AC से DC कैलकुलेटर से आउटपुट वोल्टेज और रिपल का अनुमान लगाएँ। रेक्टिफायर, सूत्र, सर्किट और उदाहरण समझें।"
 }

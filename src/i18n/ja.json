@@ -2678,5 +2678,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "充電の流れと充電の頂点間の電圧の許可された変化から始まります。 約一つの常流の排出のために、容量、リップ周波数とピーク・トップ・リップは充電バランスを通して接続されます. 方程式でフェラードを使用し、マイクロフェラードを明確に変換し、自動的に使用する代わりに修正器の充電繰り返し周波数を選択します。",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "抵抗負荷は、コンセプトの電圧が下がるにつれて正確に恒久的な電流を引き出さない。その仮定が問題をよりよく説明するときにサポートされた抵抗負荷オプションを選択し、その意味を確認せずに恒久的な流動結果を再利用するのではなく。",
   "Browse all public pages": "公開ページの一覧",
-  "Matching calculators and guides": "検索条件に一致する計算機と技術ガイド"
+  "Matching calculators and guides": "検索条件に一致する計算機と技術ガイド",
+  "19 November 2026": "2026年11月19日",
+  "AC to DC Converter & Calculator": "AC/DC変換器と計算機",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "AC/DC変換計算機 – 直流出力電圧とリップルを回路条件から計算",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "出力を計算し、リップル、最低電圧、モデルの仮定を確認します。",
+  "Compare electrical calculators": "電気計算ツールを比較",
+  "For filtered output, enter capacitance and the load current or resistance.": "平滑出力では静電容量と負荷電流または負荷抵抗を入力します。",
+  "How to use the calculator": "計算機の使い方",
+  "Model circuit": "モデルの回路",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "回路を選び、整流器入力の実効値電圧を入力します。",
+  "The diagram follows your model selection. It is not a wiring plan.": "図は選択したモデルに対応します。配線図ではありません。",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "交流入力から直流出力電圧とリップルを推定します。整流器の種類、計算式、回路図、計算例とモデルの仮定を確認できます。"
 }

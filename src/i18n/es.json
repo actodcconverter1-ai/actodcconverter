@@ -2678,5 +2678,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "Comienza con el flujo de carga y el cambio permitido en la tensión entre los picos de carga. Para un descargo constante aproximado, la capacidad, la frecuencia de ondulación y la ondulación de pico a pico se conectan a través del equilibrio de carga. Use farades en la ecuación, convertiendo microfaradios explícitamente, y escoge la frecuencia de reposición de carga del rectificador en lugar de utilizar automáticamente la frecuencia de las manos. Un puente de onda completa de una única fase tiene dos oportunidades de carga por ciclo AC en el modelo idealizado.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "Una carga resistente no atrae corriente constante exactamente a medida que la tensión del capacitor cae. Elija la opción de carga de resistencia apoyada cuando esa suposición describe mejor el problema, en lugar de reutilizar un resultado constante-current sin comprobar su significado.",
   "Browse all public pages": "Explorar todas las páginas públicas",
-  "Matching calculators and guides": "Calculadoras y guías coincidentes"
+  "Matching calculators and guides": "Calculadoras y guías coincidentes",
+  "19 November 2026": "19 de noviembre de 2026",
+  "AC to DC Converter & Calculator": "Convertidor de CA a CC y calculadora",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "Calculadora de CA a CC – Convierte tensión alterna",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "Calcula la salida y revisa el rizado, la tensión mínima y los supuestos del modelo.",
+  "Compare electrical calculators": "Comparar calculadoras eléctricas",
+  "For filtered output, enter capacitance and the load current or resistance.": "Para una salida filtrada, introduce la capacitancia y la corriente o resistencia de carga.",
+  "How to use the calculator": "Cómo usar la calculadora",
+  "Model circuit": "Circuito del modelo",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "Selecciona el circuito e introduce la tensión RMS a la entrada del rectificador.",
+  "The diagram follows your model selection. It is not a wiring plan.": "El diagrama sigue el modelo seleccionado. No es un plano de cableado.",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Calcula la tensión de salida de CA a CC y el rizado. Consulta rectificadores, fórmulas, diagramas y ejemplos con supuestos claros."
 }

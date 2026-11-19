@@ -2678,5 +2678,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "Начинать с потока нагрузки и допустимой перемены напряжения между вершинами зарядки. Для приблизительного постоянного потока выгрузки, мощность, частота реппле и вершины вершины реппле соединяются через баланс загрузки. Используйте фарады в уравнении, конвертируя микрофарады explicitly, и выбирайте частоту повторения зарядки исправителя вместо автоматического использования частоты рук. Однофазный полной волны мост имеет две возможности зарядки по циклу АК в идеальном модели.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "Отсталое нагрузку не вытягивает точно постоянный ток, как падает напряжение конденсатора. Выберите поддерживаемый опцион нагрузки сопротивления, когда эта предположение лучше описывает проблему, а не использует постоянный текущий результат без проверки его значения.",
   "Browse all public pages": "Все общедоступные страницы",
-  "Matching calculators and guides": "Найденные калькуляторы и руководства"
+  "Matching calculators and guides": "Найденные калькуляторы и руководства",
+  "19 November 2026": "19 ноября 2026",
+  "AC to DC Converter & Calculator": "Преобразователь AC/DC и калькулятор",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "Калькулятор AC/DC – расчёт выходного напряжения",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "Рассчитайте выход, затем проверьте пульсации, минимум напряжения и допущения модели.",
+  "Compare electrical calculators": "Сравнить электротехнические калькуляторы",
+  "For filtered output, enter capacitance and the load current or resistance.": "Для выхода с фильтром введите ёмкость и ток либо сопротивление нагрузки.",
+  "How to use the calculator": "Как пользоваться калькулятором",
+  "Model circuit": "Схема модели",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "Выберите схему и введите действующее напряжение на входе выпрямителя.",
+  "The diagram follows your model selection. It is not a wiring plan.": "Диаграмма соответствует выбранной модели. Это не монтажная схема.",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Рассчитайте выходное напряжение AC/DC и пульсации. Изучите типы выпрямителей, формулы, схемы и примеры с пояснениями допущений."
 }

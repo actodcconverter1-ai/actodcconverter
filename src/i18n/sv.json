@@ -2677,5 +2677,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "Börja med lastströmmen och den tillåtna förändringen i spänningen mellan laddningspikarna. För en ungefär konstant-flödesavladdning, kapacitet, ripplefrekvens och topp-till-pike ripple är ansluten genom laddningsbalansen. Använd farader i ekvationen, konvertera mikrofarader uttryckligen, och välj laddning repetitionsfrekvens av rättaren snarare än automatiskt använda manuell frekvens. En enda fas full vågbridge har två laddningsmöjligheter per AC cykel i den idealiserade modellen.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "En resistant last drar inte exakt konstant ström när kondensorns spänning faller. Välj det stödda resistans-lastalternativet när den antagandet bättre beskriver problemet, snarare än att återanvända ett konstant-strömsresultat utan att kontrollera dess betydelse.",
   "Browse all public pages": "Bläddra bland alla offentliga sidor",
-  "Matching calculators and guides": "Matchande kalkylatorer och guider"
+  "Matching calculators and guides": "Matchande kalkylatorer och guider",
+  "19 November 2026": "19 november 2026",
+  "AC to DC Converter & Calculator": "AC/DC-omvandlare och kalkylator",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "AC/DC-kalkylator – Likspänning och rippel",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "Beräkna utgången och kontrollera rippel, lägsta spänning och modellens antaganden.",
+  "Compare electrical calculators": "Jämför elkalkylatorer",
+  "For filtered output, enter capacitance and the load current or resistance.": "För filtrerad utgång anger du kapacitans samt lastström eller lastresistans.",
+  "How to use the calculator": "Så använder du kalkylatorn",
+  "Model circuit": "Modellens krets",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "Välj krets och ange effektivvärdet på likriktarens ingångsspänning.",
+  "The diagram follows your model selection. It is not a wiring plan.": "Diagrammet följer vald modell. Det är inget kopplingsunderlag.",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "Beräkna AC/DC-utspänning och rippel. Läs om likriktare, formler, kretsdiagram och exempel med tydliga modellantaganden."
 }

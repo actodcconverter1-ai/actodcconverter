@@ -2678,5 +2678,16 @@
   "Begin with the load current and the allowed change in voltage between charging peaks. For an approximate constant-current discharge, capacitance, ripple frequency and peak-to-peak ripple are connected through the charge balance. Use farads in the equation, converting microfarads explicitly, and choose the charging repetition frequency of the rectifier rather than automatically using the mains frequency. A single-phase full-wave bridge has two charging opportunities per AC cycle in the idealized model.": "충전 흐름과 충전 꼭대기 사이의 전압 변경으로 시작합니다. 대략적인 일정한 흐름 배출을 위해, 용량성, 리플 주파수 및 피크-최고 리플은 충전 균형을 통해 연결됩니다. 방정식에서 파라드를 사용하여, 마이크로 파라드를 명시적으로 변환하고, 자동으로 사용하는 대신 수정기의 충전 반복 주파수를 선택합니다. 단일 단계 풀 파이브 브릿지는 이상화 된 모델에서 AC 사이클 당 두 번 충전 기회를 가지고 있습니다.",
   "A resistive load does not draw exactly constant current as the capacitor voltage falls. Choose the supported resistance-load option when that assumption better describes the problem, rather than reusing a constant-current result without checking its meaning.": "저항 부하가 억압기 전압이 떨어지면 정확히 일정한 흐름을 추출하지 않습니다.이 가정이 문제를 더 잘 설명하는 경우 지원되는 저항 부하 옵션을 선택하고, 지속적인 흐름 결과를 다시 사용하지 않고 그 의미를 확인합니다.",
   "Browse all public pages": "모든 공개 페이지 둘러보기",
-  "Matching calculators and guides": "검색 조건에 맞는 계산기와 가이드"
+  "Matching calculators and guides": "검색 조건에 맞는 계산기와 가이드",
+  "19 November 2026": "2026년 11월 19일",
+  "AC to DC Converter & Calculator": "AC-DC 변환기 및 계산기",
+  "AC to DC Converter Calculator – Convert AC Voltage to DC": "AC-DC 변환 계산기 – 회로 조건에 따른 직류 전압과 리플 계산",
+  "Calculate output, then check ripple, minimum voltage and model assumptions.": "출력을 계산한 뒤 리플, 최소 전압 및 모델의 가정을 확인하세요.",
+  "Compare electrical calculators": "전기 계산기 비교",
+  "For filtered output, enter capacitance and the load current or resistance.": "평활 출력은 정전용량과 부하 전류 또는 저항을 입력하세요.",
+  "How to use the calculator": "계산기 사용 방법",
+  "Model circuit": "모델 회로",
+  "Select the circuit and enter RMS voltage at the rectifier input.": "회로를 선택하고 정류기 입력의 RMS 전압을 입력하세요.",
+  "The diagram follows your model selection. It is not a wiring plan.": "그림은 선택한 모델을 따릅니다. 배선도가 아닙니다.",
+  "Use our free AC to DC converter calculator to estimate DC output voltage from AC input. Explore rectifier types, formulas, circuit diagrams and examples.": "교류 입력에서 직류 출력 전압과 리플을 추정하세요. 정류기 종류, 공식, 회로도, 계산 예제와 모델의 가정을 확인할 수 있습니다."
 }

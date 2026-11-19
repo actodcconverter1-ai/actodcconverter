@@ -39,10 +39,7 @@
   "/fr/blog/unregulated-vs-regulated-dc-supplies/": "Alimentations CC régulées et non régulées : différences",
   "/fr/blog/why-ac-to-dc-output-voltage-varies/": "Pourquoi la tension CA/CC varie : secteur et charge",
   "/fr/category/component-behavior/": "Composants du redresseur : pertes, ESR et transformateur",
-  "/de/": {
-    "lead": "AC to DC Converter",
-    "detail": "Funktion, Schaltungen und Berechnung"
-  },
+  "/de/": "AC/DC-Wandler und Rechner",
   "/de/blog/linear-vs-switching-power-supplies/": "Lineare und getaktete AC/DC-Netzteile im Systemvergleich",
   "/de/blog/ac-to-dc-calculator-worked-examples/": "AC/DC-Rechenbeispiele: Mittelwert, Spitze und Restwelligkeit",
   "/de/blog/ac-voltage-does-not-determine-dc-current/": "Warum AC-Spannung allein den verfügbaren DC-Strom nicht bestimmt",
@@ -97,5 +94,22 @@
   "/tr/blog/unregulated-vs-regulated-dc-supplies/": "Regüleli ve regülesiz DC güç kaynakları: doğrultucu modelinin sınırı",
   "/sv/blog/ac-voltage-does-not-determine-dc-current/": "Varför AC-spänning ensam inte avgör tillgänglig DC-ström",
   "/sv/blog/why-ac-to-dc-output-voltage-varies/": "Varför AC/DC-utspänningen varierar med nät, last och komponenter",
-  "/sv/category/component-behavior/": "Likriktarkomponenter: förluster, ESR och transformator"
+  "/sv/category/component-behavior/": "Likriktarkomponenter: förluster, ESR och transformator",
+  "/": "AC to DC Converter & Calculator",
+  "/hi/": "AC से DC कनवर्टर और कैलकुलेटर",
+  "/es/": "Convertidor de CA a CC y calculadora",
+  "/ru/": "Преобразователь AC/DC и калькулятор",
+  "/fr/": "Convertisseur CA/CC et calculateur",
+  "/it/": "Convertitore CA/CC e calcolatore",
+  "/pt/": "Conversor CA/CC e calculadora",
+  "/bn/": "AC থেকে DC কনভার্টার ও ক্যালকুলেটর",
+  "/ja/": "AC/DC変換器と計算機",
+  "/ko/": "AC-DC 변환기 및 계산기",
+  "/ms/": "Penukar AC ke DC dan kalkulator",
+  "/pl/": "Przetwornik AC/DC i kalkulator",
+  "/id/": "Konverter AC ke DC dan kalkulator",
+  "/ar/": "محول التيار المتردد إلى المستمر وحاسبة الجهد",
+  "/bg/": "AC/DC преобразувател и калкулатор",
+  "/tr/": "AC-DC dönüştürücü ve hesaplayıcı",
+  "/sv/": "AC/DC-omvandlare och kalkylator"
 }

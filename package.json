@@ -25,7 +25,8 @@
     "audit:locales": "node scripts/audit-locales.mjs",
     "translate:generate": "python scripts/translate-offline.py",
     "translate:extract": "node scripts/translate-content.mjs --extract-only",
-    "translate:fetch": "node scripts/translate-content.mjs"
+    "translate:fetch": "node scripts/translate-content.mjs",
+    "test:browser": "playwright test"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.6",
@@ -39,7 +40,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
+    "@axe-core/playwright": "4.14.0",
     "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.1",
     "@types/node": "26.6.6",
     "eslint": "10.14.0",
     "eslint-plugin-astro": "3.2.1",
