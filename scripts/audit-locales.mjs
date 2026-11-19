@@ -22,6 +22,11 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  if(titleRoutes.has(titleKey))fail(path,'duplicate title also used at '+titleRoutes.get(titleKey));
  else titleRoutes.set(titleKey,path);
  const base=locale.prefix?path.slice(locale.prefix.length):path;
+ if(['/search/','/sitemap/'].includes(base)){
+  const headingId=base==='/search/'?'search-results-heading':'public-pages-heading';let headingFound=false,listFound=false;
+  walk(doc,n=>{if(n.tagName==='h2'&&attr(n,'id')===headingId&&norm(text(n)))headingFound=true;if(n.tagName==='ul'&&attr(n,'aria-labelledby')===headingId)listFound=true;});
+  if(!headingFound||!listFound)fail(path,'utility directory requires a visible H2 labelling its results list');
+ }
  const noindex=publicNoindexRoutes.includes(base);
  let robots;walk(doc,n=>{if(n.tagName==='meta'&&attr(n,'name')==='robots')robots=attr(n,'content');});
  if(noindex){if(robots!=='noindex, follow')fail(path,'utility page must be noindex, follow');if(indexableUrls.includes(url))fail(path,'noindex page is in XML sitemap');if([...alternates.keys()].some(key=>key!==undefined))fail(path,'noindex page must not advertise indexable language alternates');}

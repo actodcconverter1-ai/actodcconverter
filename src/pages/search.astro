@@ -7,8 +7,8 @@ const directory=siteDirectory(await posts());
 ---
 <Base title="Search Calculators & Technical Guides" titleIsComplete description="Find AC to DC calculators, rectifier explanations, ripple formulas, worked examples and website information with local site search.">
  <section class="shell page-intro prose search-page"><h1>Search calculators and technical guides</h1><p>Search page titles and summaries. Your search runs in this browser; no external search service receives your query.</p>
- <div data-site-search><SiteSearchForm id="page-search"/><p class="search-count"><span>Results:</span> <output aria-live="polite" data-search-count>{directory.length}</output></p><p data-search-empty hidden>No matching pages. Try a shorter phrase, a formula name or a component.</p>
- <ul class="directory-list" data-search-list>{directory.map(page=><li><a href={page.href}>{page.title}</a><p>{page.description}</p></li>)}</ul>
+ <div data-site-search><SiteSearchForm id="page-search"/><h2 id="search-results-heading">Matching calculators and guides</h2><p class="search-count"><span>Results:</span> <output aria-live="polite" data-search-count>{directory.length}</output></p><p data-search-empty hidden>No matching pages. Try a shorter phrase, a formula name or a component.</p>
+ <ul class="directory-list" data-search-list aria-labelledby="search-results-heading">{directory.map(page=><li><a href={page.href}>{page.title}</a><p>{page.description}</p></li>)}</ul>
  <noscript>JavaScript is disabled. All page links remain available below; you can use your browser's Find command.</noscript></div></section>
 </Base>
 <script>

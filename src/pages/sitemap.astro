@@ -5,5 +5,5 @@ import {siteDirectory} from '../lib/site-directory';
 const directory=siteDirectory(await posts());
 ---
 <Base title="HTML Sitemap: Calculators, Guides & Site Information" titleIsComplete description="Browse all public AC to DC converter calculators, technical articles, topic categories and editorial information from one accessible HTML sitemap.">
- <section class="shell page-intro prose"><h1>HTML sitemap</h1><p>Every public calculator, guide and information page is linked here. For automated discovery, use the <a href="/sitemap.xml">XML sitemap</a>. To find a phrase, use <a href="/search/">site search</a>.</p><ul class="directory-list">{directory.map(page=><li><a href={page.href}>{page.title}</a></li>)}</ul></section>
+ <section class="shell page-intro prose"><h1>HTML sitemap</h1><p>Every public calculator, guide and information page is linked here. For automated discovery, use the <a href="/sitemap.xml">XML sitemap</a>. To find a phrase, use <a href="/search/">site search</a>.</p><h2 id="public-pages-heading">Browse all public pages</h2><ul class="directory-list" aria-labelledby="public-pages-heading">{directory.map(page=><li><a href={page.href}>{page.title}</a></li>)}</ul></section>
 </Base>
