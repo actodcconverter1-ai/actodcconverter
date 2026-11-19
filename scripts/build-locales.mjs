@@ -12,7 +12,13 @@ const paths=new Set([...indexablePaths,...publicNoindexRoutes]);
 const seoTitles=JSON.parse(await readFile('src/i18n/seo-titles.json','utf8'));
 const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json','utf8'));
 const pageHeadings=JSON.parse(await readFile('src/i18n/page-headings.json','utf8'));
+const sectionHeadings=JSON.parse(await readFile('src/i18n/section-headings.json','utf8'));
 const headingText=value=>typeof value==='string'?norm(value):value&&typeof value.lead==='string'&&typeof value.detail==='string'?norm(value.lead+' '+value.detail):'';
+const elementText=node=>node.nodeName==='#text'?node.value:(node.childNodes??[]).map(elementText).join('');
+for(const [code,headings]of Object.entries(sectionHeadings)){
+ if(!config.languages.some(locale=>locale.code===code))throw Error('Unknown section-heading language: '+code);
+ for(const [original,replacement]of Object.entries(headings))if(!original.trim()||typeof replacement!=='string'||!replacement.trim()||replacement!==norm(replacement)||replacement.length>70)throw Error('Invalid section heading: '+code+': '+original);
+}
 const localizedPaths=new Set(config.languages.flatMap(locale=>[...paths].map(path=>locale.prefix+path)));
 for(const [path,title] of Object.entries(seoTitles)){
  if(!localizedPaths.has(path))throw Error('Unknown SEO title route: '+path);
@@ -34,6 +40,21 @@ for(const path of paths){
  for(const locale of config.languages){
   const translated=locale.code==='en'?source:localize(source,locale,dictionaries.get(locale.code),domain,paths);
   const doc=parse(translated);let head;
+  walk(doc,node=>{
+   if(!['h2','h3'].includes(node.tagName))return;
+   const children=node.childNodes??[];
+   const link=children.length===1&&children[0].tagName==='a'?children[0]:undefined;
+   let replacement=node.tagName==='h2'?sectionHeadings[locale.code]?.[norm(elementText(node))]:undefined;
+   if(!replacement&&link){
+    let card=node.parentNode;
+    while(card&&!attr(card,'class')?.split(/\s+/).includes('article-card'))card=card.parentNode;
+    if(card){const target=new URL(attr(link,'href')??'',domain+locale.prefix+path);if(target.origin===domain&&pageHeadings[target.pathname])replacement=headingText(pageHeadings[target.pathname]);}
+   }
+   if(!replacement)return;
+   if(!link&&children.some(child=>child.nodeName!=='#text'))throw Error('Unsupported section-heading markup: '+locale.prefix+path);
+   const container=link??node;
+   container.childNodes=[{nodeName:'#text',value:replacement,parentNode:container}];
+  });
   const pageHeading=pageHeadings[locale.prefix+path];
   if(pageHeading){
    const headline=headingText(pageHeading);let count=0;

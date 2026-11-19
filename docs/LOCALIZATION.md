@@ -8,6 +8,8 @@ Concise search and social metadata has separate, route-specific editorial overri
 
 Visible H1 overrides in `src/i18n/page-headings.json` keep article schema headlines aligned and preserve the homepage subtitle layout. They are independent of search-title overrides.
 
+Concise H2 edits live in `src/i18n/section-headings.json`. Linked H2/H3 card labels reuse reviewed destination headings while retaining the original link and heading IDs.
+
 ## Public utility pages and indexing
 
 `src/config/indexing.json` lists public utility routes that use `noindex, follow`. Search pages remain translated and linked for visitors but are excluded from the XML sitemap and indexable hreflang clusters. Their self-referencing canonicals remain query-free. Do not block these routes in robots.txt: crawlers must fetch them to read noindex. The localization build uses both sitemap routes and public noindex routes so excluding a utility from the sitemap cannot remove its translated pages or break search forms.

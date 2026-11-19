@@ -1,0 +1,116 @@
+{
+  "hi": {
+    "परिणामों को प्रतिलिपि प्रस्तुत करने योग्य, योग्य कथनों के रूप में उपयोग करें": "नतीजों को दोहराने योग्य बनाएँ और मान्यताएँ स्पष्ट रखें"
+  },
+  "es": {
+    "Un producto de iluminación alimentado por voltaje es una carga diferente.": "Iluminación con entrada de tensión: un tipo de carga distinto",
+    "Los sistemas automotrices y eléctricos contienen varias etapas de conversión.": "Etapas de conversión en automóviles y vehículos eléctricos",
+    "Promedio ideal de onda completa: aproximadamente 0.9 multiplicado por RMS": "Promedio ideal de onda completa: aproximadamente 0.9 × RMS",
+    "Promedio ideal de media onda: aproximadamente 0.45 multiplicado por RMS": "Promedio ideal de media onda: aproximadamente 0.45 × RMS",
+    "Mantenga la frecuencia de entrada y la frecuencia de ondulación separadas": "Distinga frecuencia de entrada y frecuencia de rizado",
+    "No infiera la idoneidad de los componentes a partir de promedios ideales": "Los promedios ideales no determinan las capacidades del componente",
+    "Cómo identificar formas de onda de salida de semilla y de onda completa": "Identifique las formas de onda de media onda y onda completa",
+    "Mantenga las comprobaciones aritméticas separadas de las observaciones.": "Separe los cálculos de las observaciones",
+    "La frecuencia y el período describen el mismo momento de manera diferente": "Frecuencia y período: dos formas de expresar la repetición",
+    "La frecuencia de repetición y los armónicos son descripciones diferentes.": "Frecuencia de repetición y armónicos: conceptos distintos"
+  },
+  "ru": {
+    "Преобразователь переменного тока в постоянный по сравнению с инвертором постоянного тока в переменный": "Преобразователь AC/DC и инвертор DC/AC: в чём разница",
+    "Зарядное устройство управляет изменяющейся нагрузкой накопителя энергии.": "Зарядное устройство и меняющаяся нагрузка аккумулятора",
+    "Осветительное изделие, питаемое напряжением, представляет собой другую нагрузку.": "Освещение с питанием по напряжению: другой тип нагрузки",
+    "Системы для автомобилей и электромобилей содержат несколько этапов преобразования.": "Ступени преобразования в автомобилях и электромобилях",
+    "Получите идеальное среднее значение, используя межлинейное среднеквадратичное значение.": "Идеальное среднее напряжение по межфазному RMS",
+    "Идеальное среднее полноволновое значение: примерно в 0,9 раза больше среднеквадратического значения.": "Идеальное среднее при двухполупериодном выпрямлении: ≈ 0,9 × RMS",
+    "Идеальное среднее полуволновое значение: примерно в 0,45 раза больше среднеквадратического значения.": "Идеальное среднее при однополупериодном выпрямлении: ≈ 0,45 × RMS",
+    "Прямое падение напряжения не является полной спецификацией выпрямителя.": "Прямое падение напряжения не описывает все параметры выпрямителя",
+    "Почему пульсации повторяются с частотой, вдвое превышающей входную частоту": "Почему частота пульсаций вдвое выше входной частоты",
+    "Не делайте вывод о пригодности компонентов на основе идеальных средних значений.": "Идеальные средние не определяют пригодность компонентов",
+    "Поведение источника находится за пределами изображения с фиксированным входом": "Изменения источника за пределами модели с постоянным входом",
+    "Используйте результаты как воспроизводимые квалифицированные утверждения.": "Воспроизводимые результаты с явно указанными допущениями",
+    "Используйте постоянное напряжение в качестве ограничивающего сравнения.": "Постоянное напряжение как предельный случай для сравнения",
+    "Среднее значение со знаком может быть нулевым, а среднеквадратичное значение положительное.": "Среднее со знаком может быть нулевым при положительном RMS",
+    "Ректификация изменяет среднее значение без изменения идеального гребня.": "Выпрямление меняет среднее, но не идеальный пик",
+    "Фильтр определяет, какая величина постоянного тока является актуальной.": "Фильтр определяет, какую величину DC нужно сравнивать",
+    "Регулирование — это не то же самое, что идеальное устранение пульсаций.": "Стабилизация не означает полного устранения пульсаций",
+    "Измените входное среднеквадратичное значение, сохраняя при этом другие предположения фиксированными.": "Меняйте входной RMS, сохраняя остальные допущения"
+  },
+  "fr": {
+    "Lire le comportement de protection comme spécification de fonctionnement": "Comprendre les protections et leurs conditions de fonctionnement",
+    "Travailler avec le courant et la puissance sans inventer la compatibilité": "Vérifier courant et puissance sans présumer de la compatibilité",
+    "Les systèmes automobiles et électriques contiennent plusieurs étapes de conversion": "Étapes de conversion dans les véhicules et véhicules électriques",
+    "Exemple sept : un cas en dehors du champ d'application des petites ondulations": "Exemple 7 : au-delà de l’approximation de faible ondulation",
+    "Conservez les étiquettes de tension et de capacité dans des colonnes séparées": "Séparer les valeurs de tension et de capacité",
+    "Le courant moyen n'est pas un courant efficace ou un courant de surtension": "Courant moyen, courant efficace et courant de pointe",
+    "Utiliser les données de tension directe dans des conditions pertinentes": "Utiliser la chute de tension directe au bon point de fonctionnement",
+    "Comparez deux hypothèses sans prétendre à une amélioration de l'appareil": "Comparer deux hypothèses sans conclure à une amélioration du composant",
+    "Posez une question plus précise lorsque vous comparez des condensateurs": "Préciser la question avant de comparer des condensateurs",
+    "Ne pas déduire l'adéquation des composants à partir de moyennes idéales": "Les moyennes idéales ne valident pas les composants",
+    "Comment identifier les formes d'onde de sortie à moitié et à pleine-ondes": "Identifier les sorties simple et double alternance",
+    "Les alimentations régulées et à découpage nécessitent leurs propres modèles": "Alimentations régulées et à découpage : des modèles distincts",
+    "Utiliser les résultats sous forme d’énoncés reproductibles et qualifiés": "Présenter des résultats reproductibles avec leurs limites",
+    "La fréquence de répétition et les harmoniques sont des descriptions différentes": "Fréquence de répétition et harmoniques : des notions distinctes",
+    "Comparez des conditions similaires lors de la vérification d'une lecture": "Comparer des conditions de mesure équivalentes",
+    "La régulation n’est pas la même chose que l’élimination parfaite des ondulations": "Réguler ne signifie pas supprimer toute ondulation"
+  },
+  "de": {
+    "Wechselstrom-Gleichstrom-Wandler im Vergleich zu Gleichstrom-Wechselstrom-Wechselrichter": "AC/DC-Wandler und DC/AC-Wechselrichter im Vergleich",
+    "Berechnen Sie die Leistung, ohne die aktuelle Einschränkung zu verlieren": "Leistung berechnen und dabei die Stromgrenze beachten",
+    "Stufe 4: Durch die Glättung wird Energie zwischen den Ladeintervallen gespeichert": "Stufe 4: Glättung speichert Energie zwischen den Ladephasen",
+    "Bei einem spannungsgespeisten Beleuchtungsprodukt handelt es sich um eine andere Last": "Spannungsgespeiste Beleuchtung als eigener Lasttyp",
+    "Arbeiten Sie mit Strom und Leistung, ohne die Kompatibilität zu erfinden": "Strom und Leistung prüfen, ohne Kompatibilität vorauszusetzen",
+    "Überprüfen Sie die Eingaben und Rundungen, bevor Sie die Ergebnisse vergleichen": "Vor dem Ergebnisvergleich Eingaben und Rundung prüfen",
+    "Bewahren Sie Spannungs- und Kapazitätsbezeichnungen in separaten Spalten auf": "Spannung und Kapazität in getrennten Spalten erfassen",
+    "Überprüfen Sie ein Ergebnis, ohne nicht unterstützte Behauptungen hinzuzufügen": "Ergebnisse prüfen, ohne unbelegte Aussagen hinzuzufügen",
+    "Schreiben Sie einen Vergleich, den ein anderer Leser reproduzieren kann": "Einen nachvollziehbaren Vergleich dokumentieren",
+    "Vergleichen Sie zwei Annahmen, ohne eine Geräteverbesserung zu behaupten": "Annahmen vergleichen, ohne eine Geräteverbesserung zu behaupten",
+    "Verbinden Sie die Welligkeit mit der Spitze, dem Tal und dem Durchschnitt": "Restwelligkeit mit Spitzen-, Tal- und Mittelwert verknüpfen",
+    "Warum wiederholt sich die Welligkeit mit der doppelten Eingangsfrequenz?": "Warum ist die Restwelligkeitsfrequenz doppelt so hoch?",
+    "Schließen Sie die Komponenteneignung nicht aus idealen Durchschnittswerten ab": "Ideale Mittelwerte bestätigen keine Bauteileignung",
+    "Unterscheiden Sie Meinungsverschiedenheiten von einem gescheiterten Modell": "Ergebnisabweichung und Modellversagen unterscheiden",
+    "Häufigkeit und Periode beschreiben den gleichen Zeitpunkt unterschiedlich": "Frequenz und Periodendauer beschreiben dieselbe Wiederholung",
+    "Ein Kondensator ändert seine Form, nicht die Anzahl der Eingangsspitzen": "Ein Kondensator ändert die Form, nicht die Zahl der Eingangsspitzen",
+    "Wiederholungsfrequenz und Harmonische sind unterschiedliche Beschreibungen": "Wiederholungsfrequenz und Oberwellen unterscheiden",
+    "Der vorzeichenbehaftete Durchschnitt kann Null sein, während der RMS positiv ist": "Der vorzeichenbehaftete Mittelwert kann bei positivem RMS null sein",
+    "Die Berichtigung ändert den Durchschnitt, ohne den idealen Scheitelpunkt zu ändern": "Gleichrichtung ändert den Mittelwert, nicht den idealen Scheitelwert",
+    "Trennen Sie die Kapazität von einer vollständigen Kondensatorspezifikation": "Kapazität und vollständige Kondensatorspezifikation unterscheiden",
+    "Die durchschnittliche Spannung beschreibt nicht den niedrigsten Eingang": "Die mittlere Spannung beschreibt nicht den niedrigsten Eingang",
+    "Ändern Sie die RMS-Eingabe, während Sie die anderen Annahmen beibehalten": "RMS-Eingang ändern und die übrigen Annahmen beibehalten"
+  },
+  "it": {
+    "Fase 4: il livellamento immagazzina energia tra gli intervalli di ricarica": "Stadio 4: il filtro conserva energia tra le ricariche",
+    "I sistemi automobilistici ed elettrici contengono diverse fasi di conversione": "Stadi di conversione nei veicoli e nei veicoli elettrici",
+    "Esempio sette: un caso al di fuori dell'ambito della piccola ondulazione": "Esempio 7: oltre l’approssimazione di piccola ondulazione",
+    "Controllare gli input e gli arrotondamenti prima di confrontare i risultati": "Verificare ingressi e arrotondamenti prima del confronto",
+    "Mantenere separate la frequenza di ingresso e la frequenza di ondulazione": "Distinguere frequenza d’ingresso e frequenza di ondulazione",
+    "Confronta due ipotesi senza pretendere un miglioramento del dispositivo": "Confrontare ipotesi senza affermare miglioramenti del dispositivo",
+    "La ripetizione dell'ondulazione differisce dall'ampiezza dell'ondulazione": "Ripetizione e ampiezza dell’ondulazione sono grandezze diverse",
+    "Come identificare le forme d'onda di uscita a mezza onda e a pieno valle": "Identificare le uscite a semionda e a onda intera",
+    "Distinguere la precisione di conversione dalla precisione di misurazione": "Distinguere precisione della conversione e della misura",
+    "Aumentare la corrente di carico nel modello di bilanciamento della carica": "Aumentare la corrente di carico nel modello di bilancio della carica"
+  },
+  "pt": {
+    "Etapa 4: a suavização armazena energia entre os intervalos de carregamento": "Estágio 4: o filtro armazena energia entre as recargas",
+    "Um carregador gerencia uma carga de armazenamento de energia em mudança": "O carregador controla a carga variável da bateria",
+    "Verifique as entradas e os arredondamentos antes de comparar os resultados": "Verifique entradas e arredondamentos antes de comparar resultados"
+  },
+  "ms": {
+    "Produk pencahayaan yang dilengkapi dengan ketegangan adalah beban yang berbeza": "Pencahayaan berbekalkan voltan: jenis beban yang berbeza",
+    "Bagaimana untuk mengenal pasti bentuk gelombang separuh gelombang dan output penuh gelombang": "Kenal pasti bentuk output separuh gelombang dan gelombang penuh",
+    "Faktor Ripple daripada Reka bentuk setengah gelombang dan penuh gelombang": "Faktor riak bagi penerus separuh gelombang dan gelombang penuh",
+    "Menggunakan hasil sebagai pernyataan yang boleh diulang dan berkelayakan": "Nyatakan hasil yang boleh diulang bersama andaian dan hadnya"
+  },
+  "id": {
+    "Bagaimana untuk mengidentifikasi bentuk gelombang output setengah gelombang dan penuh gelombang": "Kenali bentuk keluaran setengah gelombang dan gelombang penuh",
+    "Frekuensi dan periode menggambarkan waktu yang sama dengan cara yang berbeda": "Frekuensi dan periode: dua cara menyatakan waktu pengulangan"
+  },
+  "bg": {
+    "Стъпка 4: разтоварването съхранява енергия между интервалите на зареждане": "Стъпка 4: изглаждането съхранява енергия между зарежданията",
+    "Сравнете две предположения, без да претендирате за подобрение на устройството": "Сравнете допусканията без извод за подобрение на компонента",
+    "Отделно повишаване на температурата от разтоварването на електроенергията": "Разграничете повишаването на температурата от загубената мощност",
+    "Промяна на входа на RMS, докато задържате останалите предположения фиксирани": "Променяйте входния RMS при неизменни останали допускания"
+  },
+  "tr": {
+    "Başka bir okuyucu tarafından tekrarlanabileceği bir karşılaştırma yazın": "Başka bir okuyucunun tekrarlayabileceği bir karşılaştırma yazın",
+    "Düzenlenmiş ve değiştirilmiş tedarikler kendi modellerine ihtiyaç duyar": "Regüleli ve anahtarlamalı kaynaklar için ayrı modeller gerekir"
+  }
+}

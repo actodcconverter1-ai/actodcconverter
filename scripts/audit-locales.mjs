@@ -28,6 +28,7 @@ for(const url of urls){const path=new URL(url).pathname;const locale=config.lang
  if(title?.length>60)fail(path,'title exceeds the site editorial budget of 60 characters');
  if(title&&title.length<30)fail(path,'title is below the site editorial target of 30 characters');
  if(mainHeading&&norm(mainHeading).length>70)fail(path,'H1 exceeds the site editorial budget of 70 characters');
+ walk(doc,n=>{if(n.tagName==='h2'&&norm(text(n)).length>70)fail(path,'H2 exceeds the site editorial budget of 70 characters: '+norm(text(n)));});
  const configuredHeading=pageHeadings[path];
  if(configuredHeading&&norm(mainHeading)!==norm(typeof configuredHeading==='string'?configuredHeading:configuredHeading.lead+' '+configuredHeading.detail))fail(path,'configured page heading mismatch');
  if(configuredHeading&&typeof configuredHeading==='object')walk(doc,n=>{if(n.tagName==='h1'&&!n.childNodes.some(child=>child.tagName==='span'&&norm(text(child))===norm(configuredHeading.detail)))fail(path,'styled homepage heading detail missing');});

@@ -1,5 +1,11 @@
 # Localized search titles
 
+## Section headings and card labels
+
+`src/i18n/section-headings.json` maps existing localized H2 text to concise, technically reviewed wording. The build applies these edits after translation and preserves heading elements, their IDs and linked-card destinations. It rejects unsupported nested markup instead of silently removing it.
+
+Linked H2/H3 card labels also reuse the corresponding destination override in `page-headings.json` where one exists. This keeps article-card labels aligned with the reviewed destination heading without changing URLs, document titles or article schema headlines. The locale audit enforces the site's 70-character editorial budget for H2 headings across all public pages. This budget is an audit convention, not a Google ranking requirement.
+
 ## Visible page headings
 
 `src/i18n/page-headings.json` contains separately edited visible H1 headings by complete pathname. Most values are plain text. A `{ "lead": "…", "detail": "…" }` value preserves the homepage's existing subtitle span and its styling. The build requires a single H1 and updates the corresponding TechArticle/BlogPosting headline to match its visible text. It leaves document titles, descriptions, breadcrumb labels, article bodies and publication dates unchanged.
