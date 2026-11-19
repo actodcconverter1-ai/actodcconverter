@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "audit:site": "node scripts/audit-site.mjs",
-    "verify": "npm run lint && npm run check && npm test && npm run audit:content && npm run build && npm run audit:site && npm run audit:graph && npm run audit:locales && npm run audit:onpage",
+    "verify": "npm run lint && npm run check && npm test && npm run audit:content && npm run build && npm run audit:site && npm run audit:graph && npm run audit:locales && npm run audit:onpage && npm run audit:seo-contract",
     "audit:onpage": "node scripts/audit-onpage.mjs",
     "preview:worker": "wrangler dev",
     "deploy:check": "wrangler deploy --dry-run --outdir .wrangler/dry-run",
@@ -26,7 +26,8 @@
     "translate:generate": "python scripts/translate-offline.py",
     "translate:extract": "node scripts/translate-content.mjs --extract-only",
     "translate:fetch": "node scripts/translate-content.mjs",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "audit:seo-contract": "node scripts/audit-seo-contract.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.6",

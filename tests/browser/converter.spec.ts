@@ -44,6 +44,10 @@ test('all languages retain their own canonical, brand and functional calculator'
   await page.locator('#wb-mode').selectOption('regulated');await page.locator(calculate).click();await expect(page.locator('#wb-error')).toBeHidden();await expect(page.locator('[data-waveform]')).toHaveAttribute('aria-label',await page.locator('[data-wave-label-dc]').textContent()||'');
  }
 });
+for(const width of[390,768,1365])test(`dedicated calculator remains functional and accessible at ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});await page.goto('/ac-to-dc-calculator/');await page.locator(calculate).click();await expect(page.locator('#wb-error')).toBeHidden();await expect(page.locator('.metric-grid')).toContainText('15.071 V');await page.locator('.validation-source').scrollIntoViewIfNeeded();
+ const results=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();expect(results.violations).toEqual([]);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
 test('without JavaScript the explanatory default and crawlable alternatives remain',async({browser})=>{
  const context=await browser.newContext({javaScriptEnabled:false});const base=process.env.BROWSER_BASE_URL||'http://127.0.0.1:4321';await context.addCookies([{name:'site_language',value:'en',url:base}]);const page=await context.newPage();await page.goto(base);await expect(page.locator('noscript .notice')).toBeVisible();await expect(page.locator('noscript .notice')).toContainText('JavaScript is required');await expect(page.locator('.metric-grid')).toContainText('15.071 V');await expect(page.locator('.language-switcher a')).toHaveCount(18);await context.close();
 });

@@ -22,3 +22,5 @@
 5. Two and four weeks after deployment, export queries, pages, countries and devices for comparable windows. Compare impressions, clicks, CTR and position for each mapped primary page; separate branded queries and changes in country/device mix. Do not interpret tiny impression counts as stable ranking evidence.
 
 No Search Console submission or indexing request is performed by this task.
+
+Official references for the manual steps: [Google URL Inspection documentation](https://support.google.com/webmasters/answer/9012289?hl=en) distinguishes indexed information from live tests; [Google recrawl guidance](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl) explains inspection requests and sitemap discovery. These steps do not guarantee indexing.

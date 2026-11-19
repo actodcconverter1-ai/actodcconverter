@@ -125,8 +125,6 @@ Before comparing results, check five things: the same RMS input definition, the 
 
 ## How to identify half-wave and full-wave output waveforms
 
-Compare one complete AC input cycle with the output. A half-wave trace has one positive pulse and a blocked half-cycle. A full-wave trace has two positive pulses because the negative input half is reversed. At 50 Hz input, those patterns repeat every 20 ms and 10 ms respectively.
-
 Filtering can fill the gaps between peaks. Identify the topology and time scale before judging a measured trace by its appearance. The [ripple frequency guide](/blog/rectifier-ripple-frequency/) explains how to count repeating pulses.
 
 ## Ripple factor of a half-wave and full-wave rectifier

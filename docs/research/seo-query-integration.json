@@ -1,0 +1,1031 @@
+[
+  {
+    "keyword": "ac input dc output",
+    "priority": "A",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "input ac output dc",
+    "priority": "A",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "dc to ac converter calculator",
+    "priority": "B",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Converter-versus-inverter clarification only; no inverter tool or exact-phrase targeting."
+  },
+  {
+    "keyword": "ac to dc converter online",
+    "priority": "B",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "ac dc input output",
+    "priority": "B",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "dc output",
+    "priority": "B",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "dc to ac conversion calculator",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Converter-versus-inverter clarification only; no inverter tool or exact-phrase targeting."
+  },
+  {
+    "keyword": "ac to dc graph",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "dc to ac calculator",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Converter-versus-inverter clarification only; no inverter tool or exact-phrase targeting."
+  },
+  {
+    "keyword": "conversion dc to ac calculator",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Converter-versus-inverter clarification only; no inverter tool or exact-phrase targeting."
+  },
+  {
+    "keyword": "ac to dc conversion",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "dc to ac power conversion calculator",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Converter-versus-inverter clarification only; no inverter tool or exact-phrase targeting."
+  },
+  {
+    "keyword": "ac voltage dc voltage",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "does smps convert ac to dc",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "converting dc to ac calculator",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Converter-versus-inverter clarification only; no inverter tool or exact-phrase targeting."
+  },
+  {
+    "keyword": "ac to dc",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "dc voltage ac voltage",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "convert dc to ac voltage calculator",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Converter-versus-inverter clarification only; no inverter tool or exact-phrase targeting."
+  },
+  {
+    "keyword": "basic ac to dc converter circuit",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Informational converter hub; circuit/voltage explanation with calculator link."
+  },
+  {
+    "keyword": "dc to ac current conversion calculator",
+    "priority": "C",
+    "url": "/",
+    "location": "Informational hub, quick answer, calculator link; inverter clarification only",
+    "decision": "Converter-versus-inverter clarification only; no inverter tool or exact-phrase targeting."
+  },
+  {
+    "keyword": "ac to dc converter calculator",
+    "priority": "A",
+    "url": "/ac-to-dc-calculator/",
+    "location": "Owning calculator, input-range section, model methodology and validation",
+    "decision": "Primary calculator intent; retain model boundaries."
+  },
+  {
+    "keyword": "ac input range",
+    "priority": "A",
+    "url": "/ac-to-dc-calculator/",
+    "location": "Owning calculator, input-range section, model methodology and validation",
+    "decision": "Software input scope; link to equipment input-rating explanation."
+  },
+  {
+    "keyword": "ac to dc conversion calculator",
+    "priority": "A",
+    "url": "/ac-to-dc-calculator/",
+    "location": "Owning calculator, input-range section, model methodology and validation",
+    "decision": "Primary calculator intent; retain model boundaries."
+  },
+  {
+    "keyword": "ac to dc rectifier voltage calculation",
+    "priority": "A",
+    "url": "/ac-to-dc-calculator/",
+    "location": "Owning calculator, input-range section, model methodology and validation",
+    "decision": "Primary calculator intent; retain model boundaries."
+  },
+  {
+    "keyword": "ac to dc calculator",
+    "priority": "B",
+    "url": "/ac-to-dc-calculator/",
+    "location": "Owning calculator, input-range section, model methodology and validation",
+    "decision": "Primary calculator intent; retain model boundaries."
+  },
+  {
+    "keyword": "ac to dc power conversion calculator",
+    "priority": "B",
+    "url": "/ac-to-dc-calculator/",
+    "location": "Owning calculator, input-range section, model methodology and validation",
+    "decision": "Primary calculator intent; retain model boundaries."
+  },
+  {
+    "keyword": "convert ac voltage to dc voltage",
+    "priority": "C",
+    "url": "/ac-to-dc-calculator/",
+    "location": "Owning calculator, input-range section, model methodology and validation",
+    "decision": "Primary calculator intent; retain model boundaries."
+  },
+  {
+    "keyword": "dc power conversion calculator",
+    "priority": "C",
+    "url": "/ac-to-dc-calculator/",
+    "location": "Owning calculator, input-range section, model methodology and validation",
+    "decision": "Primary calculator intent; retain model boundaries."
+  },
+  {
+    "keyword": "full wave rectifier calculator",
+    "priority": "A",
+    "url": "/full-wave-rectifier-calculator/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ideal full-wave calculator, not the bridge article."
+  },
+  {
+    "keyword": "power supply ac to dc",
+    "priority": "B",
+    "url": "/blog/choosing-ac-to-dc-power-supply/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Choosing a supply versus calculating an ideal voltage."
+  },
+  {
+    "keyword": "ac to dc power supply",
+    "priority": "B",
+    "url": "/blog/choosing-ac-to-dc-power-supply/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Choosing a supply versus calculating an ideal voltage."
+  },
+  {
+    "keyword": "ac to dc power supplies",
+    "priority": "B",
+    "url": "/blog/choosing-ac-to-dc-power-supply/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Choosing a supply versus calculating an ideal voltage."
+  },
+  {
+    "keyword": "dc power supply specifications",
+    "priority": "B",
+    "url": "/blog/choosing-ac-to-dc-power-supply/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Voltage/current/input-rating selection, not hardware validation."
+  },
+  {
+    "keyword": "ac to dc power supply circuit",
+    "priority": "C",
+    "url": "/blog/choosing-ac-to-dc-power-supply/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Choosing a supply versus calculating an ideal voltage."
+  },
+  {
+    "keyword": "switching vs linear power supply",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "dc dc converter vs switching regulator",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "linear regulator vs. switching regulator",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "switching regulator vs linear regulator",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "switching power supply vs linear power supply",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "linear power supply vs switching",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "difference between switching and linear power supply",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "switching power supply vs non switching",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "power supply linear vs switching",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "linear versus switching power supply",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "linear regulator vs switching regulator",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "linear voltage regulator vs switching",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "switching power supply efficiency",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "advantages of linear power supply",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "dc dc converter vs regulator",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "difference between linear regulator and switching regulator",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "linear vs switch mode power supply",
+    "priority": "C",
+    "url": "/blog/linear-vs-switching-power-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Architecture, stage loss and conditional efficiency."
+  },
+  {
+    "keyword": "power supply stages",
+    "priority": "B",
+    "url": "/blog/power-supply-stages-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain functional stages; no construction or safety certification."
+  },
+  {
+    "keyword": "ac dc power supply design",
+    "priority": "C",
+    "url": "/blog/power-supply-stages-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain functional stages; no construction or safety certification."
+  },
+  {
+    "keyword": "ac to dc power supply design",
+    "priority": "C",
+    "url": "/blog/power-supply-stages-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain functional stages; no construction or safety certification."
+  },
+  {
+    "keyword": "difference between battery charger and power supply",
+    "priority": "C",
+    "url": "/blog/power-supply-vs-battery-charger-and-led-driver/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Voltage supply, charger and current-driver control differences."
+  },
+  {
+    "keyword": "battery charger vs power supply",
+    "priority": "C",
+    "url": "/blog/power-supply-vs-battery-charger-and-led-driver/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Voltage supply, charger and current-driver control differences."
+  },
+  {
+    "keyword": "led driver vs power supply",
+    "priority": "C",
+    "url": "/blog/power-supply-vs-battery-charger-and-led-driver/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Voltage supply, charger and current-driver control differences."
+  },
+  {
+    "keyword": "led driver vs dc power supply",
+    "priority": "C",
+    "url": "/blog/power-supply-vs-battery-charger-and-led-driver/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Voltage supply, charger and current-driver control differences."
+  },
+  {
+    "keyword": "three phase rectifier",
+    "priority": "B",
+    "url": "/blog/single-phase-vs-three-phase-rectifiers/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Phase and line-voltage conventions; no three-phase calculator claim."
+  },
+  {
+    "keyword": "single phase rectifier",
+    "priority": "B",
+    "url": "/blog/single-phase-vs-three-phase-rectifiers/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Phase and line-voltage conventions; no three-phase calculator claim."
+  },
+  {
+    "keyword": "single-phase rectifier",
+    "priority": "B",
+    "url": "/blog/single-phase-vs-three-phase-rectifiers/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Phase and line-voltage conventions; no three-phase calculator claim."
+  },
+  {
+    "keyword": "single phase rectification",
+    "priority": "B",
+    "url": "/blog/single-phase-vs-three-phase-rectifiers/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Phase and line-voltage conventions; no three-phase calculator claim."
+  },
+  {
+    "keyword": "3 phase rectifier",
+    "priority": "B",
+    "url": "/blog/single-phase-vs-three-phase-rectifiers/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Phase and line-voltage conventions; no three-phase calculator claim."
+  },
+  {
+    "keyword": "3 phase ac to dc voltage conversion formula",
+    "priority": "C",
+    "url": "/blog/single-phase-vs-three-phase-rectifiers/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Phase and line-voltage conventions; no three-phase calculator claim."
+  },
+  {
+    "keyword": "vrms to vm",
+    "priority": "B",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "ac dc converter peak to peak voltage frequency difference components",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "ac rms voltage",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "rms to peak",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "rms to dc converters",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "rms to amplitude",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "rms voltage ac",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "peak-to-peak voltage",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "rms to peak voltage formula",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "volts rms to peak to peak",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "1vpp to vrms",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "peak ac voltage",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "peak to peak voltage",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "v rms",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "rms to peak to peak voltage",
+    "priority": "C",
+    "url": "/blog/ac-rms-to-peak-voltage-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "ac to dc formula",
+    "priority": "A",
+    "url": "/blog/ac-to-dc-formulas/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Select the formula by topology, filter and load."
+  },
+  {
+    "keyword": "ac to dc conversion factor",
+    "priority": "B",
+    "url": "/blog/ac-to-dc-formulas/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Select the formula by topology, filter and load."
+  },
+  {
+    "keyword": "ac to dc converter formula",
+    "priority": "B",
+    "url": "/blog/ac-to-dc-formulas/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Select the formula by topology, filter and load."
+  },
+  {
+    "keyword": "ac to dc conversion formula",
+    "priority": "B",
+    "url": "/blog/ac-to-dc-formulas/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Select the formula by topology, filter and load."
+  },
+  {
+    "keyword": "how to convert ac to dc formula",
+    "priority": "B",
+    "url": "/blog/ac-to-dc-formulas/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Select the formula by topology, filter and load."
+  },
+  {
+    "keyword": "ac to dc conversion ratio",
+    "priority": "C",
+    "url": "/blog/ac-to-dc-formulas/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Select the formula by topology, filter and load."
+  },
+  {
+    "keyword": "ac current to dc current calculator",
+    "priority": "A",
+    "url": "/blog/ac-voltage-does-not-determine-dc-current/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain why voltage alone does not determine output current."
+  },
+  {
+    "keyword": "ac to dc current",
+    "priority": "C",
+    "url": "/blog/ac-voltage-does-not-determine-dc-current/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain why voltage alone does not determine output current."
+  },
+  {
+    "keyword": "convert ac current to dc current",
+    "priority": "C",
+    "url": "/blog/ac-voltage-does-not-determine-dc-current/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain why voltage alone does not determine output current."
+  },
+  {
+    "keyword": "ac to dc amp conversion",
+    "priority": "C",
+    "url": "/blog/ac-voltage-does-not-determine-dc-current/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain why voltage alone does not determine output current."
+  },
+  {
+    "keyword": "convert ac to dc current",
+    "priority": "C",
+    "url": "/blog/ac-voltage-does-not-determine-dc-current/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain why voltage alone does not determine output current."
+  },
+  {
+    "keyword": "convert ac current to dc",
+    "priority": "C",
+    "url": "/blog/ac-voltage-does-not-determine-dc-current/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Explain why voltage alone does not determine output current."
+  },
+  {
+    "keyword": "small ripple approximation",
+    "priority": "A",
+    "url": "/blog/capacitor-ripple-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "ripple equation",
+    "priority": "A",
+    "url": "/blog/capacitor-ripple-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "ripple voltage of full wave rectifier",
+    "priority": "A",
+    "url": "/blog/capacitor-ripple-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "ripple voltage of half wave rectifier",
+    "priority": "B",
+    "url": "/blog/capacitor-ripple-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "ripple waveform",
+    "priority": "B",
+    "url": "/blog/capacitor-ripple-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "half wave rectifier ripple",
+    "priority": "C",
+    "url": "/blog/capacitor-ripple-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "output voltage ripple",
+    "priority": "C",
+    "url": "/blog/capacitor-ripple-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "output ripple voltage",
+    "priority": "C",
+    "url": "/blog/capacitor-ripple-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "forward voltage drop",
+    "priority": "A",
+    "url": "/blog/diode-forward-voltage-drop/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Operating-point forward drop, not a universal device constant."
+  },
+  {
+    "keyword": "diode voltage drop",
+    "priority": "A",
+    "url": "/blog/diode-forward-voltage-drop/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Operating-point forward drop, not a universal device constant."
+  },
+  {
+    "keyword": "forward voltage formula",
+    "priority": "C",
+    "url": "/blog/diode-forward-voltage-drop/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Operating-point forward drop, not a universal device constant."
+  },
+  {
+    "keyword": "full wave bridge rectifier",
+    "priority": "A",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full-wave bridge rectifier",
+    "priority": "A",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "output waveform",
+    "priority": "A",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "v avg for full wave rectifier",
+    "priority": "A",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full wave bridge rectifier output waveform",
+    "priority": "A",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full bridge rectifier waveform",
+    "priority": "A",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "bridge rectifier waveform",
+    "priority": "A",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full bridge rectifier",
+    "priority": "B",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "bridge full wave rectifier",
+    "priority": "B",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full bridge rectifiers",
+    "priority": "B",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full wave bridge rectifier formula",
+    "priority": "B",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full bridge rectifier formula",
+    "priority": "B",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full bridge rectification",
+    "priority": "B",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "bridge full-wave rectifier",
+    "priority": "B",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "full wave bridge rectifier working",
+    "priority": "C",
+    "url": "/blog/full-wave-bridge-rectifier-explained/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Bridge paths and unfiltered versus filtered waveform."
+  },
+  {
+    "keyword": "advantages of full wave rectifier over half wave rectifier",
+    "priority": "A",
+    "url": "/blog/half-wave-vs-full-wave-rectifier/",
+    "location": "Top brief, identification answer, existing comparison table",
+    "decision": "Identify waveforms and compare full-wave advantages."
+  },
+  {
+    "keyword": "full wave half wave rectifier",
+    "priority": "A",
+    "url": "/blog/half-wave-vs-full-wave-rectifier/",
+    "location": "Top brief, identification answer, existing comparison table",
+    "decision": "Identify waveforms and compare full-wave advantages."
+  },
+  {
+    "keyword": "half waveform vs full waveform",
+    "priority": "A",
+    "url": "/blog/half-wave-vs-full-wave-rectifier/",
+    "location": "Top brief, identification answer, existing comparison table",
+    "decision": "Identify waveforms and compare full-wave advantages."
+  },
+  {
+    "keyword": "full wave and half wave rectifier",
+    "priority": "A",
+    "url": "/blog/half-wave-vs-full-wave-rectifier/",
+    "location": "Top brief, identification answer, existing comparison table",
+    "decision": "Identify waveforms and compare full-wave advantages."
+  },
+  {
+    "keyword": "full wave vs half wave rectification",
+    "priority": "A",
+    "url": "/blog/half-wave-vs-full-wave-rectifier/",
+    "location": "Top brief, identification answer, existing comparison table",
+    "decision": "Identify waveforms and compare full-wave advantages."
+  },
+  {
+    "keyword": "half wave rectifier vs full wave rectifier",
+    "priority": "A",
+    "url": "/blog/half-wave-vs-full-wave-rectifier/",
+    "location": "Top brief, identification answer, existing comparison table",
+    "decision": "Identify waveforms and compare full-wave advantages."
+  },
+  {
+    "keyword": "how to identify half wave and full wave rectifier",
+    "priority": "A",
+    "url": "/blog/half-wave-vs-full-wave-rectifier/",
+    "location": "Top brief, identification answer, existing comparison table",
+    "decision": "Identify waveforms and compare full-wave advantages."
+  },
+  {
+    "keyword": "full wave rectifier and half wave rectifier",
+    "priority": "C",
+    "url": "/blog/half-wave-vs-full-wave-rectifier/",
+    "location": "Top brief, identification answer, existing comparison table",
+    "decision": "Identify waveforms and compare full-wave advantages."
+  },
+  {
+    "keyword": "voltage ripple measurement",
+    "priority": "C",
+    "url": "/blog/measuring-rectifier-output-voltage/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Ripple convention, small-ripple assumptions and model limits."
+  },
+  {
+    "keyword": "average output voltage",
+    "priority": "A",
+    "url": "/blog/rectifier-average-vs-rms-output/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Complete-cycle mean versus RMS; existing formulas/table."
+  },
+  {
+    "keyword": "average output",
+    "priority": "A",
+    "url": "/blog/rectifier-average-vs-rms-output/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Complete-cycle mean versus RMS; existing formulas/table."
+  },
+  {
+    "keyword": "ripple factor half wave rectifier",
+    "priority": "A",
+    "url": "/blog/rectifier-average-vs-rms-output/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Separate average, total RMS and RMS ripple; table and definitions."
+  },
+  {
+    "keyword": "ripple factor for half wave rectifier",
+    "priority": "A",
+    "url": "/blog/rectifier-average-vs-rms-output/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Separate average, total RMS and RMS ripple; table and definitions."
+  },
+  {
+    "keyword": "vrms formula for full wave rectifier",
+    "priority": "A",
+    "url": "/blog/rectifier-average-vs-rms-output/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Separate average, total RMS and RMS ripple; table and definitions."
+  },
+  {
+    "keyword": "ripple factor full wave rectifier",
+    "priority": "B",
+    "url": "/blog/rectifier-average-vs-rms-output/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Separate average, total RMS and RMS ripple; table and definitions."
+  },
+  {
+    "keyword": "average output voltage of full wave rectifier",
+    "priority": "C",
+    "url": "/blog/rectifier-average-vs-rms-output/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Complete-cycle mean versus RMS; existing formulas/table."
+  },
+  {
+    "keyword": "ripple factor of full wave rectifier",
+    "priority": "C",
+    "url": "/blog/rectifier-average-vs-rms-output/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Separate average, total RMS and RMS ripple; table and definitions."
+  },
+  {
+    "keyword": "what is ripple frequency in rectifier",
+    "priority": "A",
+    "url": "/blog/rectifier-ripple-frequency/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Direct frequency answer and f versus 2f formula."
+  },
+  {
+    "keyword": "ripple frequency",
+    "priority": "A",
+    "url": "/blog/rectifier-ripple-frequency/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Direct frequency answer and f versus 2f formula."
+  },
+  {
+    "keyword": "ripple frequency formula",
+    "priority": "A",
+    "url": "/blog/rectifier-ripple-frequency/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Direct frequency answer and f versus 2f formula."
+  },
+  {
+    "keyword": "rms vs peak voltage",
+    "priority": "B",
+    "url": "/blog/rms-peak-average-voltage/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "rms and peak voltage",
+    "priority": "C",
+    "url": "/blog/rms-peak-average-voltage/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "ac voltage rms vs peak",
+    "priority": "C",
+    "url": "/blog/rms-peak-average-voltage/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Waveform-specific RMS/peak definitions; no new converter widget."
+  },
+  {
+    "keyword": "smoothing capacitor calculator",
+    "priority": "C",
+    "url": "/blog/smoothing-capacitor-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Capacitance/ripple method; existing filtered model link, no new widget."
+  },
+  {
+    "keyword": "smoothing capacitor",
+    "priority": "C",
+    "url": "/blog/smoothing-capacitor-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Capacitance/ripple method; existing filtered model link, no new widget."
+  },
+  {
+    "keyword": "ripple calculator",
+    "priority": "C",
+    "url": "/blog/smoothing-capacitor-calculation/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Capacitance/ripple method; existing filtered model link, no new widget."
+  },
+  {
+    "keyword": "regulated vs switching power supply",
+    "priority": "B",
+    "url": "/blog/unregulated-vs-regulated-dc-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Regulation and switching are different classifications."
+  },
+  {
+    "keyword": "unregulated power supplies",
+    "priority": "C",
+    "url": "/blog/unregulated-vs-regulated-dc-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Regulation and switching are different classifications."
+  },
+  {
+    "keyword": "regulated and unregulated power supply",
+    "priority": "C",
+    "url": "/blog/unregulated-vs-regulated-dc-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Regulation and switching are different classifications."
+  },
+  {
+    "keyword": "power supply regulated vs unregulated",
+    "priority": "C",
+    "url": "/blog/unregulated-vs-regulated-dc-supplies/",
+    "location": "Existing topic headings, introduction, tables and contextual calculator/sibling links; quick brief on four priority guides",
+    "decision": "Regulation and switching are different classifications."
+  }
+]
