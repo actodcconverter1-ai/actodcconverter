@@ -3,9 +3,8 @@ import assert from 'node:assert/strict';
 import type {CollectionEntry} from 'astro:content';
 import {buildSpokes,calculatorSpokes,relatedSpokes} from '../src/lib/topic-graph.ts';
 import {breadcrumbsForPath,breadcrumbSchema} from '../src/lib/breadcrumbs.ts';
-import {webApplication,techArticle,blogPosting,faqPage,serializeJsonLd} from '../src/lib/structured-data.ts';
+import {webApplication,techArticle,blogPosting,serializeJsonLd} from '../src/lib/structured-data.ts';
 import {sitemapEntries,renderSitemap} from '../src/lib/sitemap.ts';
-import {homepageFaqs} from '../src/config/homepage-faq.ts';
 
 const article=(slug:string,status='published',categories=['rectifier-basics'])=>({id:slug,data:{slug,status,title:slug.replaceAll('-',' '),description:'Defined educational model',categories,tags:['ripple'],pubDate:new Date('2026-11-03'),updatedDate:new Date('2026-11-13')}} as unknown as CollectionEntry<'blog'>);
 test('catalog includes published guides and calculators without leaking drafts',()=>{
@@ -34,16 +33,14 @@ test('guide and tool breadcrumbs have a section parent and canonical current ite
  }
  assert.deepEqual(breadcrumbsForPath('/','Home'),[]);
 });
-test('schema models factual application/article content and exactly the shared visible FAQs',()=>{
+test('schema models factual free application and Article subtypes without ratings',()=>{
  const app=webApplication('/','AC to DC converter calculator','Defined models',['Rectifier','Filter']);
  assert.equal(app['@type'],'WebApplication');assert.equal(app.isAccessibleForFree,true);
  assert.ok(!('aggregateRating' in app));assert.ok(app.url.endsWith('/#calculator'));
  const articleNode=techArticle('/blog/bridge-formulas/','Bridge formulas','Defined models');
  assert.equal(articleNode['@type'],'TechArticle');assert.ok(articleNode.mainEntityOfPage['@id'].endsWith('/blog/bridge-formulas/#webpage'));
  const blog=blogPosting('/blog/bridge-formulas/','Bridge formulas','Defined models',{datePublished:'2026-11-03',dateModified:'2026-11-17'});
- assert.deepEqual(blog['@type'],['TechArticle','BlogPosting']);assert.equal(blog['@id'],articleNode['@id']);
- const faq=faqPage('/',homepageFaqs);
- assert.deepEqual(faq.mainEntity.map(item=>[item.name,item.acceptedAnswer.text]),homepageFaqs.map(item=>[...item]));
+ assert.deepEqual(blog['@type'],['Article','TechArticle','BlogPosting']);assert.equal(blog['@id'],articleNode['@id']);
 });
 test('JSON-LD preserves user text while preventing an HTML script terminator',()=>{
  const input={headline:'</script><script>alert("x")</script> & model'};
@@ -59,6 +56,6 @@ test('sitemap covers hub, calculators, published guides and categories with vali
  assert.ok(entries.some(entry=>entry.path==='/category/rectifier-basics/'));
  assert.ok(!entries.some(entry=>/draft|admin|404/.test(entry.path)));
  assert.ok(entries.every(entry=>entry.priority>=0&&entry.priority<=1));
- assert.equal(entries.find(entry=>entry.path==='/blog/bridge-formulas/')?.lastmod,'2026-11-18');
- const xml=renderSitemap(entries);assert.ok(xml.includes('<priority>1.0</priority>'));assert.ok(xml.includes('<lastmod>2026-11-18</lastmod>'));
+ assert.equal(entries.find(entry=>entry.path==='/blog/bridge-formulas/')?.lastmod,'2026-11-13');
+ const xml=renderSitemap(entries);assert.ok(xml.includes('<priority>1.0</priority>'));assert.ok(xml.includes('<lastmod>2026-11-13</lastmod>'));
 });

@@ -7,7 +7,7 @@ export interface SitemapEntry {path:string;priority:number;lastmod?:string;}
 export function sitemapEntries(entries:CollectionEntry<'blog'>[]):SitemapEntry[] {
   const published=entries.filter(entry=>entry.data.status==='published');
   const modified=(entry:CollectionEntry<'blog'>)=>new Date(Math.max(
-    entry.data.pubDate.valueOf(),(entry.data.updatedDate??entry.data.pubDate).valueOf(),Date.parse(architectureUpdated),
+    entry.data.pubDate.valueOf(),(entry.data.updatedDate??entry.data.pubDate).valueOf(),
   )).toISOString().slice(0,10);
   return [
     {path:'/',priority:1,lastmod:homepageUpdated},
