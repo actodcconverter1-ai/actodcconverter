@@ -2,6 +2,8 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {parse,parseFragment,serialize} from 'parse5';
 import {localize,walk,attr,norm} from './localization-core.mjs';
 import ts from 'typescript';
+import{formatResult}from'../src/lib/result-presentation.ts';
+const arabicEditorial=JSON.parse(await readFile('src/i18n/arabic-editorial.json','utf8'));
 const config=JSON.parse(await readFile('src/config/languages.json','utf8'));
 const settings=JSON.parse(await readFile('src/config/editorial.json','utf8'));
 const domain=new URL(settings.domain).origin;
@@ -42,6 +44,8 @@ for(const path of paths){
  for(const locale of config.languages){
   const translated=locale.code==='en'?source:localize(source,locale,dictionaries.get(locale.code),domain,paths);
   const doc=parse(translated);let head;
+  if(locale.code==='ar'&&arabicEditorial[path])walk(doc,n=>{for(const[cls,html]of Object.entries(arabicEditorial[path]))if(attr(n,'class')?.split(/\s+/).includes(cls)){n.childNodes=parseFragment(html).childNodes;for(const c of n.childNodes)c.parentNode=n;}});
+  if(locale.code!=='en')walk(doc,n=>{let p=n.parentNode;while(p&&!attr(p,'class')?.split(/\s+/).includes('metric-grid'))p=p.parentNode;if(n.tagName==='dd'&&p||attr(n,'data-localized-result')!==undefined){const m=elementText(n).match(/^([<>]?)([\d,.]+)(.*)$/);if(m){const value=Number(m[2].replaceAll(',',''));n.childNodes=[{nodeName:'#text',value:m[1]+formatResult(value,locale.code)+m[3],parentNode:n}];}}});
   const primarySectionHeading=primarySectionHeadings[locale.prefix+path];
   if(primarySectionHeading){
    let first;
@@ -133,7 +137,7 @@ for(const path of paths){
 const extra=config.languages.filter(l=>l.code!=='en').map(l=>[...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m=>'<url>'+m[1].replace(/<loc>([^<]+)<\/loc>/,(_,u)=>'<loc>'+domain+l.prefix+new URL(u).pathname+'</loc>')+'</url>').join('')).join('');
 await writeFile('dist/sitemap.xml',xml.replace('</urlset>',extra+'</urlset>'));
 const runtimeKeys=new Set(['enter a valid number from','enter a value from','to','Check the inputs.']);
-for(const file of ['src/calculators/converter.ts','src/scripts/converter-client.ts']){const source=ts.createSourceFile(file,await readFile(file,'utf8'),ts.ScriptTarget.Latest,true);const visit=n=>{if(ts.isStringLiteral(n))runtimeKeys.add(n.text);ts.forEachChild(n,visit);};visit(source);}
+for(const file of ['src/calculators/converter.ts','src/scripts/converter-client.ts','src/lib/result-presentation.ts']){const source=ts.createSourceFile(file,await readFile(file,'utf8'),ts.ScriptTarget.Latest,true);const visit=n=>{if(ts.isStringLiteral(n))runtimeKeys.add(n.text);ts.forEachChild(n,visit);};visit(source);}
 const contactScript=(await readFile('src/components/ContactForm.astro','utf8')).match(/<script>([\s\S]*?)<\/script>/)?.[1]??'';
 const contactAst=ts.createSourceFile('contact.ts',contactScript,ts.ScriptTarget.Latest,true);const addContact=n=>{if(ts.isStringLiteral(n))runtimeKeys.add(n.text);ts.forEachChild(n,addContact);};addContact(contactAst);
 const contactWorker=await readFile('worker/contact.ts','utf8');const workerAst=ts.createSourceFile('worker.ts',contactWorker,ts.ScriptTarget.Latest,true);const start=contactWorker.indexOf('export async function contactRoute'),end=contactWorker.indexOf('export async function adminContactRoute');const addError=n=>{if(ts.isStringLiteral(n)&&n.getStart(workerAst)>start&&n.getStart(workerAst)<end&&((ts.isPropertyAssignment(n.parent)&&n.parent.name.getText(workerAst)==='error')||(ts.isNewExpression(n.parent)&&n.parent.expression.getText(workerAst)==='Error')))runtimeKeys.add(n.text);ts.forEachChild(n,addError);};addError(workerAst);

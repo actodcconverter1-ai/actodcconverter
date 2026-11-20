@@ -1,15 +1,24 @@
 ---
-title: 'Bridge rectifier diode losses: what a two-drop estimate means'
+title: "Bridge rectifier diode losses: what a two-drop estimate means"
 slug: bridge-rectifier-diode-losses
-description: 'Understand the useful 2Vf voltage model and why it does not replace current-waveform or thermal analysis.'
+description: Understand the useful 2Vf voltage model and why it does not replace
+  current-waveform or thermal analysis.
 image: /images/blogs/bridge-rectifier-diode-losses.webp
-imageAlt: 'Conceptual bridge conduction path showing two forward diode drops and a separate power-loss calculation'
+imageAlt: Conceptual bridge conduction path showing two forward diode drops and
+  a separate power-loss calculation
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [rectifier-basics, component-behavior]
-tags: [diode loss, forward voltage, bridge rectifier]
-seoTitle: 'Bridge Rectifier Diode Losses & the 2Vf Estimate'
-metaDescription: 'Understand why a bridge uses two diode drops, calculate illustrative conduction losses, and distinguish load averages from charging pulses and thermal ratings.'
+categories:
+  - rectifier-basics
+  - component-behavior
+tags:
+  - diode loss
+  - forward voltage
+  - bridge rectifier
+seoTitle: "Bridge Rectifier Diode Losses: Why Subtract 2Vf?"
+metaDescription: Why does a bridge rectifier lose two diode drops? Trace the
+  current path, estimate voltage loss and learn where the constant-Vf model
+  stops being useful.
 status: published
 ---
 

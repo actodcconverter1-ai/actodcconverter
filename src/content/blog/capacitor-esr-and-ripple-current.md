@@ -1,15 +1,24 @@
 ---
-title: 'Capacitor ESR and ripple current: two different limits'
+title: "Capacitor ESR and ripple current: two different limits"
 slug: capacitor-esr-and-ripple-current
-description: 'Separate charge-storage ripple from resistive voltage changes and ripple-current heating.'
+description: Separate charge-storage ripple from resistive voltage changes and
+  ripple-current heating.
 image: /images/blogs/capacitor-esr-and-ripple-current.webp
-imageAlt: 'Equivalent capacitor and series resistance beside separate voltage-ripple and heating relationships'
+imageAlt: Equivalent capacitor and series resistance beside separate
+  voltage-ripple and heating relationships
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [capacitor-filtering, component-behavior]
-tags: [ESR, ripple current, capacitor heating]
-seoTitle: 'Capacitor ESR vs Ripple Current in Rectifier Filters'
-metaDescription: 'Understand why capacitance, ESR, ripple voltage, and RMS ripple current are different quantities, with illustrative heating examples and clear model limits.'
+categories:
+  - capacitor-filtering
+  - component-behavior
+tags:
+  - ESR
+  - ripple current
+  - capacitor heating
+seoTitle: "Capacitor ESR vs Ripple Current: Voltage, Heat & Limits"
+metaDescription: Separate capacitor voltage ripple, ESR loss and RMS
+  ripple-current ratings. Use heating examples to understand what a simple
+  rectifier model can estimate.
 status: published
 ---
 

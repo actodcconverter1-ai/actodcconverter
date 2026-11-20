@@ -1,19 +1,22 @@
 ---
-title: 'Rectifier Average vs RMS Output Voltage'
+title: Rectifier Average vs RMS Output Voltage
 slug: rectifier-average-vs-rms-output
-description: 'Compare average and total RMS output for ideal full-wave and
-  half-wave rectifiers, keeping the DC component separate from RMS ripple.'
+description: Compare average and total RMS output for ideal full-wave and
+  half-wave rectifiers, keeping the DC component separate from RMS ripple.
 image: /images/blogs/rectifier-average-vs-rms-output.webp
-imageAlt: 'Ideal full-wave and half-wave outputs compared by average and total
-  RMS values'
+imageAlt: Ideal full-wave and half-wave outputs compared by average and total RMS values
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [ measurement-guides ]
-tags: [ rectifier average, RMS output, ripple, waveform analysis ]
-seoTitle: 'Rectifier Average Output Voltage vs RMS: Formulas'
-metaDescription: 'Compare average output voltage and RMS for full-wave and
-  half-wave sine rectifiers. Use a 12 V RMS table and distinguish DC average
-  from RMS ripple.'
+categories:
+  - measurement-guides
+tags:
+  - rectifier average
+  - RMS output
+  - ripple
+  - waveform analysis
+seoTitle: "Average vs RMS Rectifier Voltage: Formulas & Example"
+metaDescription: Why are DC average and RMS different? Compare half-wave and
+  full-wave outputs, calculate RMS ripple factor and follow a 12 V example.
 status: published
 updatedDate: 2026-11-17
 ---

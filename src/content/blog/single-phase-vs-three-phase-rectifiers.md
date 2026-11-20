@@ -1,16 +1,27 @@
 ---
-title: 'Single-Phase vs Three-Phase Rectifiers: Voltage and Ripple'
+title: "Single-Phase vs Three-Phase Rectifiers: Voltage and Ripple"
 slug: single-phase-vs-three-phase-rectifiers
-description: 'A single-phase full-wave bridge produces two pulses per AC cycle; a three-phase six-diode bridge produces six, giving more frequent pulses and lower ideal unfiltered ripple.'
+description: A single-phase full-wave bridge produces two pulses per AC cycle; a
+  three-phase six-diode bridge produces six, giving more frequent pulses and
+  lower ideal unfiltered ripple.
 image: /images/blogs/single-phase-vs-three-phase-rectifiers.webp
-imageAlt: 'Single-phase two-pulse and three-phase six-pulse rectifier outputs compared over two input cycles'
+imageAlt: Single-phase two-pulse and three-phase six-pulse rectifier outputs
+  compared over two input cycles
 author: AC to DC Converter editorial
 pubDate: 2026-11-05
 updatedDate: 2026-11-16
-categories: [rectifier-basics, power-supply-concepts]
-tags: [three-phase rectifier, six-pulse bridge, line-to-line RMS, ripple frequency]
-seoTitle: 'Single-Phase vs Three-Phase Rectifiers: Voltage & Ripple'
-metaDescription: 'Compare single-phase and three-phase bridges: diode count, 100/300 Hz ripple at 50 Hz input, and DC voltage formulas using the correct RMS input.'
+categories:
+  - rectifier-basics
+  - power-supply-concepts
+tags:
+  - three-phase rectifier
+  - six-pulse bridge
+  - line-to-line RMS
+  - ripple frequency
+seoTitle: "Single-Phase vs Three-Phase Rectifiers: Output & Ripple"
+metaDescription: "Compare single-phase and three-phase rectifiers: diode count,
+  average DC output and ripple frequency. See 2f vs 6f and the correct RMS input
+  basis."
 status: published
 ---
 

@@ -1,20 +1,24 @@
 ---
-title: 'Capacitor Ripple Voltage: Formula, Example and Limits'
+title: "Capacitor Ripple Voltage: Formula, Example and Limits"
 slug: capacitor-ripple-explained
-description: 'Estimate capacitor ripple from load current, recharge frequency
-  and capacitance, then check the assumptions behind the small-ripple
-  approximation.'
+description: Estimate capacitor ripple from load current, recharge frequency and
+  capacitance, then check the assumptions behind the small-ripple approximation.
 image: /images/blogs/capacitor-ripple-explained.webp
-imageAlt: 'Capacitor top, valley, and approximate average labeled on a repeated
-  linear discharge waveform'
+imageAlt: Capacitor top, valley, and approximate average labeled on a repeated
+  linear discharge waveform
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [ rectifier-basics, worked-examples ]
-tags: [ capacitor ripple, filtering, charge balance ]
-seoTitle: 'Capacitor Ripple Voltage: Formula & Worked Example'
-metaDescription: 'Use the capacitor ripple voltage formula with correct
-  frequency and farad units. Follow a 1 V ripple example and check the
-  small-ripple approximation.'
+categories:
+  - rectifier-basics
+  - worked-examples
+tags:
+  - capacitor ripple
+  - filtering
+  - charge balance
+seoTitle: "Capacitor Ripple Voltage: Formula & 12 V Example"
+metaDescription: Estimate capacitor ripple with Vr(pp) ≈ I/(fr × C). Work
+  through a 12 V bridge example and see how load, capacitance and frequency
+  affect DC output.
 status: published
 updatedDate: 2026-11-17
 ---

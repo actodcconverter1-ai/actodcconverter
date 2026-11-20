@@ -1,19 +1,23 @@
 ---
-title: 'Rectifier Ripple Frequency: Formula and 50/60 Hz Examples'
+title: "Rectifier Ripple Frequency: Formula and 50/60 Hz Examples"
 slug: rectifier-ripple-frequency
-description: 'Ripple repeats once per AC cycle in a half-wave rectifier and
-  twice per cycle in a single-phase full-wave rectifier.'
+description: Ripple repeats once per AC cycle in a half-wave rectifier and twice
+  per cycle in a single-phase full-wave rectifier.
 image: /images/blogs/rectifier-ripple-frequency.webp
-imageAlt: 'One input sine cycle aligned with one half-wave output pulse and two
-  full-wave output pulses'
+imageAlt: One input sine cycle aligned with one half-wave output pulse and two
+  full-wave output pulses
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [ rectifier-basics, voltage-measurement ]
-tags: [ ripple frequency, full-wave, timing ]
-seoTitle: 'Ripple Frequency Formula: Half-Wave, Full-Wave & 50/60 Hz'
-metaDescription: 'Use ripple frequency f for half-wave and 2f for single-phase
-  full-wave rectifiers. Compare 50/60 Hz examples and avoid counting the factor
-  of two twice.'
+categories:
+  - rectifier-basics
+  - voltage-measurement
+tags:
+  - ripple frequency
+  - full-wave
+  - timing
+seoTitle: "Rectifier Ripple Frequency: Half-Wave vs Full-Wave"
+metaDescription: "Find ripple frequency: f for half-wave, 2f for single-phase
+  full-wave and 6f for a three-phase bridge. Includes 50/60 Hz examples."
 status: published
 updatedDate: 2026-11-17
 ---

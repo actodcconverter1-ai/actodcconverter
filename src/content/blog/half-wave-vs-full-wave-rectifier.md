@@ -1,21 +1,26 @@
 ---
-title: 'Half-Wave vs Full-Wave Rectifier: Differences and Advantages'
+title: "Half-Wave vs Full-Wave Rectifier: Differences and Advantages"
 slug: half-wave-vs-full-wave-rectifier
-description: 'A half-wave rectifier uses one AC half-cycle; a full-wave
-  rectifier uses both, doubling the ideal average output and ripple frequency
-  for the same input.'
+description: A half-wave rectifier uses one AC half-cycle; a full-wave rectifier
+  uses both, doubling the ideal average output and ripple frequency for the same
+  input.
 image: /images/blogs/half-wave-vs-full-wave-rectifier.webp
-imageAlt: 'Half-wave output with alternate missing pulses beside full-wave
-  output with both input half-cycles represented'
+imageAlt: Half-wave output with alternate missing pulses beside full-wave output
+  with both input half-cycles represented
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
 updatedDate: 2026-11-19
-categories: [ rectifier-basics, worked-examples ]
-tags: [ half-wave, full-wave, waveform comparison ]
-seoTitle: 'Half-Wave vs Full-Wave Rectifier: Differences & Advantages'
-metaDescription: 'Compare half-wave and full-wave rectifiers: diode count, DC
-  output, ripple and filtering. See why full-wave has advantages, with a 12 V
-  RMS example.'
+categories:
+  - rectifier-basics
+  - worked-examples
+tags:
+  - half-wave
+  - full-wave
+  - waveform comparison
+seoTitle: "Half-Wave vs Full-Wave Rectifier: Voltage & Ripple"
+metaDescription: Compare half-wave and full-wave rectifiers by output voltage,
+  ripple frequency and diode paths. See ideal formulas and a 12 V worked
+  example.
 status: published
 ---
 

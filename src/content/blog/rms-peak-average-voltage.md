@@ -1,19 +1,24 @@
 ---
-title: 'RMS vs Peak vs Average Voltage: Formulas and Examples'
+title: "RMS vs Peak vs Average Voltage: Formulas and Examples"
 slug: rms-peak-average-voltage
-description: 'Compare sine-wave RMS, peak, peak-to-peak and average voltage,
-  then distinguish the average of rectified output from its RMS value.'
+description: Compare sine-wave RMS, peak, peak-to-peak and average voltage, then
+  distinguish the average of rectified output from its RMS value.
 image: /images/blogs/rms-peak-average-voltage.webp
-imageAlt: 'Sinusoidal input with positive peak, negative peak, RMS level, and
-  zero signed average identified'
+imageAlt: Sinusoidal input with positive peak, negative peak, RMS level, and
+  zero signed average identified
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
-categories: [ voltage-measurement, rectifier-basics ]
-tags: [ RMS, peak voltage, average voltage ]
-seoTitle: 'RMS vs Peak vs Average Voltage: Formulas & Examples'
-metaDescription: 'Compare RMS, peak, peak-to-peak and average voltage with a 12
-  V sine-wave table. Learn which values change after half-wave or full-wave
-  rectification.'
+categories:
+  - voltage-measurement
+  - rectifier-basics
+tags:
+  - RMS
+  - peak voltage
+  - average voltage
+seoTitle: "RMS vs Peak vs Average Voltage: Formulas & 12 V Example"
+metaDescription: Convert sine-wave RMS, peak and peak-to-peak voltage with
+  formulas and a 12 V example. See why rectified average voltage differs from
+  RMS.
 status: published
 updatedDate: 2026-11-17
 ---

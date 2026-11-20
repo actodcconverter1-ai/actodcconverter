@@ -1,21 +1,25 @@
 ---
-title: 'Full-Wave Bridge Rectifier: Circuit, Working and DC Output'
+title: "Full-Wave Bridge Rectifier: Circuit, Working and DC Output"
 slug: full-wave-bridge-rectifier-explained
-description: 'A full-wave bridge rectifier uses four diodes to turn both AC
+description: A full-wave bridge rectifier uses four diodes to turn both AC
   half-cycles into pulsating DC. Two diodes conduct at a time; a capacitor can
-  smooth the output.'
+  smooth the output.
 image: /images/blogs/full-wave-bridge-rectifier-explained.webp
-imageAlt: 'A signed sine waveform becoming positive full-wave pulses, with
-  optional capacitor filtering shown as a separate stage'
+imageAlt: A signed sine waveform becoming positive full-wave pulses, with
+  optional capacitor filtering shown as a separate stage
 author: AC to DC Converter editorial
 pubDate: 2026-11-03
 updatedDate: 2026-11-17
-categories: [ rectifier-basics ]
-tags: [ bridge rectifier, full-wave, filtering ]
-seoTitle: 'Full-Wave Bridge Rectifier: Circuit, Working & DC Output'
-metaDescription: 'Learn how a four-diode bridge rectifier works. Follow the
-  circuit paths, DC voltage formulas and 12 V RMS example, with diode drops and
-  capacitor ripple.'
+categories:
+  - rectifier-basics
+tags:
+  - bridge rectifier
+  - full-wave
+  - filtering
+seoTitle: "Full-Wave Bridge Rectifier: Circuit, Formula & Example"
+metaDescription: See how four diodes convert AC to DC. Follow the conducting
+  paths, calculate average output and compare filtered voltage with a 12 V
+  example.
 status: published
 ---
 

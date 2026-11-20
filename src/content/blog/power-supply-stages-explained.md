@@ -1,20 +1,24 @@
 ---
 title: "AC to DC Power Supply Stages: From AC Input to DC Output"
 slug: power-supply-stages-explained
-description: "Follow AC input through conversion, rectification, filtering and
-  regulation, and see why isolation depends on the complete supply
-  architecture."
+description: Follow AC input through conversion, rectification, filtering and
+  regulation, and see why isolation depends on the complete supply architecture.
 image: /images/blogs/power-supply-stages-explained.webp
-imageAlt: "Two AC to DC conversion paths showing the different positions of the
-  isolation transformer"
+imageAlt: Two AC to DC conversion paths showing the different positions of the
+  isolation transformer
 author: AC to DC Converter editorial
 pubDate: 2026-11-05
-categories: [ power-supply-concepts ]
-tags: [ AC to DC, isolation, power supply stages, rectification ]
+categories:
+  - power-supply-concepts
+tags:
+  - AC to DC
+  - isolation
+  - power supply stages
+  - rectification
 seoTitle: "AC to DC Power Supply: 5 Stages & Block Diagram"
-metaDescription: "Follow AC input to DC output through input checks, conversion,
-  rectification, filtering and regulation. Compare linear and switching block
-  diagrams."
+metaDescription: "Follow the five stages of a linear AC to DC supply:
+  transformation, rectification, smoothing, regulation and load. Includes a
+  block diagram."
 status: published
 updatedDate: 2026-11-17
 ---
