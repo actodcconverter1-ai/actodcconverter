@@ -2735,5 +2735,10 @@
   "Bridge Rectifier Diode Losses: Why Subtract 2Vf?": "브리지 정류기 다이오드 손실: 2Vf 계산과 충전 펄스·발열 한계",
   "Why does a bridge rectifier lose two diode drops? Trace the current path, estimate voltage loss and learn where the constant-Vf model stops being useful.": "다리가 왜 두 개의 디오드 방울을 사용하는지 이해하고, 설명적인 운전 손실을 계산하고, 충전 펄스와 열 평가에서 부하 평균을 구별합니다.",
   "Capacitor ESR vs Ripple Current: Voltage, Heat & Limits": "정류기 필터의 커패시터 ESR과 리플 전류: 차이점과 발열 계산",
-  "Separate capacitor voltage ripple, ESR loss and RMS ripple-current ratings. Use heating examples to understand what a simple rectifier model can estimate.": "왜 용량, ESR, 리플 전압 및 RMS 리플 흐름이 다른 양인지 이해하십시오.이것은 가열 예제와 명확한 모델 제한과 함께 다릅니다."
+  "Separate capacitor voltage ripple, ESR loss and RMS ripple-current ratings. Use heating examples to understand what a simple rectifier model can estimate.": "왜 용량, ESR, 리플 전압 및 RMS 리플 흐름이 다른 양인지 이해하십시오.이것은 가열 예제와 명확한 모델 제한과 함께 다릅니다.",
+  "There is no single AC-to-DC voltage multiplier: with ideal diodes and no filter, a full-wave rectifier averages about 0.90 × AC RMS voltage. A filtered bridge charges toward √2 × AC RMS voltage minus two diode drops; its average then depends on load and ripple. Choose the matching model above.": "AC-to-DC 전압 번식기가 하나도 없습니다 : 이상적인 디오드와 필터가 없으면, 전체 파장 수정기는 0.90 × AC RMS 전압의 평균을 가지고 있습니다. 필터링 된 다리가 √2 × AC RMS의 전압으로 2 방울 미만으로 충전됩니다.",
+  "Full-Wave Rectifier Calculator: Average DC Voltage": "전체 파장 수정기 계산기 AC to DC Converter",
+  "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "필터링되지 않은 이상적인 전파 정류 사인파의 평균을 계산합니다.",
+  "Half-Wave Rectifier Calculator: Average DC Voltage": "반파 정류기 계산기: AC 입력의 평균 DC 출력 전압과 실효값 계산",
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "필터링되지 않은 이상적인 반파 정류기의 전체 사이클 평균을 계산합니다."
 }

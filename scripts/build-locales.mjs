@@ -3,6 +3,7 @@ import {parse,parseFragment,serialize} from 'parse5';
 import {localize,walk,attr,norm} from './localization-core.mjs';
 import ts from 'typescript';
 import{formatResult}from'../src/lib/result-presentation.ts';
+import{architectureUpdated}from'../src/lib/topic-graph.ts';
 const arabicEditorial=JSON.parse(await readFile('src/i18n/arabic-editorial.json','utf8'));
 const config=JSON.parse(await readFile('src/config/languages.json','utf8'));
 const settings=JSON.parse(await readFile('src/config/editorial.json','utf8'));
@@ -134,7 +135,14 @@ for(const path of paths){
   const dir='dist'+locale.prefix+path;await mkdir(dir,{recursive:true});await writeFile(dir+'index.html',serialize(doc));
  }
 }
-const extra=config.languages.filter(l=>l.code!=='en').map(l=>[...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m=>'<url>'+m[1].replace(/<loc>([^<]+)<\/loc>/,(_,u)=>'<loc>'+domain+l.prefix+new URL(u).pathname+'</loc>')+'</url>').join('')).join('');
+const englishOnlyUpdates=new Set(['/calculators/','/full-wave-rectifier-calculator/','/half-wave-rectifier-calculator/']);
+const extra=config.languages.filter(l=>l.code!=='en').map(l=>[...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m=>{
+ const path=new URL(/<loc>([^<]+)<\/loc>/.exec(m[1])[1]).pathname;
+ let entry=m[1].replace(/<loc>([^<]+)<\/loc>/,'<loc>'+domain+l.prefix+path+'</loc>');
+ // Those localized bodies did not receive the English editorial expansion.
+ if(englishOnlyUpdates.has(path))entry=entry.replace(/<lastmod>[^<]+<\/lastmod>/,'<lastmod>'+architectureUpdated+'</lastmod>');
+ return '<url>'+entry+'</url>';
+}).join('')).join('');
 await writeFile('dist/sitemap.xml',xml.replace('</urlset>',extra+'</urlset>'));
 const runtimeKeys=new Set(['enter a valid number from','enter a value from','to','Check the inputs.']);
 for(const file of ['src/calculators/converter.ts','src/scripts/converter-client.ts','src/lib/result-presentation.ts']){const source=ts.createSourceFile(file,await readFile(file,'utf8'),ts.ScriptTarget.Latest,true);const visit=n=>{if(ts.isStringLiteral(n))runtimeKeys.add(n.text);ts.forEachChild(n,visit);};visit(source);}

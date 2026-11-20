@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import MoneyPageGuide from '../components/MoneyPageGuide.astro';
 import RelatedSpokes from '../components/RelatedSpokes.astro';
 import {calculatorSpokes,buildSpokes,relatedSpokes} from '../lib/topic-graph';
 import {posts} from '../lib/posts';
@@ -22,5 +23,6 @@ const related=relatedSpokes('/ac-to-dc-calculator/',buildSpokes(await posts()));
       <p>Start with the <a href="/blog/ac-to-dc-formulas/">AC to DC formula selection guide</a> if you are unsure which waveform or model applies.</p>
     </section>
   </section>
+  <div class="shell"><MoneyPageGuide kind="directory"/></div>
   <RelatedSpokes spokes={related}/>
 </Base>

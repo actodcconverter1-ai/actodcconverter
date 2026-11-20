@@ -1,0 +1,67 @@
+---
+import {calculateConverter,converterDefault} from '../calculators/converter';
+import {calculateRectifier,defaults} from '../calculators/rectifier';
+import {formatResult as number} from '../lib/result-presentation';
+interface Props {kind:'main'|'full-wave'|'half-wave'|'directory'}
+const {kind}=Astro.props;
+const isFull=kind==='full-wave';
+const exampleRows=[6,12,24].map(rms=>({rms,...calculateRectifier({...defaults,mode:isFull?'full-wave':'half-wave',rms})}));
+const ideal=calculateConverter({mode:'basic',topology:'bridge',rms:12,frequency:50,diodeDrop:0});
+const diode=calculateConverter({mode:'basic',topology:'bridge',rms:12,frequency:50,diodeDrop:.7});
+const filtered=calculateConverter(converterDefault);
+---
+<!-- New English editorial material is released independently of existing translations. -->
+<section class="prose education-section money-page-guide" data-editorial-locale="en" data-money-guide={kind}>
+{kind==='main'&&<>
+<h2>Choose the AC to DC result you actually need</h2>
+<p>Use this AC to DC calculator for the voltage at a rectifier or its downstream regulator. Start with the circuit and the output quantity: the average of a pulsating waveform, a capacitor-filtered average, and a regulated setpoint answer different questions. The same 12 V RMS source can produce the values below.</p>
+<div class="table-wrap"><table tabindex="0" aria-label="Compare DC output models at 12 V RMS"><caption>12 V RMS, single-phase bridge at 50 Hz</caption><thead><tr><th scope="col">Model</th><th scope="col">Inputs to select</th><th scope="col">Average output</th><th scope="col">What the result means</th></tr></thead><tbody>
+<tr><th scope="row">Ideal, unfiltered</th><td>Basic; diode drop 0 V</td><td>{number(ideal.average)} V</td><td>Complete-cycle average; the output still falls to zero.</td></tr>
+<tr><th scope="row">Diode drop, unfiltered</th><td>Basic; diode drop 0.7 V</td><td>{number(diode.average)} V</td><td>Clipped-sine average, including two diode drops and the non-conducting interval.</td></tr>
+<tr><th scope="row">Capacitor filtered</th><td>Filtered; 0.7 V per diode; 0.1 A; 1000 µF</td><td>{number(filtered.average)} V</td><td>Small-ripple estimate; valley {number(filtered.valley)} V and ripple {number(filtered.ripple)} V p-p.</td></tr>
+</tbody></table></div>
+<p>A higher capacitor-filtered average is expected because the capacitor stores charge between crests. It does not mean the rectifier creates extra power. A regulator can hold a chosen output only if the minimum input, available current and device operating limits permit it.</p>
+<h2>Enter the input voltage at the rectifier</h2>
+<ol><li>Enter the sinusoidal RMS voltage after the transformer, not the regulated DC output printed on an adapter.</li><li>Choose bridge, half-wave or center-tapped. For a center-tapped winding, enter end-to-center-tap RMS; a 12–0–12 V winding uses 12 V here.</li><li>Enter forward drop per conducting diode. A bridge uses two drops; half-wave and center-tapped paths use one. Use 0 V for an ideal comparison.</li><li>For filtering, enter the AC frequency, capacitor value in µF and load in amperes or ohms. For example, 100 mA is 0.1 A, and 1000 µF is 0.001 F.</li><li>Calculate, then check the valley and ripple as well as the average. Use the regulator mode only for a separate downstream DC stage.</li></ol>
+<h2>Why the output may not match a meter reading</h2>
+<p>The Basic result is an average of the rectified waveform. An AC-reading meter, a DC-reading meter and a peak-reading instrument can report different quantities. Compare like with like using the <a href="/blog/measuring-rectifier-output-voltage/">guide to measuring rectifier output voltage</a>. Real loaded voltage also changes with winding resistance, diode characteristics, charging pulses and capacitor ESR; these are outside the simplified model.</p>
+<h2>Common calculator questions</h2>
+<details><summary>Does 12 V AC become 12 V DC?</summary><p>There is no single conversion ratio. At 12 V RMS, ideal unfiltered full-wave average is 10.804 V. The default filtered bridge example averages 15.071 V because its capacitor charges near the crest. Neither result represents a regulated 12 V supply.</p></details>
+<details><summary>Can this calculate DC current from AC voltage?</summary><p>Voltage alone does not determine available current. A resistance load lets the filtered model estimate its average current, but available supply current requires source power and component limits. Read <a href="/blog/ac-voltage-does-not-determine-dc-current/">what an AC-to-DC current calculation needs</a>.</p></details>
+<details><summary>Why does changing 50 Hz to 60 Hz reduce capacitor ripple?</summary><p>A full-wave bridge recharges at 100 Hz or 120 Hz respectively. For the same 0.1 A and 1000 µF, estimated ripple falls from 1 V to 0.833 V p-p. The ideal unfiltered average does not change with frequency.</p></details>
+<details><summary>What should I do if the ripple estimate is rejected?</summary><p>Check units and inputs first. Ripple above 20% of the available crest is outside this tool's selected approximation scope. Increasing capacitance or lowering load may bring the model within scope; a circuit simulation is needed when the omitted charging and source effects matter.</p></details>
+<p>For a shorter ideal calculation, use the <a href="/full-wave-rectifier-calculator/">full-wave average voltage calculator</a> or the <a href="/half-wave-rectifier-calculator/">half-wave average voltage calculator</a>. Compare model selection in the <a href="/blog/ac-to-dc-formulas/">AC to DC formula guide</a>.</p>
+</>}
+{(kind==='full-wave'||kind==='half-wave')&&<>
+<h2>{isFull?'How to use the full-wave voltage calculator':'How to use the half-wave voltage calculator'}</h2>
+<ol><li>Enter the RMS voltage of the sinusoidal input at the rectifier. {isFull?'For a bridge this is across the AC terminals; for a center-tapped circuit use one winding half.':'This is the source RMS before the series diode, not the RMS of the rectified output.'}</li><li>Enter the AC frequency. It sets pulse timing; changing frequency alone does not change the ideal average voltage.</li><li>Calculate and read average DC separately from peak and peak-to-peak ripple. The valley is zero because this model has no smoothing capacitor.</li></ol>
+<p>{isFull?'Both input half-cycles produce positive output. The average is 2Vpk/π, and output RMS equals input RMS when the diodes are ideal.':'The blocked half-cycle contributes zero to the complete-cycle average. The average is Vpk/π, and output RMS is input RMS divided by √2.'} An average DC value is not a flat DC waveform.</p>
+<h2>{isFull?'Full-wave results for 6, 12 and 24 V RMS':'Half-wave results for 6, 12 and 24 V RMS'}</h2>
+<div class="table-wrap"><table tabindex="0" aria-label={isFull?'Full-wave ideal voltage examples':'Half-wave ideal voltage examples'}><caption>Ideal diodes, no filter, 50 Hz sine input</caption><thead><tr><th scope="col">Input RMS</th><th scope="col">Output peak</th><th scope="col">Average DC</th><th scope="col">Output RMS</th><th scope="col">Pulse frequency</th></tr></thead><tbody>{exampleRows.map(row=><tr><th scope="row">{row.rms} V</th><td>{number(row.peak)} V</td><td>{number(row.average)} V</td><td>{number(isFull?row.rms:row.rms/Math.SQRT2)} V</td><td>{row.rippleFrequency} Hz</td></tr>)}</tbody></table></div>
+{isFull?<>
+<h2>Convert 47 V peak-to-peak to average DC</h2>
+<p>For a zero-centered sine wave, Vpk = Vpp/2 and Vrms = Vpp/(2√2). If a full-wave rectifier receives 47 V peak-to-peak, its ideal complete-cycle average is <code translate="no">Vavg = Vpp/π = 47/π ≈ 14.96 V</code>. Enter {number(47/(2*Math.SQRT2))} V RMS in this calculator to reproduce the result to the displayed precision.</p>
+<p>This formula uses the peak-to-peak voltage of the original bipolar AC input. The unfiltered rectified output ranges from zero to its positive peak, so its output peak-to-peak ripple is a different value. Compare <a href="/blog/rms-peak-average-voltage/">RMS, peak and peak-to-peak voltage definitions</a> before substituting a measurement.</p>
+<h2>Bridge or center-tapped full-wave rectification?</h2>
+<p>The ideal average factor is the same for equal RMS voltage at the conducting winding. Real bridge paths contain two conducting diodes; center-tapped paths contain one. A center-tapped end-to-end voltage must first be halved. Use the <a href="/ac-to-dc-calculator/">AC to DC calculator with diode-drop and capacitor models</a> to include those differences.</p>
+<p>See the <a href="/blog/full-wave-bridge-rectifier-explained/">full-wave bridge circuit and current paths</a> for the circuit explanation. At 50 Hz input, full-wave pulse frequency is 100 Hz; at 60 Hz it is 120 Hz.</p>
+</>:<>
+<h2>Why the half-wave average is not the input RMS</h2>
+<p>At 12 V RMS, the input peak is 16.971 V, but output appears during only one half of each cycle. The complete-cycle average is 5.402 V, and output RMS is 8.485 V. Averaging only the conducting half-cycle would incorrectly double the DC average reported here.</p>
+<p>For a zero-centered AC sine specified in peak-to-peak volts, use <code translate="no">Vrms = Vpp/(2√2)</code> first. A 47 Vpp input has an ideal half-wave average <code translate="no">Vavg = Vpp/(2π) ≈ 7.48 V</code>. The input peak-to-peak amplitude is not the same as the rectified output ripple.</p>
+<h2>Frequency, filtering and the half-wave trade-off</h2>
+<p>A half-wave circuit has one charging opportunity per AC cycle: 50 Hz input gives 50 Hz pulses and 60 Hz input gives 60 Hz pulses. A full-wave circuit gives twice as many. Under the constant-current small-ripple approximation, the same capacitor and load therefore produce approximately twice the half-wave ripple.</p>
+<p>For example, 0.1 A and 1000 µF at 50 Hz gives an estimated 2 V p-p for half-wave, compared with 1 V for full-wave. This is a separate filtered model, not the ideal unfiltered result above. Use the <a href="/ac-to-dc-calculator/">AC to DC ripple calculator with half-wave selected</a> to inspect the corresponding crest, valley and average.</p>
+<p>Read the <a href="/blog/half-wave-vs-full-wave-rectifier/">half-wave versus full-wave comparison</a> for circuit differences and the <a href="/blog/rectifier-ripple-frequency/">rectifier ripple-frequency guide</a> for pulse timing.</p>
+</>}
+<h2>{isFull?'Interpreting a full-wave DC voltage result':'Interpreting a half-wave DC voltage result'}</h2>
+<details><summary>{isFull?'Does a full-wave rectifier give smooth DC?':'Can I use the half-wave result for a filtered supply?'}</summary><p>{isFull?'It gives unidirectional pulses that still fall to zero. A capacitor can reduce the ripple; a regulator is an additional stage. The unfiltered average here should not be substituted for a filtered or regulated output.':'The result here excludes a capacitor. With a filter, charge storage and load change the output average and minimum. Use the filtered mode in the main calculator rather than applying the unfiltered average factor.'}</p></details>
+<details><summary>{isFull?'What if each bridge diode drops 0.7 V?':'What if the diode has a nonzero forward drop?'}</summary><p>Use Basic mode in the main calculator and select the topology and forward drop. Its clipped-sine integration includes the non-conducting interval. Subtracting the full path drop from the ideal average is not the same calculation.</p></details>
+</>}
+{kind==='directory'&&<>
+<h2>Match the tool to your measurement</h2>
+<p>If you know the waveform, first decide which quantity you need. RMS describes heating equivalence; peak sets the crest; average describes the DC component; a ripple valley helps assess downstream regulator headroom. One voltage label cannot stand in for all four.</p>
+<ul><li><a href="/full-wave-rectifier-calculator/">Ideal full-wave average calculator</a>: use sinusoidal RMS input with zero-drop diodes and no filter. Pair it with the <a href="/blog/full-wave-bridge-rectifier-explained/">bridge rectifier circuit guide</a>.</li><li><a href="/half-wave-rectifier-calculator/">Ideal half-wave average calculator</a>: include the blocked half-cycle in the mean. Pair it with the <a href="/blog/half-wave-vs-full-wave-rectifier/">half-wave versus full-wave comparison</a>.</li><li><a href="/ac-to-dc-calculator/">AC to DC voltage and ripple calculator</a>: include fixed diode drops, capacitor filtering or a downstream regulator stage. Pair it with the <a href="/blog/capacitor-ripple-explained/">capacitor ripple formula and example</a>.</li></ul>
+<p>For a peak or peak-to-peak input, convert it to sine-wave RMS before entering it. A 12 V peak sine is 8.485 V RMS; a 12 V peak-to-peak sine is 4.243 V RMS. The <a href="/blog/rms-peak-average-voltage/">voltage definitions guide</a> explains the conversions and their waveform assumptions.</p>
+</>}
+</section>

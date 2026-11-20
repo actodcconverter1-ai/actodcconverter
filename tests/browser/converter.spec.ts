@@ -34,7 +34,7 @@ test('invalid numbers are rejected without stale results',async({page})=>{
 });
 for(const width of [390,768,1365])test(`responsive homepage, navigation and accessibility at ${width}px`,async({page})=>{
  await page.setViewportSize({width,height:900});await page.goto('/');await expect(page.locator('h1')).toHaveText('AC to DC Converter: Calculator, Circuits and How It Works');await expect(page.locator('.header .brand')).toHaveText('AC to DC Converter');
- await expect(page).toHaveTitle('AC to DC Converter: How It Works, Circuits & Formulas');await expect(page.locator('.header nav a').first()).toHaveAttribute('href','#calculator');
+ await expect(page).toHaveTitle('AC to DC Converter: How It Works, Circuits & Formulas');await expect(page.locator('.header nav a').first()).toHaveAttribute('href','/calculators/');
  const form=await page.locator('[data-workbench-form]').boundingBox(),diagram=await page.locator('.interactive-circuit').boundingBox();expect(form).not.toBeNull();expect(diagram).not.toBeNull();if(width>=851)expect(form!.y).toBeLessThan(850);if(width<851)expect(form!.y).toBeLessThan(diagram!.y);else expect(Math.abs(form!.y-diagram!.y)).toBeLessThan(4);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.locator('.language-switcher').scrollIntoViewIfNeeded();const accessibility=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(accessibility.violations).toEqual([]);await page.evaluate(()=>scrollTo(0,0));
@@ -54,4 +54,17 @@ for(const width of[390,768,1365])test(`dedicated calculator remains functional a
 });
 test('without JavaScript the explanatory default and crawlable alternatives remain',async({browser})=>{
  const context=await browser.newContext({javaScriptEnabled:false});const base=process.env.BROWSER_BASE_URL||'http://127.0.0.1:4321';await context.addCookies([{name:'site_language',value:'en',url:base}]);const page=await context.newPage();await page.goto(base);await expect(page.locator('noscript .notice')).toBeVisible();await expect(page.locator('noscript .notice')).toContainText('JavaScript is required');await expect(page.locator('.metric-grid')).toContainText('15.071 V');await expect(page.locator('.language-switcher a')).toHaveCount(18);await context.close();
+});
+
+for(const mode of['full-wave','half-wave'])test(`ideal ${mode} tool has useful examples and preserves calculation and invalid recovery`,async({page})=>{
+ await page.goto(`/${mode}-rectifier-calculator/`);await expect(page.locator('[data-money-guide]')).toBeVisible();await expect(page.locator('[data-money-guide] table tbody tr')).toHaveCount(3);
+ await expect(page.locator('[data-result]')).toHaveText(mode==='full-wave'?'10.804':'5.402');await page.locator('#ac-rms').fill('24');await page.locator('[data-form] button[type=submit]').click();await expect(page.locator('[data-result]')).toHaveText(mode==='full-wave'?'21.608':'10.804');
+ await page.locator('#ac-rms').fill('-1');await page.locator('[data-form] button[type=submit]').click();await expect(page.locator('#calc-error')).toBeVisible();await expect(page.locator('[data-result]')).toHaveText('—');await page.locator('#ac-rms').fill('12');await page.locator('[data-form] button[type=submit]').click();await expect(page.locator('#calc-error')).toBeHidden();
+ await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);const accessibility=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(accessibility.violations).toEqual([]);
+ await page.screenshot({path:`artifacts/money-${mode}-mobile.png`});await page.locator('[data-money-guide] a[href="/ac-to-dc-calculator/"]').first().click();await expect(page.locator('[data-converter]')).toBeVisible();
+});
+
+test('money-page guidance and directory navigation are present without changing translated content',async({page})=>{
+ await page.goto('/ac-to-dc-calculator/');await expect(page.locator('[data-money-guide=main]')).toContainText('15.071 V');await expect(page.locator('[data-money-guide=main]')).toContainText('100 mA is 0.1 A');await page.locator('.header nav a').first().click();await expect(page).toHaveURL(/\/calculators\/$/);await expect(page.locator('[data-money-guide=directory]')).toBeVisible();
+ await page.goto('/de/full-wave-rectifier-calculator/');await expect(page.locator('[data-money-guide]')).toHaveCount(0);await expect(page.locator('html')).toHaveAttribute('lang','de');await expect(page.locator('[data-calculator]')).toBeVisible();await expect(page.locator('.language-switcher a')).toHaveCount(18);
 });

@@ -50,7 +50,7 @@ const structured = {'@context':'https://schema.org','@graph':[
     <a class="skip" href="#main">Skip to content</a>
     <header class="header"><div class="shell header-inner">
       <a href="/" class="brand" aria-label={site.wordmark}><img src={site.logo} alt="AC to DC Converter logo" width="32" height="32" /><span translate="no">{site.wordmark}</span></a>
-      <nav aria-label="Main navigation">{site.nav.map(link => <a href={link.href==='/#calculator'&&Astro.url.pathname==='/'?'#calculator':link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.label}</a>)}</nav>
+      <nav aria-label="Main navigation">{site.nav.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.label}</a>)}</nav>
       <span class="header-note"><span class="status-dot"></span> Calculated in your browser. No account needed.</span>
     </div></header>
     <main id="main"><div class="shell"><AdSlot placement="header" /></div>{crumbs.length>0&&<div class="shell page-breadcrumbs"><Breadcrumbs items={crumbs}/></div>}<slot /><RelatedSpokes spokes={related}/><div class="shell"><AdSlot placement="footer" /></div></main>

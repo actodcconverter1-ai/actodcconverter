@@ -335,5 +335,7 @@
   "/blog/capacitor-ripple-explained/": "Capacitor Ripple Voltage: Formula & 12 V Example",
   "/blog/single-phase-vs-three-phase-rectifiers/": "Single-Phase vs Three-Phase Rectifiers: Output & Ripple",
   "/blog/bridge-rectifier-diode-losses/": "Bridge Rectifier Diode Losses: Why Subtract 2Vf?",
-  "/blog/capacitor-esr-and-ripple-current/": "Capacitor ESR vs Ripple Current: Voltage, Heat & Limits"
+  "/blog/capacitor-esr-and-ripple-current/": "Capacitor ESR vs Ripple Current: Voltage, Heat & Limits",
+  "/full-wave-rectifier-calculator/": "Full-Wave Rectifier Calculator: Average DC Voltage",
+  "/half-wave-rectifier-calculator/": "Half-Wave Rectifier Calculator: Average DC Voltage"
 }

@@ -2734,5 +2734,10 @@
   "Bridge Rectifier Diode Losses: Why Subtract 2Vf?": "مقوم الجسر خسارات ديود وتقدير 2Vf",
   "Why does a bridge rectifier lose two diode drops? Trace the current path, estimate voltage loss and learn where the constant-Vf model stops being useful.": "فهم لماذا يستخدم الجسر قطرتين ثنائيوديتين، حساب الخسائر في التوصيل التوضيحي، والتمييز بين متوسطات الحمل من شحن النبضات والدرجات الحرارية.",
   "Capacitor ESR vs Ripple Current: Voltage, Heat & Limits": "المكثف ESR vs Refel تيار في مرشحات المقومة",
-  "Separate capacitor voltage ripple, ESR loss and RMS ripple-current ratings. Use heating examples to understand what a simple rectifier model can estimate.": "فهم لماذا السعة الكهربائية، ESR، الجهد التموجي، وتموج تيار RMS هي كميات مختلفة، مع أمثلة تدفئة توضيحية وحدود واضحة للنموذج."
+  "Separate capacitor voltage ripple, ESR loss and RMS ripple-current ratings. Use heating examples to understand what a simple rectifier model can estimate.": "فهم لماذا السعة الكهربائية، ESR، الجهد التموجي، وتموج تيار RMS هي كميات مختلفة، مع أمثلة تدفئة توضيحية وحدود واضحة للنموذج.",
+  "There is no single AC-to-DC voltage multiplier: with ideal diodes and no filter, a full-wave rectifier averages about 0.90 × AC RMS voltage. A filtered bridge charges toward √2 × AC RMS voltage minus two diode drops; its average then depends on load and ripple. Choose the matching model above.": "لا يوجد مضاعف فولت واحد من AC إلى DC: مع ثنائيوديات مثالية وبدون مرشح، معدل مقوم الموجة الكاملة حوالي 0.90 × AC RMS فولت. جسر مرشّح يشحن نحو √2 × AC RMS فولت ناقص قطرتين ثنائيوديتين، ثم يعتمد متوسطه على الحمل والتموج. اختر النموذج المطابق أسفل.",
+  "Full-Wave Rectifier Calculator: Average DC Voltage": "آلة حاسبة ذات الموجة الكاملة ° AC إلى DC محول",
+  "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "احسب المتوسط لموجة كاملة مثالية غير مصوّبة",
+  "Half-Wave Rectifier Calculator: Average DC Voltage": "آلة حاسبة ذات نصف موجة مقومة TM AC إلى DC محول",
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "احسب متوسط الدورة الكاملة لمقوم نصف الموجة المثالي."
 }
