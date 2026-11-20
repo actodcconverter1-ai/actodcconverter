@@ -30,3 +30,12 @@ test('translation text cannot inject HTML elements or event handlers',()=>{
  assert.ok(!out.includes('<img'));
  assert.ok(out.includes('&lt;img'));
 });
+
+test('language-specific editorial sections do not leak unprepared English copy into translated pages',()=>{
+ const html='<html lang="en"><head><title>Hello world</title></head><body><p>Hello world</p><section data-editorial-locale="en"><h2>New English guidance</h2><p>Publication awaits translated editorial copy.</p></section></body></html>';
+ assert.ok(!collect(html).has('New English guidance'));
+ const es=localize(html,{code:'es',prefix:'/es',direction:'ltr'},{'Hello world':'Hola mundo'},'https://actodcconverter.org',new Set(['/']));
+ assert.ok(es.includes('Hola mundo'));assert.ok(!es.includes('New English guidance'));assert.ok(!es.includes('data-editorial-locale'));
+ const en=localize(html,{code:'en',prefix:'',direction:'ltr'},{'Hello world':'Hello world'},'https://actodcconverter.org',new Set(['/']));
+ assert.ok(en.includes('New English guidance'));assert.ok(en.includes('Publication awaits translated editorial copy.'));
+});

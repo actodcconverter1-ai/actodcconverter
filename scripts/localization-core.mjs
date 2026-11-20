@@ -5,7 +5,7 @@ const skipped=new Set(['script','style','code','pre']);
 export function inspect(html,visit){
  const doc=parse(html);
  function walk(node,skip=false){
-  skip=skip||skipped.has(node.tagName)||node.attrs?.some(a=>a.name==='translate'&&a.value==='no');
+  skip=skip||skipped.has(node.tagName)||node.attrs?.some(a=>(a.name==='translate'&&a.value==='no')||a.name==='data-editorial-locale');
   if(!skip&&node.nodeName==='#text'&&translatable(norm(node.value)))visit(node,'value',norm(node.value));
   if(!skip&&node.attrs)for(const a of node.attrs){if(['alt','aria-label','placeholder','title'].includes(a.name)&&translatable(a.value))visit(a,'value',norm(a.value));if(node.tagName==='meta'&&['description','og:title','og:description','twitter:title','twitter:description','og:image:alt','twitter:image:alt'].includes(node.attrs.find(x=>x.name==='name'||x.name==='property')?.value)&&a.name==='content')visit(a,'value',norm(a.value));}
   for(const child of node.childNodes??[])walk(child,skip);
@@ -17,6 +17,11 @@ export function walk(node,fn){fn(node);for(const c of node.childNodes??[])walk(c
 export function attr(node,key,value){node.attrs??=[];const a=node.attrs.find(a=>a.name===key);if(value===undefined)return a?.value;if(a)a.value=value;else node.attrs.push({name:key,value});}
 function jsonStrings(value,visit,key=''){if(typeof value==='string'&&['name','headline','description','text','featureList'].includes(key)&&translatable(value))return visit(norm(value));if(Array.isArray(value))return value.forEach(x=>jsonStrings(x,visit,key));if(value&&typeof value==='object')for(const [k,v] of Object.entries(value))jsonStrings(v,visit,k);}
 export function localize(html,locale,dictionary,domain,paths){
+ // Publish new editorial sections only on their authored language URL.
+ // Existing translated pages remain usable until equivalent copy is prepared.
+ const source=parse(html);
+ function prune(node){node.childNodes=(node.childNodes??[]).filter(child=>!attr(child,'data-editorial-locale')||attr(child,'data-editorial-locale')===locale.code);for(const child of node.childNodes)prune(child);}
+ prune(source);html=serialize(source);
  const translate=s=>{const key=norm(s);if(!translatable(key))return s;const value=dictionary[key];if(!value)throw Error('Missing '+locale.code+' translation: '+key.slice(0,100));return s.replace(key,()=>value);};
  const doc=inspect(html,(node,key,s)=>{node[key]=(node[key].match(/^\s*/)?.[0]??'')+translate(s)+(node[key].match(/\s*$/)?.[0]??'');});
  const url=s=>{if(!s.startsWith('/')&&!s.startsWith(domain))return s;const u=new URL(s,domain);if(u.origin!==domain||!paths.has(u.pathname))return s;return locale.prefix+u.pathname+u.search+u.hash;};
