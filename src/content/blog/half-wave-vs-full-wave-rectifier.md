@@ -17,10 +17,8 @@ tags:
   - half-wave
   - full-wave
   - waveform comparison
-seoTitle: "Half-Wave vs Full-Wave Rectifier: Voltage & Ripple"
-metaDescription: Compare half-wave and full-wave rectifiers by output voltage,
-  ripple frequency and diode paths. See ideal formulas and a 12 V worked
-  example.
+seoTitle: "Half-Wave vs Full-Wave Rectifier: Key Differences & Math"
+metaDescription: "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas."
 status: published
 ---
 

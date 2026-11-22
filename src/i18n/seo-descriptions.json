@@ -1,5 +1,5 @@
 {
-  "/ac-to-dc-calculator/": "Calculate DC voltage and ripple from AC RMS input, diode drop, capacitance and load. Choose a rectifier model and see assumptions and worked examples.",
+  "/ac-to-dc-calculator/": "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.",
   "/blog/bridge-rectifier-at-50hz-and-60hz/": "Compare bridge rectifiers at 50 Hz and 60 Hz. Calculate ripple frequency and its effect on the smoothing capacitor estimate.",
   "/blog/bridge-rectifier-diode-losses/": "Why does a bridge rectifier lose two diode drops? Trace the current path, estimate voltage loss and learn where the constant-Vf model stops being useful.",
   "/blog/capacitor-esr-and-ripple-current/": "Separate capacitor voltage ripple, ESR loss and RMS ripple-current ratings. Use heating examples to understand what a simple rectifier model can estimate.",
@@ -371,9 +371,9 @@
   "/id/": "Pahami perubahan AC ke DC: penyearahan, penyaringan, stabilisasi, rangkaian, dan rumus tegangan dengan contoh 12 V.",
   "/ar/": "تعرّف على تحويل التيار المتردد إلى المستمر: التقويم والترشيح وتنظيم الجهد والدوائر والمعادلات، مع مثال عند 12 V.",
   "/bg/": "Как AC става DC: изправяне, филтриране, стабилизиране, схеми и формули за напрежение с пример за 12 V.",
-  "/blog/half-wave-vs-full-wave-rectifier/": "Compare half-wave and full-wave rectifiers by output voltage, ripple frequency and diode paths. See ideal formulas and a 12 V worked example.",
+  "/blog/half-wave-vs-full-wave-rectifier/": "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.",
   "/blog/rectifier-average-vs-rms-output/": "Why are DC average and RMS different? Compare half-wave and full-wave outputs, calculate RMS ripple factor and follow a 12 V example.",
-  "/blog/rectifier-ripple-frequency/": "Find ripple frequency: f for half-wave, 2f for single-phase full-wave and 6f for a three-phase bridge. Includes 50/60 Hz examples.",
+  "/blog/rectifier-ripple-frequency/": "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.",
   "/hi/blog/half-wave-vs-full-wave-rectifier/": "हाफ-वेव और फुल-वेव रेक्टिफायर्स की तुलना करें: डायोड काउंट, डीसी आउटपुट, रिपल और फ़िल्टरिंग। 12 V RMS उदाहरण के साथ देखें कि फुल-वेव के फायदे क्यों हैं।",
   "/hi/blog/rectifier-ripple-frequency/": "रिपल आवृत्ति f का उपयोग आधा तरंग के लिए और 2f एक चरण पूर्ण तरंग रिक्टीफर्स के लिए करें. 50/60 Hz उदाहरणों की तुलना करें और दो बार कारक की गिनती से बचें.",
   "/ru/blog/rectifier-average-vs-rms-output/": "Сравнить среднее напряжение выхода и RMS для полной и полуволновой рецификаторов. Используйте 12 Вт RMS таблицу и отличить DC средний от RMS реппле.",
@@ -402,10 +402,10 @@
   "/sv/blog/rectifier-average-vs-rms-output/": "Jämför genomsnittlig utgångsspänning och RMS för full- och halva-vågsmynreksigerare. Använd en 12 V RMS tabell och skilja DC genomsnitt från RMS ripple.",
   "/sv/blog/rectifier-ripple-frequency/": "Använd ripplefrekvens f för halvvågen och 2f för enfas full vågrektörer. Jämför 50/60 Hz exempel och undvik att räkna faktorn två gånger.",
   "/blog/rms-peak-average-voltage/": "Convert sine-wave RMS, peak and peak-to-peak voltage with formulas and a 12 V example. See why rectified average voltage differs from RMS.",
-  "/blog/full-wave-bridge-rectifier-explained/": "See how four diodes convert AC to DC. Follow the conducting paths, calculate average output and compare filtered voltage with a 12 V example.",
+  "/blog/full-wave-bridge-rectifier-explained/": "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.",
   "/blog/power-supply-stages-explained/": "Follow the five stages of a linear AC to DC supply: transformation, rectification, smoothing, regulation and load. Includes a block diagram.",
   "/blog/capacitor-ripple-explained/": "Estimate capacitor ripple with Vr(pp) ≈ I/(fr × C). Work through a 12 V bridge example and see how load, capacitance and frequency affect DC output.",
   "/blog/single-phase-vs-three-phase-rectifiers/": "Compare single-phase and three-phase rectifiers: diode count, average DC output and ripple frequency. See 2f vs 6f and the correct RMS input basis.",
-  "/full-wave-rectifier-calculator/": "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.",
-  "/half-wave-rectifier-calculator/": "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output."
+  "/full-wave-rectifier-calculator/": "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.",
+  "/half-wave-rectifier-calculator/": "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples."
 }

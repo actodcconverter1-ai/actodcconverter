@@ -2740,5 +2740,17 @@
   "Full-Wave Rectifier Calculator: Average DC Voltage": "फुल-वेव रेक्टिफायर कैलकुलेटर | एसी से डीसी कनवर्टर",
   "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "एक आदर्श अनफ़िल्टर्ड फुल-वेव रेक्टिफाइड साइन वेव के औसत की गणना करें।",
   "Half-Wave Rectifier Calculator: Average DC Voltage": "हाफ-वेव रेक्टिफायर कैलकुलेटर | एसी से डीसी कनवर्टर",
-  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "एक आदर्श अनफ़िल्टर्ड हाफ-वेव रेक्टिफायर के पूर्ण-चक्र औसत की गणना करें।"
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "एक आदर्श अनफ़िल्टर्ड हाफ-वेव रेक्टिफायर के पूर्ण-चक्र औसत की गणना करें।",
+  "Full-Wave Rectifier Calculator: Peak, Average & Ripple": "फुल-वेव रेक्टिफायर कैलकुलेटर | एसी से डीसी कनवर्टर",
+  "Half-Wave Rectifier Calculator: Peak, Average & Ripple": "हाफ-वेव रेक्टिफायर कैलकुलेटर | एसी से डीसी कनवर्टर",
+  "AC to DC Converter Calculator: Instant DC Voltage & Ripple": "AC से DC कैलकुलेटर: वोल्टेज और रिपल",
+  "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula": "रिपल आवृत्ति सूत्र: आधा तरंग, पूर्ण तरंग और 50/60 हज़ार",
+  "Full-Wave Bridge Rectifier: Working, Circuit & Formulas": "फुल-वेव ब्रिज रेक्टिफायर: सर्किट, वर्किंग और डीसी आउटपुट",
+  "Half-Wave vs Full-Wave Rectifier: Key Differences & Math": "हाफ-वेव बनाम फुल-वेव रेक्टिफायर: अंतर और फायदे",
+  "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.": "एक आदर्श अनफ़िल्टर्ड फुल-वेव रेक्टिफाइड साइन वेव के औसत की गणना करें।",
+  "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.": "एक आदर्श अनफ़िल्टर्ड हाफ-वेव रेक्टिफायर के पूर्ण-चक्र औसत की गणना करें।",
+  "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.": "RMS इनपुट से DC आउटपुट का अनुमान लगाएँ। रेक्टिफायर, डायोड ड्रॉप, लोड और कैपेसिटर रिपल को उदाहरणों के साथ समझें।",
+  "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.": "रिपल आवृत्ति f का उपयोग आधा तरंग के लिए और 2f एक चरण पूर्ण तरंग रिक्टीफर्स के लिए करें. 50/60 Hz उदाहरणों की तुलना करें और दो बार कारक की गिनती से बचें.",
+  "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.": "जानें कि चार-डायोड ब्रिज रेक्टिफायर कैसे काम करता है। डायोड ड्रॉप्स और कैपेसिटर रिपल के साथ सर्किट पथ, डीसी वोल्टेज सूत्र और 12 V RMS उदाहरण का पालन करें।",
+  "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.": "हाफ-वेव और फुल-वेव रेक्टिफायर्स की तुलना करें: डायोड काउंट, डीसी आउटपुट, रिपल और फ़िल्टरिंग। 12 V RMS उदाहरण के साथ देखें कि फुल-वेव के फायदे क्यों हैं।"
 }

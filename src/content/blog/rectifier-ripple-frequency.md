@@ -15,9 +15,8 @@ tags:
   - ripple frequency
   - full-wave
   - timing
-seoTitle: "Rectifier Ripple Frequency: Half-Wave vs Full-Wave"
-metaDescription: "Find ripple frequency: f for half-wave, 2f for single-phase
-  full-wave and 6f for a three-phase bridge. Includes 50/60 Hz examples."
+seoTitle: "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula"
+metaDescription: "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples."
 status: published
 updatedDate: 2026-11-17
 ---

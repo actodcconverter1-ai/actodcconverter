@@ -16,10 +16,10 @@ tags:
   - bridge rectifier
   - full-wave
   - filtering
-seoTitle: "Full-Wave Bridge Rectifier: Circuit, Formula & Example"
-metaDescription: See how four diodes convert AC to DC. Follow the conducting
-  paths, calculate average output and compare filtered voltage with a 12 V
-  example.
+seoTitle: "Full-Wave Bridge Rectifier: Working, Circuit & Formulas"
+metaDescription: Learn how a full-wave bridge rectifier works with 4 diodes.
+  Trace alternating conduction paths, calculate average & peak output with 12 V
+  worked examples.
 status: published
 ---
 

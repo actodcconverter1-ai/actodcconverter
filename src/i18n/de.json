@@ -2740,5 +2740,17 @@
   "Full-Wave Rectifier Calculator: Average DC Voltage": "Rechner für Vollweggleichrichter | AC/DC-Wandler",
   "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "Berechnen Sie den Durchschnitt einer idealen ungefilterten vollweggleichgerichteten Sinuswelle.",
   "Half-Wave Rectifier Calculator: Average DC Voltage": "Einweggleichrichter-Rechner | AC/DC-Wandler",
-  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Berechnen Sie den Gesamtzyklusdurchschnitt eines idealen ungefilterten Einweggleichrichters."
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Berechnen Sie den Gesamtzyklusdurchschnitt eines idealen ungefilterten Einweggleichrichters.",
+  "Full-Wave Rectifier Calculator: Peak, Average & Ripple": "Rechner für Vollweggleichrichter | AC/DC-Wandler",
+  "Half-Wave Rectifier Calculator: Peak, Average & Ripple": "Einweggleichrichter-Rechner | AC/DC-Wandler",
+  "AC to DC Converter Calculator: Instant DC Voltage & Ripple": "AC/DC-Rechner: Ausgangsspannung und Restwelligkeit",
+  "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula": "Ripple Frequenzformel: Half-Wave, Full-Wave & 50/60 Hz",
+  "Full-Wave Bridge Rectifier: Working, Circuit & Formulas": "Brückengleichrichter: Schaltung, Funktion und DC-Ausgang",
+  "Half-Wave vs Full-Wave Rectifier: Key Differences & Math": "Einweg- und Vollweggleichrichter: Unterschiede",
+  "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.": "Berechnen Sie den Durchschnitt einer idealen ungefilterten vollweggleichgerichteten Sinuswelle.",
+  "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.": "Berechnen Sie den Gesamtzyklusdurchschnitt eines idealen ungefilterten Einweggleichrichters.",
+  "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.": "DC-Ausgang und Restwelligkeit aus Effektivwert, Diodenabfall, Kapazität und Last berechnen. Mit Modellannahmen und Beispielen.",
+  "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.": "Nutzen Sie f bei Einweg- und 2f bei einphasiger Vollweggleichrichtung. Mit Beispielen zur Restwelligkeit bei 50 Hz und 60 Hz.",
+  "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.": "Verstehen Sie die Vier-Dioden-Brücke: Schaltung, zwei Durchlassspannungen und Ausgangsverlauf mit und ohne Siebkondensator.",
+  "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.": "Vergleichen Sie Einweg- und Vollweggleichrichtung: Diodenzahl, mittlere Ausgangsspannung, Restwelligkeitsfrequenz und Filterung."
 }

@@ -2740,5 +2740,17 @@
   "Full-Wave Rectifier Calculator: Average DC Voltage": "Calculateur de redresseur double alternance",
   "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "Calculez la moyenne d’une onde sinusoïdale rectifiée pleine onde non filtrée idéale.",
   "Half-Wave Rectifier Calculator: Average DC Voltage": "Calculateur de redresseur simple alternance",
-  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Calculez la moyenne du cycle complet d’un redresseur demi-onde non filtré idéal."
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Calculez la moyenne du cycle complet d’un redresseur demi-onde non filtré idéal.",
+  "Full-Wave Rectifier Calculator: Peak, Average & Ripple": "Calculateur de redresseur double alternance",
+  "Half-Wave Rectifier Calculator: Peak, Average & Ripple": "Calculateur de redresseur simple alternance",
+  "AC to DC Converter Calculator: Instant DC Voltage & Ripple": "Calculateur CA/CC : tension et ondulation",
+  "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula": "Fréquence d’ondulation : formules et réseau 50/60 Hz",
+  "Full-Wave Bridge Rectifier: Working, Circuit & Formulas": "Pont redresseur double alternance : circuit et sortie",
+  "Half-Wave vs Full-Wave Rectifier: Key Differences & Math": "Redressement simple ou double alternance : différences",
+  "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.": "Calculez la moyenne d’une onde sinusoïdale rectifiée pleine onde non filtrée idéale.",
+  "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.": "Calculez la moyenne du cycle complet d’un redresseur demi-onde non filtré idéal.",
+  "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.": "Calculez tension CC et ondulation avec tension efficace, diodes, capacité et charge. Modèles de redresseur, hypothèses et exemples.",
+  "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.": "Utilisez f en simple alternance et 2f en double alternance monophasée. Consultez des exemples d’ondulation à 50 Hz et 60 Hz.",
+  "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.": "Découvrez le pont à quatre diodes : circuit, deux chutes de tension et sortie redressée avec ou sans condensateur de filtrage.",
+  "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.": "Comparez redressement simple et double alternance : nombre de diodes, tension moyenne, fréquence d’ondulation et filtrage."
 }

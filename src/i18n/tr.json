@@ -2739,5 +2739,17 @@
   "Full-Wave Rectifier Calculator: Average DC Voltage": "Full-wave rektör kalkulatörü AC to DC Converter",
   "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "Filtre edilmemiş tam dalga düzeltilmiş bir sinik dalgası için ideal ortalamayı hesaplayın.",
   "Half-Wave Rectifier Calculator: Average DC Voltage": "Yarı dalga düzeltme kalkulatörü AC'ye DC dönüştürücü",
-  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Tam döngü ortalaması ideal filtre edilmemiş yarı dalga düzelticinin hesaplanması."
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Tam döngü ortalaması ideal filtre edilmemiş yarı dalga düzelticinin hesaplanması.",
+  "Full-Wave Rectifier Calculator: Peak, Average & Ripple": "Full-wave rektör kalkulatörü AC to DC Converter",
+  "Half-Wave Rectifier Calculator: Peak, Average & Ripple": "Yarı dalga düzeltme kalkulatörü AC'ye DC dönüştürücü",
+  "AC to DC Converter Calculator: Instant DC Voltage & Ripple": "AC-DC hesaplayıcı: çıkış gerilimi ve dalgalanma",
+  "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula": "Ripple Frekans Formülü: Yarım Dalga, Tam Dalga & 50/60 Hz",
+  "Full-Wave Bridge Rectifier: Working, Circuit & Formulas": "Full-Wave Bridge Rectifier: Çevre, Çalışma ve DC çıkış",
+  "Half-Wave vs Full-Wave Rectifier: Key Differences & Math": "Half-Wave vs Full-Wave Rectifier: Farklılıklar ve Avantajlar",
+  "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.": "Filtre edilmemiş tam dalga düzeltilmiş bir sinik dalgası için ideal ortalamayı hesaplayın.",
+  "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.": "Tam döngü ortalaması ideal filtre edilmemiş yarı dalga düzelticinin hesaplanması.",
+  "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.": "RMS girişinden DC çıkışını hesaplayın. Doğrultucu türünü, diyot düşümlerini, yükü ve kondansatör dalgalanmasını hesaba katın.",
+  "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.": "Bir fazlı tam dalga düzelticiler için f ve 2f için ripple frekansı kullanın. 50/60 Hz örnekleri karşılaştırın ve faktörü iki kat saymaktan kaçının.",
+  "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.": "Dört diyotlu köprünün devresini, iki diyot gerilim düşümünü ve filtre kondansatörü olan ve olmayan çıkışını öğrenin.",
+  "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.": "Yarım ve tam dalga doğrultucuları diyot sayısı, ortalama çıkış gerilimi, dalgalanma frekansı ve filtreleme açısından karşılaştırın."
 }

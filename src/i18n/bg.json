@@ -2739,5 +2739,17 @@
   "Full-Wave Rectifier Calculator: Average DC Voltage": "Компютър за преобразуване на AC към DC Converter",
   "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "Изчислете средната стойност на идеалната нефилтрирана пълна вълна, която се коригира.",
   "Half-Wave Rectifier Calculator: Average DC Voltage": "Полуволна коректор калкулатор AC към DC конвертор",
-  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Изчислете средната пълна цикъл на идеалния нефилтриран полуволна рецититор."
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Изчислете средната пълна цикъл на идеалния нефилтриран полуволна рецититор.",
+  "Full-Wave Rectifier Calculator: Peak, Average & Ripple": "Компютър за преобразуване на AC към DC Converter",
+  "Half-Wave Rectifier Calculator: Peak, Average & Ripple": "Полуволна коректор калкулатор AC към DC конвертор",
+  "AC to DC Converter Calculator: Instant DC Voltage & Ripple": "AC/DC калкулатор: изходно напрежение и пулсации",
+  "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula": "Рефлексът на Ripple: Half-Wave, Full-Wave и 50/60 Hz",
+  "Full-Wave Bridge Rectifier: Working, Circuit & Formulas": "Мостов изправител: схема, работа и DC изход",
+  "Half-Wave vs Full-Wave Rectifier: Key Differences & Math": "Полуволна срещу пълна волна Рецифър: Разлики и предимства",
+  "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.": "Изчислете средната стойност на идеалната нефилтрирана пълна вълна, която се коригира.",
+  "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.": "Изчислете средната пълна цикъл на идеалния нефилтриран полуволна рецититор.",
+  "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.": "Изчислете изхода DC от входното RMS напрежение. Отчетете вида изправител, падовете върху диодите, товара и пулсациите на кондензатора.",
+  "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.": "Използвайте репл честота f за полу вълна и 2f за еднофазни пълни вълни. Сравнете примери 50/60 Hz и избягвайте да броите фактора два пъти.",
+  "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.": "Следвайте маршрутите на кръга, DC напор формулите и 12 V RMS пример, с диодни капки и кондензатор реп.",
+  "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.": "Сравнете полу вълните и пълните рективи: броя на диодите, DC изхода, репл и филтриране. Вижте защо пълната вълна има предимства, с 12 V RMS пример."
 }

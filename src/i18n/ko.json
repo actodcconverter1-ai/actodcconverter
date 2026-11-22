@@ -2740,5 +2740,17 @@
   "Full-Wave Rectifier Calculator: Average DC Voltage": "전체 파장 수정기 계산기 AC to DC Converter",
   "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "필터링되지 않은 이상적인 전파 정류 사인파의 평균을 계산합니다.",
   "Half-Wave Rectifier Calculator: Average DC Voltage": "반파 정류기 계산기: AC 입력의 평균 DC 출력 전압과 실효값 계산",
-  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "필터링되지 않은 이상적인 반파 정류기의 전체 사이클 평균을 계산합니다."
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "필터링되지 않은 이상적인 반파 정류기의 전체 사이클 평균을 계산합니다.",
+  "Full-Wave Rectifier Calculator: Peak, Average & Ripple": "전체 파장 수정기 계산기 AC to DC Converter",
+  "Half-Wave Rectifier Calculator: Peak, Average & Ripple": "반파 정류기 계산기: AC 입력의 평균 DC 출력 전압과 실효값 계산",
+  "AC to DC Converter Calculator: Instant DC Voltage & Ripple": "AC-DC 변환 계산기: RMS 입력의 직류 출력 전압과 리플 계산",
+  "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula": "리플 주파수 공식: 반 파도, 풀 파도 & 50/60 Hz",
+  "Full-Wave Bridge Rectifier: Working, Circuit & Formulas": "Full-Wave Bridge Rectifier : 회로, 작업 및 DC 출력",
+  "Half-Wave vs Full-Wave Rectifier: Key Differences & Math": "반파 정류기와 전파 정류기 비교: 평균 출력·리플 주파수와 필터링",
+  "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.": "필터링되지 않은 이상적인 전파 정류 사인파의 평균을 계산합니다.",
+  "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.": "필터링되지 않은 이상적인 반파 정류기의 전체 사이클 평균을 계산합니다.",
+  "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.": "RMS 입력에서 AC-DC 출력 전압을 계산합니다. 정류기를 선택하고, 다이오드 강하를 포함하고, 작업된 예를 통해 부하에 대한 커패시터 리플을 추정하십시오.",
+  "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.": "반파를 위한 리플 주파수 f를 사용하고 단일 단계의 풀파 수정기 2f를 사용하십시오.50/60 Hz 예제와 비교하여 두 배의 요소를 계산하지 마십시오.",
+  "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.": "4 디오드 다리 수정기 작동하는 방법을 배우십시오.주차 경로, DC 전압 수식 및 12 V RMS 예를 따르십시오.디오드 방울과 컨센서 리플이 있습니다.",
+  "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.": "반파 및 전파 정류기 비교: 다이오드 수, DC 출력, 리플 및 필터링. 12V RMS 예를 통해 전파가 장점인 이유를 알아보세요."
 }

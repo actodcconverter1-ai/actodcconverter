@@ -2739,5 +2739,17 @@
   "Full-Wave Rectifier Calculator: Average DC Voltage": "Kalkulator penyearah gelombang penuh",
   "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "Menghitung rata-rata gelombang sinus yang tidak terfilter sepenuh gelombang yang benar.",
   "Half-Wave Rectifier Calculator: Average DC Voltage": "Kalkulator penyearah setengah gelombang",
-  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Menghitung rata-rata siklus lengkap dari rektum setengah gelombang yang ideal tidak difilter."
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Menghitung rata-rata siklus lengkap dari rektum setengah gelombang yang ideal tidak difilter.",
+  "Full-Wave Rectifier Calculator: Peak, Average & Ripple": "Kalkulator penyearah gelombang penuh",
+  "Half-Wave Rectifier Calculator: Peak, Average & Ripple": "Kalkulator penyearah setengah gelombang",
+  "AC to DC Converter Calculator: Instant DC Voltage & Ripple": "Kalkulator AC ke DC: tegangan keluaran dan riak",
+  "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula": "Fitur Frekuensi Ripple: Half-Wave, Full-Wave & 50/60 Hz",
+  "Full-Wave Bridge Rectifier: Working, Circuit & Formulas": "Penyearah jembatan gelombang penuh: rangkaian dan keluaran",
+  "Half-Wave vs Full-Wave Rectifier: Key Differences & Math": "Half-Wave vs Full-Wave Rectifier: Perbedaan & Keuntungan",
+  "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.": "Menghitung rata-rata gelombang sinus yang tidak terfilter sepenuh gelombang yang benar.",
+  "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.": "Menghitung rata-rata siklus lengkap dari rektum setengah gelombang yang ideal tidak difilter.",
+  "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.": "Pilih rettifier, termasuk tetes diode, dan menganggarkan ripple kondensor untuk beban Anda dengan contoh yang bekerja.",
+  "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.": "Gunakan f untuk setengah gelombang dan 2f untuk gelombang penuh satu fase. Lihat contoh frekuensi riak pada 50 Hz dan 60 Hz.",
+  "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.": "Ikuti jalur sirkuit, formula tegangan DC dan contoh 12 V RMS, dengan tetes diode dan kapsul kondensator.",
+  "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.": "Bandingkan penyearah setengah gelombang dan gelombang penuh: jumlah dioda, tegangan rata-rata, frekuensi riak, dan filter."
 }

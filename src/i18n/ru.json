@@ -2740,5 +2740,17 @@
   "Full-Wave Rectifier Calculator: Average DC Voltage": "Калькулятор двухполупериодного выпрямителя",
   "Calculate ideal full-wave DC average, peak and ripple frequency from AC RMS voltage. Includes 12 V and 47 Vpp examples, formulas and model limits.": "Рассчитайте среднее значение идеальной нефильтрованной двухполупериодной выпрямленной синусоидальной волны.",
   "Half-Wave Rectifier Calculator: Average DC Voltage": "Калькулятор однополупериодного выпрямителя",
-  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Рассчитайте среднее значение за полный цикл идеального нефильтрованного полуволнового выпрямителя."
+  "Calculate ideal half-wave average DC voltage, peak and ripple frequency from AC RMS input. See 12 V examples and how the blocked half-cycle affects output.": "Рассчитайте среднее значение за полный цикл идеального нефильтрованного полуволнового выпрямителя.",
+  "Full-Wave Rectifier Calculator: Peak, Average & Ripple": "Калькулятор двухполупериодного выпрямителя",
+  "Half-Wave Rectifier Calculator: Peak, Average & Ripple": "Калькулятор однополупериодного выпрямителя",
+  "AC to DC Converter Calculator: Instant DC Voltage & Ripple": "Калькулятор AC/DC: выходное напряжение и пульсации",
+  "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula": "Частота пульсаций выпрямителя: формулы и 50/60 Гц",
+  "Full-Wave Bridge Rectifier: Working, Circuit & Formulas": "Мостовой выпрямитель: схема, работа и выходное напряжение",
+  "Half-Wave vs Full-Wave Rectifier: Key Differences & Math": "Одно- и двухполупериодный выпрямитель: отличия",
+  "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.": "Рассчитайте среднее значение идеальной нефильтрованной двухполупериодной выпрямленной синусоидальной волны.",
+  "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.": "Рассчитайте среднее значение за полный цикл идеального нефильтрованного полуволнового выпрямителя.",
+  "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.": "Рассчитайте выход DC по входному RMS. Учтите тип выпрямителя, падение на диодах, нагрузку и пульсации на конденсаторе.",
+  "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.": "Используйте частоту репль f для полуволны и 2f для однофазных полных волн. Сравнить 50/60 Hz примеров и избегать расчетов фактора в два раза.",
+  "Learn how a full-wave bridge rectifier works with 4 diodes. Trace alternating conduction paths, calculate average & peak output with 12 V worked examples.": "Изучите работу моста из четырёх диодов, два прямых падения и форму выходного напряжения с фильтром и без него.",
+  "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.": "Сравните одно- и двухполупериодные выпрямители: число диодов, среднее напряжение, частоту пульсаций и фильтрацию."
 }
