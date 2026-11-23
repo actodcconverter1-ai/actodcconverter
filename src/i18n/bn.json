@@ -2808,5 +2808,22 @@
   "DC average and valley voltage estimation": "DC average and valley voltage estimation",
   "Calculate peak-to-peak ripple voltage, RMS ripple and ripple factor.": "Calculate peak-to-peak ripple voltage, RMS ripple and ripple factor.",
   "Rectifier ripple voltage and ripple factor": "Rectifier ripple voltage and ripple factor",
-  "Calculate peak-to-peak ripple, RMS ripple and percentage factor.": "Calculate peak-to-peak ripple, RMS ripple and percentage factor."
+  "Calculate peak-to-peak ripple, RMS ripple and percentage factor.": "Calculate peak-to-peak ripple, RMS ripple and percentage factor.",
+  "3-Phase Rectifier Calculator: Bridge Output Voltage & Ripple": "৩-ফেজ রেকটিফায়ার ক্যালকুলেটর: ডিসি ভোল্টেজ ও রিপল",
+  "Calculate average DC voltage, peak voltage, native ripple percentage and diode PIV for 3-phase full-wave and half-wave rectifiers.": "Calculate average DC voltage, peak voltage, native ripple percentage and diode PIV for 3-phase full-wave and half-wave rectifiers.",
+  "3-phase calculator": "3-phase calculator",
+  "3-phase rectifier calculator": "৩-ফেজ রেকটিফায়ার ক্যালকুলেটর",
+  "Three-phase bridge rectifier calculator": "Three-phase bridge rectifier calculator",
+  "Line-to-line AC voltage · RMS (V)": "Line-to-line AC voltage · RMS (V)",
+  "6-pulse bridge (6 diodes)": "6-pulse bridge (6 diodes)",
+  "3-pulse half-wave (3 diodes)": "3-pulse half-wave (3 diodes)",
+  "Minimum trough voltage (V)": "Minimum trough voltage (V)",
+  "Native peak-to-peak ripple": "Native peak-to-peak ripple",
+  "Diode peak inverse voltage (PIV)": "Diode peak inverse voltage (PIV)",
+  "3-phase 6-pulse bridge DC voltage calculation": "3-phase 6-pulse bridge DC voltage calculation",
+  "Native ripple frequency and factor estimation": "Native ripple frequency and factor estimation",
+  "Diode peak inverse voltage rating": "Diode peak inverse voltage rating",
+  "Calculate 3-phase bridge DC average, peak voltage and 6-pulse ripple.": "Calculate 3-phase bridge DC average, peak voltage and 6-pulse ripple.",
+  "3-phase AC to DC bridge rectification": "3-phase AC to DC bridge rectification",
+  "Calculate 6-pulse bridge DC average, peak voltage and ripple frequency.": "Calculate 6-pulse bridge DC average, peak voltage and ripple frequency."
 }

@@ -1,0 +1,101 @@
+---
+import {
+  calculateThreePhaseRectifier,
+  defaultThreePhaseInput
+} from '../calculators/three-phase-rectifier';
+import { formatResult as formatNumber } from '../lib/result-presentation';
+
+const initial = calculateThreePhaseRectifier(defaultThreePhaseInput);
+---
+<section class="converter-workbench" id="calculator" data-three-phase-calc aria-label="Three-phase bridge rectifier calculator">
+  <header class="workbench-heading">
+    <div>
+      <p class="eyebrow" data-editorial-locale="en">SIX-PULSE &amp; THREE-PULSE CIRCUITS</p>
+      <h2>3-phase rectifier calculator</h2>
+    </div>
+    <span class="local-label">Runs on your device</span>
+  </header>
+
+  <div class="workbench-layout">
+    <form novalidate data-workbench-form>
+      <div class="workbench-grid">
+        <div>
+          <label for="tp-vll">Line-to-line AC voltage · RMS (V)</label>
+          <input id="tp-vll" name="lineVoltageRms" type="number" min="1" max="10000" step="any" value={defaultThreePhaseInput.lineVoltageRms} required />
+          <small data-editorial-locale="en">Voltage measured line-to-line (V_LL).</small>
+        </div>
+        <div>
+          <label for="tp-freq">AC frequency (Hz)</label>
+          <input id="tp-freq" name="frequency" type="number" min="1" max="1000" step="any" value={defaultThreePhaseInput.frequency} required />
+          <small data-editorial-locale="en">Line frequency (50 Hz or 60 Hz).</small>
+        </div>
+        <div>
+          <label for="tp-topology">Rectifier configuration</label>
+          <select id="tp-topology" name="topology">
+            <option value="six-pulse-bridge" selected>6-pulse bridge (6 diodes)</option>
+            <option value="three-pulse-half-wave">3-pulse half-wave (3 diodes)</option>
+          </select>
+          <small data-editorial-locale="en">6-pulse produces 6 pulses per cycle (6f ripple).</small>
+        </div>
+        <div>
+          <label for="tp-diode">Diode forward drop per junction (V)</label>
+          <input id="tp-diode" name="diodeDrop" type="number" min="0" max="5" step="any" value={defaultThreePhaseInput.diodeDrop} />
+          <small data-editorial-locale="en">Typically 0.7 V for silicon rectifier diodes.</small>
+        </div>
+      </div>
+
+      <p id="tp-error" data-tp-error role="alert" class="error" hidden></p>
+      <div class="calc-actions">
+        <button class="button" type="submit">Calculate DC output</button>
+        <button class="reset" type="reset">↺ Reset</button>
+      </div>
+      <noscript><p class="notice">Enable JavaScript to calculate other values. The default example is shown below.</p></noscript>
+    </form>
+
+    <div class="workbench-visuals">
+      <div class="workbench-results" aria-live="polite" aria-atomic="true">
+        <h3>Calculated result</h3>
+        <dl class="metric-grid">
+          <div>
+            <dt>Average DC output voltage</dt>
+            <dd data-tp-vdc>{formatNumber(initial.vDcAvg)} V</dd>
+          </div>
+          <div>
+            <dt>Peak output voltage (V)</dt>
+            <dd data-tp-vpeak>{formatNumber(initial.vPeak)} V</dd>
+          </div>
+          <div>
+            <dt>Minimum trough voltage (V)</dt>
+            <dd data-tp-vmin>{formatNumber(initial.vMin)} V</dd>
+          </div>
+          <div>
+            <dt>Native peak-to-peak ripple</dt>
+            <dd data-tp-vpp>{formatNumber(initial.rippleVpp)} V</dd>
+          </div>
+          <div>
+            <dt>Ripple frequency (Hz)</dt>
+            <dd data-tp-freq>{initial.rippleFrequency} Hz</dd>
+          </div>
+          <div>
+            <dt>Diode peak inverse voltage (PIV)</dt>
+            <dd data-tp-piv>{formatNumber(initial.diodePiv)} V</dd>
+          </div>
+        </dl>
+        <p class="workbench-formula" data-tp-formula translate="no">{initial.formula}</p>
+      </div>
+    </div>
+  </div>
+
+  <details class="workbench-help" data-editorial-locale="en">
+    <summary>How to use this 3-phase rectifier calculator</summary>
+    <p>This tool analyzes three-phase AC to DC rectification for industrial drives, battery chargers, and DC power buses.</p>
+    <ol>
+      <li>Enter your three-phase line-to-line AC RMS voltage (e.g. 400 V in Europe, 208 V or 480 V in North America).</li>
+      <li>Specify your line frequency (50 Hz or 60 Hz).</li>
+      <li>Choose between the standard 6-pulse bridge (six diodes) or 3-pulse half-wave (three diodes with neutral).</li>
+      <li>Review the DC output voltage, native unfiltered ripple (only ~4.04% for 6-pulse), and diode voltage rating requirements.</li>
+    </ol>
+  </details>
+  <p class="safety-note" data-editorial-locale="en">High voltage safety note: Three-phase circuits operate at lethal voltage and high fault-current energy levels. Ensure proper diode reverse-voltage ratings (PIV ≥ √2 × V_LL with at least a 2× transient safety factor) and verify fuse protection.</p>
+</section>
+<script>import '../scripts/three-phase-rectifier-client';</script>

@@ -340,5 +340,6 @@
   "/half-wave-rectifier-calculator/": "Half-Wave Rectifier Calculator: Peak, Average & Ripple",
   "/smoothing-capacitor-calculator/": "Smoothing Capacitor Calculator: Filter Sizing in µF",
   "/transformer-sizing-calculator/": "Transformer VA Sizing Calculator: Secondary Voltage & Rating",
-  "/rectifier-ripple-calculator/": "Rectifier Ripple Voltage Calculator: Peak-to-Peak & Factor"
+  "/rectifier-ripple-calculator/": "Rectifier Ripple Voltage Calculator: Peak-to-Peak & Factor",
+  "/three-phase-rectifier-calculator/": "3-Phase Rectifier Calculator: Bridge Output Voltage & Ripple"
 }

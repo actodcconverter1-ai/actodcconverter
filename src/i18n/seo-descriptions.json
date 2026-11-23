@@ -410,5 +410,6 @@
   "/half-wave-rectifier-calculator/": "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.",
   "/smoothing-capacitor-calculator/": "Calculate smoothing capacitor size in µF from load current, frequency and target ripple voltage. Includes standard capacitor selection and voltage ratings.",
   "/transformer-sizing-calculator/": "Calculate transformer secondary AC voltage, RMS current and VA rating required for your DC power supply output.",
-  "/rectifier-ripple-calculator/": "Calculate peak-to-peak ripple voltage, RMS ripple, DC average and ripple factor (γ) for half-wave and full-wave capacitor-filtered rectifiers."
+  "/rectifier-ripple-calculator/": "Calculate peak-to-peak ripple voltage, RMS ripple, DC average and ripple factor (γ) for half-wave and full-wave capacitor-filtered rectifiers.",
+  "/three-phase-rectifier-calculator/": "Calculate average DC voltage, peak voltage, native ripple percentage and diode PIV for 3-phase full-wave and half-wave rectifiers."
 }

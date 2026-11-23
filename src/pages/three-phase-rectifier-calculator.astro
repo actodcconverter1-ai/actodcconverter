@@ -1,0 +1,117 @@
+---
+import {webApplication} from '../lib/structured-data';
+import Base from '../layouts/Base.astro';
+import ThreePhaseRectifierWorkbench from '../components/ThreePhaseRectifierWorkbench.astro';
+
+const path = '/three-phase-rectifier-calculator/';
+const title = '3-Phase Rectifier Calculator: Bridge Output Voltage & Ripple';
+const description = 'Calculate average DC voltage, peak voltage, native ripple percentage and diode PIV for 3-phase full-wave and half-wave rectifiers.';
+---
+<Base
+  title={title}
+  titleIsComplete
+  breadcrumbTitle="3-phase calculator"
+  description={description}
+  schema={[webApplication(path, title, description, ['3-phase 6-pulse bridge DC voltage calculation', 'Native ripple frequency and factor estimation', 'Diode peak inverse voltage rating'])]}
+>
+  <div class="shell page-intro">
+    <p class="eyebrow" data-editorial-locale="en">INDUSTRIAL POWER · POLYPHASE RECTIFICATION</p>
+    <h1>3-phase rectifier calculator</h1>
+    <p class="spoke-intro" data-editorial-locale="en">
+      Calculate the average DC output voltage, peak voltage, native unfiltered ripple (6f), and diode PIV for 3-phase 6-pulse bridge and 3-pulse half-wave rectifiers. Connect these concepts with our <a href="/">AC to DC converter hub</a> for single-phase comparisons and power supply fundamentals.
+    </p>
+
+    <ThreePhaseRectifierWorkbench />
+
+    <section class="prose education-section" data-editorial-locale="en">
+      <h2>How 3-phase rectification works: 6-pulse vs 3-pulse</h2>
+      <p>
+        Three-phase AC power delivers continuous, overlapping voltage waves spaced 120° electrical degrees apart. Because the individual phase voltages never drop to zero simultaneously, 3-phase rectifiers produce a much smoother, higher-average DC voltage than single-phase rectifiers—even without a filter capacitor.
+      </p>
+
+      <h3>1. Three-phase full-wave bridge (6-pulse)</h3>
+      <p>
+        The standard three-phase bridge uses six diodes connected in three legs across the three AC lines (L1, L2, L3). At any instant, the diode connected to the most positive phase conducts to the DC+ rail, and the diode connected to the most negative phase conducts to the DC− rail.
+      </p>
+      <ul>
+        <li><strong>Average DC Voltage:</strong> <code>V_dc(avg) = (3√2 / π) × V_LL ≈ 1.3505 × V_LL − 2V_f</code></li>
+        <li><strong>Peak DC Voltage:</strong> <code>V_peak = √2 × V_LL − 2V_f ≈ 1.4142 × V_LL − 2V_f</code></li>
+        <li><strong>Minimum Trough Voltage:</strong> <code>V_min = √2 × V_LL × (√3 / 2) − 2V_f ≈ 1.2247 × V_LL − 2V_f</code></li>
+        <li><strong>Ripple Repetition Frequency:</strong> <code>f_ripple = 6 × f_line</code> (300 Hz on 50 Hz line; 360 Hz on 60 Hz line).</li>
+        <li><strong>Native Unfiltered Ripple:</strong> Peak-to-peak ripple is only <strong>13.4%</strong> of peak voltage, giving a native RMS ripple factor of only <strong>4.04%</strong>. Many industrial DC motor drives run directly from 6-pulse unfiltered DC!</li>
+      </ul>
+
+      <h3>2. Three-phase half-wave rectifier (3-pulse)</h3>
+      <p>
+        A 3-pulse half-wave rectifier uses three diodes connected to a wye (star) secondary winding, with the DC load returning through the star neutral point:
+      </p>
+      <ul>
+        <li><strong>Average DC Voltage:</strong> <code>V_dc(avg) = (3√6 / 2π) × V_LN ≈ 1.1695 × V_LN − V_f ≈ 0.6752 × V_LL − V_f</code></li>
+        <li><strong>Ripple Frequency:</strong> <code>f_ripple = 3 × f_line</code> (150 Hz at 50 Hz; 180 Hz at 60 Hz).</li>
+        <li><strong>Native Ripple Factor:</strong> Approximately <strong>17.7%</strong> (considerably higher than a 6-pulse bridge).</li>
+      </ul>
+
+      <h2>Quick voltage multiplier reference table</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>AC Supply (V_LL RMS)</th>
+              <th>Circuit Type</th>
+              <th>Average DC Output</th>
+              <th>Peak Voltage</th>
+              <th>Ripple Frequency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>208 V (North America 60 Hz)</td>
+              <td>6-Pulse Bridge</td>
+              <td>279.5 V DC</td>
+              <td>292.8 V DC</td>
+              <td>360 Hz</td>
+            </tr>
+            <tr>
+              <td>380 V (Industrial 50 Hz)</td>
+              <td>6-Pulse Bridge</td>
+              <td>511.8 V DC</td>
+              <td>536.0 V DC</td>
+              <td>300 Hz</td>
+            </tr>
+            <tr>
+              <td>400 V (Europe/Standard 50 Hz)</td>
+              <td>6-Pulse Bridge</td>
+              <td>538.8 V DC</td>
+              <td>564.3 V DC</td>
+              <td>300 Hz</td>
+            </tr>
+            <tr>
+              <td>480 V (North America 60 Hz)</td>
+              <td>6-Pulse Bridge</td>
+              <td>646.8 V DC</td>
+              <td>677.4 V DC</td>
+              <td>360 Hz</td>
+            </tr>
+            <tr>
+              <td>400 V (Star with neutral)</td>
+              <td>3-Pulse Half-Wave</td>
+              <td>269.4 V DC</td>
+              <td>325.9 V DC</td>
+              <td>150 Hz</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Diode ratings and safety</h2>
+      <ul>
+        <li><strong>Peak Inverse Voltage (PIV):</strong> Each diode in a 6-pulse bridge must withstand the full peak line-to-line voltage: <code>PIV = √2 × V_LL</code>. For a 400 V line, PIV is 565.7 V. Standard industrial practice requires at least <strong>1,200 V or 1,600 V rated diodes</strong> to survive mains line transients and inductive switching spikes.</li>
+        <li><strong>Current Distribution:</strong> Each diode in a 6-pulse bridge conducts for only one-third (120°) of each electrical cycle. Average diode current is <code>I_diode(avg) = I_dc / 3</code>, while diode RMS current is <code>I_diode(rms) = I_dc / √3 ≈ 0.577 × I_dc</code>.</li>
+      </ul>
+
+      <p class="workbench-links">
+        Related tools and guides: <a href="/ac-to-dc-calculator/">AC to DC converter workbench</a> · <a href="/blog/single-phase-vs-three-phase-rectifiers/">Single-phase vs three-phase rectifiers</a> · <a href="/transformer-sizing-calculator/">Transformer sizing calculator</a> · <a href="/rectifier-ripple-calculator/">Rectifier ripple calculator</a>
+      </p>
+    </section>
+  </div>
+</Base>
