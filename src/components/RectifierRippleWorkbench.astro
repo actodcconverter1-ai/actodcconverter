@@ -1,0 +1,119 @@
+---
+import {
+  calculateRectifierRipple,
+  defaultRippleInput
+} from '../calculators/rectifier-ripple';
+import { formatResult as formatNumber } from '../lib/result-presentation';
+
+const initial = calculateRectifierRipple(defaultRippleInput);
+---
+<section class="converter-workbench" id="calculator" data-ripple-calc aria-label="Rectifier ripple voltage and factor calculator">
+  <header class="workbench-heading">
+    <div>
+      <p class="eyebrow" data-editorial-locale="en">RIPPLE FACTOR &amp; VOLTAGE ANALYSIS</p>
+      <h2>Rectifier ripple calculator</h2>
+    </div>
+    <span class="local-label">Runs on your device</span>
+  </header>
+
+  <div class="workbench-layout">
+    <form novalidate data-workbench-form>
+      <div class="workbench-grid">
+        <div>
+          <label for="rr-rms">AC input · RMS (V)</label>
+          <input id="rr-rms" name="rms" type="number" min="0.1" max="1000" step="any" value={defaultRippleInput.rms} required />
+          <small data-editorial-locale="en">Secondary AC voltage into rectifier.</small>
+        </div>
+        <div>
+          <label for="rr-freq">AC frequency (Hz)</label>
+          <input id="rr-freq" name="frequency" type="number" min="1" max="1000" step="any" value={defaultRippleInput.frequency} required />
+          <small data-editorial-locale="en">Mains line frequency (50 Hz or 60 Hz).</small>
+        </div>
+        <div>
+          <label for="rr-cap">Filter capacitance (µF)</label>
+          <input id="rr-cap" name="capacitanceUf" type="number" min="0.1" max="1000000" step="any" value={defaultRippleInput.capacitanceUf} required />
+          <small data-editorial-locale="en">Reservoir filter capacitor value.</small>
+        </div>
+        <div>
+          <label for="rr-load-type">Load type</label>
+          <select id="rr-load-type" name="loadType">
+            <option value="current" selected>DC load current (A)</option>
+            <option value="resistance">Load resistance (Ω)</option>
+          </select>
+          <small data-editorial-locale="en">Select constant current or resistive load.</small>
+        </div>
+        <div>
+          <label for="rr-load-val">Load value</label>
+          <input id="rr-load-val" name="loadValue" type="number" min="0.001" max="1000000" step="any" value={defaultRippleInput.loadValue} required />
+          <small data-editorial-locale="en">Current in Amperes or Resistance in Ohms.</small>
+        </div>
+        <div>
+          <label for="rr-topology">Rectifier configuration</label>
+          <select id="rr-topology" name="topology">
+            <option value="full-wave" selected>Four-diode bridge</option>
+            <option value="half-wave">Half-wave</option>
+          </select>
+          <small data-editorial-locale="en">Bridge produces 2f ripple frequency.</small>
+        </div>
+        <div>
+          <label for="rr-diode">Diode forward drop per junction (V)</label>
+          <input id="rr-diode" name="diodeDrop" type="number" min="0" max="5" step="any" value={defaultRippleInput.diodeDrop} />
+          <small data-editorial-locale="en">0.7 V for silicon, 0.4 V for Schottky.</small>
+        </div>
+      </div>
+
+      <p id="rr-error" data-rr-error role="alert" class="error" hidden></p>
+      <div class="calc-actions">
+        <button class="button" type="submit">Calculate DC output</button>
+        <button class="reset" type="reset">↺ Reset</button>
+      </div>
+      <noscript><p class="notice">Enable JavaScript to calculate other values. The default example is shown below.</p></noscript>
+    </form>
+
+    <div class="workbench-visuals">
+      <div class="workbench-results" aria-live="polite" aria-atomic="true">
+        <h3>Calculated result</h3>
+        <dl class="metric-grid">
+          <div>
+            <dt>Peak output voltage (V)</dt>
+            <dd data-rr-vpeak>{formatNumber(initial.vPeak)} V</dd>
+          </div>
+          <div>
+            <dt>Average DC output voltage</dt>
+            <dd data-rr-vdc>{formatNumber(initial.vDcAvg)} V</dd>
+          </div>
+          <div>
+            <dt>Minimum valley voltage (V)</dt>
+            <dd data-rr-vvalley>{formatNumber(initial.vValley)} V</dd>
+          </div>
+          <div>
+            <dt>Peak-to-peak ripple (ΔVpp)</dt>
+            <dd data-rr-vpp>{formatNumber(initial.rippleVpp)} V</dd>
+          </div>
+          <div>
+            <dt>Ripple factor (%)</dt>
+            <dd data-rr-factor>{formatNumber(initial.rippleFactorPercent)} %</dd>
+          </div>
+          <div>
+            <dt>Ripple frequency (Hz)</dt>
+            <dd data-rr-freq>{initial.rippleFrequency} Hz</dd>
+          </div>
+        </dl>
+        <p class="workbench-formula" data-rr-formula translate="no">{initial.formula}</p>
+      </div>
+    </div>
+  </div>
+
+  <details class="workbench-help" data-editorial-locale="en">
+    <summary>How to use this rectifier ripple calculator</summary>
+    <p>This tool evaluates the residual AC ripple voltage and ripple factor (γ) appearing across a smoothing capacitor in single-phase rectifier circuits.</p>
+    <ol>
+      <li>Enter your secondary AC RMS input voltage and frequency.</li>
+      <li>Specify your smoothing capacitor size in microfarads (µF).</li>
+      <li>Choose whether your load is defined as a fixed DC current draw (Amperes) or a resistive load (Ohms).</li>
+      <li>Review peak, average, valley voltage, and verify whether the ripple factor meets your circuit's tolerance limits.</li>
+    </ol>
+  </details>
+  <p class="safety-note" data-editorial-locale="en">Model boundary: This calculation uses the linear charge-discharge approximation (valid when peak-to-peak ripple is under 20% of peak voltage). In high-ripple or heavily loaded supplies, non-linear capacitor discharge slightly lowers the average DC output.</p>
+</section>
+<script>import '../scripts/rectifier-ripple-client';</script>

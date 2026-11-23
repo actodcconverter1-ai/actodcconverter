@@ -1,0 +1,122 @@
+---
+import {webApplication} from '../lib/structured-data';
+import Base from '../layouts/Base.astro';
+import RectifierRippleWorkbench from '../components/RectifierRippleWorkbench.astro';
+
+const path = '/rectifier-ripple-calculator/';
+const title = 'Rectifier Ripple Voltage Calculator: Peak-to-Peak & Factor';
+const description = 'Calculate peak-to-peak ripple voltage, RMS ripple, DC average and ripple factor (γ) for half-wave and full-wave capacitor-filtered rectifiers.';
+---
+<Base
+  title={title}
+  titleIsComplete
+  breadcrumbTitle="Ripple calculator"
+  description={description}
+  schema={[webApplication(path, title, description, ['Peak-to-peak ripple voltage calculation', 'Ripple factor percentage analysis', 'DC average and valley voltage estimation'])]}
+>
+  <div class="shell page-intro">
+    <p class="eyebrow" data-editorial-locale="en">RECTIFIER WAVEFORMS · RIPPLE ANALYSIS</p>
+    <h1>Rectifier ripple calculator</h1>
+    <p class="spoke-intro" data-editorial-locale="en">
+      Calculate the peak-to-peak ripple voltage (ΔVpp), RMS ripple, average DC voltage, and ripple factor (γ) across a capacitor-filtered rectifier under current or resistive load. Connect these calculations with our <a href="/">AC to DC converter hub</a> for complete power supply modeling and filter design.
+    </p>
+
+    <RectifierRippleWorkbench />
+
+    <section class="prose education-section" data-editorial-locale="en">
+      <h2>Understanding rectifier ripple voltage and ripple factor</h2>
+      <p>
+        In an AC to DC converter, rectification converts bipolar alternating current into pulsating unipolar current. When a reservoir capacitor is placed across the load, it charges quickly near the peak of each AC cycle and slowly discharges into the load between peaks. The residual cyclical fluctuation superimposed on the DC output is known as <strong>ripple voltage</strong>.
+      </p>
+
+      <h3>1. Peak-to-peak ripple voltage (ΔV_pp) formula</h3>
+      <p>
+        Assuming the smoothing capacitor discharges at an approximately constant rate into the load during the non-conduction interval, the peak-to-peak ripple voltage is:
+      </p>
+      <div class="formula">ΔV_pp ≈ I_load / (f_ripple × C)</div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>I_load:</strong> Load current in Amperes (A). For a resistive load R, <code>I_load ≈ V_peak / R</code>.</li>
+        <li><strong>f_ripple:</strong> Ripple frequency in Hertz (Hz). For a single-phase full-wave bridge, <code>f_ripple = 2 × f_line</code> (100 Hz at 50 Hz, 120 Hz at 60 Hz). For a half-wave rectifier, <code>f_ripple = f_line</code>.</li>
+        <li><strong>C:</strong> Filter capacitance in Farads (F) (µF × 10⁻⁶).</li>
+      </ul>
+
+      <h3>2. Average DC voltage (V_dc) and valley voltage (V_valley)</h3>
+      <p>
+        The DC output does not stay at the peak level. It oscillates between a maximum (V_peak) and a minimum (V_valley):
+      </p>
+      <div class="formula">V_valley = V_peak − ΔV_pp</div>
+      <div class="formula">V_dc(avg) = V_peak − (ΔV_pp / 2)</div>
+      <p>
+        <em>Engineering significance:</em> If you are feeding a linear voltage regulator (such as an LM7812 or LM317), the <strong>valley voltage</strong> (V_valley) must remain strictly above the regulator's dropout voltage threshold at all times, including during low-mains conditions.
+      </p>
+
+      <h3>3. RMS ripple voltage and ripple factor (γ)</h3>
+      <p>
+        For relatively small ripple ratios (ΔV_pp &lt; 20% of V_peak), the ripple waveform approximates a sawtooth or triangular wave. The root-mean-square (RMS) value of this ripple component is:
+      </p>
+      <div class="formula">V_ripple(rms) ≈ ΔV_pp / (2√3) ≈ ΔV_pp / 3.4641</div>
+      <p>
+        The <strong>ripple factor (γ)</strong> measures the effectiveness of the filtering stage, defined as the ratio of AC ripple RMS voltage to the average DC output:
+      </p>
+      <div class="formula">γ = (V_ripple(rms) / V_dc(avg)) × 100%</div>
+
+      <h2>Typical ripple factor benchmarks</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Circuit Configuration</th>
+              <th>Filtering Stage</th>
+              <th>Typical Ripple Factor (γ)</th>
+              <th>Common Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Half-wave unfiltered</td>
+              <td>None</td>
+              <td>121%</td>
+              <td>Low-cost toys, simple indicators</td>
+            </tr>
+            <tr>
+              <td>Full-wave bridge unfiltered</td>
+              <td>None</td>
+              <td>48.2%</td>
+              <td>Raw battery chargers, electroplating</td>
+            </tr>
+            <tr>
+              <td>Full-wave + standard capacitor</td>
+              <td>1,000 µF / Amp</td>
+              <td>2% to 5%</td>
+              <td>Pre-regulator, DC relays, solenoids</td>
+            </tr>
+            <tr>
+              <td>Full-wave + heavy filtering</td>
+              <td>4,700 µF / Amp</td>
+              <td>0.5% to 1.5%</td>
+              <td>Unregulated linear audio amplifiers</td>
+            </tr>
+            <tr>
+              <td>Post-regulated supply</td>
+              <td>LDO or IC regulator</td>
+              <td>&lt; 0.01% (0.05 mV)</td>
+              <td>Precision instrumentation, RF, microcontrollers</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Practical engineering guidelines</h2>
+      <ul>
+        <li><strong>Ripple Guardrail:</strong> The simple formula <code>ΔV_pp = I / (f × C)</code> assumes the capacitor recharges instantaneously. When ripple exceeds 20% to 25% of V_peak, finite conduction angle effects mean actual ripple is smaller and average DC drops significantly.</li>
+        <li><strong>ESR Ripple Addition:</strong> In real electrolytic capacitors, the charging pulses produce an additional voltage drop across the Equivalent Series Resistance (ESR), adding high-frequency spikes to the ripple waveform.</li>
+        <li><strong>Multi-stage Filtering:</strong> If very low ripple is required without massive capacitors, consider an LC (choke-input) filter or an active transistor ripple filter.</li>
+      </ul>
+
+      <p class="workbench-links">
+        Related tools and guides: <a href="/ac-to-dc-calculator/">AC to DC converter workbench</a> · <a href="/smoothing-capacitor-calculator/">Smoothing capacitor calculator</a> · <a href="/blog/capacitor-ripple-explained/">Capacitor ripple explained</a> · <a href="/blog/rectifier-ripple-frequency/">Rectifier ripple frequency guide</a>
+      </p>
+    </section>
+  </div>
+</Base>

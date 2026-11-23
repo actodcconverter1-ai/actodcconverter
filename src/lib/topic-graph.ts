@@ -15,6 +15,7 @@ export const calculatorSpokes: Spoke[] = [
   {href:'/half-wave-rectifier-calculator/', title:'Half-wave rectifier calculator', description:'Calculate an ideal half-wave average over the complete AC cycle.', kind:'calculator', topics:['rectifier-basics','half-wave','average']},
   {href:'/smoothing-capacitor-calculator/', title:'Smoothing capacitor calculator', description:'Calculate required filter capacitance in microfarads for target ripple voltage.', kind:'calculator', topics:['capacitor-filtering','worked-examples','ripple']},
   {href:'/transformer-sizing-calculator/', title:'Transformer sizing calculator', description:'Calculate transformer secondary AC voltage, RMS current and VA rating.', kind:'calculator', topics:['transformer-sizing','power-supply-concepts','worked-examples']},
+  {href:'/rectifier-ripple-calculator/', title:'Rectifier ripple calculator', description:'Calculate peak-to-peak ripple voltage, RMS ripple and ripple factor.', kind:'calculator', topics:['capacitor-filtering','ripple','rectifier-basics']},
 ];
 
 export function buildSpokes(entries: CollectionEntry<'blog'>[]): Spoke[] {
