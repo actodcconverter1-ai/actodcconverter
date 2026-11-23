@@ -1,0 +1,122 @@
+---
+import {webApplication} from '../lib/structured-data';
+import Base from '../layouts/Base.astro';
+import BleederResistorWorkbench from '../components/BleederResistorWorkbench.astro';
+
+const path = '/bleeder-resistor-calculator/';
+const title = 'Bleeder Resistor Calculator: Discharge Time & Power Rating';
+const description = 'Calculate safety bleeder resistor value (Ohms), discharge time to safe voltage (<50V), continuous power loss and recommended resistor wattage.';
+---
+<Base
+  title={title}
+  titleIsComplete
+  breadcrumbTitle="Bleeder calculator"
+  description={description}
+  schema={[webApplication(path, title, description, ['Bleeder resistance sizing for capacitor discharge', 'Continuous power loss and heat dissipation rating', 'RC time constant and shock hazard safety threshold'])]}
+>
+  <div class="shell page-intro">
+    <p class="eyebrow" data-editorial-locale="en">ELECTRICAL SAFETY · CAPACITOR DISCHARGE</p>
+    <h1>Bleeder resistor calculator</h1>
+    <p class="spoke-intro" data-editorial-locale="en">
+      Calculate the required resistance, continuous thermal power loss, and recommended resistor wattage to discharge high-voltage reservoir capacitors to safe shock levels (&lt;50 V). Connect these calculations with our <a href="/">AC to DC converter hub</a> for smoothing filter design and rectifier principles.
+    </p>
+
+    <BleederResistorWorkbench />
+
+    <section class="prose education-section" data-editorial-locale="en">
+      <h2>Why power supplies need bleeder resistors</h2>
+      <p>
+        In an AC to DC linear or switching power supply, large electrolytic reservoir capacitors store significant electrical charge. When the power supply is switched off or unplugged from the AC mains, an open-circuit load can leave high DC voltages trapped on the capacitor plates for hours or days.
+      </p>
+      <p>
+        Touching terminals carrying voltages over <strong>50 V to 60 V DC</strong> presents a serious electrical shock hazard, and residual capacitor charge can destroy sensitive semiconductors during repair or servicing. A <strong>bleeder resistor</strong> is permanently connected across the DC rail to provide a dedicated discharge path whenever power is removed.
+      </p>
+
+      <h3>1. The capacitor discharge formula</h3>
+      <p>
+        When AC power is turned off, the capacitor discharges exponentially through the bleeder resistance R according to:
+      </p>
+      <div class="formula">V(t) = V_0 × e^(−t / RC)</div>
+      <p>
+        Solving for the resistance R required to bring the voltage from its initial operating level V_0 down to a safe threshold V_safe within target time t gives:
+      </p>
+      <div class="formula">R = t / [C × ln(V_0 / V_safe)]</div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>R:</strong> Required resistance in Ohms (Ω). We round down to the nearest standard E12 resistor value to ensure the actual discharge time is faster than the required limit.</li>
+        <li><strong>t:</strong> Target discharge duration in seconds (typically 2 to 10 seconds).</li>
+        <li><strong>C:</strong> Capacitance in Farads (F) (µF × 10⁻⁶).</li>
+        <li><strong>V_0:</strong> Initial operating DC voltage across the capacitor in Volts (V).</li>
+        <li><strong>V_safe:</strong> Target safe shock threshold in Volts (V) (50 V per international safety standards such as UL 60950, IEC 62368-1).</li>
+      </ul>
+
+      <h3>2. Continuous power loss and thermal rating</h3>
+      <p>
+        During normal power supply operation, current continuously flows through the bleeder resistor, dissipating power as waste heat:
+      </p>
+      <div class="formula">P_dissipated = V_0² / R</div>
+      <p>
+        Because this heat is dissipated continuously throughout the equipment's lifespan, standard engineering practice applies a <strong>2× to 2.5× safety derating factor</strong>:
+      </p>
+      <div class="formula">Recommended Power Rating ≥ 2.0 × P_dissipated</div>
+      <p>
+        For instance, if the bleeder dissipates 2.5 W, select at least a <strong>5 W or 7 W ceramic wirewound resistor</strong> mounted with adequate airflow away from temperature-sensitive electrolytic capacitors.
+      </p>
+
+      <h2>Bleeder resistor reference table</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Operating Voltage</th>
+              <th>Capacitor Size</th>
+              <th>Target Time</th>
+              <th>Recommended Resistor</th>
+              <th>Power Dissipation &amp; Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>48 V DC (Telecom / Solar)</td>
+              <td>2,200 µF</td>
+              <td>5 seconds</td>
+              <td>2.2 kΩ (Standard E12)</td>
+              <td>1.05 W (Use 3 W or 5 W)</td>
+            </tr>
+            <tr>
+              <td>160 V DC (115V AC rectified)</td>
+              <td>1,000 µF</td>
+              <td>5 seconds</td>
+              <td>3.9 kΩ (Standard E12)</td>
+              <td>6.56 W (Use 15 W wirewound)</td>
+            </tr>
+            <tr>
+              <td>325 V DC (230V AC rectified)</td>
+              <td>470 µF</td>
+              <td>10 seconds</td>
+              <td>10 kΩ (Standard E12)</td>
+              <td>10.6 W (Use 25 W chassis mount)</td>
+            </tr>
+            <tr>
+              <td>400 V DC (PFC / Solar inverter)</td>
+              <td>680 µF</td>
+              <td>10 seconds</td>
+              <td>6.8 kΩ (Standard E12)</td>
+              <td>23.5 W (Use 50 W heatsinked)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Design tradeoffs: Safety speed vs efficiency</h2>
+      <ul>
+        <li><strong>Discharge Speed Tradeoff:</strong> Discharging faster requires a lower resistance, which sharply increases standby power loss (proportional to 1/R). Most designs strike a balance between 5 seconds (for bench equipment) and 30 to 60 seconds (for industrial high-efficiency supplies).</li>
+        <li><strong>Voltage Rating of Resistor:</strong> Resistors have maximum working voltage limits (typically 250 V to 500 V for standard axial types). For DC buses over 300 V, connect two or three resistors in series to avoid dielectric arcing across resistor end-caps.</li>
+      </ul>
+
+      <p class="workbench-links">
+        Related tools and guides: <a href="/ac-to-dc-calculator/">AC to DC converter workbench</a> · <a href="/smoothing-capacitor-calculator/">Smoothing capacitor calculator</a> · <a href="/rectifier-ripple-calculator/">Rectifier ripple calculator</a> · <a href="/blog/capacitor-esr-and-ripple-current/">Capacitor ESR and ripple current</a>
+      </p>
+    </section>
+  </div>
+</Base>

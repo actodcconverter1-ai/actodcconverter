@@ -1,15 +1,15 @@
-import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
-import {join,relative} from 'node:path';
-const root='dist';
-const walk=async dir=>(await Promise.all((await readdir(dir,{withFileTypes:true})).map(entry=>entry.isDirectory()?walk(join(dir,entry.name)):join(dir,entry.name)))).flat();
-const settings=JSON.parse(await readFile('src/config/editorial.json','utf8'));
-const domain=new URL(settings.domain).origin;
-const files=(await walk(root)).filter(file=>file.endsWith('.html')&&!relative(root,file).replaceAll('\\','/').startsWith('admin/'));
-const pages=new Map();
-for(const file of files){
- const name=relative(root,file).replaceAll('\\','/');
- if(name==='404.html'||/^(hi|es|ru|fr|de|it|pt|bn|ja|ko|ms|pl|id|ar|bg|tr|sv)\//.test(name))continue;
- pages.set('/'+name.replace(/index\.html$/,''),await readFile(file,'utf8'));
+import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
+import { join, relative } from 'node:path';
+const root = 'dist';
+const walk = async dir => (await Promise.all((await readdir(dir, { withFileTypes: true })).map(entry => entry.isDirectory() ? walk(join(dir, entry.name)) : join(dir, entry.name)))).flat();
+const settings = JSON.parse(await readFile('src/config/editorial.json', 'utf8'));
+const domain = new URL(settings.domain).origin;
+const files = (await walk(root)).filter(file => file.endsWith('.html') && !relative(root, file).replaceAll('\\', '/').startsWith('admin/'));
+const pages = new Map();
+for (const file of files) {
+    const name = relative(root, file).replaceAll('\\', '/');
+    if (name === '404.html' || /^(hi|es|ru|fr|de|it|pt|bn|ja|ko|ms|pl|id|ar|bg|tr|sv)\//.test(name)) continue;
+    pages.set('/' + name.replace(/index\.html$/, ''), await readFile(file, 'utf8'));
 }
 const errors=[];
 const check=(condition,message)=>{if(!condition)errors.push(message);};
@@ -17,7 +17,7 @@ const decode=value=>value.replace(/&#(\d+);/g,(_,code)=>String.fromCodePoint(Num
 const text=value=>decode(value.replace(/<[^>]*>/g,'')).replace(/\s+/g,' ').trim();
 const links=value=>[...value.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match=>decode(match[1]));
 const section=html=>/<section\b[^>]*\bdata-related-spokes\b[^>]*>([\s\S]*?)<\/section>/.exec(html)?.[1]??'';
-const toolPaths=['/ac-to-dc-calculator/','/full-wave-rectifier-calculator/','/half-wave-rectifier-calculator/','/smoothing-capacitor-calculator/','/transformer-sizing-calculator/','/rectifier-ripple-calculator/','/three-phase-rectifier-calculator/'];
+const toolPaths=['/ac-to-dc-calculator/','/full-wave-rectifier-calculator/','/half-wave-rectifier-calculator/','/smoothing-capacitor-calculator/','/transformer-sizing-calculator/','/rectifier-ripple-calculator/','/three-phase-rectifier-calculator/','/bleeder-resistor-calculator/'];
 const spokes=[...pages.keys()].filter(path=>toolPaths.includes(path)||/^\/blog\/[^/]+\/$/.test(path));
 const home=pages.get('/');
 check(Boolean(home),'Homepage missing');
@@ -68,24 +68,24 @@ for(const [path,html] of pages){
   if(article)check(text(/<h1\b[^>]*>([\s\S]*?)<\/h1>/.exec(html)?.[1]??'')===article.headline,path+': article headline differs from visible H1');
  }
 }
-const activeSitemap=settings.indexable&&settings.defaultRobots==='index, follow';
-const xml=activeSitemap?await readFile(join(root,'sitemap.xml'),'utf8'):'';
-const urls=[...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)];
-const sitemapPaths=[];
-for(const [,entry] of urls){
- const loc=/<loc>([^<]+)<\/loc>/.exec(entry)?.[1];
- const priority=/<priority>([^<]+)<\/priority>/.exec(entry)?.[1];
- check(priority!==undefined&&Number(priority)>=0&&Number(priority)<=1,'Sitemap priority invalid: '+loc);
- const url=new URL(decode(loc??'https://invalid.invalid/'));
- check(url.origin===domain&&!url.search&&!url.hash,'Sitemap URL is not canonical: '+loc);
- if(!/^\/(hi|es|ru|fr|de|it|pt|bn|ja|ko|ms|pl|id|ar|bg|tr|sv)\//.test(url.pathname))sitemapPaths.push(url.pathname);
- const lastmod=/<lastmod>([^<]+)<\/lastmod>/.exec(entry)?.[1];
- if(lastmod)check(/^\d{4}-\d{2}-\d{2}$/.test(lastmod)&&!Number.isNaN(Date.parse(lastmod)),'Invalid lastmod: '+loc);
+const activeSitemap = settings.indexable && settings.defaultRobots === 'index, follow';
+const xml = activeSitemap ? await readFile(join(root, 'sitemap.xml'), 'utf8') : '';
+const urls = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)];
+const sitemapPaths = [];
+for (const [, entry] of urls) {
+    const loc = /<loc>([^<]+)<\/loc>/.exec(entry)?.[1];
+    const priority = /<priority>([^<]+)<\/priority>/.exec(entry)?.[1];
+    check(priority !== undefined && Number(priority) >= 0 && Number(priority) <= 1, 'Sitemap priority invalid: ' + loc);
+    const url = new URL(decode(loc ?? 'https://invalid.invalid/'));
+    check(url.origin === domain && !url.search && !url.hash, 'Sitemap URL is not canonical: ' + loc);
+    if (!/^\/(hi|es|ru|fr|de|it|pt|bn|ja|ko|ms|pl|id|ar|bg|tr|sv)\//.test(url.pathname)) sitemapPaths.push(url.pathname);
+    const lastmod = /<lastmod>([^<]+)<\/lastmod>/.exec(entry)?.[1];
+    if (lastmod) check(/^\d{4}-\d{2}-\d{2}$/.test(lastmod) && !Number.isNaN(Date.parse(lastmod)), 'Invalid lastmod: ' + loc);
 }
-check(new Set(sitemapPaths).size===sitemapPaths.length,'Sitemap contains duplicate URLs');
-if(activeSitemap){const indexablePages=new Map([...pages].filter(([,html])=>!/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/.test(html)));check(sitemapPaths.length===indexablePages.size&&sitemapPaths.every(path=>indexablePages.has(path)),'Sitemap does not exactly cover indexable public routes');}
-const report={publicPages:pages.size,spokes:spokes.length,homepageDirectoryLinks:homeLinks.size,visibleFaqs:faqCount,sitemapUrls:sitemapPaths.length,errors};
-await mkdir('artifacts',{recursive:true});
-await writeFile('artifacts/topic-graph-audit.json',JSON.stringify(report,null,2));
-console.log(JSON.stringify(report,null,2));
-if(errors.length)process.exit(1);
+check(new Set(sitemapPaths).size === sitemapPaths.length, 'Sitemap contains duplicate URLs');
+if (activeSitemap) { const indexablePages = new Map([...pages].filter(([, html]) => !/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/.test(html))); check(sitemapPaths.length === indexablePages.size && sitemapPaths.every(path => indexablePages.has(path)), 'Sitemap does not exactly cover indexable public routes'); }
+const report = { publicPages: pages.size, spokes: spokes.length, homepageDirectoryLinks: homeLinks.size, visibleFaqs: faqCount, sitemapUrls: sitemapPaths.length, errors };
+await mkdir('artifacts', { recursive: true });
+await writeFile('artifacts/topic-graph-audit.json', JSON.stringify(report, null, 2));
+console.log(JSON.stringify(report, null, 2));
+if (errors.length) process.exit(1);

@@ -1,0 +1,98 @@
+---
+import {
+  calculateBleederResistor,
+  defaultBleederInput
+} from '../calculators/bleeder-resistor';
+import { formatResult as formatNumber } from '../lib/result-presentation';
+
+const initial = calculateBleederResistor(defaultBleederInput);
+---
+<section class="converter-workbench" id="calculator" data-bleeder-calc aria-label="Bleeder resistor safety calculator">
+  <header class="workbench-heading">
+    <div>
+      <p class="eyebrow" data-editorial-locale="en">CAPACITOR DISCHARGE &amp; SHOCK SAFETY</p>
+      <h2>Bleeder resistor calculator</h2>
+    </div>
+    <span class="local-label">Runs on your device</span>
+  </header>
+
+  <div class="workbench-layout">
+    <form novalidate data-workbench-form>
+      <div class="workbench-grid">
+        <div>
+          <label for="br-v0">Operating DC voltage (V)</label>
+          <input id="br-v0" name="initialVoltage" type="number" min="1" max="10000" step="any" value={defaultBleederInput.initialVoltage} required />
+          <small data-editorial-locale="en">Normal DC bus voltage across capacitor.</small>
+        </div>
+        <div>
+          <label for="br-cap">Filter capacitance (µF)</label>
+          <input id="br-cap" name="capacitanceUf" type="number" min="0.1" max="1000000" step="any" value={defaultBleederInput.capacitanceUf} required />
+          <small data-editorial-locale="en">Total bank capacitance to discharge.</small>
+        </div>
+        <div>
+          <label for="br-time">Target discharge time (s)</label>
+          <input id="br-time" name="targetDischargeTimeSeconds" type="number" min="0.1" max="600" step="any" value={defaultBleederInput.targetDischargeTimeSeconds} required />
+          <small data-editorial-locale="en">Time to reach safe threshold (e.g. 5s).</small>
+        </div>
+        <div>
+          <label for="br-vsafe">Safe threshold voltage (V)</label>
+          <input id="br-vsafe" name="safeVoltage" type="number" min="1" max="1000" step="any" value={defaultBleederInput.safeVoltage} />
+          <small data-editorial-locale="en">Safety limit (&lt;50V per UL / IEC 60950).</small>
+        </div>
+      </div>
+
+      <p id="br-error" data-br-error role="alert" class="error" hidden></p>
+      <div class="calc-actions">
+        <button class="button" type="submit">Calculate DC output</button>
+        <button class="reset" type="reset">↺ Reset</button>
+      </div>
+      <noscript><p class="notice">Enable JavaScript to calculate other values. The default example is shown below.</p></noscript>
+    </form>
+
+    <div class="workbench-visuals">
+      <div class="workbench-results" aria-live="polite" aria-atomic="true">
+        <h3>Calculated result</h3>
+        <dl class="metric-grid">
+          <div>
+            <dt>Calculated resistance (Ω)</dt>
+            <dd data-br-rcalc>{formatNumber(initial.resistanceOhms)} Ω</dd>
+          </div>
+          <div>
+            <dt>Standard E12 resistor (Ω)</dt>
+            <dd data-br-rstd>{formatNumber(initial.standardResistanceOhms)} Ω</dd>
+          </div>
+          <div>
+            <dt>Continuous power loss (W)</dt>
+            <dd data-br-power>{formatNumber(initial.powerDissipationWatts)} W</dd>
+          </div>
+          <div>
+            <dt>Recommended resistor rating (W)</dt>
+            <dd data-br-rating>{formatNumber(initial.recommendedPowerRatingWatts)} W</dd>
+          </div>
+          <div>
+            <dt>Quiescent bleed current (mA)</dt>
+            <dd data-br-current>{formatNumber(initial.bleedCurrentMa)} mA</dd>
+          </div>
+          <div>
+            <dt>RC time constant (s)</dt>
+            <dd data-br-tau>{formatNumber(initial.timeConstantSeconds)} s</dd>
+          </div>
+        </dl>
+        <p class="workbench-formula" data-br-formula translate="no">{initial.formula}</p>
+      </div>
+    </div>
+  </div>
+
+  <details class="workbench-help" data-editorial-locale="en">
+    <summary>How to use this bleeder resistor calculator</summary>
+    <p>This calculator determines the resistance and power rating required to safely drain hazardous voltages stored in high-voltage capacitor banks.</p>
+    <ol>
+      <li>Enter the normal steady-state DC bus voltage across the reservoir capacitor bank.</li>
+      <li>Specify your total capacitance in microfarads (µF).</li>
+      <li>Enter your target discharge duration in seconds (safety standards commonly recommend under 5 to 10 seconds).</li>
+      <li>Review the recommended standard resistor rating (includes a 2× continuous thermal derating factor).</li>
+    </ol>
+  </details>
+  <p class="safety-note" data-editorial-locale="en">High-voltage safety warning: Charged filter capacitors can store lethal electrical energy even when disconnected from mains. Mount bleeder resistors securely with proper clearance, and always measure voltage with a verified meter before touching internal circuitry.</p>
+</section>
+<script>import '../scripts/bleeder-resistor-client';</script>

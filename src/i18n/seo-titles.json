@@ -341,5 +341,6 @@
   "/smoothing-capacitor-calculator/": "Smoothing Capacitor Calculator: Filter Sizing in µF",
   "/transformer-sizing-calculator/": "Transformer VA Sizing Calculator: Secondary Voltage & Rating",
   "/rectifier-ripple-calculator/": "Rectifier Ripple Voltage Calculator: Peak-to-Peak & Factor",
-  "/three-phase-rectifier-calculator/": "3-Phase Rectifier Calculator: Bridge Output Voltage & Ripple"
+  "/three-phase-rectifier-calculator/": "3-Phase Rectifier Calculator: Bridge Output Voltage & Ripple",
+  "/bleeder-resistor-calculator/": "Bleeder Resistor Calculator: Discharge Time & Power Rating"
 }
