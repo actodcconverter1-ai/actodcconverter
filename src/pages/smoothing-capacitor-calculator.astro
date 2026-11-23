@@ -1,0 +1,100 @@
+---
+import {webApplication} from '../lib/structured-data';
+import Base from '../layouts/Base.astro';
+import SmoothingCapacitorWorkbench from '../components/SmoothingCapacitorWorkbench.astro';
+
+const path = '/smoothing-capacitor-calculator/';
+const title = 'Smoothing Capacitor Calculator: Filter Sizing in µF';
+const description = 'Calculate smoothing capacitor size in µF from load current, frequency and target ripple voltage. Includes standard capacitor selection and voltage ratings.';
+---
+<Base
+  title={title}
+  titleIsComplete
+  breadcrumbTitle="Capacitor calculator"
+  description={description}
+  schema={[webApplication(path, title, description, ['Capacitance sizing in µF', 'Standard E12 capacitor selection', 'Electrolytic voltage rating calculator'])]}
+>
+  <div class="shell page-intro">
+    <p class="eyebrow" data-editorial-locale="en">RESERVOIR CAPACITOR · RIPPLE FILTERING</p>
+    <h1>Smoothing capacitor calculator</h1>
+    <p class="spoke-intro" data-editorial-locale="en">
+      Calculate the required reservoir filter capacitance (in microfarads) to achieve your target peak-to-peak DC ripple voltage under a defined load current. Choose full-wave or half-wave rectification and determine recommended standard electrolytic ratings. Connect these results with our <a href="/">AC to DC converter hub</a> for circuit principles and complete power supply design.
+    </p>
+
+    <SmoothingCapacitorWorkbench />
+
+    <section class="prose education-section" data-editorial-locale="en">
+      <h2>How to calculate a smoothing capacitor for an AC to DC rectifier</h2>
+      <p>
+        In an unfiltered AC to DC rectifier, the DC output voltage drops to zero twice every AC cycle (full-wave) or once every cycle (half-wave). Placing a <strong>reservoir smoothing capacitor</strong> across the output terminals stores electrical energy during the waveform peaks and releases that charge into the load when the rectified input drops, smoothing the pulsating DC into a relatively steady voltage.
+      </p>
+
+      <h3>The smoothing capacitor formula</h3>
+      <p>Under a constant or approximately linear load current, the required capacitance is given by:</p>
+      <div class="formula">C = I_load / (f_ripple × ΔV_pp)</div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>C:</strong> Required capacitance in Farads (multiply by 1,000,000 to convert to microfarads, µF).</li>
+        <li><strong>I_load:</strong> Maximum DC current drawn by your circuit in Amperes (A).</li>
+        <li><strong>f_ripple:</strong> Ripple repetition frequency in Hertz (Hz). For a single-phase full-wave bridge, <code>f_ripple = 2f</code> (100 Hz at 50 Hz line, 120 Hz at 60 Hz line). For half-wave, <code>f_ripple = f</code>.</li>
+        <li><strong>ΔV_pp:</strong> Maximum acceptable peak-to-peak ripple voltage in Volts (V).</li>
+      </ul>
+
+      <h2>Step-by-step worked engineering example</h2>
+      <p>
+        Suppose you are designing an unregulated 12 V DC linear supply powered by a 12 V RMS transformer at 50 Hz, supplying a 0.5 A load, with a target peak-to-peak ripple voltage of 1.0 V:
+      </p>
+      <ol>
+        <li><strong>Determine ripple frequency:</strong> A full-wave bridge recharges the capacitor twice per cycle, so <code>f_ripple = 2 × 50 Hz = 100 Hz</code>.</li>
+        <li><strong>Apply the formula:</strong> <code>C = 0.5 A / (100 Hz × 1.0 V) = 0.005 Farads</code>.</li>
+        <li><strong>Convert to microfarads:</strong> <code>0.005 F × 1,000,000 = 5,000 µF</code>.</li>
+        <li><strong>Select standard capacitor:</strong> The nearest larger standard E12 electrolytic value is <strong>6,800 µF</strong> (or two 2,200 µF / 3,300 µF in parallel).</li>
+        <li><strong>Determine voltage rating:</strong> The peak voltage is <code>12 V × √2 − 1.4 V (diode drops) ≈ 15.57 V</code>. Applying a standard 50% safety factor (<code>15.57 V × 1.5 ≈ 23.35 V</code>) indicates a minimum capacitor working voltage of <strong>25 V DC</strong> (or 35 V for extended life).</li>
+      </ol>
+
+      <h2>Capacitor sizing rules of thumb</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Application</th>
+              <th scope="col">Typical Ripple Allowance</th>
+              <th scope="col">Capacitance Rule of Thumb</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pre-regulator (Feeding 78xx or LDO)</td>
+              <td>1.0 V to 2.0 V p-p</td>
+              <td>1,000 µF to 2,200 µF per Amp of load</td>
+            </tr>
+            <tr>
+              <td>Audio amplifiers / Sensitive DC</td>
+              <td>0.1 V to 0.5 V p-p</td>
+              <td>4,700 µF to 10,000 µF per Amp of load</td>
+            </tr>
+            <tr>
+              <td>Relays, Solenoids, Motors</td>
+              <td>2.0 V to 4.0 V p-p</td>
+              <td>470 µF to 1,000 µF per Amp of load</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Important engineering boundaries</h2>
+      <p>
+        While this calculator uses the linear discharge approximation, keep these practical limitations in mind:
+      </p>
+      <ul>
+        <li><strong>Capacitor ESR:</strong> Real electrolytic capacitors have Equivalent Series Resistance (ESR). High ripple currents cause internal resistive heating. Check our <a href="/blog/capacitor-esr-and-ripple-current/">ESR and ripple current guide</a>.</li>
+        <li><strong>Inrush Current:</strong> Larger capacitors look like short circuits at power-on. Very large banks (over 10,000 µF) can blow diodes or fuses without an NTC inrush current limiter.</li>
+        <li><strong>Electrolytic Tolerance:</strong> Standard aluminum electrolytics typically have a −20% / +20% capacitance tolerance. Always round up to the next standard value.</li>
+      </ul>
+
+      <p class="workbench-links">
+        Related tools and guides: <a href="/ac-to-dc-calculator/">AC to DC converter workbench</a> · <a href="/full-wave-rectifier-calculator/">Full-wave rectifier tool</a> · <a href="/blog/smoothing-capacitor-calculation/">Smoothing capacitor calculation guide</a> · <a href="/blog/capacitor-ripple-explained/">Capacitor ripple voltage explained</a>
+      </p>
+    </section>
+  </div>
+</Base>

@@ -13,6 +13,7 @@ export const calculatorSpokes: Spoke[] = [
   {href:'/ac-to-dc-calculator/', title:'AC to DC calculator', description:'Compare diode-drop rectification, capacitor ripple and downstream regulator models.', kind:'calculator', topics:['rectifier-basics','worked-examples','filtering','regulation']},
   {href:'/full-wave-rectifier-calculator/', title:'Full-wave rectifier calculator', description:'Calculate an ideal unfiltered full-wave sine average, peak and pulse frequency.', kind:'calculator', topics:['rectifier-basics','full-wave','average']},
   {href:'/half-wave-rectifier-calculator/', title:'Half-wave rectifier calculator', description:'Calculate an ideal half-wave average over the complete AC cycle.', kind:'calculator', topics:['rectifier-basics','half-wave','average']},
+  {href:'/smoothing-capacitor-calculator/', title:'Smoothing capacitor calculator', description:'Calculate required filter capacitance in microfarads for target ripple voltage.', kind:'calculator', topics:['capacitor-filtering','worked-examples','ripple']},
 ];
 
 export function buildSpokes(entries: CollectionEntry<'blog'>[]): Spoke[] {

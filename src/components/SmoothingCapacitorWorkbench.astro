@@ -1,0 +1,98 @@
+---
+import {
+  calculateSmoothingCapacitor,
+  defaultSmoothingInput
+} from '../calculators/smoothing-capacitor';
+import { formatResult as formatNumber } from '../lib/result-presentation';
+
+const initial = calculateSmoothingCapacitor(defaultSmoothingInput);
+---
+<section class="converter-workbench" id="calculator" data-smoothing-calc aria-label="Smoothing capacitor calculator">
+  <header class="workbench-heading">
+    <div>
+      <p class="eyebrow">FILTER CAPACITOR SIZING</p>
+      <h2>Smoothing capacitor calculator</h2>
+    </div>
+    <span class="local-label">Runs on your device</span>
+  </header>
+
+  <div class="workbench-layout">
+    <form novalidate data-workbench-form>
+      <div class="workbench-grid">
+        <div>
+          <label for="sc-current">DC load current (A)</label>
+          <input id="sc-current" name="current" type="number" min="0.001" max="100" step="any" value={defaultSmoothingInput.current} required />
+          <small data-editorial-locale="en">Current drawn by the DC load.</small>
+        </div>
+        <div>
+          <label for="sc-ripple">Target ripple voltage (V)</label>
+          <input id="sc-ripple" name="rippleVoltage" type="number" min="0.01" max="100" step="any" value={defaultSmoothingInput.rippleVoltage} required />
+          <small data-editorial-locale="en">Peak-to-peak ripple allowance (ΔVpp).</small>
+        </div>
+        <div>
+          <label for="sc-freq">AC frequency (Hz)</label>
+          <input id="sc-freq" name="frequency" type="number" min="1" max="1000" step="any" value={defaultSmoothingInput.frequency} required />
+          <small data-editorial-locale="en">Line frequency (50 Hz or 60 Hz).</small>
+        </div>
+        <div>
+          <label for="sc-topology">Rectifier configuration</label>
+          <select id="sc-topology" name="rectifierType">
+            <option value="full-wave" selected>Four-diode bridge</option>
+            <option value="half-wave">Half-wave</option>
+          </select>
+          <small data-editorial-locale="en">Full-wave doubles ripple frequency (2f).</small>
+        </div>
+        <div>
+          <label for="sc-rms">AC input · RMS (V)</label>
+          <input id="sc-rms" name="rms" type="number" min="0.1" max="1000" step="any" value={defaultSmoothingInput.rms} />
+          <small data-editorial-locale="en">Optional: used for capacitor voltage rating.</small>
+        </div>
+      </div>
+
+      <p id="sc-error" data-sc-error role="alert" class="error" hidden></p>
+      <div class="calc-actions">
+        <button class="button" type="submit">Calculate DC output</button>
+        <button class="reset" type="reset">↺ Reset</button>
+      </div>
+      <noscript><p class="notice">Enable JavaScript to calculate other values. The default example is shown below.</p></noscript>
+    </form>
+
+    <div class="workbench-visuals">
+      <div class="workbench-results" aria-live="polite" aria-atomic="true">
+        <h3>Calculated result</h3>
+        <dl class="metric-grid">
+          <div>
+            <dt>Capacitance (µF)</dt>
+            <dd data-sc-capacitance>{formatNumber(Math.round(initial.capacitanceUf))} µF</dd>
+          </div>
+          <div>
+            <dt>Recommended standard value (E12)</dt>
+            <dd data-sc-standard>{formatNumber(initial.recommendedStandardUf)} µF</dd>
+          </div>
+          <div>
+            <dt>Recommended voltage rating</dt>
+            <dd data-sc-voltage>{initial.recommendedVoltageRating ? `${initial.recommendedVoltageRating} V` : '—'}</dd>
+          </div>
+          <div>
+            <dt>Ripple frequency (Hz)</dt>
+            <dd data-sc-freq>{initial.rippleFrequency} Hz</dd>
+          </div>
+        </dl>
+        <p class="workbench-formula" data-sc-formula translate="no">{initial.formula} → C = {defaultSmoothingInput.current} / ({initial.rippleFrequency} × {defaultSmoothingInput.rippleVoltage}) = {formatNumber(Math.round(initial.capacitanceUf))} µF</p>
+      </div>
+    </div>
+  </div>
+
+  <details class="workbench-help" data-editorial-locale="en">
+    <summary>How to use this capacitor sizing calculator</summary>
+    <p>This tool sizes the reservoir smoothing capacitor placed directly across the output of a rectifier before any voltage regulator.</p>
+    <ol>
+      <li>Enter your expected DC load current in Amperes.</li>
+      <li>Specify your target peak-to-peak ripple voltage (typically 5%–10% of DC voltage, or 1V–2V for unregulated supplies).</li>
+      <li>Select whether your circuit uses a full-wave bridge or a half-wave rectifier.</li>
+      <li>Review the calculated capacitance and choose the nearest standard rating with adequate voltage margin.</li>
+    </ol>
+  </details>
+  <p class="safety-note" data-editorial-locale="en">Safety note: Electrolytic capacitors are polarized. Connect positive to rectified DC+ and negative to DC-. Always select a voltage rating with at least a 20% to 50% safety margin above peak voltage.</p>
+</section>
+<script>import '../scripts/smoothing-capacitor-client';</script>

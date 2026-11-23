@@ -407,5 +407,6 @@
   "/blog/capacitor-ripple-explained/": "Estimate capacitor ripple with Vr(pp) ≈ I/(fr × C). Work through a 12 V bridge example and see how load, capacitance and frequency affect DC output.",
   "/blog/single-phase-vs-three-phase-rectifiers/": "Compare single-phase and three-phase rectifiers: diode count, average DC output and ripple frequency. See 2f vs 6f and the correct RMS input basis.",
   "/full-wave-rectifier-calculator/": "Calculate full-wave rectifier average DC voltage, peak output and ripple frequency from AC RMS voltage. Includes formulas, 12 V example & circuit limits.",
-  "/half-wave-rectifier-calculator/": "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples."
+  "/half-wave-rectifier-calculator/": "Calculate half-wave rectifier average DC voltage, peak and ripple frequency from AC RMS input. See complete-cycle sine formulas and 12 V worked examples.",
+  "/smoothing-capacitor-calculator/": "Calculate smoothing capacitor size in µF from load current, frequency and target ripple voltage. Includes standard capacitor selection and voltage ratings."
 }
