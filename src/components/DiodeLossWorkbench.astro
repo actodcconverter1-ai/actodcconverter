@@ -1,0 +1,102 @@
+---
+import {
+  calculateDiodeLoss,
+  defaultDiodeLossInput
+} from '../calculators/diode-loss';
+import { formatResult as formatNumber } from '../lib/result-presentation';
+
+const initial = calculateDiodeLoss(defaultDiodeLossInput);
+---
+<section class="converter-workbench" id="calculator" data-diode-loss-calc aria-label="Diode conduction loss and heatsink calculator">
+  <header class="workbench-heading">
+    <div>
+      <p class="eyebrow" data-editorial-locale="en">THERMAL DISSIPATION &amp; HEATSINK SIZING</p>
+      <h2>Diode loss calculator</h2>
+    </div>
+    <span class="local-label">Runs on your device</span>
+  </header>
+
+  <div class="workbench-layout">
+    <form novalidate data-workbench-form>
+      <div class="workbench-grid">
+        <div>
+          <label for="dl-current">DC load current (A)</label>
+          <input id="dl-current" name="loadCurrent" type="number" min="0.01" max="1000" step="any" value={defaultDiodeLossInput.loadCurrent} required />
+          <small data-editorial-locale="en">Continuous DC current drawn through rectifier.</small>
+        </div>
+        <div>
+          <label for="dl-drop">Diode forward drop per junction (V)</label>
+          <input id="dl-drop" name="diodeDrop" type="number" min="0.1" max="5" step="any" value={defaultDiodeLossInput.diodeDrop} required />
+          <small data-editorial-locale="en">0.45V for Schottky, 0.8V–1.1V for silicon bridge.</small>
+        </div>
+        <div>
+          <label for="dl-topology">Rectifier configuration</label>
+          <select id="dl-topology" name="topology">
+            <option value="full-wave-bridge" selected>Four-diode bridge (2 conducting)</option>
+            <option value="center-tapped">Center-tapped full-wave (1 conducting)</option>
+            <option value="three-phase-bridge">3-phase bridge (2 conducting)</option>
+            <option value="half-wave">Half-wave (1 conducting)</option>
+          </select>
+          <small data-editorial-locale="en">Determines simultaneous conducting diodes.</small>
+        </div>
+        <div>
+          <label for="dl-tamb">Ambient temperature (°C)</label>
+          <input id="dl-tamb" name="ambientTemp" type="number" min="-40" max="100" step="any" value={defaultDiodeLossInput.ambientTemp} />
+          <small data-editorial-locale="en">Air temperature inside enclosure (default 25°C).</small>
+        </div>
+        <div>
+          <label for="dl-tjmax">Maximum junction temperature (°C)</label>
+          <input id="dl-tjmax" name="maxJunctionTemp" type="number" min="50" max="200" step="any" value={defaultDiodeLossInput.maxJunctionTemp} />
+          <small data-editorial-locale="en">Silicon limit (typically 125°C to 150°C).</small>
+        </div>
+      </div>
+
+      <p id="dl-error" data-dl-error role="alert" class="error" hidden></p>
+      <div class="calc-actions">
+        <button class="button" type="submit">Calculate DC output</button>
+        <button class="reset" type="reset">↺ Reset</button>
+      </div>
+      <noscript><p class="notice">Enable JavaScript to calculate other values. The default example is shown below.</p></noscript>
+    </form>
+
+    <div class="workbench-visuals">
+      <div class="workbench-results" aria-live="polite" aria-atomic="true">
+        <h3>Calculated result</h3>
+        <dl class="metric-grid">
+          <div>
+            <dt>Total rectifier power loss (W)</dt>
+            <dd data-dl-total-power>{formatNumber(initial.totalPowerLossWatts)} W</dd>
+          </div>
+          <div>
+            <dt>Power loss per diode (W)</dt>
+            <dd data-dl-diode-power>{formatNumber(initial.perDiodePowerWatts)} W</dd>
+          </div>
+          <div>
+            <dt>Max thermal resistance (θ_JA)</dt>
+            <dd data-dl-theta-ja>{formatNumber(initial.maxThermalResistanceJa)} °C/W</dd>
+          </div>
+          <div>
+            <dt>Required heatsink (θ_SA)</dt>
+            <dd data-dl-theta-sa>{formatNumber(initial.requiredHeatsinkSa)} °C/W</dd>
+          </div>
+        </dl>
+        <p class="workbench-advice" data-dl-advice data-editorial-locale="en">{initial.heatsinkRecommendation}</p>
+        <p class="workbench-formula" data-dl-formula translate="no">{initial.formula}</p>
+      </div>
+    </div>
+  </div>
+
+  <details class="workbench-help" data-editorial-locale="en">
+    <summary>How to use this diode loss calculator</summary>
+    <p>This tool calculates the continuous thermal dissipation of rectifier diodes and determines whether an external heatsink is required.</p>
+    <ol>
+      <li>Enter your maximum continuous DC output current.</li>
+      <li>Specify the forward voltage drop (V_f) from your diode's datasheet curve at that current.</li>
+      <li>Select the rectifier circuit topology.</li>
+      <li>Adjust ambient operating temperature and allowable junction temperature.</li>
+      <li>Review the total dissipation in Watts and the required heatsink thermal resistance (lower °C/W means a larger heatsink).</li>
+    </ol>
+  </details>
+  <p class="safety-note" data-editorial-locale="en">Thermal runaway warning: Diode forward drop decreases as temperature rises, but reverse leakage current increases exponentially. In high-voltage Schottky diodes, excessive junction temperature can trigger thermal runaway and destruction. Always maintain adequate heatsink safety margins.</p>
+</section>
+<script>import '../scripts/diode-loss-client';</script>

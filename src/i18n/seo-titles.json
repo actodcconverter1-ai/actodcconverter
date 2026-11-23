@@ -342,5 +342,6 @@
   "/transformer-sizing-calculator/": "Transformer VA Sizing Calculator: Secondary Voltage & Rating",
   "/rectifier-ripple-calculator/": "Rectifier Ripple Voltage Calculator: Peak-to-Peak & Factor",
   "/three-phase-rectifier-calculator/": "3-Phase Rectifier Calculator: Bridge Output Voltage & Ripple",
-  "/bleeder-resistor-calculator/": "Bleeder Resistor Calculator: Discharge Time & Power Rating"
+  "/bleeder-resistor-calculator/": "Bleeder Resistor Calculator: Discharge Time & Power Rating",
+  "/diode-loss-calculator/": "Diode Power Loss Calculator: Bridge Conduction & Heatsink"
 }

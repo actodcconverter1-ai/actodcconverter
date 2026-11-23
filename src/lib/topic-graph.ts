@@ -18,6 +18,7 @@ export const calculatorSpokes: Spoke[] = [
   {href:'/rectifier-ripple-calculator/', title:'Rectifier ripple calculator', description:'Calculate peak-to-peak ripple voltage, RMS ripple and ripple factor.', kind:'calculator', topics:['capacitor-filtering','ripple','rectifier-basics']},
   {href:'/three-phase-rectifier-calculator/', title:'3-phase rectifier calculator', description:'Calculate 3-phase bridge DC average, peak voltage and 6-pulse ripple.', kind:'calculator', topics:['three-phase','rectifier-basics','worked-examples']},
   {href:'/bleeder-resistor-calculator/', title:'Bleeder resistor calculator', description:'Calculate bleeder resistance, discharge time and continuous power loss.', kind:'calculator', topics:['capacitor-filtering','power-supply-concepts','safety']},
+  {href:'/diode-loss-calculator/', title:'Diode loss calculator', description:'Calculate diode forward conduction power loss and heatsink thermal resistance.', kind:'calculator', topics:['component-behavior','component-models','worked-examples']},
 ];
 
 export function buildSpokes(entries: CollectionEntry<'blog'>[]): Spoke[] {

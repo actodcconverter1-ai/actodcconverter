@@ -17,7 +17,7 @@ const decode=value=>value.replace(/&#(\d+);/g,(_,code)=>String.fromCodePoint(Num
 const text=value=>decode(value.replace(/<[^>]*>/g,'')).replace(/\s+/g,' ').trim();
 const links=value=>[...value.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match=>decode(match[1]));
 const section=html=>/<section\b[^>]*\bdata-related-spokes\b[^>]*>([\s\S]*?)<\/section>/.exec(html)?.[1]??'';
-const toolPaths=['/ac-to-dc-calculator/','/full-wave-rectifier-calculator/','/half-wave-rectifier-calculator/','/smoothing-capacitor-calculator/','/transformer-sizing-calculator/','/rectifier-ripple-calculator/','/three-phase-rectifier-calculator/','/bleeder-resistor-calculator/'];
+const toolPaths=['/ac-to-dc-calculator/','/full-wave-rectifier-calculator/','/half-wave-rectifier-calculator/','/smoothing-capacitor-calculator/','/transformer-sizing-calculator/','/rectifier-ripple-calculator/','/three-phase-rectifier-calculator/','/bleeder-resistor-calculator/','/diode-loss-calculator/'];
 const spokes=[...pages.keys()].filter(path=>toolPaths.includes(path)||/^\/blog\/[^/]+\/$/.test(path));
 const home=pages.get('/');
 check(Boolean(home),'Homepage missing');

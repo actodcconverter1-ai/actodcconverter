@@ -1,0 +1,131 @@
+---
+import {webApplication} from '../lib/structured-data';
+import Base from '../layouts/Base.astro';
+import DiodeLossWorkbench from '../components/DiodeLossWorkbench.astro';
+
+const path = '/diode-loss-calculator/';
+const title = 'Diode Power Loss Calculator: Bridge Conduction & Heatsink';
+const description = 'Calculate diode forward conduction power loss, total bridge thermal dissipation, junction temperature rise and required heatsink thermal resistance.';
+---
+<Base
+  title={title}
+  titleIsComplete
+  breadcrumbTitle="Diode loss calculator"
+  description={description}
+  schema={[webApplication(path, title, description, ['Diode forward conduction power dissipation calculation', 'Total bridge rectifier thermal loss estimation', 'Heatsink thermal resistance rating selection'])]}
+>
+  <div class="shell page-intro">
+    <p class="eyebrow" data-editorial-locale="en">THERMAL MANAGEMENT · POWER LOSSES</p>
+    <h1>Diode loss calculator</h1>
+    <p class="spoke-intro" data-editorial-locale="en">
+      Calculate total rectifier bridge thermal dissipation (Watts), individual diode conduction losses, and required heatsink thermal resistance (θ_SA) to keep junction temperatures within safe limits. Connect these thermal calculations with our <a href="/">AC to DC converter hub</a> for complete power supply modeling and rectifier efficiency.
+    </p>
+
+    <DiodeLossWorkbench />
+
+    <section class="prose education-section" data-editorial-locale="en">
+      <h2>Why rectifier diodes get hot: Conduction loss physics</h2>
+      <p>
+        Every semiconductor diode requires a small forward voltage drop (V_f) across its P-N junction (or metal-semiconductor Schottky barrier) to conduct current. When current flows through this forward barrier, electrical energy is converted directly into heat:
+      </p>
+      <div class="formula">P_instantaneous = V_f(i) × i(t)</div>
+      <p>
+        In an AC to DC rectifier delivering continuous DC current I_dc, diodes carry heavy current pulses or steady averages. In high-current power supplies (such as a 12 V, 10 A power supply), the diode bridge alone can dissipate <strong>16 to 20 Watts of continuous heat</strong>! Without adequate heatsinking, the silicon junction will rapidly exceed its maximum safe temperature (typically 125°C to 150°C), resulting in thermal destruction or fire hazards.
+      </p>
+
+      <h3>1. Calculating total bridge dissipation</h3>
+      <p>
+        The total thermal power dissipated by the rectifier depends on how many diodes conduct in series at any given instant:
+      </p>
+      <ul>
+        <li><strong>Single-Phase Full-Wave Bridge (4 Diodes):</strong> Two diodes conduct simultaneously in series during each half-cycle. The total power dissipated is:
+          <div class="formula">P_total = 2 × V_f × I_dc</div>
+          Each diode conducts half the time, dissipating <code>P_per_diode = 0.5 × V_f × I_dc</code>.
+        </li>
+        <li><strong>Center-Tapped Full-Wave (2 Diodes):</strong> Only one diode conducts at a time (alternating every half-cycle):
+          <div class="formula">P_total = 1 × V_f × I_dc</div>
+          Center-tapped transformers cut rectifier conduction losses in half compared to a 4-diode bridge!
+        </li>
+        <li><strong>Three-Phase 6-Pulse Bridge (6 Diodes):</strong> Two diodes conduct in series at any instant:
+          <div class="formula">P_total = 2 × V_f × I_dc</div>
+          Because the load current is shared across six diodes, each individual diode dissipates only <code>P_per_diode = (1/3) × V_f × I_dc</code>.
+        </li>
+      </ul>
+
+      <h3>2. Heatsink thermal resistance calculation</h3>
+      <p>
+        Heat flows from the silicon junction through the diode package case, through the thermal interface material (thermal grease or pad), and into the ambient air via the heatsink. This thermal circuit is analogous to Ohm's Law:
+      </p>
+      <div class="formula">T_J = T_Amb + P_total × (θ_JC + θ_CS + θ_SA)</div>
+      <p>
+        To keep junction temperature T_J strictly below the maximum rating T_J(max), the <strong>heatsink-to-ambient thermal resistance (θ_SA)</strong> must satisfy:
+      </p>
+      <div class="formula">θ_SA ≤ [(T_J(max) − T_Amb) / P_total] − (θ_JC + θ_CS)</div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>T_J(max):</strong> Maximum allowable junction temperature (e.g. 125°C).</li>
+        <li><strong>T_Amb:</strong> Maximum ambient temperature inside the equipment enclosure (typically 40°C to 50°C under full load).</li>
+        <li><strong>θ_JC:</strong> Junction-to-case thermal resistance (given in the diode/bridge datasheet, typically 1.5°C/W to 3.0°C/W).</li>
+        <li><strong>θ_CS:</strong> Case-to-sink thermal resistance of mounting hardware and thermal paste (typically 0.3°C/W to 0.7°C/W).</li>
+        <li><strong>θ_SA:</strong> Maximum thermal resistance of the heatsink in °C/W. <em>Lower numbers represent larger, more effective heatsinks.</em></li>
+      </ul>
+
+      <h2>Rectifier thermal benchmarks</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Load Current</th>
+              <th>Diode Type</th>
+              <th>Total Power Loss</th>
+              <th>Cooling Requirement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Under 0.5 A</td>
+              <td>1N4007 Silicon</td>
+              <td>&lt; 0.8 W</td>
+              <td>Natural convection (No heatsink needed)</td>
+            </tr>
+            <tr>
+              <td>1.0 A to 2.0 A</td>
+              <td>Schottky (1N5822)</td>
+              <td>1.0 W to 2.0 W</td>
+              <td>PCB copper pour (≥10 cm²) or clip-on heatsink</td>
+            </tr>
+            <tr>
+              <td>3.0 A to 6.0 A</td>
+              <td>KBPC / GBPC Bridge</td>
+              <td>5 W to 12 W</td>
+              <td>Extruded aluminum heatsink (≤ 5 °C/W to 10 °C/W)</td>
+            </tr>
+            <tr>
+              <td>10 A to 25 A</td>
+              <td>Metal-case Bridge</td>
+              <td>18 W to 45 W</td>
+              <td>Chassis-mount heatsink with forced fan airflow</td>
+            </tr>
+            <tr>
+              <td>Over 30 A</td>
+              <td>Synchronous MOSFET</td>
+              <td>&lt; 2 W</td>
+              <td>Active synchronous rectification replaces diodes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>How to reduce rectifier thermal losses</h2>
+      <ul>
+        <li><strong>Use Schottky Diodes for Low Voltages:</strong> For DC outputs under 30 V, Schottky diodes reduce forward drop from ~0.9 V to ~0.45 V, cutting thermal dissipation in half.</li>
+        <li><strong>Center-Tapped Secondary:</strong> If designing a new transformer, a center-tapped secondary eliminates one diode drop entirely compared to a bridge.</li>
+        <li><strong>Active Synchronous Rectifiers:</strong> In high-efficiency designs, active power MOSFETs with low R_DS(on) are driven in place of diodes, reducing voltage drop to millivolts and virtually eliminating heatsink requirements.</li>
+      </ul>
+
+      <p class="workbench-links">
+        Related tools and guides: <a href="/ac-to-dc-calculator/">AC to DC converter workbench</a> · <a href="/blog/bridge-rectifier-diode-losses/">Bridge rectifier diode losses guide</a> · <a href="/blog/diode-forward-voltage-drop/">Diode forward voltage drop</a> · <a href="/transformer-sizing-calculator/">Transformer sizing calculator</a>
+      </p>
+    </section>
+  </div>
+</Base>

@@ -412,5 +412,6 @@
   "/transformer-sizing-calculator/": "Calculate transformer secondary AC voltage, RMS current and VA rating required for your DC power supply output.",
   "/rectifier-ripple-calculator/": "Calculate peak-to-peak ripple voltage, RMS ripple, DC average and ripple factor (γ) for half-wave and full-wave capacitor-filtered rectifiers.",
   "/three-phase-rectifier-calculator/": "Calculate average DC voltage, peak voltage, native ripple percentage and diode PIV for 3-phase full-wave and half-wave rectifiers.",
-  "/bleeder-resistor-calculator/": "Calculate safety bleeder resistor value (Ohms), discharge time to safe voltage (<50V), continuous power loss and recommended resistor wattage."
+  "/bleeder-resistor-calculator/": "Calculate safety bleeder resistor value (Ohms), discharge time to safe voltage (<50V), continuous power loss and recommended resistor wattage.",
+  "/diode-loss-calculator/": "Calculate diode forward conduction power loss, total bridge thermal dissipation, junction temperature rise and required heatsink thermal resistance."
 }
