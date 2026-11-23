@@ -1,0 +1,99 @@
+---
+import {
+  calculateTransformerSizing,
+  defaultTransformerInput
+} from '../calculators/transformer-sizing';
+import { formatResult as formatNumber } from '../lib/result-presentation';
+
+const initial = calculateTransformerSizing(defaultTransformerInput);
+---
+<section class="converter-workbench" id="calculator" data-transformer-calc aria-label="Transformer sizing calculator">
+  <header class="workbench-heading">
+    <div>
+      <p class="eyebrow" data-editorial-locale="en">SECONDARY VOLTAGE & POWER RATING</p>
+      <h2>Transformer sizing calculator</h2>
+    </div>
+    <span class="local-label">Runs on your device</span>
+  </header>
+
+  <div class="workbench-layout">
+    <form novalidate data-workbench-form>
+      <div class="workbench-grid">
+        <div>
+          <label for="ts-dc-volt">Target DC output voltage (V)</label>
+          <input id="ts-dc-volt" name="targetDcVoltage" type="number" min="0.1" max="1000" step="any" value={defaultTransformerInput.targetDcVoltage} required />
+          <small data-editorial-locale="en">Required DC voltage at capacitor/regulator input.</small>
+        </div>
+        <div>
+          <label for="ts-dc-curr">DC load current (A)</label>
+          <input id="ts-dc-curr" name="dcLoadCurrent" type="number" min="0.001" max="100" step="any" value={defaultTransformerInput.dcLoadCurrent} required />
+          <small data-editorial-locale="en">Maximum continuous DC current required.</small>
+        </div>
+        <div>
+          <label for="ts-diode-drop">Diode forward drop per junction (V)</label>
+          <input id="ts-diode-drop" name="diodeDrop" type="number" min="0" max="5" step="any" value={defaultTransformerInput.diodeDrop} />
+          <small data-editorial-locale="en">Typically 0.7V for silicon, 0.4V for Schottky.</small>
+        </div>
+        <div>
+          <label for="ts-ripple">Peak-to-peak ripple voltage (V)</label>
+          <input id="ts-ripple" name="rippleVoltage" type="number" min="0.01" max="100" step="any" value={defaultTransformerInput.rippleVoltage} />
+          <small data-editorial-locale="en">Allowed ripple on reservoir capacitor (ΔVpp).</small>
+        </div>
+        <div>
+          <label for="ts-topology">Rectifier configuration</label>
+          <select id="ts-topology" name="topology">
+            <option value="bridge" selected>Four-diode bridge</option>
+            <option value="center-tapped">Center-tapped</option>
+            <option value="half-wave">Half-wave</option>
+          </select>
+          <small data-editorial-locale="en">Bridge has 2 diode drops; center-tapped has 1.</small>
+        </div>
+      </div>
+
+      <p id="ts-error" data-ts-error role="alert" class="error" hidden></p>
+      <div class="calc-actions">
+        <button class="button" type="submit">Calculate DC output</button>
+        <button class="reset" type="reset">↺ Reset</button>
+      </div>
+      <noscript><p class="notice">Enable JavaScript to calculate other values. The default example is shown below.</p></noscript>
+    </form>
+
+    <div class="workbench-visuals">
+      <div class="workbench-results" aria-live="polite" aria-atomic="true">
+        <h3>Calculated result</h3>
+        <dl class="metric-grid">
+          <div>
+            <dt>Secondary AC voltage (RMS)</dt>
+            <dd data-ts-vsec>{formatNumber(initial.vSecRms)} V</dd>
+          </div>
+          <div>
+            <dt>Secondary AC current (RMS)</dt>
+            <dd data-ts-isec>{formatNumber(initial.iSecRms)} A</dd>
+          </div>
+          <div>
+            <dt>Calculated transformer VA</dt>
+            <dd data-ts-nominal-va>{formatNumber(initial.nominalVa)} VA</dd>
+          </div>
+          <div>
+            <dt>Recommended standard transformer (VA)</dt>
+            <dd data-ts-rec-va>{formatNumber(initial.recommendedVa)} VA</dd>
+          </div>
+        </dl>
+        <p class="workbench-formula" data-ts-formula translate="no">{initial.formula}</p>
+      </div>
+    </div>
+  </div>
+
+  <details class="workbench-help" data-editorial-locale="en">
+    <summary>How to use this transformer sizing calculator</summary>
+    <p>This calculator determines the required transformer secondary AC voltage rating (V_rms) and apparent power rating (VA) for linear power supplies.</p>
+    <ol>
+      <li>Enter the target DC voltage needed across your reservoir smoothing capacitor (or regulator input).</li>
+      <li>Specify your continuous load current in Amperes.</li>
+      <li>Select your rectifier topology (four-diode bridge, center-tapped, or half-wave).</li>
+      <li>Review the secondary RMS voltage and select a transformer with a VA rating that matches or exceeds the recommended standard value.</li>
+    </ol>
+  </details>
+  <p class="safety-note" data-editorial-locale="en">Thermal &amp; regulation note: Mains transformers feature internal copper and iron losses (typically 5% to 20% voltage regulation between no-load and full-load). Always use the full-load secondary RMS rating under worst-case low mains line voltage.</p>
+</section>
+<script>import '../scripts/transformer-sizing-client';</script>

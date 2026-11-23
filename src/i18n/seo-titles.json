@@ -338,5 +338,6 @@
   "/blog/capacitor-esr-and-ripple-current/": "Capacitor ESR vs Ripple Current: Voltage, Heat & Limits",
   "/full-wave-rectifier-calculator/": "Full-Wave Rectifier Calculator: Peak, Average & Ripple",
   "/half-wave-rectifier-calculator/": "Half-Wave Rectifier Calculator: Peak, Average & Ripple",
-  "/smoothing-capacitor-calculator/": "Smoothing Capacitor Calculator: Filter Sizing in µF"
+  "/smoothing-capacitor-calculator/": "Smoothing Capacitor Calculator: Filter Sizing in µF",
+  "/transformer-sizing-calculator/": "Transformer VA Sizing Calculator: Secondary Voltage & Rating"
 }

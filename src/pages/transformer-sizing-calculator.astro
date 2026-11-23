@@ -1,0 +1,133 @@
+---
+import {webApplication} from '../lib/structured-data';
+import Base from '../layouts/Base.astro';
+import TransformerSizingWorkbench from '../components/TransformerSizingWorkbench.astro';
+
+const path = '/transformer-sizing-calculator/';
+const title = 'Transformer VA Sizing Calculator: Secondary Voltage & Rating';
+const description = 'Calculate transformer secondary AC voltage, RMS current and VA rating required for your DC power supply output.';
+---
+<Base
+  title={title}
+  titleIsComplete
+  breadcrumbTitle="Transformer calculator"
+  description={description}
+  schema={[webApplication(path, title, description, ['Secondary AC voltage calculation', 'Secondary RMS current sizing', 'Transformer VA power rating selection'])]}
+>
+  <div class="shell page-intro">
+    <p class="eyebrow" data-editorial-locale="en">TRANSFORMER SPECIFICATION · POWER SIZING</p>
+    <h1>Transformer sizing calculator</h1>
+    <p class="spoke-intro" data-editorial-locale="en">
+      Calculate the required transformer secondary AC voltage (RMS), secondary winding current, and minimum VA power rating to produce your desired DC output under continuous load. Explore our <a href="/">AC to DC converter hub</a> for complete rectifier circuits, filtering, and regulation stages.
+    </p>
+
+    <TransformerSizingWorkbench />
+
+    <section class="prose education-section" data-editorial-locale="en">
+      <h2>How to size a transformer for an AC to DC linear power supply</h2>
+      <p>
+        Selecting the correct transformer for an AC to DC power supply requires understanding the difference between alternating current (AC) RMS voltage, peak voltage, and the direct current (DC) delivered to your load. A common mistake is selecting a 12 V AC transformer expecting to obtain 12 V DC under load after rectification and filtering.
+      </p>
+
+      <h3>1. Secondary voltage calculation</h3>
+      <p>
+        After passing through a bridge rectifier, the peak secondary voltage charges the reservoir smoothing capacitor. Under load, the capacitor voltage discharges between peaks by an amount equal to the peak-to-peak ripple voltage (ΔV_pp). To maintain your target DC voltage at the bottom of the ripple valley, the peak AC secondary voltage must satisfy:
+      </p>
+      <div class="formula">V_peak = V_dc + (n × V_f) + (ΔV_pp / 2)</div>
+      <p>Where:</p>
+      <ul>
+        <li><strong>V_dc:</strong> Required average DC output voltage across the filter capacitor (or into a downstream linear voltage regulator).</li>
+        <li><strong>n:</strong> Number of conducting diodes (n = 2 for a full-wave bridge, n = 1 for a center-tapped or half-wave circuit).</li>
+        <li><strong>V_f:</strong> Diode forward voltage drop (typically 0.7 V for standard silicon diodes, or 0.35 V to 0.45 V for Schottky diodes).</li>
+        <li><strong>ΔV_pp:</strong> Peak-to-peak ripple voltage (typically 5% to 10% of V_dc).</li>
+      </ul>
+      <p>
+        The required secondary RMS voltage is then:
+      </p>
+      <div class="formula">V_sec(rms) = V_peak / √2 ≈ V_peak / 1.4142</div>
+
+      <h3>2. Secondary current &amp; RMS heating</h3>
+      <p>
+        Because capacitor-filtered rectifiers draw current only in brief, high-amplitude pulses at each AC crest, the <strong>RMS current</strong> through the transformer secondary winding is substantially higher than the average DC load current (I_dc):
+      </p>
+      <ul>
+        <li><strong>Full-Wave Bridge:</strong> Secondary AC current is approximately <code>I_sec(rms) ≈ 1.8 × I_dc</code>.</li>
+        <li><strong>Center-Tapped Full-Wave:</strong> Each half-winding conducts during only one half-cycle, requiring <code>I_sec(rms) ≈ 1.2 × I_dc</code> per leg.</li>
+        <li><strong>Half-Wave Rectifier:</strong> Due to severe waveform distortion and core DC saturation, <code>I_sec(rms) ≈ 2.2 × I_dc</code>.</li>
+      </ul>
+
+      <h3>3. Transformer VA (Volt-Ampere) rating</h3>
+      <p>
+        Transformers are rated in apparent power (Volt-Amperes, VA), which reflects the thermal capability of the core and windings:
+      </p>
+      <div class="formula">Nominal VA = V_sec(rms) × I_sec(rms)</div>
+      <p>
+        For continuous, reliable operation without excessive thermal rise, engineers add a <strong>20% to 30% thermal safety margin</strong>:
+      </p>
+      <div class="formula">Recommended VA ≥ 1.25 × Nominal VA</div>
+
+      <h2>Standard transformer VA reference table</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Target DC Supply</th>
+              <th>Load Current</th>
+              <th>Rectifier Type</th>
+              <th>Required Secondary</th>
+              <th>Recommended VA Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5 V DC (for LM7805/LDO)</td>
+              <td>1.0 A</td>
+              <td>Full-wave bridge</td>
+              <td>9 V AC RMS</td>
+              <td>20 VA to 25 VA</td>
+            </tr>
+            <tr>
+              <td>12 V DC (Linear supply)</td>
+              <td>1.0 A</td>
+              <td>Full-wave bridge</td>
+              <td>12 V AC RMS</td>
+              <td>25 VA to 30 VA</td>
+            </tr>
+            <tr>
+              <td>13.8 V DC (Radio supply)</td>
+              <td>3.0 A</td>
+              <td>Full-wave bridge</td>
+              <td>15 V AC RMS</td>
+              <td>80 VA to 100 VA</td>
+            </tr>
+            <tr>
+              <td>24 V DC (Industrial control)</td>
+              <td>2.0 A</td>
+              <td>Full-wave bridge</td>
+              <td>24 V AC RMS</td>
+              <td>100 VA to 120 VA</td>
+            </tr>
+            <tr>
+              <td>±15 V DC (Audio split rail)</td>
+              <td>1.5 A</td>
+              <td>Center-tapped bridge</td>
+              <td>18 V - 0 - 18 V AC</td>
+              <td>60 VA to 75 VA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Practical engineering considerations</h2>
+      <ul>
+        <li><strong>Transformer Regulation:</strong> Small transformers (5 VA to 25 VA) typically exhibit 15% to 25% regulation. Their open-circuit (no-load) secondary voltage is significantly higher than full-load rating. Make sure downstream capacitors are rated for no-load peak voltage.</li>
+        <li><strong>Mains Voltage Variation:</strong> Utility AC mains voltage can fluctuate by ±10%. Calculate secondary voltage at low line (e.g. 207 V AC on a 230 V line) to ensure adequate headroom for linear regulators.</li>
+        <li><strong>Heat Dissipation:</strong> A linear power supply dissipates the excess voltage <code>(V_rectified - V_regulated) × I_dc</code> directly as heat in the regulator. Sizing the secondary accurately avoids unnecessary thermal dissipation.</li>
+      </ul>
+
+      <p class="workbench-links">
+        Related tools and guides: <a href="/ac-to-dc-calculator/">AC to DC converter workbench</a> · <a href="/smoothing-capacitor-calculator/">Smoothing capacitor calculator</a> · <a href="/blog/transformer-rms-voltage-and-rectifiers/">Transformer RMS voltage and rectifiers</a> · <a href="/blog/linear-vs-switching-power-supplies/">Linear vs switching power supplies</a>
+      </p>
+    </section>
+  </div>
+</Base>
