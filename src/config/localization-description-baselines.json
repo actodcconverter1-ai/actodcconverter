@@ -1,0 +1,4 @@
+{
+  "/blog/half-wave-vs-full-wave-rectifier/": "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.",
+  "/blog/rectifier-ripple-frequency/": "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples."
+}

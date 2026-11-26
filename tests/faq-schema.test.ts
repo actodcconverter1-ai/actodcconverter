@@ -1,7 +1,14 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {parse,serialize} from 'parse5';
+import {readFileSync} from 'node:fs';
+import {homepageFaqs} from '../src/config/homepage-faq.ts';
 import {syncFaqSchema,visibleFaqs} from '../scripts/faq-schema.mjs';
+test('homepage FAQ JSON stays identical to the twelve visible source answers',()=>{
+ const faq=JSON.parse(readFileSync(new URL('../src/data/faqpage-schema.json',import.meta.url),'utf8'));
+ assert.equal(faq['@type'],'FAQPage');assert.equal(faq.mainEntity.length,12);
+ assert.deepEqual(faq.mainEntity.map((q:{name:string;acceptedAnswer:{text:string}})=>[q.name,q.acceptedAnswer.text]),homepageFaqs);
+});
 test('FAQ graph uses complete localized visible answers and excludes calculator help',()=>{
  const doc=parse(`<head><script type="application/ld+json">{"@graph":[{"@type":"WebPage"}]}</script></head><body><details class="workbench-help"><summary>Help</summary><p>Not a FAQ.</p></details><details data-schema-faq><summary>¿Qué es DC?<span aria-hidden="true">+</span></summary><p>Corriente <strong>continua</strong>.</p><p>Consulte <a href="/es/">la guía</a>.</p></details></body>`);
  syncFaqSchema(doc,'https://actodcconverter.org/es/','es');

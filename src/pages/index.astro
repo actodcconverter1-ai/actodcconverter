@@ -8,10 +8,11 @@ import {posts} from '../lib/posts';
 import {webApplication,techArticle} from '../lib/structured-data';
 import ShareLinks from '../components/ShareLinks.astro';
 import {homepageUpdated} from '../config/content-dates';
+import faqSchema from '../data/faqpage-schema.json';
 const guideTitle='AC to DC Converter: How It Works, Circuits & Formulas';
 const guideUpdated=homepageUpdated;
 const all = await posts();
-const schema=[webApplication('/','AC to DC converter calculator','Calculate rectifier output, capacitor ripple and conditional regulator-stage power.',['Basic diode-drop rectification','Current or resistance-load filtering','Conditional regulator-stage analysis']),techArticle('/',guideTitle,'How rectification, filtering and regulation convert AC into DC, with circuit diagrams and output calculations.',{dateModified:guideUpdated,about:{'@type':'Thing',name:'AC to DC conversion'}})];
+const schema=[webApplication('/','AC to DC converter calculator','Calculate rectifier output, capacitor ripple and conditional regulator-stage power.',['Basic diode-drop rectification','Current or resistance-load filtering','Conditional regulator-stage analysis']),techArticle('/',guideTitle,'How rectification, filtering and regulation convert AC into DC, with circuit diagrams and output calculations.',{dateModified:guideUpdated,about:{'@type':'Thing',name:'AC to DC conversion'}}),faqSchema];
 const preferred = ['ac-to-dc-formulas', 'ac-to-dc-calculator-worked-examples', 'full-wave-bridge-rectifier-explained', 'smoothing-capacitor-calculation', 'half-wave-vs-full-wave-rectifier', 'single-phase-vs-three-phase-rectifiers'];
 const articles = preferred.map(slug => all.find(entry => entry.data.slug === slug)).filter((entry): entry is NonNullable<typeof entry> => !!entry);
 ---

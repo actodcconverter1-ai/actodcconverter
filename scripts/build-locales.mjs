@@ -15,6 +15,8 @@ const indexablePaths=new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>ne
 const paths=new Set([...indexablePaths,...publicNoindexRoutes]);
 const seoTitles=JSON.parse(await readFile('src/i18n/seo-titles.json','utf8'));
 const seoDescriptions=JSON.parse(await readFile('src/i18n/seo-descriptions.json','utf8'));
+// Keep approved translations on their existing description source when English alone is revised.
+const descriptionBaselines=JSON.parse(await readFile('src/config/localization-description-baselines.json','utf8'));
 const pageHeadings=JSON.parse(await readFile('src/i18n/page-headings.json','utf8'));
 const sectionHeadings=JSON.parse(await readFile('src/i18n/section-headings.json','utf8'));
 const primarySectionHeadings=JSON.parse(await readFile('src/i18n/primary-section-headings.json','utf8'));
@@ -43,8 +45,22 @@ const sourceDictionary=JSON.parse(await readFile('src/i18n/en.json','utf8'));
 const dictionaries=new Map();for(const l of config.languages)if(l.code!=='en'){const dictionary=JSON.parse(await readFile('src/i18n/'+l.code+'.json','utf8'));const missing=Object.keys(sourceDictionary).filter(key=>typeof dictionary[key]!=='string'||!dictionary[key].trim());if(missing.length)throw Error(l.code+': '+missing.length+' missing translation entries');dictionaries.set(l.code,dictionary);}
 for(const path of paths){
  const source=await readFile('dist'+path+'index.html','utf8');
+ let translationSource=source;
+ if(descriptionBaselines[path]){
+  const doc=parse(source);let originalDescription;
+  walk(doc,n=>{if(n.tagName==='meta'&&attr(n,'name')==='description')originalDescription=attr(n,'content');});
+  walk(doc,n=>{
+   if(n.tagName==='meta'&&(['description','twitter:description'].includes(attr(n,'name'))||attr(n,'property')==='og:description'))attr(n,'content',descriptionBaselines[path]);
+   if(n.tagName==='script'&&attr(n,'type')==='application/ld+json'){
+    const data=JSON.parse(n.childNodes[0].value);
+    for(const item of data['@graph']??[])if(item.description===originalDescription)item.description=descriptionBaselines[path];
+    n.childNodes[0].value=JSON.stringify(data).replaceAll('<','\\u003c');
+   }
+  });
+  translationSource=serialize(doc);
+ }
  for(const locale of config.languages){
-  const translated=locale.code==='en'?source:localize(source,locale,dictionaries.get(locale.code),domain,paths);
+  const translated=locale.code==='en'?source:localize(translationSource,locale,dictionaries.get(locale.code),domain,paths);
   const doc=parse(translated);let head;
   if(locale.code==='ar'&&arabicEditorial[path])walk(doc,n=>{for(const[cls,html]of Object.entries(arabicEditorial[path]))if(attr(n,'class')?.split(/\s+/).includes(cls)){n.childNodes=parseFragment(html).childNodes;for(const c of n.childNodes)c.parentNode=n;}});
   if(locale.code!=='en')walk(doc,n=>{let p=n.parentNode;while(p&&!attr(p,'class')?.split(/\s+/).includes('metric-grid'))p=p.parentNode;if(n.tagName==='dd'&&p||attr(n,'data-localized-result')!==undefined){const m=elementText(n).match(/^([<>]?)([\d,.]+)(.*)$/);if(m){const value=Number(m[2].replaceAll(',',''));n.childNodes=[{nodeName:'#text',value:m[1]+formatResult(value,locale.code)+m[3],parentNode:n}];}}});

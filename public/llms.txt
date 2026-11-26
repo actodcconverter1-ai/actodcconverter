@@ -1,0 +1,47 @@
+# AC to DC Converter
+
+> Browser-based AC-to-DC calculators and educational rectifier guides. Models state their assumptions and limitations; calculations do not replace electrical design or component-rating checks.
+
+## Calculators
+
+- [AC to DC calculator](https://actodcconverter.org/ac-to-dc-calculator/): Compare diode-drop rectification, capacitor ripple and downstream regulator models.
+- [Full-wave rectifier calculator](https://actodcconverter.org/full-wave-rectifier-calculator/): Calculate an ideal unfiltered full-wave sine average, peak and pulse frequency.
+- [Half-wave rectifier calculator](https://actodcconverter.org/half-wave-rectifier-calculator/): Calculate an ideal half-wave average over the complete AC cycle.
+- [Smoothing capacitor calculator](https://actodcconverter.org/smoothing-capacitor-calculator/): Calculate required filter capacitance in microfarads for target ripple voltage.
+- [Transformer sizing calculator](https://actodcconverter.org/transformer-sizing-calculator/): Calculate transformer secondary AC voltage, RMS current and VA rating.
+- [Rectifier ripple calculator](https://actodcconverter.org/rectifier-ripple-calculator/): Calculate peak-to-peak ripple voltage, RMS ripple and ripple factor.
+- [3-phase rectifier calculator](https://actodcconverter.org/three-phase-rectifier-calculator/): Calculate 3-phase bridge DC average, peak voltage and 6-pulse ripple.
+- [Bleeder resistor calculator](https://actodcconverter.org/bleeder-resistor-calculator/): Calculate bleeder resistance, discharge time and continuous power loss.
+- [Diode loss calculator](https://actodcconverter.org/diode-loss-calculator/): Calculate diode forward conduction power loss and heatsink thermal resistance.
+
+## Technical guides
+
+- [RMS to Peak Voltage: Sine-Wave Formulas and Examples](https://actodcconverter.org/blog/ac-rms-to-peak-voltage-calculation/): Convert sine-wave RMS voltage to peak or peak-to-peak voltage, and reverse the calculation when an oscilloscope gives a Vpp reading.
+- [AC to DC calculator worked examples: average, peak, and ripple](https://actodcconverter.org/blog/ac-to-dc-calculator-worked-examples/): Follow complete numerical examples for filtered and ideal rectifier models, including a rejected high-ripple case.
+- [AC to DC Formulas: Choose the Right Circuit Model](https://actodcconverter.org/blog/ac-to-dc-formulas/): Choose the full-wave, half-wave or capacitor-filtered AC to DC formula, keeping the waveform, diode-drop and load assumptions explicit.
+- [Why AC voltage alone cannot tell you the available DC current](https://actodcconverter.org/blog/ac-voltage-does-not-determine-dc-current/): Separate output voltage estimates from load current, transformer capacity, power, and component stress.
+- [Bridge rectifiers at 50 Hz and 60 Hz: what changes?](https://actodcconverter.org/blog/bridge-rectifier-at-50hz-and-60hz/): Compare charging intervals, ripple frequency, and simplified capacitor ripple while holding the other inputs constant.
+- [Bridge rectifier diode losses: what a two-drop estimate means](https://actodcconverter.org/blog/bridge-rectifier-diode-losses/): Understand the useful 2Vf voltage model and why it does not replace current-waveform or thermal analysis.
+- [Capacitor ESR and ripple current: two different limits](https://actodcconverter.org/blog/capacitor-esr-and-ripple-current/): Separate charge-storage ripple from resistive voltage changes and ripple-current heating.
+- [Capacitor Ripple Voltage: Formula, Example and Limits](https://actodcconverter.org/blog/capacitor-ripple-explained/): Estimate capacitor ripple from load current, recharge frequency and capacitance, then check the assumptions behind the small-ripple approximation.
+- [How to Choose an AC to DC Power Supply for a Defined Load](https://actodcconverter.org/blog/choosing-ac-to-dc-power-supply/): Match DC voltage, continuous and peak current, input range, derating, isolation, and protection to the actual requirements of your equipment.
+- [Diode Forward Voltage Drop: Why the Calculator Needs an Assumption](https://actodcconverter.org/blog/diode-forward-voltage-drop/): Understand per-diode versus bridge drop, current and temperature dependence, and the limitations of a fixed-drop rectifier estimate.
+- [Full-Wave Bridge Rectifier: Circuit, Working and DC Output](https://actodcconverter.org/blog/full-wave-bridge-rectifier-explained/): A full-wave bridge rectifier uses four diodes to turn both AC half-cycles into pulsating DC. Two diodes conduct at a time; a capacitor can smooth the output.
+- [Half-Wave vs Full-Wave Rectifier: Differences and Advantages](https://actodcconverter.org/blog/half-wave-vs-full-wave-rectifier/): A half-wave rectifier uses one AC half-cycle; a full-wave rectifier uses both, doubling the ideal average output and ripple frequency for the same input.
+- [The limits of a simple AC to DC calculator](https://actodcconverter.org/blog/limits-of-simple-ac-to-dc-calculators/): Learn which questions a rectifier estimate can answer, what its assumptions omit, and when the calculation needs a fuller model.
+- [Linear vs Switching AC to DC Power Supplies: Compare the Whole System](https://actodcconverter.org/blog/linear-vs-switching-power-supplies/): Compare conventional linear and switching supplies by conversion stages, regulation, heat, ripple, efficiency, and the needs of the actual load.
+- [Measuring rectifier output: know which voltage you mean](https://actodcconverter.org/blog/measuring-rectifier-output-voltage/): Interpret DC average, ripple, peak, and RMS readings without confusing one measurement with another.
+- [AC to DC Power Supply Stages: From AC Input to DC Output](https://actodcconverter.org/blog/power-supply-stages-explained/): Follow AC input through conversion, rectification, filtering and regulation, and see why isolation depends on the complete supply architecture.
+- [Power Supply vs Battery Charger vs LED Driver](https://actodcconverter.org/blog/power-supply-vs-battery-charger-and-led-driver/): Understand why a DC voltage supply, chemistry-specific battery charger, and constant-current LED driver need different control and protection.
+- [Rectifier Average vs RMS Output Voltage](https://actodcconverter.org/blog/rectifier-average-vs-rms-output/): Compare average and total RMS output for ideal full-wave and half-wave rectifiers, keeping the DC component separate from RMS ripple.
+- [Rectifier Ripple Frequency: Formula and 50/60 Hz Examples](https://actodcconverter.org/blog/rectifier-ripple-frequency/): Ripple repeats once per AC cycle in a half-wave rectifier and twice per cycle in a single-phase full-wave rectifier.
+- [RMS vs Peak vs Average Voltage: Formulas and Examples](https://actodcconverter.org/blog/rms-peak-average-voltage/): Compare sine-wave RMS, peak, peak-to-peak and average voltage, then distinguish the average of rectified output from its RMS value.
+- [Single-Phase vs Three-Phase Rectifiers: Voltage and Ripple](https://actodcconverter.org/blog/single-phase-vs-three-phase-rectifiers/): A single-phase full-wave bridge produces two pulses per AC cycle; a three-phase six-diode bridge produces six, giving more frequent pulses and lower ideal unfiltered ripple.
+- [Smoothing capacitor calculation: from load current to ripple](https://actodcconverter.org/blog/smoothing-capacitor-calculation/): Derive a useful capacitance estimate without mistaking it for a complete component selection.
+- [Transformer RMS voltage and rectifiers: use the right input](https://actodcconverter.org/blog/transformer-rms-voltage-and-rectifiers/): Interpret secondary RMS voltage, waveform peaks, and regulation before estimating rectifier output.
+- [Unregulated vs regulated DC supplies: where the rectifier model ends](https://actodcconverter.org/blog/unregulated-vs-regulated-dc-supplies/): Understand why a rectifier estimate is not a prediction of an adapter or regulated output.
+- [Why AC to DC output voltage varies with line, load, and components](https://actodcconverter.org/blog/why-ac-to-dc-output-voltage-varies/): Use controlled comparisons to distinguish arithmetic changes from effects outside a simplified rectifier model.
+
+## Sitemap
+
+- [XML sitemap](https://actodcconverter.org/sitemap.xml)

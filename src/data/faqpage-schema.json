@@ -1,0 +1,108 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://actodcconverter.org/#faq",
+  "url": "https://actodcconverter.org/",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@id": "https://actodcconverter.org/#webpage"
+  },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AC to DC converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A circuit or power-supply assembly that accepts alternating current and provides a DC output. A rectifier establishes one-way current; filtering, regulation, isolation and protection may be additional stages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert AC voltage to DC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select a suitable rectifier, account for its conducting diode path and output waveform, then consider filtering and regulation for the load. Use a correctly rated isolated supply for practical mains-powered equipment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a rectifier and a complete converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rectifier can produce pulsating DC. A complete regulated converter may also provide isolation, energy storage, voltage or current control and protection. The words are sometimes used loosely; inspect the actual stages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which rectifier is best?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no universal best topology. Source winding, load power, available headroom, ripple, isolation and thermal constraints determine the choice. A bridge is common for single-phase supplies but is not loss-free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate DC output voltage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First decide whether you need an unfiltered waveform average, a filtered estimate or a regulated setpoint. RMS, peak, average and ripple valley answer different questions. The calculator separates these models."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert 220 V AC to 12 V DC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use an appropriately rated, isolated AC-to-DC supply specified for the input and load. Rectifying 220 V RMS directly produces a crest near 311 V before losses, not 12 V. This site does not provide exposed-mains construction instructions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the filter capacitor do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It supplies load current between charging peaks, reducing voltage variation. A heavier load or smaller capacitance generally increases ripple. It does not create regulated voltage or guarantee a safe output."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is ripple voltage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Residual variation around the DC component. Peak-to-peak ripple is highest minus lowest voltage; RMS ripple factor is AC-component RMS divided by average DC. These are different measures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do half-wave and full-wave rectification differ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Half-wave uses one half-cycle and has pulse frequency f. Full-wave uses both halves and has pulse frequency 2f for a single-phase sine input. Their complete-cycle averages and filter discharge intervals differ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What affects output voltage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Input waveform and RMS convention, rectifier topology, diode loss, source impedance, filter size, load, line variation and regulator behavior. A voltage label alone does not establish available current."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are RMS and peak voltage related?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a sine wave, Vpeak = √2 Vrms. This relationship does not apply unchanged to square waves or arbitrary distorted signals. Peak-to-peak sine voltage is twice its peak amplitude."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How efficient is AC-to-DC conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the complete architecture and operating point. Measure real input watts and output watts for whole-supply efficiency. A diode-loss estimate or regulator-stage efficiency is not the same quantity."
+      }
+    }
+  ]
+}

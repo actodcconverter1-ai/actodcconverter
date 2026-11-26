@@ -16,14 +16,14 @@ tags:
   - full-wave
   - timing
 seoTitle: "Rectifier Ripple Frequency: Half, Full & 3-Phase Formula"
-metaDescription: "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples."
+metaDescription: "Ripple frequency is f for half-wave and 2f for full-wave: 100 Hz at 50 Hz input, 120 Hz at 60 Hz. See the timing and how 2f enters I/(2fC)."
 status: published
 updatedDate: 2026-11-17
 ---
 
 The ripple frequency formula is `fr = f` for half-wave rectification and `fr = 2f` for single-phase full-wave rectification. Here, `f` is the AC input frequency. At 50 Hz input, the outputs repeat at 50 Hz and 100 Hz respectively. Frequency describes repetition, not the voltage amplitude of the ripple.
 
-For the single-phase sinusoidal models on this site, ideal half-wave output repeats at the AC input frequency f, while ideal full-wave output repeats at 2f. A filtered bridge retains two charging opportunities per input cycle under the same basic model. This guide derives the timing, works through 50 Hz and 60 Hz examples, and explains where those simple relationships should not be extended.
+For the single-phase sinusoidal models on this site, ideal half-wave output repeats at the AC input frequency f, while ideal full-wave output repeats at 2f. A filtered bridge retains two charging opportunities per input cycle under the same basic model. This guide derives the timing, works through 50 Hz and 60 Hz examples, and explains where those simple relationships should not be extended.<span data-editorial-locale="en"> Try it: the [AC to DC calculator](/ac-to-dc-calculator/) applies the same 2f timing in its filtered-bridge ripple estimate.</span>
 
 
 ## Ripple frequency formula and reference table
