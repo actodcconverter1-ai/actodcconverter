@@ -34,7 +34,7 @@ test('invalid numbers are rejected without stale results',async({page})=>{
 });
 for(const width of [390,768,1365])test(`responsive homepage, navigation and accessibility at ${width}px`,async({page})=>{
  await page.setViewportSize({width,height:900});await page.goto('/');await expect(page.locator('h1')).toHaveText('AC to DC Converter: Calculator, Circuits and How It Works');await expect(page.locator('.header .brand')).toHaveText('AC to DC Converter');
- await expect(page).toHaveTitle('AC to DC Converter: How It Works, Circuits & Formulas');await expect(page.locator('.header nav a').first()).toHaveAttribute('href','/calculators/');
+ await expect(page).toHaveTitle('AC to DC Converter: Calculator & Guide (2026)');await expect(page.locator('.header nav a').first()).toHaveAttribute('href','/calculators/');
  const form=await page.locator('[data-workbench-form]').boundingBox(),diagram=await page.locator('.interactive-circuit').boundingBox();expect(form).not.toBeNull();expect(diagram).not.toBeNull();if(width>=851)expect(form!.y).toBeLessThan(850);if(width<851)expect(form!.y).toBeLessThan(diagram!.y);else expect(Math.abs(form!.y-diagram!.y)).toBeLessThan(4);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.locator('.language-switcher').scrollIntoViewIfNeeded();const accessibility=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(accessibility.violations).toEqual([]);await page.evaluate(()=>scrollTo(0,0));

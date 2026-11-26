@@ -19,3 +19,13 @@ Validation output: `artifacts/onpage-remediation-verify.log`. This report record
 - Site, topic graph, localization, on-page and SEO contract audits: zero errors. FAQ markup matches visible answers on 21 generated pages. Existing BlogPosting and breadcrumb checks passed on 450 localized article pages.
 - All 23 browser tests passed, including calculator results and invalid-input recovery, 390/768/1365 px layouts and accessibility, language switching, no-JavaScript content, and keyboard-accessible localized FAQ answers.
 - Final lint of the changed audit/FAQ modules and browser tests passed. Browser log: `artifacts/onpage-remediation-browser.log`.
+
+## Follow-up audit
+
+The owner requested the remaining title-format flags again. The English homepage SEO title now reads `AC to DC Converter: Calculator & Guide (2026)`. It describes the existing tool and reviewed 2026 guide, and includes a modifier, a year, a number and parentheses without changing the URL or article classification. This is an editorial title choice, not a claim that those elements are mandatory ranking factors.
+
+Before this adjustment, live HTTP checks confirmed the previous release `db9ed7f` was deployed: homepage and calculator returned English HTTP 200 without a redirect; their opening content included the primary phrase. The sampled full-wave guide returned HTTP 200 with Article/TechArticle/BlogPosting, BreadcrumbList and visible breadcrumbs. A generic blog-only audit applied to the homepage must not cause it to be falsely marked BlogPosting. Exact page/keyword settings for the third-party report were not provided.
+
+Follow-up validation: `artifacts/onpage-title-followup-verify.log`.
+
+An additional live crawl checked all 25 English guides plus the homepage and main calculator (27 URLs): zero HTTP, canonical, article-schema or article-breadcrumb errors. Evidence: `artifacts/live-article-schema-followup.json`.
