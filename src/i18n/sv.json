@@ -2865,5 +2865,7 @@
   "Heatsink thermal resistance rating selection": "Val av termisk resistans för kylfläns",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "Beräkna diodens ledningsförlust och krävd kylfläns.",
   "Diode forward loss & heatsink sizing": "Diodledningsförlust och kylflänsdimensionering",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Beräkna bryggans ledningsförlust, temperatur och kylfläns."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Beräkna bryggans ledningsförlust, temperatur och kylfläns.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "Språket följer den URL du väljer. Ditt land gör inte att startsidan omdirigeras automatiskt.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "Uppdaterad 24 november 2026.Denna meddelande beskriver den implementerade webbplatsen. operatören måste granska sin identitet, tillämpliga krav och leverantörens inställningar innan den slutliga offentliga lanseringen."
 }

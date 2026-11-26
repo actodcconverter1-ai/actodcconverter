@@ -1,5 +1,6 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {parse,parseFragment,serialize} from 'parse5';
+import {syncFaqSchema} from './faq-schema.mjs';
 import {localize,walk,attr,norm} from './localization-core.mjs';
 import ts from 'typescript';
 import{formatResult}from'../src/lib/result-presentation.ts';
@@ -127,9 +128,8 @@ for(const path of paths){
    });
   }
   if(locale.code!=='en')walk(doc,n=>{if(n.tagName==='footer'){const note=parseFragment('<p class="translation-note" style="max-width:1100px;margin:16px auto;padding:0 24px;font-size:0.8rem">Translation</p>').childNodes[0];note.childNodes[0].value=locale.translationNotice;note.parentNode=n;n.childNodes.push(note);}});
-  const visibleFaqs=[];const nodeText=n=>n.nodeName==='#text'?n.value:(n.childNodes??[]).map(nodeText).join('');
-  walk(doc,n=>{if(n.tagName==='head')head=n;if(n.tagName==='a'&&attr(n,'data-language')===locale.code)attr(n,'aria-current','page');if(n.tagName==='details'&&attr(n,'class')==='hub-faq'){const q=n.childNodes.find(c=>c.tagName==='summary');const a=n.childNodes.find(c=>c.tagName==='p');if(q&&a)visibleFaqs.push({'@type':'Question',name:nodeText(q),acceptedAnswer:{'@type':'Answer',text:nodeText(a)}});}});
-  if(visibleFaqs.length)walk(doc,n=>{if(n.tagName==='script'&&attr(n,'type')==='application/ld+json'){const data=JSON.parse(n.childNodes[0].value);const faq=data['@graph'].find(item=>item['@type']==='FAQPage');if(faq)faq.mainEntity=visibleFaqs;n.childNodes[0].value=JSON.stringify(data).replaceAll('<','\\u003c');}});
+  walk(doc,n=>{if(n.tagName==='head')head=n;if(n.tagName==='a'&&attr(n,'data-language')===locale.code)attr(n,'aria-current','page');});
+  syncFaqSchema(doc,domain+locale.prefix+path,locale.code);
   const alternates=parseFragment(config.languages.map(l=>`<link rel="alternate" hreflang="${l.code}" href="${domain}${l.prefix}${path}">`).join('')+`<link rel="alternate" hreflang="x-default" href="${domain}${path}">`);
   if(indexablePaths.has(path))for(const n of alternates.childNodes){n.parentNode=head;head.childNodes.push(n);}
   const dir='dist'+locale.prefix+path;await mkdir(dir,{recursive:true});await writeFile(dir+'index.html',serialize(doc));

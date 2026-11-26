@@ -2865,5 +2865,7 @@
   "Heatsink thermal resistance rating selection": "Soğutucu termal direnç değeri seçimi",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "Diyot iletim güç kaybını ve gereken soğutucu direncini hesaplayın.",
   "Diode forward loss & heatsink sizing": "Diyot iletim kaybı ve soğutucu seçimi",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Köprü iletim kaybını, ısınmayı ve soğutucu değerini hesaplayın."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Köprü iletim kaybını, ısınmayı ve soğutucu değerini hesaplayın.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "Dil, seçtiğiniz URL’ye göre belirlenir. Bulunduğunuz ülke ana sayfanın otomatik olarak yönlendirilmesine neden olmaz.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "Güncelleştirme 24 Kasım 2026Bu bildirimde yer alan web sitesi açıklanmaktadır. operatör, son kamuya açık başlatılmadan önce kimliğini, geçerli gereksinimleri ve sağlayıcı ayarlarını incelemelidir."
 }

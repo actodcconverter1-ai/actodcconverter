@@ -1,5 +1,5 @@
 import config from '../config/languages.json' with {type:'json'};
-/** Single catalogue for footer, locale routes and edge country detection. */
+/** Single catalogue for footer language choices and locale routes. */
 export const languages = config.languages;
 export type Language = 'en'|'hi'|'es'|'ru'|'fr'|'de'|'it'|'pt'|'bn'|'ja'|'ko'|'ms'|'pl'|'id'|'ar'|'bg'|'tr'|'sv';
 export function isLanguage(value:unknown):value is Language {

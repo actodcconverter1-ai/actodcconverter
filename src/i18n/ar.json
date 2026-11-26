@@ -2865,5 +2865,7 @@
   "Heatsink thermal resistance rating selection": "اختيار تصنيف المقاومة الحرارية للمشتت",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "احسب فقد التوصيل الأمامي للدايود والمقاومة الحرارية للمشتت.",
   "Diode forward loss & heatsink sizing": "فقد دايود التوصيل وتحديد حجم المشتت",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "احسب فقد التوصيل في الجسر والحرارة ومواصفات المشتت."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "احسب فقد التوصيل في الجسر والحرارة ومواصفات المشتت.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "تتبع اللغة عنوان URL الذي تختاره. لا تتم إعادة توجيه الصفحة الرئيسية تلقائيًا بناءً على بلدك.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "24 تشرين الثاني/نوفمبر 2026 - يصف هذا الإشعار الموقع الشبكي المنفذ."
 }

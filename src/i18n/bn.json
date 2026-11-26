@@ -2866,5 +2866,7 @@
   "Heatsink thermal resistance rating selection": "হিটসিঙ্কের তাপীয় রোধ রেটিং নির্বাচন",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "ডায়োড কন্ডাকশন অপচয় ও হিটসিঙ্কের তাপীয় রোধ হিসাব করুন।",
   "Diode forward loss & heatsink sizing": "ডায়োড ফরোয়ার্ড অপচয় ও হিটসিঙ্ক সাইজিং",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "ব্রিজ কন্ডাকশন লস, তাপ বৃদ্ধি এবং হিটসিঙ্ক রেটিং হিসাব করুন।"
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "ব্রিজ কন্ডাকশন লস, তাপ বৃদ্ধি এবং হিটসিঙ্ক রেটিং হিসাব করুন।",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "ভাষা আপনার বেছে নেওয়া URL অনুযায়ী নির্ধারিত হয়। আপনার দেশের ভিত্তিতে হোমপেজ স্বয়ংক্রিয়ভাবে অন্য পাতায় পাঠানো হয় না।",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "আপডেট 24 নভেম্বর 2026এই বিজ্ঞাপনটি প্রয়োগ করা ওয়েবসাইটের ব্যাখ্যা করে. অপারেটর তার পরিচিতি, প্রযুক্ত প্রয়োজনীয়তা এবং সরবরাহকারী পরামর্শগুলি শেষ প্রকাশ্যে চালু করার আগে পরীক্ষা করতে হবে।"
 }

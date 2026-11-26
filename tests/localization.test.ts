@@ -1,17 +1,34 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {languageRedirect} from '../worker/language.ts';
+import worker from '../worker/index.ts';
 import {collect,localize} from '../scripts/localization-core.mjs';
-test('first homepage visit uses trusted edge country and temporary private redirect',()=>{
- const r=new Request('https://actodcconverter.org/');Object.defineProperty(r,'cf',{value:{country:'ES'}});
- const response=languageRedirect(r)!;assert.equal(response.status,302);assert.equal(response.headers.get('Location'),'https://actodcconverter.org/es/');assert.equal(response.headers.get('Cache-Control'),'private, no-store');
+
+test('root is served unchanged for all countries and stored language preferences',async()=>{
+ const env={ASSETS:{fetch:async(request:Request)=>new Response(new URL(request.url).pathname,{headers:{'Cache-Control':'public, max-age=0'}})}};
+ for(const country of ['ES','DE','IN','JP','BR','SA','SE','US',undefined])for(const cookie of ['', 'site_language=es','site_language=de','site_language=ja','site_language=../../admin'])for(const method of ['GET','HEAD']){
+  const request=new Request('https://actodcconverter.org/',{method,headers:{Cookie:cookie,'Accept-Language':'es-ES,es;q=0.9'}});Object.defineProperty(request,'cf',{value:{country}});
+  const response=await worker.fetch(request,env);assert.equal(response.status,200);assert.equal(response.headers.get('Location'),null);assert.equal(await response.text(),'/');assert.equal(response.headers.get('Cache-Control'),'public, max-age=0');
+ }
 });
-test('explicit locale, deep links, queries, private routes and unsafe methods stay stable',()=>{
- for(const path of ['/es/','/blog/guide/','/?x=1','/admin/','/api/contact']){const r=new Request('https://actodcconverter.org'+path);Object.defineProperty(r,'cf',{value:{country:'ES'}});assert.equal(languageRedirect(r),null);}
- assert.equal(languageRedirect(new Request('https://actodcconverter.org/',{method:'POST'})),null);
- const r=new Request('https://actodcconverter.org/',{headers:{Cookie:'site_language=en','CF-IPCountry':'ES'}});Object.defineProperty(r,'cf',{value:{country:'ES'}});assert.equal(languageRedirect(r),null);
- assert.equal(languageRedirect(new Request('https://actodcconverter.org/',{headers:{'CF-IPCountry':'ES'}})),null);
+
+test('manual locale URLs and query strings reach the requested public asset unchanged',async()=>{
+ const env={ASSETS:{fetch:async(request:Request)=>new Response(request.url)}};
+ for(const path of ['/es/','/de/ac-to-dc-calculator/','/ar/','/blog/guide/','/?x=1','/search/?q=rectifier']){
+  const url='https://actodcconverter.org'+path,request=new Request(url,{headers:{Cookie:'site_language=ja'}});Object.defineProperty(request,'cf',{value:{country:'ES'}});
+  const response=await worker.fetch(request,env);assert.equal(response.status,200);assert.equal(response.headers.get('Location'),null);assert.equal(await response.text(),url);
+ }
 });
+
+test('foreign-country and language preferences do not add a hop after the HTTPS 301',async()=>{
+ const env={ASSETS:{fetch:async()=>new Response('English homepage')}};
+ for(const origin of ['http://actodcconverter.org','http://www.actodcconverter.org','https://www.actodcconverter.org']){
+  const request=new Request(origin+'/',{headers:{Cookie:'site_language=es'}});Object.defineProperty(request,'cf',{value:{country:'ES'}});
+  const redirect=await worker.fetch(request,env);assert.equal(redirect.status,301);assert.equal(redirect.headers.get('Location'),'https://actodcconverter.org/');
+  const target=new Request(redirect.headers.get('Location')!,{headers:{Cookie:'site_language=es'}});Object.defineProperty(target,'cf',{value:{country:'ES'}});
+  const response=await worker.fetch(target,env);assert.equal(response.status,200);assert.equal(response.headers.get('Location'),null);assert.equal(await response.text(),'English homepage');
+ }
+});
+
 test('localized HTML escapes translation, preserves formulas and localizes canonical/internal links',()=>{
  const html='<html lang="en"><head><title>Calculate output</title><link rel="canonical" href="https://actodcconverter.org/"></head><body><p>Hello <a href="/about/">About</a> world</p><code>Vavg = 2Vpk/π</code></body></html>';
  assert.ok(collect(html).has('Calculate output'));assert.ok(!collect(html).has('Vavg = 2Vpk/π'));

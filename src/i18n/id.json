@@ -2865,5 +2865,7 @@
   "Heatsink thermal resistance rating selection": "Pemilihan nilai resistansi termal heatsink",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "Hitung rugi daya konduksi maju dioda dan resistansi termal heatsink.",
   "Diode forward loss & heatsink sizing": "Rugi maju dioda & penentuan ukuran heatsink",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Hitung rugi konduksi jembatan, panas dan spesifikasi heatsink."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Hitung rugi konduksi jembatan, panas dan spesifikasi heatsink.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "Bahasa mengikuti URL yang Anda pilih. Negara Anda tidak menyebabkan halaman utama dialihkan secara otomatis.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "Dikemaskini 24 November 2026Operator harus memeriksa identitas, persyaratan yang berlaku dan pengaturan penyedia sebelum peluncuran publik akhir."
 }

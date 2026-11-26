@@ -2866,5 +2866,7 @@
   "Heatsink thermal resistance rating selection": "Sélection de la résistance thermique du dissipateur",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "Calculez la perte en conduction directe et la résistance thermique requise.",
   "Diode forward loss & heatsink sizing": "Pertes par conduction et dissipateur",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Calculez les pertes en conduction du pont et le dissipateur thermique."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Calculez les pertes en conduction du pont et le dissipateur thermique.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "La langue correspond à l’URL choisie. Votre pays ne provoque aucune redirection automatique de la page d’accueil.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "Actualisé le 24 novembre 2026.Cette notification décrit le site web mis en œuvre.L'opérateur doit réviser son identité, les exigences applicables et les paramètres du fournisseur avant la mise en service publique finale."
 }

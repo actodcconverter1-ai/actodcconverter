@@ -2866,5 +2866,7 @@
   "Heatsink thermal resistance rating selection": "Auswahl des thermischen Widerstands für Kühlkörper",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "Berechnen Sie Durchlassverlust der Diode und Wärmewiderstand des Kühlkörpers.",
   "Diode forward loss & heatsink sizing": "Dioden-Durchlassverlust & Kühlkörperdimensionierung",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Berechnen Sie Brückenverluste, Erwärmung und Kühlkörperauslegung."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Berechnen Sie Brückenverluste, Erwärmung und Kühlkörperauslegung.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "Die Sprache richtet sich nach der gewählten URL. Ihr Land löst keine automatische Weiterleitung der Startseite aus.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "Aktualisiert am 24. November 2026. Diese Mitteilung beschreibt die implementierte Website. Der Betreiber muss seine Identität, geltende Anforderungen und Anordnungen des Anbieters vor dem letzten öffentlichen Start überprüfen."
 }

@@ -1,5 +1,5 @@
 {
-  "/ac-to-dc-calculator/": "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.",
+  "/ac-to-dc-calculator/": "Use an AC to DC converter calculator to estimate DC voltage, peak, ripple and diode drop. Compare rectifier and capacitor models with worked 12 V examples.",
   "/blog/bridge-rectifier-at-50hz-and-60hz/": "Compare bridge rectifiers at 50 Hz and 60 Hz. Calculate ripple frequency and its effect on the smoothing capacitor estimate.",
   "/blog/bridge-rectifier-diode-losses/": "Why does a bridge rectifier lose two diode drops? Trace the current path, estimate voltage loss and learn where the constant-Vf model stops being useful.",
   "/blog/capacitor-esr-and-ripple-current/": "Separate capacitor voltage ripple, ESR loss and RMS ripple-current ratings. Use heating examples to understand what a simple rectifier model can estimate.",
@@ -362,7 +362,7 @@
   "/sv/blog/why-ac-to-dc-output-voltage-varies/": "Se hur ingång, dioder, belastning, frekvens och kapacitans ändrar beräknad utspänning och varför en verklig krets kan skilja sig.",
   "/sv/about/": "Läs om syftet med AC to DC Converter, redaktionella principer, tekniska källor och metoder för programvarukontroll.",
   "/sv/sitemap/": "Hitta kalkylatorer, tekniska guider, kategorier och information om AC to DC Converter i webbplatsens HTML-karta.",
-  "/": "Learn how an AC to DC converter works: rectifier circuits, filtering, regulation and voltage formulas. Compare outputs with a worked 12 V example.",
+  "/": "Learn how an AC to DC converter works with circuit diagrams, voltage formulas and a 12 V example. Use the free calculator to estimate DC output and ripple.",
   "/hi/": "AC से DC रूपांतरण समझें: रेक्टिफायर, फ़िल्टर, रेगुलेटर और वोल्टेज के सूत्र। सर्किट और 12 V का उदाहरण देखें।",
   "/ja/": "交流から直流への変換の仕組みを解説。整流・平滑化・電圧安定化、回路の種類、電圧の公式を12 Vの計算例で確認できます。",
   "/ko/": "교류를 직류로 변환하는 원리를 알아보세요. 정류, 평활, 전압 안정화, 회로 종류와 전압 공식을 12 V 예제로 설명합니다.",

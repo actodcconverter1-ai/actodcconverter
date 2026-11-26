@@ -68,3 +68,32 @@ test('money-page guidance and directory navigation are present without changing 
  await page.goto('/ac-to-dc-calculator/');await expect(page.locator('[data-money-guide=main]')).toContainText('15.071 V');await expect(page.locator('[data-money-guide=main]')).toContainText('100 mA is 0.1 A');await page.locator('.header nav a').first().click();await expect(page).toHaveURL(/\/calculators\/$/);await expect(page.locator('[data-money-guide=directory]')).toBeVisible();
  await page.goto('/de/full-wave-rectifier-calculator/');await expect(page.locator('[data-money-guide]')).toHaveCount(0);await expect(page.locator('html')).toHaveAttribute('lang','de');await expect(page.locator('[data-calculator]')).toBeVisible();await expect(page.locator('.language-switcher a')).toHaveCount(18);
 });
+
+test('homepage stays English with an old language preference and manual switching still works',async({page})=>{
+ const base=process.env.BROWSER_BASE_URL||'http://127.0.0.1:4321';
+ await page.context().addCookies([{name:'site_language',value:'fr',url:base}]);
+ await page.setExtraHTTPHeaders({'Accept-Language':'fr-FR,fr;q=0.9'});
+ await page.setViewportSize({width:390,height:844});
+ const response=await page.goto('/');expect(response?.status()).toBe(200);expect(response?.request().redirectedFrom()).toBeNull();
+ await expect(page).toHaveURL(base+'/');await expect(page.locator('html')).toHaveAttribute('lang','en');
+ await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href','https://actodcconverter.org/');
+ await page.locator('.language-switcher a[data-language=es]').click();await expect(page).toHaveURL(base+'/es/');await expect(page.locator('html')).toHaveAttribute('lang','es');
+ await page.locator('.language-switcher a[data-language=en]').click();await expect(page).toHaveURL(base+'/');await expect(page.locator('html')).toHaveAttribute('lang','en');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('FAQ answers remain accessible on mobile and match the localized head graph',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ for(const path of ['/','/es/','/ac-to-dc-calculator/']){
+  await page.goto(path);
+  const details=page.locator('details.hub-faq, details[data-schema-faq]').first();
+  const summary=details.locator('summary');await summary.focus();await page.keyboard.press('Enter');
+  await expect(details).toHaveAttribute('open','');await expect(details.locator('p').first()).toBeVisible();
+  const schema=await page.locator('head script[type="application/ld+json"]').textContent();
+  const faq=JSON.parse(schema!)['@graph'].find((node:Record<string,unknown>)=>node['@type']==='FAQPage');
+  expect(faq.mainEntity[0].name).toBe((await summary.innerText()).trim());
+  expect(faq.mainEntity[0].acceptedAnswer.text).toContain((await details.locator('p').first().innerText()).trim());
+  await expect(page.locator('head title')).toHaveCount(1);await expect(page.locator('body title')).toHaveCount(0);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+ }
+});

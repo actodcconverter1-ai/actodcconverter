@@ -2866,5 +2866,7 @@
   "Heatsink thermal resistance rating selection": "방열판 열저항 규격 산정",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "다이오드 순방향 손실 및 필요한 방열판 열저항을 계산합니다.",
   "Diode forward loss & heatsink sizing": "다이오드 순방향 손실 및 방열판 산정",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "브리지 도통 손실, 온도 상승 및 방열판을 계산합니다."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "브리지 도통 손실, 온도 상승 및 방열판을 계산합니다.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "언어는 선택한 URL에 따라 결정됩니다. 국가를 기준으로 홈페이지가 자동으로 다른 페이지로 이동하지 않습니다.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "업데이트된 2026년 11월 24일 이 통지서에 적용된 웹사이트를 설명합니다. 운영자는 최종 공개 출시 전에 해당 신원, 적용되는 요구 사항 및 공급자 설정을 검토해야 합니다."
 }

@@ -33,7 +33,7 @@ for(const [path,html] of pages){
  let graph=[];
  try{const data=JSON.parse(scripts[0]?.[1]??'null');check(data?.['@context']==='https://schema.org'&&Array.isArray(data?.['@graph']),path+': invalid schema graph');graph=data?.['@graph']??[];}
  catch{errors.push(path+': invalid JSON-LD');}
- check(!graph.some(node=>[].concat(node['@type']??[]).includes('FAQPage')),path+': FAQPage is intentionally omitted');
+
  const ids=graph.map(node=>node['@id']);
  check(ids.every(id=>typeof id==='string')&&new Set(ids).size===ids.length,path+': missing or duplicated schema IDs');
  const canonical=/<link\b[^>]*rel="canonical"[^>]*href="([^"]+)"/.exec(head)?.[1];
@@ -42,7 +42,9 @@ for(const [path,html] of pages){
   for(const type of ['WebApplication','TechArticle'])check(graph.some(node=>node['@type']===type),'Hub missing '+type);
   const visible=[...html.matchAll(/<details\b[^>]*class="hub-faq"[^>]*><summary>([\s\S]*?)<\/summary><p>([\s\S]*?)<\/p><\/details>/g)].map(match=>[text(match[1]),text(match[2])]);
   faqCount=visible.length;
-  check(visible.length>0,'Visible FAQs must remain available without FAQPage markup');
+  check(visible.length>0,'Visible homepage FAQs missing');
+  const faq=graph.find(node=>node['@type']==='FAQPage');
+  check(faq?.mainEntity?.length===visible.length,'Homepage FAQ schema does not match visible questions');
  }
  if(path!=='/'){
   const crumb=graph.find(node=>node['@type']==='BreadcrumbList');

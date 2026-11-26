@@ -2866,5 +2866,7 @@
   "Heatsink thermal resistance rating selection": "必要ヒートシンクの熱抵抗定格の選定",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "ダイオードの導通損失と必要な放熱器の熱抵抗を計算します。",
   "Diode forward loss & heatsink sizing": "ダイオード導通損失＆ヒートシンク選定",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "ブリッジ整流損失、温度上昇、放熱器熱抵抗を算出。"
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "ブリッジ整流損失、温度上昇、放熱器熱抵抗を算出。",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "言語は選択したURLに従います。国に基づいてホームページから自動転送されることはありません。",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "更新 24 11月 2026この通知では、実施されたウェブサイトを説明します. オペレーターは、最終公開開始前にそのアイデンティティ、適用される要件およびプロバイダーの設定を検討しなければなりません。"
 }

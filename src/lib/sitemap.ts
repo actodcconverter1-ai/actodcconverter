@@ -17,7 +17,7 @@ export function sitemapEntries(entries:CollectionEntry<'blog'>[]):SitemapEntry[]
     ...published.map(entry=>({path:`/blog/${entry.data.slug}/`,priority:.8,lastmod:modified(entry)})),
     ...[...new Set(published.flatMap(entry=>entry.data.categories))].sort().map(category=>({path:`/category/${category}/`,priority:.6,lastmod:architectureUpdated})),
     ...['about','authors','editorial','contact','sitemap','search'].map(route=>({path:`/${route}/`,priority:.3,lastmod:architectureUpdated})),
-    ...['privacy','terms','disclaimer'].map(route=>({path:`/${route}/`,priority:.2})),
+    ...['privacy','terms','disclaimer'].map(route=>({path:`/${route}/`,priority:.2,...(route==='privacy'?{lastmod:'2026-11-24'}:{})})),
   ].filter(entry=>!indexing.publicNoindexRoutes.includes(entry.path));
 }
 export function renderSitemap(entries:SitemapEntry[]):string {

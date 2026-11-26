@@ -2865,5 +2865,7 @@
   "Heatsink thermal resistance rating selection": "Dobór rezystancji termicznej radiatora",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "Oblicz straty przewodzenia diody i rezystancję radiatora.",
   "Diode forward loss & heatsink sizing": "Straty przewodzenia diod i dobór radiatora",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Oblicz straty mostka prostowniczego i parametry radiatora."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Oblicz straty mostka prostowniczego i parametry radiatora.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "Język zależy od wybranego adresu URL. Kraj nie powoduje automatycznego przekierowania strony głównej.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "Aktualizacja 24 listopada 2026.Ten komunikat opisuje wdrożoną stronę internetową.Operator musi przeglądać swoją tożsamość, obowiązujące wymagania i ustawienia dostawcy przed ostatnim publicznym uruchomieniem."
 }

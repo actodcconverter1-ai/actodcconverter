@@ -2865,5 +2865,7 @@
   "Heatsink thermal resistance rating selection": "Избор на топлинно съпротивление на радиатора",
   "Calculate diode forward conduction power loss and heatsink thermal resistance.": "Изчислете загубите при проводимост и топлинното съпротивление.",
   "Diode forward loss & heatsink sizing": "Загуби в диода и оразмеряване на радиатор",
-  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Изчислете загубите в моста, загряването и радиатора."
+  "Calculate bridge conduction loss, thermal rise and heatsink rating.": "Изчислете загубите в моста, загряването и радиатора.",
+  "The language follows the URL you choose. Your country does not automatically redirect the homepage.": "Езикът се определя от избрания URL адрес. Държавата ви не води до автоматично пренасочване на началната страница.",
+  "Updated 24 November 2026. This notice describes the implemented website. The operator must review its identity, applicable requirements and provider settings before the final public launch.": "Актуализирана 24 Ноември 2026Операторът трябва да преразгледа своята самоличност, приложимите изисквания и настройките на доставчика преди окончателното публично пускане."
 }
