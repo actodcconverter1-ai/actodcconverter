@@ -29,3 +29,11 @@ Before this adjustment, live HTTP checks confirmed the previous release `db9ed7f
 Follow-up validation: `artifacts/onpage-title-followup-verify.log`.
 
 An additional live crawl checked all 25 English guides plus the homepage and main calculator (27 URLs): zero HTTP, canonical, article-schema or article-breadcrumb errors. Evidence: `artifacts/live-article-schema-followup.json`.
+
+## Title length correction
+
+The owner subsequently requested a 50–60-character title. The earlier 45-character decoded title did not satisfy that preference. The final English homepage title is `AC to DC Converter Calculator and Circuit Guide (2026)` (54 characters). It avoids an ampersand entity, so raw and decoded title text have the same length. No change to primary keyword, canonical URL, H1, calculator logic or schema classification is needed for this adjustment.
+
+Validation: `artifacts/onpage-title-length-verify.log`. Exact SemanticsX page/keyword settings remain unconfirmed; the available browser runtime failed to initialize with `failed to write kernel assets`. No third-party audit pass is claimed.
+
+Direct live evidence before this correction: the old homepage `<title>` measured 49 characters as raw HTML (`&amp;`) and 45 as decoded text (`&`). The first 100 body words, excluding scripts/styles, contained `AC to DC converter` in the brand, H1 and definition. Root HTTP status was 200 with no redirect. Evidence: `artifacts/live-homepage-keyword-proof.json`.
