@@ -16,9 +16,9 @@ tags:
   - peak voltage
   - average voltage
 seoTitle: "RMS vs Peak vs Average Voltage: Formulas & 12 V Example"
-metaDescription: Convert sine-wave RMS, peak and peak-to-peak voltage with
-  formulas and a 12 V example. See why rectified average voltage differs from
-  RMS.
+metaDescription: "Vpk = √2 × Vrms: 12 V RMS is 16.97 V peak and 33.94 V
+  peak-to-peak. Convert RMS, peak and average — and see why rectified average
+  differs from RMS."
 status: published
 updatedDate: 2026-11-17
 ---

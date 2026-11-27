@@ -25,7 +25,7 @@ updatedDate: 2026-11-17
 
 For a constant-current load on a single-phase full-wave bridge, the small-ripple estimate is `ΔVpp ≈ I/(2fC)`. Use AC input frequency for `f` and capacitance in farads for `C`. This estimates capacitor discharge between charging peaks; it does not include ESR, finite charging time or regulation.
 
-This guide explains the filtered bridge model used by the [AC to DC calculator](/ac-to-dc-calculator/). It assumes a sinusoidal single-phase input, a bridge rectifier, approximately constant load current, fixed diode forward drop, and small approximately linear ripple. It estimates voltage behavior rather than selecting components or guaranteeing the performance of a physical power supply.
+This guide explains the filtered bridge model used by the [AC to DC calculator](/ac-to-dc-calculator/). It assumes a sinusoidal single-phase input, a bridge rectifier, approximately constant load current, fixed diode forward drop, and small approximately linear ripple. It estimates voltage behavior rather than selecting components or guaranteeing the performance of a physical power supply.<span data-editorial-locale="en"> Size the capacitor with the [smoothing capacitor calculator](/smoothing-capacitor-calculator/).</span>
 
 ## Begin with stored charge
 

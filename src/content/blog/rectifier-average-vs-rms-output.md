@@ -15,8 +15,9 @@ tags:
   - ripple
   - waveform analysis
 seoTitle: "Average vs RMS Rectifier Voltage: Formulas & Example"
-metaDescription: Why are DC average and RMS different? Compare half-wave and
-  full-wave outputs, calculate RMS ripple factor and follow a 12 V example.
+metaDescription: "12 V RMS: full-wave averages 10.80 V, half-wave 5.40 V — yet total
+  RMS is 12 V and 8.49 V. See why average and RMS differ, with the ripple
+  factor."
 status: published
 updatedDate: 2026-11-17
 ---

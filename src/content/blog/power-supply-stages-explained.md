@@ -16,16 +16,16 @@ tags:
   - power supply stages
   - rectification
 seoTitle: "AC to DC Power Supply: 5 Stages & Block Diagram"
-metaDescription: "Follow the five stages of a linear AC to DC supply:
-  transformation, rectification, smoothing, regulation and load. Includes a
-  block diagram."
+metaDescription: "Follow the five stages of a linear AC to DC supply —
+  transformation, rectification, smoothing, regulation, load — and see why
+  the order matters."
 status: published
 updatedDate: 2026-11-17
 ---
 
 An AC-to-DC power supply changes an alternating input into an output suitable for a particular DC load. Rectification gives the current a preferred direction, but the complete supply may also need isolation, filtering, regulation, protection, and control. These functions answer different questions: which direction does current flow, how much does voltage vary, and what keeps the output within its specified limits?
 
-There is no single component order that describes every supply. A conventional low-frequency transformer supply reduces and isolates AC before rectification. An isolated offline switching supply generally rectifies the incoming AC first, then transfers switched energy through a high-frequency transformer. Understanding that difference prevents a block diagram from becoming a misleading construction recipe.
+There is no single component order that describes every supply. A conventional low-frequency transformer supply reduces and isolates AC before rectification. An isolated offline switching supply generally rectifies the incoming AC first, then transfers switched energy through a high-frequency transformer. Understanding that difference prevents a block diagram from becoming a misleading construction recipe.<span data-editorial-locale="en"> To run the numbers for the rectifier stage, use the [AC to DC calculator](/ac-to-dc-calculator/).</span>
 
 <span id="read-the-diagram-as-a-signal-path"></span>
 

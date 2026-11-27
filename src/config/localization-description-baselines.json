@@ -1,4 +1,9 @@
 {
+  "/": "Learn how an AC to DC converter works: rectifier circuits, filtering, regulation and voltage formulas. Compare outputs with a worked 12 V example.",
+  "/ac-to-dc-calculator/": "Calculate DC voltage, peak and ripple from AC RMS input, diode drop and filter capacitor. Accurate bridge rectifier formulas and free interactive tool.",
   "/blog/half-wave-vs-full-wave-rectifier/": "Compare half-wave vs full-wave rectifiers: efficiency, ripple frequency (f vs 2f), average DC voltage & diode paths. Full comparison table & formulas.",
-  "/blog/rectifier-ripple-frequency/": "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples."
+  "/blog/power-supply-stages-explained/": "Follow the five stages of a linear AC to DC supply: transformation, rectification, smoothing, regulation and load. Includes a block diagram.",
+  "/blog/rectifier-average-vs-rms-output/": "Why are DC average and RMS different? Compare half-wave and full-wave outputs, calculate RMS ripple factor and follow a 12 V example.",
+  "/blog/rectifier-ripple-frequency/": "Calculate rectifier ripple frequency: f for half-wave, 2f for full-wave bridge, and 6f for 3-phase. Clear formula derivation with 50 Hz & 60 Hz examples.",
+  "/blog/rms-peak-average-voltage/": "Convert sine-wave RMS, peak and peak-to-peak voltage with formulas and a 12 V example. See why rectified average voltage differs from RMS."
 }

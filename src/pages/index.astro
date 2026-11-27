@@ -16,7 +16,7 @@ const schema=[webApplication('/','AC to DC converter calculator','Calculate rect
 const preferred = ['ac-to-dc-formulas', 'ac-to-dc-calculator-worked-examples', 'full-wave-bridge-rectifier-explained', 'smoothing-capacitor-calculation', 'half-wave-vs-full-wave-rectifier', 'single-phase-vs-three-phase-rectifiers'];
 const articles = preferred.map(slug => all.find(entry => entry.data.slug === slug)).filter((entry): entry is NonNullable<typeof entry> => !!entry);
 ---
-<Base title={guideTitle} titleIsComplete schema={schema} description="Learn how an AC to DC converter works: rectifier circuits, filtering, regulation and voltage formulas. Compare outputs with a worked 12 V example.">
+<Base title={guideTitle} titleIsComplete schema={schema} description="Ideal full-wave Vdc ≈ 0.9 × Vrms; filtered bridge ≈ 1.414 × Vrms − 2Vf. Circuits, formulas and a worked 12 V example — use the free AC to DC calculator.">
   <section class="hub-hero shell calculator-hero">
     <div>
       <p class="eyebrow">CALCULATOR · CIRCUITS · PRACTICAL GUIDES</p>
